@@ -13,7 +13,7 @@ class Pin(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship("User", back_populates='pins')
-    board = db.relationships(
+    boards = db.relationships(
         'Board',
         secondary=pins_boards,
         back_populates='pins'
@@ -27,5 +27,5 @@ class Pin(db.Model):
             'image': self.image,
             'link': self.link,
             'user': self.user,
-            'board': self.board
+            'board': self.boards
         }
