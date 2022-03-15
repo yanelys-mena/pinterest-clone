@@ -14,10 +14,6 @@ class User(db.Model, UserMixin):
     website = db.Column(db.String(255))
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    pins = db.relationship("Pin", back_populates="user", cascade="all, delete")
-    boards = db.relationship(
-        "Board", back_populates="user", cascade="all, delete")
-
     @property
     def password(self):
         return self.hashed_password
@@ -36,7 +32,5 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'photo': self.photo,
             'bio': self.bio,
-            'website': self.website,
-            'pins': self.pins,
-            'boards': self.boards
+            'website': self.website
         }
