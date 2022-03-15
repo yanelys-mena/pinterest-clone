@@ -1,7 +1,4 @@
-from app.models import pins_boards
-
-
-pin_boards_seeds = [
+pins_boards_seeds = [
     # Nails Boards
     {
         "pin_id": 37,

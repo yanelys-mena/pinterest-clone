@@ -1,4 +1,5 @@
 from app.models import db, Pin
+from app.seeds.data.pin_seeds import pin_seeds
 
 
 def seed_pins():
@@ -9,6 +10,6 @@ def seed_pins():
 
 
 # dependent entities
-def undo_users():
+def undo_pins():
     db.session.execute('TRUNCATE pins RESTART IDENTITY CASCADE;')
     db.session.commit()
