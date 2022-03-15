@@ -10,7 +10,7 @@ def seed_users():
         bio='Welcome to my pinterest clone!',
         website='https://github.com/yanelys-mena/pinterest-clone'
     )
-
+# The Fashionista
     julia = User(
         username='julia',
         email='julia@demo.com',
@@ -19,16 +19,16 @@ def seed_users():
         bio='welcome to my inspo page for all things colorful',
         website='https://github.com/yanelys-mena/pinterest-clone'
     )
-
+# The Hiker and Traveler
     adam = User(
         username='adam',
         email='adam@demo.com',
         password='password',
         photo='https://buzzhippy.com/wp-content/uploads/2019/08/Best-Selfie-Poses-For-Guys-To-Look-Stylish-3.jpg',
-        bio='hiking, travel, and wedding planning',
+        bio='On here to ',
         website='https://github.com/yanelys-mena/pinterest-clone',
     )
-
+# The fashion forward guy
     cyrano73 = User(
         username='cyrano73',
         email='cyrano73@demo.com',
@@ -37,22 +37,22 @@ def seed_users():
         bio='Love all things hiking',
         website='https://github.com/yanelys-mena/pinterest-clone',
     )
-
-    maya = User(
-        username='maya',
+# the weding photographer
+    maya_photography = User(
+        username='mayaPhotography',
         email='maya@demo.com',
         password='password',
         photo='https://media.costadelmar.com/images/content/galleries/womens_sunglasses/womens-beach-lifestyle-sunglasses.jpg?imwidth=975',
-        bio='Planning my wedding!! Maya and Adam December 2022!',
+        bio='Pro Photographer Checkout my work!',
         website='https://github.com/yanelys-mena/pinterest-clone',
     )
-
+# The Nail and Travel Person
     tara = User(
         username='tara',
         email='tara@demo.com',
         password='password',
         photo='https://media.costadelmar.com/images/content/galleries/womens_sunglasses/womens-beach-lifestyle-sunglasses.jpg?imwidth=975',
-        bio='Love traveling the world',
+        bio='Nail art at its best',
         website='https://github.com/yanelys-mena/pinterest-clone',
     )
 
@@ -60,7 +60,7 @@ def seed_users():
     db.session.add(julia)
     db.session.add(adam)
     db.session.add(cyrano73)
-    db.session.add(maya)
+    db.session.add(maya_photography)
     db.session.add(tara)
 
     db.session.commit()
