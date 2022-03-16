@@ -6,10 +6,9 @@ from wtforms.validators import DataRequired, Length
 
 
 
-class PinForm(FlaskForm):
-    title = StringField('Title', validators=[DataRequired('Title can not be blank'), Length(min=1, max=100, message='Title must be less than 100 characters')])
+class BoardForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired('Name is required.'), Length(min=1, max=50, message='Name must be between 1 and 50 characters.')])
     description = TextAreaField('Description')
-    image = StringField('Image', validators=[DataRequired('Please provide an image.')])
-    link = StringField('Link', validators=[Length(min=3, max=800, message='Please provide a link between 3 and 800 characters')])
+    secret = IntegerField('Secret', validators=[DataRequired()])
     user_id = IntegerField('User Id', validators=[DataRequired()])
     
