@@ -10,8 +10,8 @@ class Board(db.Model):
     secret = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    user = db.relationship("User", back_populates='pins')
-    pins = db.relationships(
+    user = db.relationship("User", back_populates='boards')
+    pins = db.relationship(
         'Pin',
         secondary=pins_boards,
         back_populates='boards'
