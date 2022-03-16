@@ -1,7 +1,8 @@
 from xml.etree.ElementTree import Comment
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import Pin
+from app.models import Pin, db
+from app.forms.pin_form import PinForm
 
 pin_routes = Blueprint('comments', __name__)
 
@@ -16,7 +17,26 @@ def pins():
 @pin_routes.route('/', methods=['POST'])
 @login_required
 def add_pin():
-    pass
+    form = PinForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    data = form.data
+    
+    if form.validate_on_submit():
+        new_pin = Pin(
+            title=data['title'],
+            description=data['description'],
+            image=data['image'],
+            link=data['link'],
+            user_id=data['user_id'], 
+        )
+        db.session.add(new_pin)
+        db.session.commit()
+    else: 
+        print('****', form.errors)
+    
+    return new_pin.to_dict()
+    
+
 
 @pin_routes.route('/', methods=['PUT'])
 @login_required
