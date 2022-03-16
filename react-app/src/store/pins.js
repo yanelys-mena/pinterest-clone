@@ -5,7 +5,6 @@ const UPDATE = 'pins/UPDATE';
 const DELETE = 'pins/DELETE';
 
 
-
 const load = () => ({
     type: LOAD,
     pins
@@ -27,7 +26,7 @@ const to_delete = (pin) => ({
 });
 
 
-const load_pins = () => {
+export const load_pins = () => {
     const response = await fetch('/api/pins/');
     if (response.ok) {
         const pins = await response.json();
@@ -40,7 +39,7 @@ const load_pins = () => {
 }
 
 
-const add_pin = (pin) => {
+export const add_pin = (pin) => {
     const { title, description, image, link, user_id } = pin;
 
     const form = new FormData()
@@ -65,7 +64,8 @@ const add_pin = (pin) => {
     }
 };
 
-const update_pin = (pinId, pin) => {
+
+export const update_pin = (pinId, pin) => {
     const { title, description, image, link, user_id } = pin;
 
     const form = new FormData()
@@ -90,18 +90,53 @@ const update_pin = (pinId, pin) => {
     }
 };
 
-const delete_pin = (pinId) => {
+export const delete_pin = (pinId) => {
 
     const response = await fetch(`/api/pins/${pinId}`, {
         method: "DELETE",
     });
 
     if (response.ok) {
-        const deleted_pin = await response.json();
-        dispatch(to_delete(deleted_pin));
-        return deleted_pin;
+        const pin = await response.json();
+        dispatch(to_delete(pin));
+        return pin;
     } else {
         const errors = await response.json();
         return errors;
     }
 };
+
+
+
+let initialState = {};
+
+const pinsReducer = (state = initialState, action) => {
+    let newState;
+    switch (action.type) {
+        case LOAD: {
+            newState = { ...state };
+            action.pins.forEach((pin) => {
+                newState[pin.id] = pin;
+            });
+            return newState;
+        }
+
+        case ADD: {
+            return { [action.pin.id]: action.pin, ...state };
+        }
+
+        case UPDATE: {
+            return { [action.pin.id]: action.pin, ...state };
+        }
+
+        case DELETE: {
+            newState = { ...state };
+            delete newState[action.pin.id];
+            return newState;
+        }
+        default:
+            return state;
+    }
+};
+
+export default pinsReducer;

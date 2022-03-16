@@ -69,6 +69,7 @@ def delete_pin(pin_id):
     if pin:
         db.session.delete(pin)
         db.session.commit()
+        return pin.to_dict()
     else:
         return make_response('Not an existing pin')
 

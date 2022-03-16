@@ -60,12 +60,12 @@ def delete_board(board_id):
     if board:
         db.session.delete(board)
         db.session.commit()
-        return {'success': 'success'}
+        return board.to_dict()
     else:
         return make_response('Not an existing board')
 
 
-#adding pins to a board
+#adding a pin to a board
 @board_routes.route('/pin-board/', methods=['POST'])
 @login_required
 def add_pin_to_board():
@@ -80,7 +80,7 @@ def add_pin_to_board():
         return make_response('Pin or Board does not exist.')
     
     
-
+#removing a pin to a board
 @board_routes.route('/pin-board/', methods=['DELETE'])
 @login_required
 def delete_pin_from_board():
