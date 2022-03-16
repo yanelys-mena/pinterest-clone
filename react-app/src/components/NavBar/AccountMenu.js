@@ -27,15 +27,11 @@ function AccountMenu(user) {
 
     return (
         <div>
-
-
-            <button id="accountMenu" onClick={openMenu}>
-                <i class="fa-solid fa-chevron-down"></i>
+            <button onClick={openMenu}>
+                <i className="fa-solid fa-chevron-down"></i>
             </button>
             {showMenu && (
                 <ul id="dropdownList">
-                    <li>Welcome, {username}!</li>
-                    <li><Link to="/purchases" >Purchases and reviews</Link>  </li>
                     <LogoutButton />
                 </ul >)
 

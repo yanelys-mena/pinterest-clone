@@ -34,7 +34,9 @@ const NavBar = () => {
             <NavLink to="#"><i className="fas fa-user-circle"></i></NavLink>
 
           </div>
-          <div id="accoutIcon">{user && <AccountMenu user={user} />}</div>
+          <div id="accoutIcon">
+            {user && <AccountMenu user={user} />}
+          </div>
         </div>
         {!user &&
           <>
