@@ -79,7 +79,7 @@ fetch('/api/boards/pin-board/', {
 }).then(res => res.json()).then(data => console.log(data));
 
 
-
+NOTE DELETE PIN ON BOARD!
 fetch('/api/boards/pin-board/', {
     method: "DELETE",
         headers: {
@@ -92,6 +92,11 @@ fetch('/api/boards/pin-board/', {
 }).then(res => res.json()).then(data => console.log(data));
 
 
+
+testing 46 pin 
+1. new pin successfully created X
+2. Associate it to a board
+3. Delete the pin and check if it still on baord
 
 
 

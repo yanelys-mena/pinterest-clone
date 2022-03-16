@@ -84,4 +84,12 @@ def add_pin_to_board():
 @board_routes.route('/pin-board/', methods=['DELETE'])
 @login_required
 def delete_pin_from_board():
-    pass
+    pin = Pin.query.get(request.json['pin_id'])
+    board = Board.query.get(request.json['board_id'])
+    
+    if pin and board:
+        board.pins.remove(pin)
+        db.session.commit()
+        return {'success': 'success'}
+    else:
+        return make_response('Pin or Board does not exist.')

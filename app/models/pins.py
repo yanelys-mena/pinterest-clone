@@ -13,7 +13,7 @@ class Pin(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship("User", back_populates='pins')
-    comments = db.relationship("Comment", back_populates='pin')
+    comments = db.relationship("Comment", back_populates='pin', cascade="all, delete")
     boards = db.relationship(
         'Board',
         secondary=pins_boards,
