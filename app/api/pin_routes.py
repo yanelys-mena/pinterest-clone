@@ -1,31 +1,31 @@
 from xml.etree.ElementTree import Comment
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Comment
+from app.models import Pin
 
-comment_routes = Blueprint('comments', __name__)
+pin_routes = Blueprint('comments', __name__)
 
 # Decide wether the get all comments is needed. Comments are already accessible via the comment.to_dict() method
-@comment_routes.route('/')
+@pin_routes.route('/')
 @login_required
-def comments():
-    comments = Comment.query.all()
-    return {'comments': [comment.to_dict() for comment in comments]}
+def pins():
+    pins = Pin.query.all()
+    return {'pins': [pin.to_dict() for pin in pins]}
 
 
-@comment_routes.route('/', methods=['POST'])
+@pin_routes.route('/', methods=['POST'])
 @login_required
-def add_comment():
+def add_pin():
     pass
 
-@comment_routes.route('/', methods=['PUT'])
+@pin_routes.route('/', methods=['PUT'])
 @login_required
-def update_comment():
+def update_pin():
     pass
 
 
-@comment_routes.route('/', methods=['DELETE'])
+@pin_routes.route('/', methods=['DELETE'])
 @login_required
-def delete_comment():
+def delete_pin():
     pass
 

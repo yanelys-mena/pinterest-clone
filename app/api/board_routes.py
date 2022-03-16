@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import Board
+from app.models import Board, Pin
 
 board_routes = Blueprint('boards', __name__)
 
@@ -35,6 +35,10 @@ def delete_board():
 def add_pin_to_board():
     pin_id = request.json['pin_id']
     board_id = request.json['board_id']
+    
+    pin_to_add = Pin.query.get(pin_id)
+    board_added_to = Board.query.get(board_id)
+    
     
 
 @board_routes.route('/<int:id>', methods=['DELETE'])

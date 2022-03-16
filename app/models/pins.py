@@ -17,7 +17,6 @@ class Pin(db.Model):
     boards = db.relationship(
         'Board',
         secondary=pins_boards,
-        back_populates='pins'
     )
 
     def to_dict(self):

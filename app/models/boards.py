@@ -1,4 +1,5 @@
 from .db import db
+from .pins import Pin
 from .pins_boards import pins_boards
 
 
@@ -14,7 +15,8 @@ class Board(db.Model):
     pins = db.relationship(
         'Pin',
         secondary=pins_boards,
-        back_populates='boards'
+        primaryjoin=(pins_boards.c.board_id == id),
+        secondaryjoin=(pins_boards.c.pin_id == Pin.id)
     )
 
     def to_dict(self):
