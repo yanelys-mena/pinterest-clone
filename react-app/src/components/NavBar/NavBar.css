@@ -1,0 +1,50 @@
+nav {
+    background-color: red;
+}
+
+#navBarDiv {
+    background-color: palegoldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+#leftNav, #rightNav{
+    background-color: palegreen;
+    display: flex;
+    gap: 5px;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
+
+#leftNav > div > img {
+    height: 25px;
+}
+
+#homeButton {
+    background-color: black;
+    height: 30px;
+    width: 50px;
+    border-radius: 15px;
+    
+}
+
+#searchNav {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.fa-comment-dots, .fa-bell {
+    color: #767676;
+    font-size: 20px;
+}

@@ -5,7 +5,7 @@ const UPDATE = 'pins/UPDATE';
 const DELETE = 'pins/DELETE';
 
 
-const load = () => ({
+const load = (pins) => ({
     type: LOAD,
     pins
 });
@@ -26,7 +26,7 @@ const to_delete = (pin) => ({
 });
 
 
-export const load_pins = () => {
+export const load_pins = () => async (dispatch) => {
     const response = await fetch('/api/pins/');
     if (response.ok) {
         const pins = await response.json();
@@ -39,7 +39,7 @@ export const load_pins = () => {
 }
 
 
-export const add_pin = (pin) => {
+export const add_pin = (pin) => async (dispatch) => {
     const { title, description, image, link, user_id } = pin;
 
     const form = new FormData()
@@ -49,7 +49,7 @@ export const add_pin = (pin) => {
     form.append('link', link)
     form.append('user_id', user_id)
 
-    const response = await fetch(`/api/pins/${pinId}`, {
+    const response = await fetch(`/api/pins/}`, {
         method: "POST",
         body: form
     });
@@ -65,7 +65,7 @@ export const add_pin = (pin) => {
 };
 
 
-export const update_pin = (pinId, pin) => {
+export const update_pin = (pinId, pin) => async (dispatch) => {
     const { title, description, image, link, user_id } = pin;
 
     const form = new FormData()
@@ -90,7 +90,7 @@ export const update_pin = (pinId, pin) => {
     }
 };
 
-export const delete_pin = (pinId) => {
+export const delete_pin = (pinId) => async (dispatch) => {
 
     const response = await fetch(`/api/pins/${pinId}`, {
         method: "DELETE",
