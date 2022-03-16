@@ -44,26 +44,28 @@
 }
 
 #pinHeader {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  background-color: palegoldenrod;
   width: 100%;
+  height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
   font-weight: 700;
+  position: absolute;
+  top:0;
+
 }
 
 #pinLeftHeader {
   display: flex;
   gap: 5px;
   align-items: center;
-
+  position: absolute;
+  top:20px;
+  left: 10px;
 }
 
-ePinButton {
+#savePinButton {
   height: 35px;
   width: 50px;
   background-color: #E60023;
@@ -73,7 +75,10 @@ ePinButton {
   display: flex;
   align-items:  center;
   justify-content: center;
-  position: relative
+  /* position: relative; */
+  position: absolute;
+  top:10px;
+  right: 5px;
 }
 
 
