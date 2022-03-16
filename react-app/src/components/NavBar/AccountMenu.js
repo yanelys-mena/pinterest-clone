@@ -26,8 +26,8 @@ function AccountMenu(user) {
 
 
     return (
-        <div>
-            <button onClick={openMenu}>
+        <div id="menuHolder">
+            <button id="accountMenu" onClick={openMenu}>
                 <i className="fa-solid fa-chevron-down"></i>
             </button>
             {showMenu && (

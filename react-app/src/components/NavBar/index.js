@@ -25,6 +25,7 @@ const NavBar = () => {
 
         <div id="rightNav">
           <div className="faIcons">
+
             <NavLink to="#"><i className="fa-solid fa-bell"> </i></NavLink>
           </div>
           <div className="faIcons">
