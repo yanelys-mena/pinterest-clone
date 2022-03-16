@@ -14,12 +14,89 @@ fetch('/api/pins/', {
 
 
 NOTE UPDATE PIN!
+const form = new FormData()
+form.append('title', 'EDITED')
+form.append('description', 'EDITED')
+form.append('image', 'EDITED')
+form.append('link', 'EDITED')
+form.append('user_id', 1)
 
-
-
+fetch('/api/pins/45', {
+    method: "PUT",
+    body: form
+}).then(res => res.json()).then(data => console.log(data));
 
 
 NOTE DELETE PIN!
+fetch('/api/pins/45', {
+    method: "DELETE"
+}).then(res => res.json()).then(data => console.log(data));
+
+=========================================
+NOTE GET BOARDS BY USER
+fetch('/api/boards/').then(res => res.json()).then(data => console.log(data));
+
+
+NOTE NEW BOARD!
+const form = new FormData()
+form.append('name', 'testing')
+form.append('user_id', 1)
+
+fetch('/api/boards/', {
+    method: "POST",
+    body: form
+}).then(res => res.json()).then(data => console.log(data));
+
+
+NOTE UPDATE BOARD!
+const form = new FormData()
+form.append('name', 'EDITED')
+form.append('user_id', 1)
+
+fetch('/api/boards/12', {
+    method: "PUT",
+    body: form
+}).then(res => res.json()).then(data => console.log(data));
+
+
+NOTE DELETE BOARD!
+fetch('/api/boards/12', {
+    method: "DELETE",
+}).then(res => res.json()).then(data => console.log(data));
+
+=========================================
+NOTE NEW PIN ON BOARD!
+
+fetch('/api/boards/pin-board/', {
+    method: "POST",
+        headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        pin_id: 1,
+        board_id: 13
+    })
+}).then(res => res.json()).then(data => console.log(data));
+
+
+
+fetch('/api/boards/pin-board/', {
+    method: "DELETE",
+        headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        pin_id: 1,
+        board_id: 13
+    })
+}).then(res => res.json()).then(data => console.log(data));
+
+
+
+
+
+
+
 
 
 fetch('/api/pins/', {
