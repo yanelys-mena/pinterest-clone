@@ -23,7 +23,6 @@ def seed_boards():
     for board in board_seeds:
         new_board = Board(
             name=board.get('name'),
-            secret=board.get('secret'),
             user_id=board.get('user_id'),
         )
         db.session.add(new_board)

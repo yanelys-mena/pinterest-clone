@@ -13,7 +13,7 @@ class Pin(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship("User", back_populates='pins')
-    comments = db.relationship("Comment", back_populates='pin')
+    comments = db.relationship("Comment", back_populates='pin', cascade="all, delete")
     boards = db.relationship(
         'Board',
         secondary=pins_boards,
@@ -27,6 +27,6 @@ class Pin(db.Model):
             'image': self.image,
             'link': self.link,
             'user': self.user.to_dict(),
-            'boards': self.boards.to_dict(),
-            'comments': self.comments.to_dict()
+            # 'boards': [board.to_dict() for board in self.boards],
+            'comments': [comment.to_dict() for comment in self.comments]
         }

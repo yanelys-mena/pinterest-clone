@@ -51,17 +51,17 @@ class User(db.Model, UserMixin):
             'photo': self.photo,
             'bio': self.bio,
             'website': self.website,
-            # 'pins': self.pins,
-            # 'boards': self.boards.toJSON()
         }
-    def to_JSON(self):
-            return {
-                'id': self.id,
-                'username': self.username,
-                'email': self.email,
-                'photo': self.photo,
-                'bio': self.bio,
-                'website': self.website,
-                'pins': self.pins,
-                'boards': self.boards
-            }
+        
+    # def login_to_dict(self):
+    #         return {
+    #             'id': self.id,
+    #             'username': self.username,
+    #             'email': self.email,
+    #             'photo': self.photo,
+    #             'bio': self.bio,
+    #             'website': self.website,
+    #             'pins': [pin.to_dict() for pin in self.pins],
+    #             'boards': [board.to_dict() for board in self.boards],
+    #             'comments': [comment.to_dict() for comment in self.comments]
+    #         }
