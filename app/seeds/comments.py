@@ -6,8 +6,8 @@ def seed_comments():
 
     for comment in comments:
         new_comment = Comment(
-            name=comment.get('name'),
-            secret=comment.get('secret'),
+            content=comment.get('content'),
+            pin_id=comment.get('pin_id'),
             user_id=comment.get('user_id'),
         )
         db.session.add(new_comment)

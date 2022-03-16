@@ -1,7 +1,7 @@
 from app.models import db, follows
 
 
-def seed_follow():
+def seed_follows():
     first_follow = follows(followed_id=1, follower_id=2)
     second_follow = follows(followed_id=1, follower_id=3)
     third_follow = follows(followed_id=1, follower_id=4)
@@ -14,6 +14,6 @@ def seed_follow():
     db.session.commit()
 
 
-def undo_follow():
+def undo_follows():
     db.session.execute('TRUNCATE follows RESTART IDENTITY CASCADE')
     db.session.commit()

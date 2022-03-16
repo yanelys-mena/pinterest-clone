@@ -3,6 +3,8 @@ from .users import seed_users, undo_users
 from .pins import seed_pins, undo_pins
 from .boards import seed_boards, undo_boards
 from .comments import seed_comments, undo_comments
+from .follows import seed_follows, undo_follows
+
 # from .pins_boards import undo_pins_boards
 
 # Creates a seed group to hold our commands
@@ -17,6 +19,7 @@ def seed():
     seed_pins()
     seed_boards()
     seed_comments()
+    # seed_follows()
     # seed_pins_boards()
     # Add other seed functions here
 
@@ -29,5 +32,6 @@ def undo():
     undo_pins()
     undo_boards()
     undo_comments()
+    # undo_follows()
     # undo_pins_boards()
     # Add other undo functions here
