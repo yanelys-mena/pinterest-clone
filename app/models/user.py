@@ -2,6 +2,7 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .follows import follows
+import json
 
 
 class User(db.Model, UserMixin):
@@ -50,6 +51,6 @@ class User(db.Model, UserMixin):
             'photo': self.photo,
             'bio': self.bio,
             'website': self.website,
-            'pins': self.pins,
-            'boards': self.boards
+            # 'pins': self.pins,
+            # 'boards': self.boards.toJSON()
         }

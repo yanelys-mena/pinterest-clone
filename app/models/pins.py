@@ -27,7 +27,7 @@ class Pin(db.Model):
             'description': self.description,
             'image': self.image,
             'link': self.link,
-            'user': self.user,
-            'boards': self.boards,
-            'comments': self.comments
+            'user': self.user.to_dict(),
+            'boards': self.boards.to_dict(),
+            'comments': self.comments.to_dict()
         }
