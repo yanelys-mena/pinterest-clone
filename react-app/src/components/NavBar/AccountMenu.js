@@ -30,9 +30,7 @@ function AccountMenu(user) {
 
 
             <button id="accountMenu" onClick={openMenu}>
-                <i className="fas fa-user-circle"></i>
-                <i className="fa-solid fa-caret-down"></i>
-
+                <i class="fa-solid fa-chevron-down"></i>
             </button>
             {showMenu && (
                 <ul id="dropdownList">

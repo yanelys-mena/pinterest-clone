@@ -1,50 +1,102 @@
-nav {
-    background-color: red;
-}
+
 
 #navBarDiv {
-    background-color: palegoldenrod;
     display: flex;
     align-items: center;
     justify-content: space-around;
     box-sizing: border-box;
     padding: 10px;
     width: 100%;
-    height: 50px;
+    height: 70px;
     margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-#leftNav, #rightNav{
-    background-color: palegreen;
+#rightNav{
     display: flex;
     gap: 5px;
     justify-content: space-around;
     align-items: center;
-    width: 10%;
+    width: 15%;
     height: 100%;
 }
 
+#leftNav{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+    gap: 5px;
+}
+
+
+#logoDiv {
+    width: 30px;
+}
+
 #leftNav > div > img {
-    height: 25px;
+    height: 30px;
+    width: 100%;
+}
+
+#homeButtonDiv {
+    width: 70%;
+    height: 100%;
 }
 
 #homeButton {
     background-color: black;
-    height: 30px;
-    width: 50px;
-    border-radius: 15px;
-    
+    height: 44px;
+    width: 77px;
+    border-radius: 22px;
+    color: white;
+    font-family: 'Lato', sans-serif; 
+    font-size: 18px;
+    font-weight: 700;
 }
 
 #searchNav {
     display: flex;
     gap: 5px;
     align-items: center;
-    width: 80%;
+    width: 75%;
     height: 100%;
 }
+
+.faIcons {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#accoutIcon {
+    width: 50px;
+    height: 40px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .fa-comment-dots, .fa-bell {
     color: #767676;
     font-size: 20px;
+    background-color: white;
+}
+
+.fa-chevron-down {
+    color: #767676;
+    font-size: 15px;
+    background-color: white;
+}
+
+.fa-comment-dots:hover, .fa-bell:hover {
+    background-color: #efefef;
 }
