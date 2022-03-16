@@ -29,7 +29,7 @@ const NavBar = () => {
             <NavLink to="#"><i className="fa-solid fa-bell"> </i></NavLink>
           </div>
           <div className="faIcons">
-            <NavLink to="#"><i class="fa-solid fa-comment-dots"></i></NavLink>
+            <NavLink to="#"><i className="fa-solid fa-comment-dots"></i></NavLink>
           </div>
           <div className="faIcons">
             <NavLink to="#"><i className="fas fa-user-circle"></i></NavLink>

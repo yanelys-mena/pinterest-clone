@@ -1,0 +1,117 @@
+#pinGrid {
+    column-count: 7;
+    column-gap: 5px;
+    width: 100%;
+    height: 100%;
+
+}
+
+#pinCard {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: zoom-in;
+    margin: 0 auto;
+    width: 236px;
+    height: 100%;
+    margin-bottom: 10px; 
+    position: relative;
+}
+
+#cardImg {
+    width: 100%;
+    height: 100%;
+}
+
+
+#cardImg > img {
+    display: flex;
+    width: 100%;
+    cursor: zoom-in;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+
+#cardTitle {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 5px;
+  padding: 2px;
+  font-weight: 700;
+}
+
+#pinHeader {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  background-color: palegoldenrod;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  font-weight: 700;
+}
+
+#pinLeftHeader {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+}
+
+ePinButton {
+  height: 35px;
+  width: 50px;
+  background-color: #E60023;
+  border-radius: 17.5px;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items:  center;
+  justify-content: center;
+  position: relative
+}
+
+
+#savePinButton:hover {
+  background-color: #AD081B;
+}
+
+
+
+
+
+/* Media Queries */
+
+@media (min-width: 1008px) and (max-width: 1259px) {
+    #pinGrid {
+      max-width: 1008px;
+      column-count: 4;
+    }
+  }
+  
+  @media (min-width: 1260px) and (max-width: 1511px) {
+    #pinGrid {
+      max-width: 1260px;
+      column-count: 5;
+    }
+  }
+  
+  @media (min-width: 1512px) and (max-width: 1763px) {
+    #pinGrid {
+      width: 1512px;
+      column-count: 6;
+    }
+  }
+  
+  @media (min-width: 1764px) and (max-width: 2015px) {
+    #pinGrid {
+      width: 1764px;
+      column-count: 7;
+    }
+  }
+

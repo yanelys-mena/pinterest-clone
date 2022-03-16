@@ -27,10 +27,11 @@ const to_delete = (pin) => ({
 
 
 export const load_pins = () => async (dispatch) => {
+
     const response = await fetch('/api/pins/');
     if (response.ok) {
         const pins = await response.json();
-        dispatch(load(pins));
+        dispatch(load(pins.pins));
         return pins.pins;
     } else {
         const errors = await response.json();
