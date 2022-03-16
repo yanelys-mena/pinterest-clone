@@ -19,6 +19,7 @@ def seed():
     seed_pins()
     seed_boards()
     seed_comments()
+    # seed_follows()
     # seed_pins_boards()
     # Add other seed functions here
 
@@ -31,5 +32,6 @@ def undo():
     undo_pins()
     undo_boards()
     undo_comments()
+    # undo_follows()
     # undo_pins_boards()
     # Add other undo functions here
