@@ -35,8 +35,8 @@ export default function UserProfile() {
                 </div>
             </div>
 
-            <div id="boardBtnDiv" onClick={() => setShowModal(true)}>
-                <i className="fa-solid fa-plus plus_board"></i>
+            <div id="boardBtnDiv" >
+                <i onClick={() => setShowModal(true)} className="fa-solid fa-plus plus_board"></i>
             </div>
 
             {

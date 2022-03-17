@@ -5,6 +5,18 @@ from app.forms.board_form import BoardForm
 
 board_routes = Blueprint('boards', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
+
+
 # adjust this route later to query by user
 @board_routes.route('/')
 @login_required
@@ -28,10 +40,11 @@ def add_board():
         )
         db.session.add(new_board)
         db.session.commit()
+        return new_board.to_dict()
     else: 
-        print('****', form.errors)
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     
-    return new_board.to_dict()
+    
 
 @board_routes.route('/<int:board_id>', methods=['PUT'])
 @login_required
@@ -47,10 +60,12 @@ def update_board(board_id):
         baord_to_update.user_id=data['user_id'], 
         
         db.session.commit()
+        return baord_to_update.to_dict()
     else: 
-        print('****', form.errors)
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     
-    return baord_to_update.to_dict()
+    
+    
 
 
 @board_routes.route('/<int:board_id>', methods=['DELETE'])
@@ -62,7 +77,8 @@ def delete_board(board_id):
         db.session.commit()
         return board.to_dict()
     else:
-        return make_response('Not an existing board')
+        return 'failed'
+    
 
 
 #adding a pin to a board

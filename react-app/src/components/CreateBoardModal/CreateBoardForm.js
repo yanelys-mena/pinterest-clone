@@ -12,7 +12,6 @@ export default function CreateBoardForm({ user, setShowModal }) {
 
 
     const handleSubmit = async (e) => {
-
         e.preventDefault()
         const new_board = {
             name, user_id: user?.id
@@ -26,7 +25,7 @@ export default function CreateBoardForm({ user, setShowModal }) {
 
     return (
         <div id="createBoardModal">
-            <div id="createBoardTitle"><div>Create a Board </div></div>
+            <div id="createBoardTitle"><div>Create Board </div></div>
             <div id="createBoardFormDiv">
                 <form id="createBoardForm">
                     <div>
