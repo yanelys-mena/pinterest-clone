@@ -12,6 +12,11 @@ import CreateBoardForm from '../CreateBoardModal/CreateBoardForm'
 export default function UserProfile() {
     const user = useSelector(state => state?.session?.user)
     const boards = useSelector(state => Object.values(state?.boards))
+    const pins = useSelector(state => state?.pins)
+    const [page, setPage] = useState(1);
+
+    const userPins = Object.values(pins).filter(pin => pin.user.id === user.id)
+
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
 
@@ -21,7 +26,6 @@ export default function UserProfile() {
     }, [user?.id, dispatch])
 
 
-    const [page, setPage] = useState(1)
 
     return (
         <div id="userProfile">
@@ -48,7 +52,7 @@ export default function UserProfile() {
             }
 
             {page === 1 && <BoardGrid boards={boards} />}
-            {page === 2 && <Pins />}
+            {page === 2 && <Pins pins={userPins} boards={boards} />}
 
         </div>
 

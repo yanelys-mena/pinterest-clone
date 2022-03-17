@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { add_board, update_board } from '../../store/boards';
+import { add_board, update_board, delete_board } from '../../store/boards';
 import './CreateBoardForm.css'
 
 export default function CreateBoardForm({ user, setShowModal, board }) {
@@ -34,6 +34,12 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
 
     }
 
+    const handleDelete = (e) => {
+        e.preventDefault();
+
+        dispatch(delete_board(board?.id));
+    }
+
 
     return (
         <div id="createBoardModal">
@@ -56,8 +62,11 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
                 </form>
             </div>
             <div id="createBoardFooter">
-                <button id="cancelButton" onClick={() => setShowModal(false)}>Cancel</button>
-                <button onClick={board ? handleEdit : handleSubmit} id="pinSaveBtn">Save</button>
+                <button id="deleteButton" onClick={handleDelete}>Delete</button>
+                <div id='editFooterRight'>
+                    <button id="cancelButton" onClick={() => setShowModal(false)}>Cancel</button>
+                    <button onClick={board ? handleEdit : handleSubmit} id="pinSaveBtn">Save</button>
+                </div>
             </div>
         </div >
     )
