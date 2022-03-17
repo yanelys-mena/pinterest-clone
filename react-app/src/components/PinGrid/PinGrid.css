@@ -97,6 +97,7 @@
   align-items: center;
   position: relative;
   color: black;
+  background-color: red;
 }
 
 
@@ -104,19 +105,18 @@
 #dropDownDiv {
   height: 450px;
   width: 350px;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   position: absolute;
   top: 0;
   left: -80px;
-  z-index: 2;
+  z-index: 5;
   border-radius: 10px;
   font-family: 'Lato', sans-serif; 
   font-weight: 700;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border: #d3d3d3;
   background-color: white;
-
 }
 
 #dropDownDivHead {

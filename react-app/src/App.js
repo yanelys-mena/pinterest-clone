@@ -13,7 +13,6 @@ import Homepage from './components/Homepage';
 import PinPage from './components/PinPage';
 import PinBuilder from './components/PinBuilder.js';
 
-
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
