@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CreateBoardModal from '../CreateBoardModal';
 
 function PinDropdown({ boards, color }) {
 
@@ -42,9 +43,9 @@ function PinDropdown({ boards, color }) {
                         </div>
 
                         <div id="createBoardDiv">
-                            <div id="createBoardPlus"><i class="fa-solid fa-plus"></i></div>
-                            <div>Create Board</div>
-
+                            <div id="createBoardPlus"><i className="fa-solid fa-plus"></i></div>
+                            {/* <div>Create Board</div> */}
+                            <CreateBoardModal />
                         </div>
                     </div>
                 </>

@@ -27,7 +27,7 @@ export default function PinCard({ pin, boards }) {
                 {pin?.title}
             </div>
             <div id="pinHeader">
-                <div id="pinLeftHeader">
+                <div id="pinLeftHeader" style={style}>
                     <PinDropdown boards={boards} color={color} />
                 </div>
 
