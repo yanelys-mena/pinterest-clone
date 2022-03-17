@@ -132,7 +132,9 @@ const boardsReducer = (state = initialState, action) => {
         }
 
         case UPDATE: {
-            return { [action.board.id]: action.board, ...state };
+            newState = { ...state }
+            newState[action.board.id] = action.board
+            return { ...newState };
         }
 
         case DELETE: {

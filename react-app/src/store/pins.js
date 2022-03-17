@@ -131,7 +131,6 @@ const pinsReducer = (state = initialState, action) => {
         }
 
         case UPDATE: {
-            console.log('REDUCER', action.pin)
             newState = { ...state }
             newState[action.pin.id] = action.pin
             return { ...newState };

@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { add_board } from '../../store/boards';
+import { add_board, update_board } from '../../store/boards';
 import './CreateBoardForm.css'
 
-export default function CreateBoardForm({ user, setShowModal }) {
+export default function CreateBoardForm({ user, setShowModal, board }) {
 
-    const [name, setName] = useState('')
+    const [name, setName] = useState(board?.name ? board?.name : '')
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
@@ -22,10 +21,23 @@ export default function CreateBoardForm({ user, setShowModal }) {
         });
     }
 
+    const handleEdit = (e) => {
+        e.preventDefault();
+
+        const updated_board = {
+            name, user_id: user?.id
+        };
+
+        const data = dispatch(update_board(board?.id, updated_board)).then((data) => {
+            data ? setErrors(data) : setShowModal(false);
+        });
+
+    }
+
 
     return (
         <div id="createBoardModal">
-            <div id="createBoardTitle"><div>Create Board </div></div>
+            <div id="createBoardTitle"><div> {board ? 'Edit Board' : 'Create Board'}</div></div>
             <div id="createBoardFormDiv">
                 <form id="createBoardForm">
                     <div>
@@ -45,7 +57,7 @@ export default function CreateBoardForm({ user, setShowModal }) {
             </div>
             <div id="createBoardFooter">
                 <button id="cancelButton" onClick={() => setShowModal(false)}>Cancel</button>
-                <button onClick={handleSubmit} id="pinSaveBtn">Save</button>
+                <button onClick={board ? handleEdit : handleSubmit} id="pinSaveBtn">Save</button>
             </div>
         </div >
     )
