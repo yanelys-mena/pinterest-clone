@@ -34,7 +34,7 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className="faIcons">
-            <NavLink to={`/${user?.username.toLowerCase()}`}>
+            <NavLink to={`/profile/${user?.username.toLowerCase()}`}>
               {user ? <img id="navUserPhoto" src={user.photo} alt='userphoto'></img> : <i className="fas fa-user-circle"></i>}</NavLink>
 
 
