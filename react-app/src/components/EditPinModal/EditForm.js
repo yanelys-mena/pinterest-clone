@@ -8,7 +8,6 @@ export default function EditForm({ pin, setShowModal, user }) {
 
     const [title, setTitle] = useState(pin?.title)
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
-    // const [image, setImage] = useState(pin?.image)
     const [errors, setErrors] = useState([]);
     const [link, setLink] = useState(pin?.link ? pin?.link : '')
     const history = useHistory()
@@ -16,10 +15,6 @@ export default function EditForm({ pin, setShowModal, user }) {
 
 
     const handleSubmit = async (e) => {
-        if (link.length > 0) {
-            const regex = new RegExp('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$');
-            console.log(regex.test(link));
-        }
 
         e.preventDefault()
         const updated_pin = {
@@ -50,7 +45,7 @@ export default function EditForm({ pin, setShowModal, user }) {
                             ))}
                         </div>
                         <label>title</label>
-                        {/* {errors?.title && errors.title} */}
+                        {/* {errors.title && <div>{errors.title}</div>} */}
                         <input
                             name='title'
                             type='text'
@@ -72,16 +67,8 @@ export default function EditForm({ pin, setShowModal, user }) {
                             type='text'
                             placeholder='Add a destination link'
                             value={link}
-                            onChange={(e) => setLink(e.target.value)}>
+                            onChange={(e) => setLink(e.target.value.toLowerCase())}>
                         </input>
-                        {/* <label>image</label> */}
-                        {/* <input
-                            name='image'
-                            type='text'
-                            placeholder='Add an image'
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}>
-                        </input> */}
                     </form>
 
                 </div>
