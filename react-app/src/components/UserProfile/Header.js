@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Header({ user }) {
     return (
         <div id="profileHeader">
@@ -7,9 +9,8 @@ export default function Header({ user }) {
 
             <div id="bigUsername">{user?.username}</div>
             <div id="smallUsername">@{user?.username.toLowerCase()}</div>
-            <div >{user?.link}</div>
-            <div>{user?.bio}</div>
-
+            <div id="githubLink"><a href={`${user?.website}`} target="_blank">{user?.website}</a></div>
+            <div>· {user?.bio}</div>
         </div >
     )
 }

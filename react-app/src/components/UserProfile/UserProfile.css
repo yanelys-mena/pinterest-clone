@@ -5,16 +5,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: palegoldenrod;
+    background-color: white;
 }
 
 #profileHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     margin-top: 25px;
-    background-color: paleturquoise;
+    width: 100%;
+    min-height: 50vh;
+    height: 50%;
+    background-color: white;
 }
 
 #profileHeader  > div{
@@ -37,4 +40,32 @@
 
 #smallUsername, #smallUsername > * {
     color: #ACACAC;
+}
+
+#githubLink {
+    color: black;
+    font-weight: 700;
+}
+
+#githubLink:hover {
+   text-decoration: underline;
+}
+
+#pageChanger {
+    background-color: palevioletred;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+#pageChangeBtn {
+    display: flex;
+    gap: 15px;
+    font-weight: 700;
+}
+
+#pageChangeBtn  > div{
+cursor: pointer;
 }

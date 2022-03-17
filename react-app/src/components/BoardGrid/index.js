@@ -7,7 +7,7 @@ export default function BoardGrid({ boards }) {
 
     return (
         <div id="boardGrid">
-            {/* <BoardCard {board} /> */}
+            {boards.map(board => <BoardCard board={board} />)}
         </div>
     )
 }
