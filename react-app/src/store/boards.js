@@ -30,7 +30,7 @@ export const load_boards_by_user = () => async (dispatch) => {
     const response = await fetch('/api/boards/');
     if (response.ok) {
         const boards = await response.json();
-        dispatch(load(boards));
+        dispatch(load(boards.boards));
         return boards.boards;
     } else {
         const errors = await response.json();

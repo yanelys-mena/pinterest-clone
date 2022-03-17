@@ -1,9 +1,13 @@
 import PinCard from './PinCard';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './PinGrid.css';
 
-export default function PinGrid({ pins }) {
-    console.log('fromgrid', pins)
+export default function PinGrid({ pins, boards }) {
+
+
+
     return (
         <InfiniteScroll
             dataLength={pins.length}
@@ -12,7 +16,7 @@ export default function PinGrid({ pins }) {
             <div id="pinGrid">
 
                 {pins.map(pin => (
-                    <PinCard pin={pin} key={pin.id} />
+                    <PinCard pin={pin} boards={boards} key={pin.id} />
                 ))}
 
 

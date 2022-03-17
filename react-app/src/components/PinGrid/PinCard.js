@@ -1,8 +1,26 @@
-export default function PinCard({ pin }) {
+import PinDropdown from "./PinDropdown";
+import { useState } from "react";
 
+
+export default function PinCard({ pin, boards }) {
+    const [style, setStyle] = useState({ display: 'none' })
+    const [imageStyle, setImageStyle] = useState({})
+    const [color, setColor] = useState({ color: 'black' })
+    // 
     return (
-        <div id="pinCard">
-            <div id="cardImg">
+        <div
+            id="pinCard"
+            onMouseEnter={e => {
+                setStyle({ display: 'flex' });
+                setImageStyle({ filter: 'brightness(0.5)' })
+                setColor({ color: 'white' })
+            }}
+            onMouseLeave={e => {
+                setStyle({ display: 'none' });
+                setImageStyle({})
+                setColor({ color: 'black' })
+            }}>
+            <div id="cardImg" style={imageStyle}>
                 <img src={pin?.image}></img>
             </div>
             <div id="cardTitle">
@@ -10,17 +28,14 @@ export default function PinCard({ pin }) {
             </div>
             <div id="pinHeader">
                 <div id="pinLeftHeader">
-                    <div>board</div>
-                    <div>
-                        <i className="fa-solid fa-chevron-down"></i>
-                    </div>
-
-                </div>
-                <div id="savePinButtonDiv">
-                    <button id="savePinButton">Save</button>
+                    <PinDropdown boards={boards} color={color} />
                 </div>
 
+
+                <div id="savePinButtonDiv" >
+                    <button id="savePinButton" style={style}>Save</button>
+                </div>
             </div>
-        </div>
+        </div >
     )
 }

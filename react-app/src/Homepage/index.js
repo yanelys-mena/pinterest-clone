@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector, } from 'react-redux';
 import { load_pins } from '../store/pins';
+import { load_boards_by_user } from '../store/boards';
 import PinGrid from '../components/PinGrid'
 import './Homepage.css'
 
@@ -8,6 +9,8 @@ import './Homepage.css'
 export default function Homepage() {
     const user = useSelector((state) => state.session?.user);
     const pins = useSelector(state => Object.values(state?.pins));
+    const boards = useSelector(state => Object.values(state?.boards))
+
     const dispatch = useDispatch();
 
 
@@ -18,12 +21,14 @@ export default function Homepage() {
 
     useEffect(() => {
         dispatch(load_pins())
+        dispatch(load_boards_by_user(user?.id))
     }, [dispatch]);
+
 
 
     return (
         <div id="Homepage">
-            <PinGrid pins={pins} />
+            <PinGrid pins={pins} boards={boards} />
         </div>
     )
 }
