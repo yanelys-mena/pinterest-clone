@@ -1,0 +1,105 @@
+#editPinModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    height: 65%;
+    min-height: 60vh;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#editFormDiv {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    padding: 10px;
+}
+
+#editLeft {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#ediPinForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+#ediPinForm input[type="text"] {
+    height: 50px;
+    border: none;
+    border: solid 1px gray;
+    width: 90%;
+    border-radius: 10px;
+}
+
+#ediPinForm button {
+    height: 50px;
+    border: none;
+    width: 80%;
+    background-color: black;
+    color: white;
+    border-radius: 20px;;
+}
+
+
+#editRight {
+    width: 50%;
+}
+
+#editImage {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 20px;
+}
+
+#editPinFooter {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#editFooterRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#deletePinButton {
+    background-color: black;
+    color: white;
+}
+
+#editPinTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#cancelButton, #deleteButton {
+    height: 45px;
+    width: 66px;
+    background-color: #d3d3d3;
+    border-radius: 22.5px;
+    color: black;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+}

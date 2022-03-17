@@ -26,7 +26,7 @@ export default function PinPage() {
                 </div>
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
-                        <EditPinModal pin={pin} />
+                        <EditPinModal pin={pin} user={user} />
                         <button id="pinSaveBtn">Save</button>
                     </div>
                     <div id="pinPageInfo">

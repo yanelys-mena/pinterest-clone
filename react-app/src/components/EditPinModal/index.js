@@ -4,18 +4,18 @@ import EditForm from './EditForm'
 import './EditModal.css'
 
 
-function EditPinModal({ pin }) {
+function EditPinModal({ pin, user }) {
     const [showModal, setShowModal] = useState(false);
 
 
     return (
         <>
-            <div onClick={() => setShowModal(true)} id="editPinEllpisis"> <i class="fa-solid fa-ellipsis"></i></div>
+            <div onClick={() => setShowModal(true)} id="editPinEllpisis"> <i className="fa-solid fa-ellipsis"></i></div>
 
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <EditForm pin={pin} setShowModal={setShowModal} />
+                        <EditForm pin={pin} setShowModal={setShowModal} user={user} />
                     </Modal>
                 )
             }

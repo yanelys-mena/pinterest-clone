@@ -83,6 +83,7 @@ export const update_pin = (pinId, pin) => async (dispatch) => {
 
     if (response.ok) {
         const pin = await response.json();
+        console.log('RESPONSE', pin)
         dispatch(update(pin));
         return pin;
     } else {
@@ -127,7 +128,10 @@ const pinsReducer = (state = initialState, action) => {
         }
 
         case UPDATE: {
-            return { [action.pin.id]: action.pin, ...state };
+            console.log('REDUCER', action.pin)
+            newState = { ...state }
+            newState[action.pin.id] = action.pin
+            return { ...newState };
         }
 
         case DELETE: {
