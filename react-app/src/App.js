@@ -11,6 +11,7 @@ import { load_pins } from './store/pins';
 import { authenticate } from './store/session';
 import Homepage from './components/Homepage';
 import PinPage from './components/PinPage';
+import PinBuilder from './components/PinBuilder.js';
 
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/pins/:pinId' exact={true} >
           <PinPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/pinbuilder' exact={true} >
+          <PinBuilder />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -30,7 +30,7 @@ const NavBar = () => {
             <NavLink to="#"><i className="fa-solid fa-bell"> </i></NavLink>
           </div>
           <div className="faIcons">
-            <CreateBoardModal />
+            <NavLink to="/pinbuilder"><i className="fa-solid fa-circle-plus"></i></NavLink>
           </div>
           <div className="faIcons">
             <NavLink to="#"><i className="fas fa-user-circle"></i></NavLink>
