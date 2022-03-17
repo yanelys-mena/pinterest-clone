@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom'
+import EditPinModal from '../EditPinModal';
 import './PinPage.css'
 
 export default function PinPage() {
@@ -12,7 +13,6 @@ export default function PinPage() {
 
     const [showComments, setShowComments] = useState(true)
 
-    console.log(pin)
 
     return (
         <div id="pinPage">
@@ -26,6 +26,7 @@ export default function PinPage() {
                 </div>
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
+                        <EditPinModal pin={pin} />
                         <button id="pinSaveBtn">Save</button>
                     </div>
                     <div id="pinPageInfo">

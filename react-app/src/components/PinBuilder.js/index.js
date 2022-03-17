@@ -9,7 +9,7 @@ export default function PinBuilder() {
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('');
-    // const [image, setImage] = useState(null)
+    const [image, setImage] = useState('')
     const [link, setLink] = useState('')
     const history = useHistory()
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function PinBuilder() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newPin = {
-            title, description, image: 'https://i.etsystatic.com/29639801/r/il/167a37/3391426748/il_1588xN.3391426748_21h3.jpg', link, user_id: user?.id
+            title, description, image, link, user_id: user?.id
         };
 
         let pinId;
@@ -26,8 +26,6 @@ export default function PinBuilder() {
             await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
             ).then(() => history.push(`/pins/${pinId}`))
         })();
-        history.push(`/pins/${pinId}`)
-
     }
 
 
@@ -60,6 +58,13 @@ export default function PinBuilder() {
                                 placeholder='Add a destination link'
                                 value={link}
                                 onChange={(e) => setLink(e.target.value)}>
+                            </input>
+                            <input
+                                name='image'
+                                type='text'
+                                placeholder='Add an image'
+                                value={image}
+                                onChange={(e) => setImage(e.target.value)}>
                             </input>
                             <button>submit</button>
                         </form>
