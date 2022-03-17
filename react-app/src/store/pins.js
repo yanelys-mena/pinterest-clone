@@ -83,12 +83,15 @@ export const update_pin = (pinId, pin) => async (dispatch) => {
 
     if (response.ok) {
         const pin = await response.json();
-        console.log('RESPONSE', pin)
         dispatch(update(pin));
-        return pin;
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
-        const errors = await response.json();
-        return errors;
+        return ['An error occurred. Please try again.']
     }
 };
 

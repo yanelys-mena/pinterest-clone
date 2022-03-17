@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { delete_pin, update_pin } from '../../store/pins';
@@ -6,21 +6,36 @@ import { delete_pin, update_pin } from '../../store/pins';
 
 export default function EditForm({ pin, setShowModal, user }) {
 
-    const [title, setTitle] = useState(pin?.title ? pin?.title : '')
+    const [title, setTitle] = useState(pin?.title)
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
-    const [image, setImage] = useState(pin?.image)
+    // const [image, setImage] = useState(pin?.image)
+    const [errors, setErrors] = useState([]);
     const [link, setLink] = useState(pin?.link ? pin?.link : '')
     const history = useHistory()
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        console.log(title)
+    }, [title])
+
+    const handleSubmit = async (e) => {
+
+
         console.log(title)
         e.preventDefault()
         const updated_pin = {
-            title, description, image, link, user_id: user?.id
+            title, description, image: pin?.image, link, user_id: user?.id
         };
 
-        dispatch(update_pin(pin?.id, updated_pin));
+        const data = dispatch(update_pin(pin?.id, updated_pin)).then((data) => {
+            console.log(data)
+        });
+        // console.log('data', data)
+        // if (data) {
+        //     setErrors(data);
+        //     console.log(errors)
+        // }
+
         setShowModal(false);
         // (async () => {
         //     await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
@@ -65,14 +80,14 @@ export default function EditForm({ pin, setShowModal, user }) {
                             value={link}
                             onChange={(e) => setLink(e.target.value)}>
                         </input>
-                        <label>image</label>
-                        <input
+                        {/* <label>image</label> */}
+                        {/* <input
                             name='image'
                             type='text'
                             placeholder='Add an image'
                             value={image}
                             onChange={(e) => setImage(e.target.value)}>
-                        </input>
+                        </input> */}
                     </form>
 
                 </div>
