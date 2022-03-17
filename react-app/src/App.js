@@ -12,6 +12,7 @@ import { authenticate } from './store/session';
 import Homepage from './components/Homepage';
 import PinPage from './components/PinPage';
 import PinBuilder from './components/PinBuilder.js';
+import UserProfile from './components/UserProfile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,11 +40,8 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+        <ProtectedRoute path='/:username' exact={true} >
+          <UserProfile />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <Homepage />
