@@ -25,9 +25,10 @@
     height: 70%;
     min-height: 70vh;
     border-radius: 20px;
-    background-color: palegoldenrod;
     display: flex;
     justify-content: flex-start;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
 }
 
 #pinContentLeft, #pinContentRight {
@@ -45,4 +46,61 @@
     min-height: 100%;
     object-fit: cover;
     border-radius: 20px;
+}
+
+#pinPageHeader {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#pinSaveBtn {
+    height: 45px;
+    width: 66px;
+    background-color: #E60023;
+    border-radius: 22.5px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+}
+
+#pinSaveBtn:hover {
+    background-color: #AD081B;
+  }
+  
+#pinPageInfo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    font-size: 25px;
+}
+
+#link {
+    font-size: 14px;
+    width: 90%;
+}
+
+
+#description {
+    font-size: 15px;
+}
+
+
+#userInfo {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+#userPhoto, #userPhoto img {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
 }

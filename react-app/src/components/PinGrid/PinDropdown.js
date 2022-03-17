@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import CreateBoardModal from '../CreateBoardModal';
+// import CreateBoardModal from '../CreateBoardModal';
 
 function PinDropdown({ boards, color }) {
 
     const [showMenu, setShowMenu] = useState(false);
     const { lastPage } = useParams();
-    const [showModal, setShowModal] = useState(false);
-
 
     console.log(lastPage)
     const openMenu = () => {
@@ -20,9 +18,6 @@ function PinDropdown({ boards, color }) {
         if (!showMenu) return;
 
         const closeMenu = (e) => {
-            e.stopPropagation()
-            setShowModal(true)
-
             setShowMenu(false)
         };
 

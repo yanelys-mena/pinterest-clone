@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import './PinPage.css'
 
 export default function PinPage() {
@@ -7,6 +7,8 @@ export default function PinPage() {
     const history = useHistory();
 
     const pin = useSelector(state => state?.pins[pinId])
+    const user = useSelector(state => state?.session?.user)
+
     console.log(pin)
 
     return (
@@ -20,20 +22,20 @@ export default function PinPage() {
                 </div>
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
-                        drop down
-                        button
+                        <button id="pinSaveBtn">Save</button>
                     </div>
                     <div id="pinPageInfo">
+                        <div id="link"><Link to={pin?.link} target="_blank">{pin?.link.substring(0, 50)}... </Link></div>
                         <div>{pin.title}</div>
-                        <div>pin description</div>
+                        <div id="description">{pin?.description}</div>
                         <div id="userInfo">
-                            <div>userphoto</div>
-                            <div>username</div>
+                            <div id="userPhoto"><img src={user?.photo} alt='userPhoto'></img></div>
+                            <div>{user?.username}</div>
                             <div>followbutton</div>
                         </div>
                     </div>
                     <div id="comments">
-                        <div>comments</div>
+                        <div>{pin?.comments.map(comment => <div>{comment?.content}</div>)}</div>
                     </div>
                 </div>
             </div>

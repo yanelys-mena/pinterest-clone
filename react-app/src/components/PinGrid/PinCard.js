@@ -2,7 +2,6 @@ import PinDropdown from "./PinDropdown";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 
-import CreateBoardModal from '../CreateBoardModal/index';
 
 export default function PinCard({ pin, boards }) {
     const [style, setStyle] = useState({ display: 'none' })
