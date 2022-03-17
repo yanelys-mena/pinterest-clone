@@ -24,8 +24,8 @@ export default function UserProfile() {
             <Header user={user} />
             <div id="pageChanger">
                 <div id="pageChangeBtn">
-                    <div onClick={() => setPage(2)}>Created</div>
-                    <div onClick={() => setPage(1)}>Saved</div>
+                    <div onClick={() => setPage(2)} className={page === 2 ? 'active_page' : 'inactive'}>Created</div>
+                    <div onClick={() => setPage(1)} className={page === 1 ? 'active_page' : 'inactive'}>Saved</div>
                 </div>
 
             </div>
