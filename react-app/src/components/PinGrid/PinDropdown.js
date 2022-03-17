@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import CreateBoardModal from '../CreateBoardModal';
+import { Link, useParams } from 'react-router-dom';
 
 function PinDropdown({ boards, color }) {
 
     const [showMenu, setShowMenu] = useState(false);
+    const { lastPage } = useParams();
 
-
+    console.log(lastPage)
     const openMenu = () => {
         if (showMenu) return;
         setShowMenu(true);
@@ -27,7 +28,7 @@ function PinDropdown({ boards, color }) {
 
     return (
         <div id="addPinDropdown" onClick={openMenu} style={color}>
-            board   <i className="fa-solid fa-chevron-down" style={color}></i>
+            board <i className="fa-solid fa-chevron-down" style={color}></i>
 
             {showMenu && (
                 <>
@@ -44,8 +45,7 @@ function PinDropdown({ boards, color }) {
 
                         <div id="createBoardDiv">
                             <div id="createBoardPlus"><i className="fa-solid fa-plus"></i></div>
-                            {/* <div>Create Board</div> */}
-                            <CreateBoardModal />
+                            <div><Link to="/create-board">Create Board</Link></div>
                         </div>
                     </div>
                 </>
@@ -54,5 +54,6 @@ function PinDropdown({ boards, color }) {
         </div >
     )
 }
+
 
 export default PinDropdown;
