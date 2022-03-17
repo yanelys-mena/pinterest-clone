@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import './NavBar.css'
-import CreateBoardModal from '../CreateBoardModal';
+// import CreateBoardModal from '../CreateBoardModal'; 
 import SearchBar from './SearchBar';
 import AccountMenu from './AccountMenu';
 

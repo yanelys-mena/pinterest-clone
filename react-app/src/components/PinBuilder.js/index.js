@@ -10,18 +10,24 @@ export default function PinBuilder() {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('');
     // const [image, setImage] = useState(null)
-    const [link, setLink] = useState('null')
+    const [link, setLink] = useState('')
     const history = useHistory()
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const newPin = {
-            title, description, image: 'https://i.pinimg.com/564x/d6/cb/4a/d6cb4a0fc20ae964670e02bc516313bc.jpg', link, user_id: user?.id
+            title, description, image: 'https://i.etsystatic.com/29639801/r/il/167a37/3391426748/il_1588xN.3391426748_21h3.jpg', link, user_id: user?.id
         };
 
-        dispatch(add_pin(newPin))
-        history.push(`/`)
+        let pinId;
+
+        (async () => {
+            await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
+            ).then(() => history.push(`/pins/${pinId}`))
+        })();
+        history.push(`/pins/${pinId}`)
+
     }
 
 

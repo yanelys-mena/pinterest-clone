@@ -50,7 +50,7 @@ export const add_pin = (pin) => async (dispatch) => {
     form.append('link', link)
     form.append('user_id', user_id)
 
-    const response = await fetch(`/api/pins/}`, {
+    const response = await fetch('/api/pins/', {
         method: "POST",
         body: form
     });
