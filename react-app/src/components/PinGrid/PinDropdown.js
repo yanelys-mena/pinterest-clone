@@ -88,17 +88,17 @@ function PinDropdown({ boards, color }) {
                         </div>
 
                         <div id="createBoardDiv" onClick={() => setShowModal(true)}>
-                            <CreateBoardModal showModal={showModal} setShowModal={setShowModal} />
+                            {/* <CreateBoardModal showModal={showModal} setShowModal={setShowModal} />
 
                             {
                                 showModal && (
                                     <Modal onClose={() => setShowModal(false)}>
                                         <BoardForm />
                                     </Modal>
-                                )
-                            }
-                            {/* <div id="createBoardPlus"><i className="fa-solid fa-plus"></i></div> */}
-                            {/* <div><Link to="/create-board" style={{ textDecoration: 'none' }}>Create Board</Link></div> */}
+                                ) */}
+                            {/* } */}
+                            <div id="createBoardPlus"><i className="fa-solid fa-plus"></i></div>
+                            <div><Link to="/create-board" style={{ textDecoration: 'none' }}>Create Board</Link></div>
                         </div>
                     </div>
                 </>
