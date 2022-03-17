@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import CreateBoardModal from '../CreateBoardModal';
 import { Modal } from '../../context/Modal'
-import BoardForm from '../CreateBoardModal/BoardForm'
+// import Crea from '../CreateBoardModal/CreateBoardForm'
 
 
 function PinDropdown({ boards, color }) {

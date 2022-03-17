@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { load_boards_by_user } from '../../store/boards'
 import Pins from './Pins'
 import { Modal } from '../../context/Modal'
-import BoardForm from '../CreateBoardModal/BoardForm'
+import CreateBoardForm from '../CreateBoardModal/CreateBoardForm'
 
 
 export default function UserProfile() {
@@ -42,7 +42,7 @@ export default function UserProfile() {
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <BoardForm />
+                        <CreateBoardForm user={user} setShowModal={setShowModal} />
                     </Modal>
                 )
             }

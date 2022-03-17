@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal'
-import BoardForm from './BoardForm'
+import CreateBoardForm from './CreateBoardForm'
 
-
-import './CreateBoardModal.css'
 
 function CreateBoardModal({ setShowModal, showModal }) {
     // const [showModal, setShowModal] = useState(false);
