@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector, } from 'react-redux';
-import { load_pins } from '../store/pins';
-import { load_boards_by_user } from '../store/boards';
-import PinGrid from '../components/PinGrid'
+import { load_pins } from '../../store/pins';
+import { load_boards_by_user } from '../../store/boards';
+import PinGrid from '../PinGrid'
 import './Homepage.css'
 
 export default function Homepage() {
@@ -19,7 +19,7 @@ export default function Homepage() {
 
 
     useEffect(() => {
-        dispatch(load_pins())
+        // dispatch(load_pins())
         dispatch(load_boards_by_user(user?.id))
     }, [dispatch, user]);
 

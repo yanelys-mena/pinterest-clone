@@ -7,8 +7,9 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import { load_pins } from './store/pins';
 import { authenticate } from './store/session';
-import Homepage from './Homepage';
+import Homepage from './components/Homepage';
 import PinPage from './components/PinPage';
 
 
@@ -19,6 +20,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      await dispatch(load_pins())
       setLoaded(true);
     })();
   }, [dispatch]);

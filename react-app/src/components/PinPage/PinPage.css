@@ -1,12 +1,48 @@
 #pinPage {
     height: 100%;
+    min-height: 100vh;
     width: 100%;
-    background-color: paleturquoise;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pinPageArrow {
+    width: 100%;
+    padding-left: 40px;
+}
+
+.fa-arrow-left {
+    font-size: 20px;
+}
+#arrowClick {
+    cursor:pointer;
 }
 
 #pinContent {
+    margin-top: 10px;
+    width: 50%;
+    height: 70%;
+    min-height: 70vh;
+    border-radius: 20px;
+    background-color: palegoldenrod;
     display: flex;
-    width: 60%;
-    height: 60%;
+    justify-content: flex-start;
+}
+
+#pinContentLeft, #pinContentRight {
+    width: 50%;
+    height: 100%;
     min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+#pinPageImage {
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
 }

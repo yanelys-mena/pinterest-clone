@@ -23,7 +23,7 @@ export default function PinCard({ pin, boards }) {
                 setColor({ color: 'black' })
             }}>
             <div id="cardImg" style={imageStyle}>
-                <Link to={`/pins/{pin.id}`}>
+                <Link to={`/pins/${pin.id}`}>
                     <img id='pinImg' src={pin?.image} alt='pin'></img>
                 </Link>
             </div>
