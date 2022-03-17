@@ -28,15 +28,14 @@ export default function EditForm({ pin, setShowModal, user }) {
         };
 
         const data = dispatch(update_pin(pin?.id, updated_pin)).then((data) => {
-            console.log(data)
-        });
-        // console.log('data', data)
-        // if (data) {
-        //     setErrors(data);
-        //     console.log(errors)
-        // }
+            if (data) {
+                setErrors(data)
+            } else {
+                setShowModal(false);
 
-        setShowModal(false);
+            }
+        });
+
         // (async () => {
         //     await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
         //     ).then(() => history.push(`/pins/${pinId}`))
@@ -56,7 +55,13 @@ export default function EditForm({ pin, setShowModal, user }) {
             <div id="editFormDiv">
                 <div id="editLeft">
                     <form id="ediPinForm">
+                        <div>
+                            {errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            ))}
+                        </div>
                         <label>title</label>
+                        {/* {errors?.title && errors.title} */}
                         <input
                             name='title'
                             type='text'
