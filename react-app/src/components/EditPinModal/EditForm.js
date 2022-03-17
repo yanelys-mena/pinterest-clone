@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { delete_pin, update_pin } from '../../store/pins';
-
+/* eslint-disable */
 
 export default function EditForm({ pin, setShowModal, user }) {
 
@@ -14,32 +14,21 @@ export default function EditForm({ pin, setShowModal, user }) {
     const history = useHistory()
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        console.log(title)
-    }, [title])
 
     const handleSubmit = async (e) => {
+        if (link.length > 0) {
+            const regex = new RegExp('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$');
+            console.log(regex.test(link));
+        }
 
-
-        console.log(title)
         e.preventDefault()
         const updated_pin = {
             title, description, image: pin?.image, link, user_id: user?.id
         };
 
         const data = dispatch(update_pin(pin?.id, updated_pin)).then((data) => {
-            if (data) {
-                setErrors(data)
-            } else {
-                setShowModal(false);
-
-            }
+            data ? setErrors(data) : setShowModal(false);
         });
-
-        // (async () => {
-        //     await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
-        //     ).then(() => history.push(`/pins/${pinId}`))
-        // })();
     }
 
     const handleDelete = (e) => {

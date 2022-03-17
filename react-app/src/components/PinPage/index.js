@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom'
 import EditPinModal from '../EditPinModal';
