@@ -6,6 +6,17 @@ from app.forms.pin_form import PinForm
 
 pin_routes = Blueprint('comments', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
+
 
 @pin_routes.route('/')
 @login_required
@@ -20,7 +31,6 @@ def add_pin():
     form = PinForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
-    
     if form.validate_on_submit():
         new_pin = Pin(
             title=data['title'],
@@ -55,10 +65,11 @@ def update_pin(pin_id):
         pin_to_update.user_id=data['user_id'], 
         
         db.session.commit()
+        return pin_to_update.to_dict()
     else: 
-        print('****', form.errors)
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     
-    return pin_to_update.to_dict()
+    
     
 
 
