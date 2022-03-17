@@ -1,0 +1,12 @@
+#pinPage {
+    height: 100%;
+    width: 100%;
+    background-color: paleturquoise;
+}
+
+#pinContent {
+    display: flex;
+    width: 60%;
+    height: 60%;
+    min-height: 60vh;
+}

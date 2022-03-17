@@ -1,5 +1,6 @@
 import PinDropdown from "./PinDropdown";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 import CreateBoardModal from '../CreateBoardModal/index';
 
@@ -22,7 +23,9 @@ export default function PinCard({ pin, boards }) {
                 setColor({ color: 'black' })
             }}>
             <div id="cardImg" style={imageStyle}>
-                <img src={pin?.image} alt='pin'></img>
+                <Link to={`/pins/{pin.id}`}>
+                    <img id='pinImg' src={pin?.image} alt='pin'></img>
+                </Link>
             </div>
             <div id="cardTitle">
                 {pin?.title}

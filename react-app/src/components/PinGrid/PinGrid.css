@@ -25,7 +25,7 @@
 }
 
 
-#cardImg > img {
+#pinImg {
     display: flex;
     width: 100%;
     cursor: zoom-in;
