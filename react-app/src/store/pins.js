@@ -5,7 +5,7 @@ const UPDATE = 'pins/UPDATE';
 const DELETE = 'pins/DELETE';
 
 
-const load = () => ({
+const load = (pins) => ({
     type: LOAD,
     pins
 });
@@ -26,11 +26,12 @@ const to_delete = (pin) => ({
 });
 
 
-export const load_pins = () => {
+export const load_pins = () => async (dispatch) => {
+
     const response = await fetch('/api/pins/');
     if (response.ok) {
         const pins = await response.json();
-        dispatch(load(pins));
+        dispatch(load(pins.pins));
         return pins.pins;
     } else {
         const errors = await response.json();
@@ -39,7 +40,7 @@ export const load_pins = () => {
 }
 
 
-export const add_pin = (pin) => {
+export const add_pin = (pin) => async (dispatch) => {
     const { title, description, image, link, user_id } = pin;
 
     const form = new FormData()
@@ -49,7 +50,7 @@ export const add_pin = (pin) => {
     form.append('link', link)
     form.append('user_id', user_id)
 
-    const response = await fetch(`/api/pins/${pinId}`, {
+    const response = await fetch('/api/pins/', {
         method: "POST",
         body: form
     });
@@ -65,7 +66,7 @@ export const add_pin = (pin) => {
 };
 
 
-export const update_pin = (pinId, pin) => {
+export const update_pin = (pinId, pin) => async (dispatch) => {
     const { title, description, image, link, user_id } = pin;
 
     const form = new FormData()
@@ -82,6 +83,7 @@ export const update_pin = (pinId, pin) => {
 
     if (response.ok) {
         const pin = await response.json();
+        console.log('RESPONSE', pin)
         dispatch(update(pin));
         return pin;
     } else {
@@ -90,7 +92,7 @@ export const update_pin = (pinId, pin) => {
     }
 };
 
-export const delete_pin = (pinId) => {
+export const delete_pin = (pinId) => async (dispatch) => {
 
     const response = await fetch(`/api/pins/${pinId}`, {
         method: "DELETE",
@@ -126,7 +128,10 @@ const pinsReducer = (state = initialState, action) => {
         }
 
         case UPDATE: {
-            return { [action.pin.id]: action.pin, ...state };
+            console.log('REDUCER', action.pin)
+            newState = { ...state }
+            newState[action.pin.id] = action.pin
+            return { ...newState };
         }
 
         case DELETE: {

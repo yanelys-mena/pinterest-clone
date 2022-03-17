@@ -1,0 +1,140 @@
+
+
+#navBarDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#rightNav{
+    display: flex;
+    gap: 5px;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
+
+#leftNav{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 9%;
+    height: 100%;
+    gap: 5px;
+}
+
+
+#logoDiv {
+    width: 40px;
+
+}
+
+#leftNav > div > img {
+    height: 40px;
+    width: 100%;
+}
+
+#homeButtonDiv {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#homeButton {
+    background-color: black;
+    height: 44px;
+    width: 77px;
+    border-radius: 22px;
+    color: white;
+    font-family: 'Lato', sans-serif; 
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#searchNav {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.faIcons {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.fa-circle-plus, .fa-bell, .fa-user-circle {
+    color: #767676;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+.fa-chevron-down {
+    color: #767676;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+.faIcons:hover, #accountIcon:hover {
+    background-color: #d3d3d3;
+}
+
+#dropdownList {
+    list-style: none;
+    padding-left: 0;
+    position: absolute;
+    background-color: white;
+    margin: 5px 0 0 -190px;
+    border-radius: 10px;
+    border: #d3d3d3;
+    width: 200px;
+    height: 80px;
+    padding: 10px;
+    font-family: 'Lato', sans-serif; 
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: 3;
+  }
+  
+  #dropdownList > li {
+    padding: 8px;
+  }
+  
+
+
+  #dropdownList > li:hover {
+    background-color: #EFEFEF;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+
+  #menuHolder, #accountMenu{
+      background-color: transparent;
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+  }
+
+
+  #menuHolder:hover {
+    background-color: #efefef;
+
+  }

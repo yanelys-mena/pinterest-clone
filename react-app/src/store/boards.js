@@ -5,7 +5,7 @@ const UPDATE = 'boards/UPDATE';
 const DELETE = 'boards/DELETE';
 
 
-const load = () => ({
+const load = (boards) => ({
     type: LOAD,
     boards
 });
@@ -26,11 +26,11 @@ const to_delete = (board) => ({
 });
 
 
-export const load_boards_by_user = () => {
+export const load_boards_by_user = () => async (dispatch) => {
     const response = await fetch('/api/boards/');
     if (response.ok) {
         const boards = await response.json();
-        dispatch(load(boards));
+        dispatch(load(boards.boards));
         return boards.boards;
     } else {
         const errors = await response.json();
@@ -39,7 +39,7 @@ export const load_boards_by_user = () => {
 }
 
 
-export const add_board = (board) => {
+export const add_board = (board) => async (dispatch) => {
     const { name, user_id } = board;
 
     const form = new FormData()
@@ -62,7 +62,7 @@ export const add_board = (board) => {
 };
 
 
-export const update_board = (boardId, board) => {
+export const update_board = (boardId, board) => async (dispatch) => {
     const { name, user_id } = board;
 
     const form = new FormData()
@@ -84,7 +84,7 @@ export const update_board = (boardId, board) => {
     }
 };
 
-export const delete_board = (boardId) => {
+export const delete_board = (boardId) => async (dispatch) => {
 
     const response = await fetch(`/api/boards/${boardId}`, {
         method: "DELETE",

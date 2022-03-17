@@ -7,15 +7,21 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import { load_pins } from './store/pins';
 import { authenticate } from './store/session';
+import Homepage from './components/Homepage';
+import PinPage from './components/PinPage';
+import PinBuilder from './components/PinBuilder.js';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
+      await dispatch(load_pins())
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -35,13 +41,19 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <Homepage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/pins/:pinId' exact={true} >
+          <PinPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/pinbuilder' exact={true} >
+          <PinBuilder />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

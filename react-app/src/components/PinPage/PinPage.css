@@ -1,0 +1,198 @@
+#pinPage {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pinPageArrow {
+    width: 100%;
+    padding-left: 40px;
+}
+
+.fa-arrow-left {
+    font-size: 20px;
+}
+#arrowClick {
+    cursor:pointer;
+}
+
+#pinContent {
+    margin-top: 10px;
+    width: 50%;
+    height: 70%;
+    min-height: 70vh;
+    border-radius: 20px;
+    display: flex;
+    justify-content: flex-start;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+#pinContentLeft, #pinContentRight {
+    width: 50%;
+    height: 100%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+#pinPageImage {
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#pinPageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#pinSaveBtn {
+    height: 45px;
+    width: 66px;
+    background-color: #E60023;
+    border-radius: 22.5px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+}
+
+#pinSaveBtn:hover {
+    background-color: #AD081B;
+  }
+  
+#pinPageInfo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    font-size: 25px;
+}
+
+#link {
+    font-size: 14px;
+    width: 90%;
+}
+
+
+#description {
+    font-size: 15px;
+}
+
+#editPinEllpisis {
+    cursor: pointer;
+}
+
+#userInfo {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#userPhoto, #userPhoto img {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+#comments {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* overflow-y: scroll; */
+    font-size: 20px;
+
+}
+
+#commentsHeader {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 13px;
+
+}
+
+.fa-chevron-right, #commentsHeader > div > .fa-chevron-down {
+    color: #767676;
+    font-size: 15px;
+    background-color: transparent;
+cursor: pointer;
+width: 40px;
+height: 40px;
+border-radius: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.fa-chevron-right:hover {
+    background-color: #d3d3d3;
+
+}
+
+#allComments {
+    font-size: 13px;
+    display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+
+#indComment {
+    /* background-color: palegoldenrod; */
+    width: 100%;
+    padding: 10px;
+    border: #d3d3d3 solid 1px;
+    border-radius: 10px;
+
+}
+
+#leaveComment {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+#commentTip {
+    font-size: 13px;
+}
+
+
+
+#commentInputDiv {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+
+#userPhoto_comment, #userPhoto_comment img{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+#commentInput {
+    width: 380px;
+    height: 40px;
+    border: #d3d3d3 solid 1px;
+    border-radius: 20px;
+    padding: 10px;
+}
