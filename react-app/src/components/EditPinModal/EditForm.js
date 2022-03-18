@@ -5,13 +5,17 @@ import { delete_pin, update_pin } from '../../store/pins';
 import { load_boards_by_user } from '../../store/boards';
 import Select from 'react-select'
 /* eslint-disable */
+import { pins_boards } from '../../store/pin_board';
 
-export default function EditForm({ pin, setShowModal, user, pin_boards }) {
-    console.log('ediForm', pin_boards)
+export default function EditForm({ pin, setShowModal, user, }) {
 
+    console.log('ediForm',)
     const [title, setTitle] = useState(pin?.title)
+
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
     const [errors, setErrors] = useState([]);
+    const pin_boards = useSelector(state => Object.values(state?.pinBoard)[0])
+
     const [link, setLink] = useState(pin?.link ? pin?.link : '')
     const [selectedBoard, setSelectedBoard] = useState(pin_boards?.name ? pin_boards.name : null)
     const boards = useSelector(state => Object.values(state?.boards))
@@ -20,7 +24,14 @@ export default function EditForm({ pin, setShowModal, user, pin_boards }) {
 
     useEffect(() => {
         dispatch(load_boards_by_user(user?.id))
+
     }, [dispatch]);
+
+    // useEffect(() => {
+    //     dispatch(pins_boards(pin?.id, user?.id))
+
+    // }, [dispatch, pin]);
+
 
     const options = boards.map(board => {
         return { value: `${board?.id}`, label: `${board?.name}` }
@@ -31,6 +42,7 @@ export default function EditForm({ pin, setShowModal, user, pin_boards }) {
         const updated_pin = {
             title, description, image: pin?.image, link, user_id: user?.id, selectedBoard: selectedBoard?.value
         };
+        dispatch(pins_boards(pin?.id, user?.id))
 
         const data = dispatch(update_pin(pin?.id, updated_pin)).then((data) => {
             data ? setErrors(data) : setShowModal(false);

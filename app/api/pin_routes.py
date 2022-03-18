@@ -46,8 +46,6 @@ def add_pin():
     
     return new_pin.to_dict()
     
-
-
 @pin_routes.route('/<int:pin_id>', methods=['PUT'])
 @login_required
 def update_pin(pin_id):
@@ -73,8 +71,6 @@ def update_pin(pin_id):
         return pin_to_update.to_dict()
     else: 
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-    
-    
     
 
 

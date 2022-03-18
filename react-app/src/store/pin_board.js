@@ -15,7 +15,7 @@ export const pins_boards = (pin_id, user_id) => async (dispatch) => {
         const boards = await response.json();
 
         const by_user = boards.boards.filter(board => board.user_id === user_id)[0]
-        // console.log('THUNKKK', pin_id, user_id, by_user)
+        console.log('THUNKKK', pin_id, user_id, by_user)
 
         dispatch(load_pin_boards(by_user));
         return boards.boards;
