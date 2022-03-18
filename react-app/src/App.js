@@ -53,7 +53,7 @@ function App() {
         <ProtectedRoute path='/pinbuilder' exact={true} >
           <PinBuilder />
         </ProtectedRoute>
-        <ProtectedRoute path='/boards/:boardId' exact={true} >
+        <ProtectedRoute path='/profile/:profileId/boards/:boardId' exact={true} >
           <BoardPage />
         </ProtectedRoute>
       </Switch>
