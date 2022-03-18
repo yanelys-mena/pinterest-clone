@@ -104,6 +104,6 @@
     justify-content: center;
 }
 
-#pinSelect {
-    width: 100%;
+#react-select{
+    width: 90%;
 }

@@ -25,19 +25,13 @@ export default function EditForm({ pin, setShowModal, user, pin_boards }) {
         return { value: `${board?.id}`, label: `${board?.name}` }
 
     })
-    // { value: 'chocolate', label: 'Chocolate' },
-    //         { value: 'strawberry', label: 'Strawberry' },
 
-    useEffect(() => {
-        console.log('---', selectedBoard)
-
-    }, [selectedBoard])
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         const updated_pin = {
-            title, description, image: pin?.image, link, user_id: user?.id, selectedBoard: selectedBoard.value
+            title, description, image: pin?.image, link, user_id: user?.id, selectedBoard: selectedBoard?.value
         };
 
         const data = dispatch(update_pin(pin?.id, updated_pin)).then((data) => {
@@ -63,9 +57,8 @@ export default function EditForm({ pin, setShowModal, user, pin_boards }) {
                                 <div key={ind}>{error}</div>
                             ))}
                         </div>
-                        <div>
+                        <div id="react-select">
                             <Select
-                                id="pinSelect"
                                 defaultValue={selectedBoard}
                                 onChange={setSelectedBoard}
                                 options={options} />
