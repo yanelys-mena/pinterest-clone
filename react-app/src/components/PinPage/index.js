@@ -17,15 +17,14 @@ export default function PinPage() {
     const [showComments, setShowComments] = useState(true)
 
     const addToBoard = async (e) => {
-        const pinned = dispatch(add_pin_to_board(pinId, 17)).catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) setErrors(data.errors)
-        });
+        const pinned = dispatch(add_pin_to_board(pinId, 15));
+
         if (pinned) {
             setIsPinned('pin added')
         }
     }
 
+    // console.log(errors)
 
     return (
         <div id="pinPage">
@@ -44,6 +43,11 @@ export default function PinPage() {
                         <button id="pinSaveBtn" onClick={addToBoard}>{isPinned ? isPinned : 'Save'}</button>
                     </div>
                     <div id="pinPageInfo">
+                        <div>
+                            {errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            ))}
+                        </div>
                         <div id="link">
                             {pin?.link ? <Link to={pin?.link} target="_blank">{pin?.link.substring(0, 50)}... </Link> : ''}
 
