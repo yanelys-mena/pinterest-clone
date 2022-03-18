@@ -24,8 +24,7 @@ export default function PinPage() {
         <div id="pinPage">
 
             <div id='pinPageArrow' >
-                {pin?.user_id === user?.id &&
-                    <div onClick={history.goBack} id="arrowClick"><i className="fa-solid fa-arrow-left"></i></div>}
+                <div onClick={history.goBack} id="arrowClick"><i className="fa-solid fa-arrow-left"></i></div>
             </div>
             <div id="pinContent">
                 <div id="pinContentLeft">
@@ -33,7 +32,8 @@ export default function PinPage() {
                 </div>
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
-                        <EditPinModal pin={pin} user={user} pin_boards={pin_boards} />
+                        {pin?.user.user_id === user?.id ?
+                            <EditPinModal pin={pin} user={user} pin_boards={pin_boards} /> : <div></div>}
                         <button id="pinSaveBtn">Save</button>
                     </div>
                     <div id="pinPageInfo">
@@ -46,8 +46,10 @@ export default function PinPage() {
                         {pin?.description ?
                             <div id="description">{pin?.description} </div> : ''}
                         <div id="userInfo">
-                            <div id="userPhoto"><img src={pin?.user?.photo} alt='userPhoto'></img></div>
-                            <div>{pin?.user?.username}</div>
+                            <Link to={`/profile/${pin?.user?.username}`} style={{ textDecoration: 'none' }} target="_blank">
+                                <div id="userPhoto"><img src={pin?.user?.photo} alt='userPhoto'></img></div>
+                                <div>{pin?.user?.username}</div>
+                            </Link>
                         </div>
                     </div>
                     <div id="comments">
