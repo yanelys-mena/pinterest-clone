@@ -5,11 +5,12 @@ from app.models import User, db
 user_routes = Blueprint('users', __name__)
 
 
-@user_routes.route('/')
+@user_routes.route('/<int:id>')
 @login_required
-def users():
-    users = User.query.all()
-    return {'users': [user.to_dict() for user in users]}
+def users(id):
+    user = User.query.get(id)
+    return user.to_dict()
+    # return {'users': [user.to_dict() for user in users]}
 
 
 @user_routes.route('/<int:id>')

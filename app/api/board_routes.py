@@ -25,6 +25,12 @@ def boards_by_user():
     return {'boards': [board.to_dict() for board in boards]}
 
 
+@board_routes.route('/profile/<int:profile_id>')
+def boards_by_profile(profile_id):
+    boards = Board.query.filter(Board.user_id == profile_id).all()
+    return {'boards': [board.to_dict() for board in boards]}
+
+
 @board_routes.route('/', methods=['POST'])
 @login_required
 def add_board():
