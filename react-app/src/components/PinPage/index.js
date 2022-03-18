@@ -1,23 +1,30 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { pins_boards } from '../../store/pin_board';
-import { useParams, useHistory, Link } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom';
+import { add_pin_to_board } from '../../store/boards'
 import EditPinModal from '../EditPinModal';
 import './PinPage.css'
 
 export default function PinPage() {
     const { pinId } = useParams();
     const history = useHistory();
-    const pin_boards = useSelector(state => Object.values(state?.pinBoard)[0])
     const pin = useSelector(state => state?.pins[pinId])
     const user = useSelector(state => state?.session?.user)
-    const dispatch = useDispatch()
-
+    const boards = useSelector(state => Object.values(state?.boards))
+    const [isPinned, setIsPinned] = useState('')
+    const [errors, setErrors] = useState([])
+    const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(true)
 
-    useEffect(() => {
-        dispatch(pins_boards(pin?.id, user?.id))
-    }, [dispatch, pin]);
+    const addToBoard = async (e) => {
+        const pinned = dispatch(add_pin_to_board(pinId, 17)).catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors)
+        });
+        if (pinned) {
+            setIsPinned('pin added')
+        }
+    }
 
 
     return (
@@ -33,11 +40,10 @@ export default function PinPage() {
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
                         {pin?.user?.id === user?.id ?
-                            <EditPinModal pin={pin} user={user} pin_boards={pin_boards} /> : <div></div>}
-                        <button id="pinSaveBtn">Save</button>
+                            <EditPinModal pin={pin} user={user} /> : <div></div>}
+                        <button id="pinSaveBtn" onClick={addToBoard}>{isPinned ? isPinned : 'Save'}</button>
                     </div>
                     <div id="pinPageInfo">
-                        <div>{pin_boards?.name}</div>
                         <div id="link">
                             {pin?.link ? <Link to={pin?.link} target="_blank">{pin?.link.substring(0, 50)}... </Link> : ''}
 

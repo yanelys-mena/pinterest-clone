@@ -114,6 +114,29 @@ export const delete_board = (boardId) => async (dispatch) => {
 
 
 
+
+
+export const add_pin_to_board = (pin_id, board_id) => async (dispatch) => {
+    // const { name, user_id } = board;
+
+    // const form = new FormData()
+    // form.append('name', name)
+    // form.append('user_id', user_id)
+
+    fetch('/api/boards/pin-board/', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            pin_id,
+            board_id
+        })
+    }).then(res => res.json());
+};
+
+
+
 let initialState = {};
 
 const boardsReducer = (state = initialState, action) => {

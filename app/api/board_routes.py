@@ -87,16 +87,17 @@ def delete_board(board_id):
     
 
 
+#getting boards for each pin
+    
+# @board_routes.route('/pin-board/<int:id>')
+# @login_required
+# def get_all_associations(id):
+#     boards = Pin.query.get(id).boards
+    
+#     return  {'boards': [board.to_dict() for board in boards]}
+
+
 #adding a pin to a board
-    
-@board_routes.route('/pin-board/<int:id>')
-@login_required
-def get_all_associations(id):
-    boards = Pin.query.get(id).boards
-    
-    return  {'boards': [board.to_dict() for board in boards]}
-
-
 
 @board_routes.route('/pin-board/', methods=['POST'])
 @login_required
@@ -104,13 +105,18 @@ def add_pin_to_board():
     pin = Pin.query.get(request.json['pin_id'])
     board = Board.query.get(request.json['board_id'])
     
-    if pin and board:
-        board.pins.append(pin)
-        db.session.commit()
-        return {'success': 'success'}
-    else:
-        return make_response('Pin or Board does not exist.')
+    all_pins_on_board = {pin.id: pin.to_dict() for pin in board.pins }
+    print('****',all_pins_on_board) 
     
+    if pin and board:
+        if pin.id in all_pins_on_board.keys():
+            return 'Already on Board'
+        else: 
+            board.pins.append(pin)
+            db.session.commit()
+            return board.to_dict()
+
+
     
 #removing a pin to a board
 @board_routes.route('/pin-board/', methods=['DELETE'])

@@ -12,5 +12,5 @@ class PinForm(FlaskForm):
     image = StringField('Image', validators=[DataRequired('Please provide an image.')])
     link = StringField('Link', default='', validators=[Regexp('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$', message='Please provide a valid url.')])
     user_id = IntegerField('User Id', validators=[DataRequired()])
-    board_id = IntegerField('Board Id')
+    # board_id = IntegerField('Board Id')
     
