@@ -18,9 +18,11 @@ export default function PinPage() {
     const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(true)
     const [selectedOption, setSelectedOption] = useState(null);
+    const [selected, setSelected] = useState('false')
 
     const addToBoard = async (e) => {
         setSelectedOption(e)
+        // setSelected['true']
         // console.log('test', selectedOption)
         const pinned = dispatch(add_pin_to_board(pinId, parseInt(e.value)));
 
@@ -29,15 +31,8 @@ export default function PinPage() {
         }
     }
 
-    // const list = boards.map(board => {
-    //     return { board[board.id]: board
-    // }
-    //     console.log(board.id, board.pins)
-    // })
-    // console.log('boards', boards)
-
     const options = boards.map(board => {
-        return { value: `${board?.id}`, label: `${board?.name}` }
+        return { value: `${board?.id}`, label: `${board?.name} - ${pin?.boards.includes(board?.id)}` }
     })
 
 
