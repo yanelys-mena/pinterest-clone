@@ -193,6 +193,7 @@ align-items: center;
     width: 200px;
     position: absolute;
     right: 0;
+    top: 1px;
     border: #d3d3d3
 }
 
@@ -201,7 +202,7 @@ align-items: center;
 }
 
 #pinButton {
-    height: 35px;
+    height: 38px;
     width: 46px;
     background-color: #E60023;
     /* border-radius: 22.5px; */
@@ -213,6 +214,8 @@ align-items: center;
     align-items:  center;
     justify-content: center;
     position: absolute;
+    top: 1px;
+    cursor:auto;
 }
 
 
@@ -234,7 +237,7 @@ align-items: center;
     font-style: italic;
 }
 
-#pinSaveBtn:hover, #pinButton:hover {
+#pinSaveBtn:hover {
     background-color: #AD081B;
   }
   
