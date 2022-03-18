@@ -5,19 +5,13 @@ import { delete_pin, update_pin } from '../../store/pins';
 import { load_boards_by_user } from '../../store/boards';
 import Select from 'react-select'
 /* eslint-disable */
-import { pins_boards } from '../../store/pin_board';
 
 export default function EditForm({ pin, setShowModal, user, }) {
-
-    console.log('ediForm',)
     const [title, setTitle] = useState(pin?.title)
-
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
     const [errors, setErrors] = useState([]);
     const pin_boards = useSelector(state => Object.values(state?.pinBoard)[0])
-
     const [link, setLink] = useState(pin?.link ? pin?.link : '')
-    const [selectedBoard, setSelectedBoard] = useState(pin_boards?.name ? pin_boards.name : null)
     const boards = useSelector(state => Object.values(state?.boards))
     const history = useHistory()
     const dispatch = useDispatch();
@@ -27,11 +21,6 @@ export default function EditForm({ pin, setShowModal, user, }) {
 
     }, [dispatch]);
 
-    // useEffect(() => {
-    //     dispatch(pins_boards(pin?.id, user?.id))
-
-    // }, [dispatch, pin]);
-
 
     const options = boards.map(board => {
         return { value: `${board?.id}`, label: `${board?.name}` }
@@ -40,9 +29,8 @@ export default function EditForm({ pin, setShowModal, user, }) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const updated_pin = {
-            title, description, image: pin?.image, link, user_id: user?.id, selectedBoard: selectedBoard?.value
+            title, description, image: pin?.image, link, user_id: user?.id
         };
-        dispatch(pins_boards(pin?.id, user?.id))
 
         const data = dispatch(update_pin(pin?.id, updated_pin)).then((data) => {
             data ? setErrors(data) : setShowModal(false);
@@ -54,8 +42,6 @@ export default function EditForm({ pin, setShowModal, user, }) {
         dispatch(delete_pin(pin?.id));
         history.goBack()
     }
-
-    console.log(selectedBoard, pin_boards)
 
 
     return (
@@ -69,12 +55,12 @@ export default function EditForm({ pin, setShowModal, user, }) {
                                 <div key={ind}>{error}</div>
                             ))}
                         </div>
-                        <div id="react-select">
+                        {/* <div id="react-select">
                             <Select
                                 defaultValue={selectedBoard}
                                 onChange={setSelectedBoard}
                                 options={options} />
-                        </div>
+                        </div> */}
 
                         <label>title</label>
                         <input
@@ -113,7 +99,7 @@ export default function EditForm({ pin, setShowModal, user, }) {
                 <button id="deleteButton" onClick={handleDelete}>Delete</button>
 
                 <div id="editFooterRight">
-                    <button id="cancelButton">Cancel</button>
+                    <button id="cancelButton" onClick={() => setShowModal(false)}>Cancel</button>
                     <button onClick={handleSubmit} id="pinSaveBtn">Save</button>
                 </div>
             </div>

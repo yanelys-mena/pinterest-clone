@@ -25,3 +25,4 @@ class Board(db.Model):
             'user_id': self.user_id,
             'pins': [pin.to_dict() for pin in self.pins]
         }
+    

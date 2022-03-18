@@ -1,23 +1,39 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { pins_boards } from '../../store/pin_board';
-import { useParams, useHistory, Link } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom';
+import { add_pin_to_board } from '../../store/boards'
 import EditPinModal from '../EditPinModal';
 import './PinPage.css'
+import Select from 'react-select'
+
 
 export default function PinPage() {
     const { pinId } = useParams();
     const history = useHistory();
-    const pin_boards = useSelector(state => Object.values(state?.pinBoard)[0])
     const pin = useSelector(state => state?.pins[pinId])
     const user = useSelector(state => state?.session?.user)
-    const dispatch = useDispatch()
-
+    const boards = useSelector(state => Object.values(state?.boards))
+    const [isPinned, setIsPinned] = useState('')
+    const [errors, setErrors] = useState([])
+    const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(true)
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [selected, setSelected] = useState('false')
 
-    useEffect(() => {
-        dispatch(pins_boards(pin?.id, user?.id))
-    }, [dispatch, pin]);
+    const addToBoard = async (e) => {
+        setSelectedOption(e)
+        // setSelected['true']
+        // console.log('test', selectedOption)
+        const pinned = dispatch(add_pin_to_board(pinId, parseInt(e.value)));
+
+        if (pinned) {
+            setIsPinned('pinned!')
+        }
+    }
+
+    const options = boards.map(board => {
+        return { value: `${board?.id}`, label: `${board?.name} - ${pin?.boards.includes(board?.id)}` }
+    })
 
 
     return (
@@ -33,11 +49,25 @@ export default function PinPage() {
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
                         {pin?.user?.id === user?.id ?
-                            <EditPinModal pin={pin} user={user} pin_boards={pin_boards} /> : <div></div>}
-                        <button id="pinSaveBtn">Save</button>
+                            <EditPinModal pin={pin} user={user} /> : <div></div>}
+
+                        <div id='select-pin'>
+                            <div id="react-select">
+                                <Select
+                                    defaultValue={selectedOption}
+                                    placeholder={'Select Board'}
+                                    onChange={addToBoard}
+                                    options={options} />
+                            </div>
+                            <button id="pinButton">{isPinned ? isPinned : 'Save'}</button>
+                        </div>
                     </div>
                     <div id="pinPageInfo">
-                        <div>{pin_boards?.name}</div>
+                        <div>
+                            {errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            ))}
+                        </div>
                         <div id="link">
                             {pin?.link ? <Link to={pin?.link} target="_blank">{pin?.link.substring(0, 50)}... </Link> : ''}
 

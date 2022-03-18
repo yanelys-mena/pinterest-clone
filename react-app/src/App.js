@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -14,18 +14,26 @@ import PinPage from './components/PinPage';
 import PinBuilder from './components/PinBuilder.js';
 import UserProfile from './components/UserProfile';
 import BoardPage from './components/BoardPage';
+import { load_boards_by_user } from './store/boards';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.session?.user);
 
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+
       await dispatch(load_pins())
+
       setLoaded(true);
     })();
   }, [dispatch]);
+
+  useEffect(() =>
+    dispatch(load_boards_by_user(user?.id)))
 
   if (!loaded) {
     return null;
