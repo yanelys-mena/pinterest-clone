@@ -1,10 +1,10 @@
 
-const LOAD = 'boards/LOAD';
+const LOAD_PINS = 'pin_boards/LOAD';
 
 
-const load = (boards) => ({
-    type: LOAD,
-    boards
+const load_pin_boards = (pin_board) => ({
+    type: LOAD_PINS,
+    pin_board
 });
 
 
@@ -14,10 +14,10 @@ export const pins_boards = (pin_id, user_id) => async (dispatch) => {
     if (response.ok) {
         const boards = await response.json();
 
-        const by_user = boards.boards.filter(board => board.user_id === user_id)
-        // console.log('THUNK', pin_id, user_id, test)
+        const by_user = boards.boards.filter(board => board.user_id === user_id)[0]
+        // console.log('THUNKKK', pin_id, user_id, by_user)
 
-        dispatch(load(by_user));
+        dispatch(load_pin_boards(by_user));
         return boards.boards;
     } else {
         const errors = await response.json();
@@ -27,17 +27,15 @@ export const pins_boards = (pin_id, user_id) => async (dispatch) => {
 
 
 
-let initialState = {};
+let initialState = { pin: null };
 
 const pin_board_reducer = (state = initialState, action) => {
     let newState;
+    // console.log('reducer', action.pin_board)
     switch (action.type) {
-        case LOAD: {
+        case LOAD_PINS: {
             newState = {};
-            action.boards.forEach((board) => {
-                newState[board.id] = board;
-            });
-            return newState;
+            return { pin: action.pin_board }
         }
 
         // case ADD: {

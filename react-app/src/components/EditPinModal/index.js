@@ -4,7 +4,7 @@ import EditForm from './EditForm'
 import './EditModal.css'
 
 
-function EditPinModal({ pin, user }) {
+function EditPinModal({ pin, user, pin_boards }) {
     const [showModal, setShowModal] = useState(false);
 
 
@@ -15,7 +15,7 @@ function EditPinModal({ pin, user }) {
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <EditForm pin={pin} setShowModal={setShowModal} user={user} />
+                        <EditForm pin={pin} setShowModal={setShowModal} user={user} pin_boards={pin_boards} />
                     </Modal>
                 )
             }

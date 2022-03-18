@@ -7,6 +7,7 @@ import Select from 'react-select'
 /* eslint-disable */
 
 export default function EditForm({ pin, setShowModal, user, pin_boards }) {
+    console.log('ediForm', pin_boards)
 
     const [title, setTitle] = useState(pin?.title)
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
@@ -23,10 +24,7 @@ export default function EditForm({ pin, setShowModal, user, pin_boards }) {
 
     const options = boards.map(board => {
         return { value: `${board?.id}`, label: `${board?.name}` }
-
     })
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -41,10 +39,12 @@ export default function EditForm({ pin, setShowModal, user, pin_boards }) {
 
     const handleDelete = (e) => {
         e.preventDefault();
-
         dispatch(delete_pin(pin?.id));
         history.goBack()
     }
+
+    console.log(selectedBoard, pin_boards)
+
 
     return (
         <div id="editPinModal">

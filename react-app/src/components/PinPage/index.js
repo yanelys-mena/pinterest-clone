@@ -32,7 +32,7 @@ export default function PinPage() {
                 </div>
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
-                        {pin?.user.user_id === user?.id ?
+                        {pin?.user?.id === user?.id ?
                             <EditPinModal pin={pin} user={user} pin_boards={pin_boards} /> : <div></div>}
                         <button id="pinSaveBtn">Save</button>
                     </div>
