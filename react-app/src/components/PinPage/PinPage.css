@@ -54,24 +54,7 @@
     align-items: center;
 }
 
-#pinSaveBtn {
-    height: 45px;
-    width: 66px;
-    background-color: #E60023;
-    border-radius: 22.5px;
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 10px;
-    display: flex;
-    align-items:  center;
-    justify-content: center;
-}
 
-#pinSaveBtn:hover {
-    background-color: #AD081B;
-  }
-  
 #pinPageInfo {
     margin-top: 10px;
     display: flex;
@@ -196,3 +179,62 @@ align-items: center;
     border-radius: 20px;
     padding: 10px;
 }
+
+#select-pin {
+    background-color: red;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+
+}
+
+#react-select {
+    width: 200px;
+    position: absolute;
+    right: 0;
+    border: #d3d3d3
+}
+
+#react-select:hover{
+    background-color: gray;
+}
+
+#pinButton {
+    height: 35px;
+    width: 46px;
+    background-color: #E60023;
+    /* border-radius: 22.5px; */
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    position: absolute;
+}
+
+
+#pinSaveBtn {
+    height: 45px;
+    width: 66px;
+    background-color: #E60023;
+    border-radius: 22.5px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+}
+
+.pinned {
+    font-style: italic;
+}
+
+#pinSaveBtn:hover, #pinButton:hover {
+    background-color: #AD081B;
+  }
+  

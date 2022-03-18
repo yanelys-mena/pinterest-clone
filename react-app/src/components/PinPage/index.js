@@ -4,6 +4,8 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import { add_pin_to_board } from '../../store/boards'
 import EditPinModal from '../EditPinModal';
 import './PinPage.css'
+import Select from 'react-select'
+
 
 export default function PinPage() {
     const { pinId } = useParams();
@@ -15,16 +17,29 @@ export default function PinPage() {
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(true)
+    const [selectedOption, setSelectedOption] = useState(null);
 
     const addToBoard = async (e) => {
-        const pinned = dispatch(add_pin_to_board(pinId, 15));
+        setSelectedOption(e)
+        // console.log('test', selectedOption)
+        const pinned = dispatch(add_pin_to_board(pinId, parseInt(e.value)));
 
         if (pinned) {
-            setIsPinned('pin added')
+            setIsPinned('pinned!')
         }
     }
 
-    // console.log(errors)
+    // const list = boards.map(board => {
+    //     return { board[board.id]: board
+    // }
+    //     console.log(board.id, board.pins)
+    // })
+    // console.log('boards', boards)
+
+    const options = boards.map(board => {
+        return { value: `${board?.id}`, label: `${board?.name}` }
+    })
+
 
     return (
         <div id="pinPage">
@@ -40,7 +55,17 @@ export default function PinPage() {
                     <div id="pinPageHeader">
                         {pin?.user?.id === user?.id ?
                             <EditPinModal pin={pin} user={user} /> : <div></div>}
-                        <button id="pinSaveBtn" onClick={addToBoard}>{isPinned ? isPinned : 'Save'}</button>
+
+                        <div id='select-pin'>
+                            <div id="react-select">
+                                <Select
+                                    defaultValue={selectedOption}
+                                    placeholder={'Select Board'}
+                                    onChange={addToBoard}
+                                    options={options} />
+                            </div>
+                            <button id="pinButton">{isPinned ? isPinned : 'Save'}</button>
+                        </div>
                     </div>
                     <div id="pinPageInfo">
                         <div>
