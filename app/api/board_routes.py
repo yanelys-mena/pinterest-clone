@@ -18,7 +18,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 # adjust this route later to query by user
-@board_routes.route('/')
+@board_routes.route('/',  methods=['GET'])
 @login_required
 def boards_by_user():
     boards = Board.query.filter(Board.user_id == current_user.id).all()

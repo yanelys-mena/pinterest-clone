@@ -5,7 +5,7 @@ from app.models import Comment
 comment_routes = Blueprint('comments', __name__)
 
 # modify to get comments by pin ID
-@comment_routes.route('/')
+@comment_routes.route('/',  methods=['GET'])
 @login_required
 def pins_by_user():
     pins = Comment.query.all()

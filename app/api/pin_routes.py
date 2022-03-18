@@ -18,7 +18,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 
-@pin_routes.route('/')
+@pin_routes.route('/',  methods=['GET'])
 @login_required
 def pins():
     pins = Pin.query.all()
