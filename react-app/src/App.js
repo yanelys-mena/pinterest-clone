@@ -13,6 +13,7 @@ import Homepage from './components/Homepage';
 import PinPage from './components/PinPage';
 import PinBuilder from './components/PinBuilder.js';
 import UserProfile from './components/UserProfile';
+import BoardPage from './components/BoardPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +52,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/pinbuilder' exact={true} >
           <PinBuilder />
+        </ProtectedRoute>
+        <ProtectedRoute path='/boards/:boardId' exact={true} >
+          <BoardPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

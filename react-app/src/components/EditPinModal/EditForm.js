@@ -30,7 +30,7 @@ export default function EditForm({ pin, setShowModal, user }) {
         e.preventDefault();
 
         dispatch(delete_pin(pin?.id));
-        history.push('/')
+        history.goBack()
     }
 
     return (

@@ -12,7 +12,7 @@ export default function PinGrid({ pins, boards }) {
         //             loader = {<> Load More</>}
         // endMessage = {<> no more pins</>}>
         <div id="pinGrid">
-            {pins.map(pin => (
+            {pins?.map(pin => (
                 <PinCard pin={pin} boards={boards} key={pin.id} />
             ))}
 
