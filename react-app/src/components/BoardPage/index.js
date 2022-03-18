@@ -17,10 +17,11 @@ export default function BoardPage() {
         dispatch(load_boards_by_user(user?.id))
 
 
-    }, [user?.id, dispatch])
+    }, [dispatch])
 
     return (
         <div id='boardPage'>
+            <div id="boardPageTitle">{board?.name}</div>
             <PinGrid pins={board?.pins} />
         </div>
     )

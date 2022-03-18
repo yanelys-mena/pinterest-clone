@@ -67,7 +67,7 @@ export const add_pin = (pin) => async (dispatch) => {
 
 
 export const update_pin = (pinId, pin) => async (dispatch) => {
-    const { title, description, image, link, user_id } = pin;
+    const { title, description, image, link, user_id, selectedBoard } = pin;
 
     const form = new FormData()
     form.append('title', title)
@@ -75,6 +75,7 @@ export const update_pin = (pinId, pin) => async (dispatch) => {
     form.append('image', image)
     form.append('link', link)
     form.append('user_id', user_id)
+    form.append('board_id', parseInt(selectedBoard))
 
     const response = await fetch(`/api/pins/${pinId}`, {
         method: "PUT",

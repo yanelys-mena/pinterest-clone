@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, make_response
 from flask_login import login_required, current_user
-from app.models import Board, Pin, db
+from app.models import Board, Pin, db, pins_boards
 from app.forms.board_form import BoardForm
 
 board_routes = Blueprint('boards', __name__)
@@ -82,6 +82,16 @@ def delete_board(board_id):
 
 
 #adding a pin to a board
+    
+@board_routes.route('/pin-board/<int:id>')
+@login_required
+def get_all_associations(id):
+    boards = Pin.query.get(id).boards
+    
+    return  {'boards': [board.to_dict() for board in boards]}
+
+
+
 @board_routes.route('/pin-board/', methods=['POST'])
 @login_required
 def add_pin_to_board():
@@ -109,3 +119,4 @@ def delete_pin_from_board():
         return {'success': 'success'}
     else:
         return make_response('Pin or Board does not exist.')
+    

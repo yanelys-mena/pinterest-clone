@@ -1,7 +1,10 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { delete_pin, update_pin } from '../../store/pins';
+import { load_boards_by_user } from '../../store/boards';
+
+import Select from 'react-select'
 /* eslint-disable */
 
 export default function EditForm({ pin, setShowModal, user }) {
@@ -10,15 +13,40 @@ export default function EditForm({ pin, setShowModal, user }) {
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
     const [errors, setErrors] = useState([]);
     const [link, setLink] = useState(pin?.link ? pin?.link : '')
+    const [selectedBoard, setSelectedBoard] = useState(null)
+    const boards = useSelector(state => Object.values(state?.boards))
     const history = useHistory()
     const dispatch = useDispatch();
 
+    // const pinned = boards.find(board => board.pins)
+    const pinned = boards.map(board => {
+        return { board: `${board.id}`, board_pins: `${Object.keys(board.pins)}` }
+    });
+
+    console.log('pinned', pinned)
+
+
+    useEffect(() => {
+        dispatch(load_boards_by_user(user?.id))
+    }, [dispatch]);
+
+    const options = boards.map(board => {
+        return { value: `${board?.id}`, label: `${board?.name}` }
+
+    })
+    // { value: 'chocolate', label: 'Chocolate' },
+    //         { value: 'strawberry', label: 'Strawberry' },
+
+    useEffect(() => {
+        console.log('---', selectedBoard)
+
+    }, [selectedBoard])
+
 
     const handleSubmit = async (e) => {
-
         e.preventDefault()
         const updated_pin = {
-            title, description, image: pin?.image, link, user_id: user?.id
+            title, description, image: pin?.image, link, user_id: user?.id, selectedBoard: selectedBoard.value
         };
 
         const data = dispatch(update_pin(pin?.id, updated_pin)).then((data) => {
@@ -44,8 +72,14 @@ export default function EditForm({ pin, setShowModal, user }) {
                                 <div key={ind}>{error}</div>
                             ))}
                         </div>
+                        <div>
+                            <Select
+                                defaultValue={selectedBoard}
+                                onChange={setSelectedBoard}
+                                options={options} />
+                        </div>
+
                         <label>title</label>
-                        {/* {errors.title && <div>{errors.title}</div>} */}
                         <input
                             name='title'
                             type='text'
