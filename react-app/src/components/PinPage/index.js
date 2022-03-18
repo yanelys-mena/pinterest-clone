@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { pins_boards } from '../../store/pin_board';
 import { useParams, useHistory, Link } from 'react-router-dom'
 import EditPinModal from '../EditPinModal';
 import './PinPage.css'
@@ -7,13 +8,18 @@ import './PinPage.css'
 export default function PinPage() {
     const { pinId } = useParams();
     const history = useHistory();
-
+    const pin_boards = useSelector(state => Object.values(state?.pinBoard)[0])
     const pin = useSelector(state => state?.pins[pinId])
     const user = useSelector(state => state?.session?.user)
+    const dispatch = useDispatch()
 
     const [showComments, setShowComments] = useState(true)
 
+    useEffect(() => {
+        dispatch(pins_boards(pin?.id, user?.id))
+    }, [dispatch]);
 
+    // console.log(pin_boards?.name)
     return (
         <>
             {pin &&
@@ -29,7 +35,7 @@ export default function PinPage() {
                         </div>
                         <div id="pinContentRight">
                             <div id="pinPageHeader">
-                                <EditPinModal pin={pin} user={user} />
+                                <EditPinModal pin={pin} user={user} pin_boards={pin_boards} />
                                 <button id="pinSaveBtn">Save</button>
                             </div>
                             <div id="pinPageInfo">

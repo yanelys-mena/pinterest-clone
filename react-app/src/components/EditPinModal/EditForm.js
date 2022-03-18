@@ -3,28 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { delete_pin, update_pin } from '../../store/pins';
 import { load_boards_by_user } from '../../store/boards';
-
 import Select from 'react-select'
 /* eslint-disable */
 
-export default function EditForm({ pin, setShowModal, user }) {
+export default function EditForm({ pin, setShowModal, user, pin_boards }) {
 
     const [title, setTitle] = useState(pin?.title)
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
     const [errors, setErrors] = useState([]);
     const [link, setLink] = useState(pin?.link ? pin?.link : '')
-    const [selectedBoard, setSelectedBoard] = useState(null)
+    const [selectedBoard, setSelectedBoard] = useState(pin_boards?.name ? pin_boards.name : null)
     const boards = useSelector(state => Object.values(state?.boards))
     const history = useHistory()
     const dispatch = useDispatch();
-
-    // const pinned = boards.find(board => board.pins)
-    const pinned = boards.map(board => {
-        return { board: `${board.id}`, board_pins: `${Object.keys(board.pins)}` }
-    });
-
-    console.log('pinned', pinned)
-
 
     useEffect(() => {
         dispatch(load_boards_by_user(user?.id))
@@ -74,6 +65,7 @@ export default function EditForm({ pin, setShowModal, user }) {
                         </div>
                         <div>
                             <Select
+                                id="pinSelect"
                                 defaultValue={selectedBoard}
                                 onChange={setSelectedBoard}
                                 options={options} />
