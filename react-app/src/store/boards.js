@@ -54,10 +54,14 @@ export const add_board = (board) => async (dispatch) => {
     if (response.ok) {
         const board = await response.json();
         dispatch(add(board));
-        return board;
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
-        const errors = await response.json();
-        return errors;
+        return ['An error occurred. Please try again.']
     }
 };
 
@@ -77,10 +81,14 @@ export const update_board = (boardId, board) => async (dispatch) => {
     if (response.ok) {
         const board = await response.json();
         dispatch(update(board));
-        return board;
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
-        const errors = await response.json();
-        return errors;
+        return ['An error occurred. Please try again.']
     }
 };
 
@@ -93,10 +101,14 @@ export const delete_board = (boardId) => async (dispatch) => {
     if (response.ok) {
         const board = await response.json();
         dispatch(to_delete(board));
-        return board;
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
-        const errors = await response.json();
-        return errors;
+        return ['An error occurred. Please try again.']
     }
 };
 
@@ -120,7 +132,9 @@ const boardsReducer = (state = initialState, action) => {
         }
 
         case UPDATE: {
-            return { [action.board.id]: action.board, ...state };
+            newState = { ...state }
+            newState[action.board.id] = action.board
+            return { ...newState };
         }
 
         case DELETE: {

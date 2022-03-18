@@ -8,8 +8,8 @@ import SearchBar from './SearchBar';
 import AccountMenu from './AccountMenu';
 
 const NavBar = () => {
-  const user = useSelector((state) => state?.session);
-
+  const user = useSelector((state) => state?.session.user);
+  // console.log(user.photo)
   return (
     <nav>
       <div id="navBarDiv">
@@ -30,10 +30,13 @@ const NavBar = () => {
             <NavLink to="#"><i className="fa-solid fa-bell"> </i></NavLink>
           </div>
           <div className="faIcons">
-            <NavLink to="/pinbuilder"><i className="fa-solid fa-circle-plus"></i></NavLink>
+            <NavLink to="/pinbuilder"> <i className="fa-solid fa-circle-plus"></i>
+            </NavLink>
           </div>
           <div className="faIcons">
-            <NavLink to="#"><i className="fas fa-user-circle"></i></NavLink>
+            <NavLink to={`/profile/${user?.id}`}>
+              {user ? <img id="navUserPhoto" src={user.photo} alt='userphoto'></img> : <i className="fas fa-user-circle"></i>}</NavLink>
+
 
           </div>
           <div id="accoutIcon" >

@@ -94,7 +94,7 @@
     cursor: pointer;
 }
 
-#userInfo {
+#userInfo a{
     display: flex;
     gap: 10px;
     justify-content: flex-start;

@@ -1,54 +1,50 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { delete_pin, update_pin } from '../../store/pins';
+import { load_boards_by_user } from '../../store/boards';
+import Select from 'react-select'
+/* eslint-disable */
 
-
-export default function EditForm({ pin, setShowModal, user }) {
+export default function EditForm({ pin, setShowModal, user, pin_boards }) {
+    console.log('ediForm', pin_boards)
 
     const [title, setTitle] = useState(pin?.title)
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
-    // const [image, setImage] = useState(pin?.image)
     const [errors, setErrors] = useState([]);
     const [link, setLink] = useState(pin?.link ? pin?.link : '')
+    const [selectedBoard, setSelectedBoard] = useState(pin_boards?.name ? pin_boards.name : null)
+    const boards = useSelector(state => Object.values(state?.boards))
     const history = useHistory()
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(title)
-    }, [title])
+        dispatch(load_boards_by_user(user?.id))
+    }, [dispatch]);
+
+    const options = boards.map(board => {
+        return { value: `${board?.id}`, label: `${board?.name}` }
+    })
 
     const handleSubmit = async (e) => {
-
-
-        console.log(title)
         e.preventDefault()
         const updated_pin = {
-            title, description, image: pin?.image, link, user_id: user?.id
+            title, description, image: pin?.image, link, user_id: user?.id, selectedBoard: selectedBoard?.value
         };
 
         const data = dispatch(update_pin(pin?.id, updated_pin)).then((data) => {
-            console.log(data)
+            data ? setErrors(data) : setShowModal(false);
         });
-        // console.log('data', data)
-        // if (data) {
-        //     setErrors(data);
-        //     console.log(errors)
-        // }
-
-        setShowModal(false);
-        // (async () => {
-        //     await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
-        //     ).then(() => history.push(`/pins/${pinId}`))
-        // })();
     }
 
     const handleDelete = (e) => {
         e.preventDefault();
-
         dispatch(delete_pin(pin?.id));
-        history.push('/')
+        history.goBack()
     }
+
+    console.log(selectedBoard, pin_boards)
+
 
     return (
         <div id="editPinModal">
@@ -56,6 +52,18 @@ export default function EditForm({ pin, setShowModal, user }) {
             <div id="editFormDiv">
                 <div id="editLeft">
                     <form id="ediPinForm">
+                        <div>
+                            {errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            ))}
+                        </div>
+                        <div id="react-select">
+                            <Select
+                                defaultValue={selectedBoard}
+                                onChange={setSelectedBoard}
+                                options={options} />
+                        </div>
+
                         <label>title</label>
                         <input
                             name='title'
@@ -78,16 +86,8 @@ export default function EditForm({ pin, setShowModal, user }) {
                             type='text'
                             placeholder='Add a destination link'
                             value={link}
-                            onChange={(e) => setLink(e.target.value)}>
+                            onChange={(e) => setLink(e.target.value.toLowerCase())}>
                         </input>
-                        {/* <label>image</label> */}
-                        {/* <input
-                            name='image'
-                            type='text'
-                            placeholder='Add an image'
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}>
-                        </input> */}
                     </form>
 
                 </div>

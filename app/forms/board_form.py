@@ -1,7 +1,7 @@
 from typing import Text
 from flask_wtf import FlaskForm
 from sqlalchemy import Integer
-from wtforms import StringField, TextAreaField, IntegerField
+from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired, Length
 
 

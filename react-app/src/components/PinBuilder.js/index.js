@@ -1,5 +1,5 @@
 import './PinBuilder.css';
-import { useState, useEffect } from 'react';
+import { useState, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { add_pin } from '../../store/pins'
 import { useHistory } from 'react-router-dom';

@@ -12,7 +12,8 @@ import { authenticate } from './store/session';
 import Homepage from './components/Homepage';
 import PinPage from './components/PinPage';
 import PinBuilder from './components/PinBuilder.js';
-
+import UserProfile from './components/UserProfile';
+import BoardPage from './components/BoardPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -40,11 +41,8 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+        <ProtectedRoute path='/profile/:profileId' exact={true} >
+          <UserProfile />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <Homepage />
@@ -54,6 +52,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/pinbuilder' exact={true} >
           <PinBuilder />
+        </ProtectedRoute>
+        <ProtectedRoute path='/profile/:profileId/boards/:boardId' exact={true} >
+          <BoardPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

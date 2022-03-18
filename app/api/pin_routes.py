@@ -1,7 +1,7 @@
 from xml.etree.ElementTree import Comment
 from flask import Blueprint, jsonify, request, make_response
 from flask_login import login_required
-from app.models import Pin, db
+from app.models import Pin, db, Board
 from app.forms.pin_form import PinForm
 
 pin_routes = Blueprint('comments', __name__)
@@ -63,6 +63,11 @@ def update_pin(pin_id):
         pin_to_update.image=data['image'],
         pin_to_update.link=data['link'],
         pin_to_update.user_id=data['user_id'], 
+
+        if data['board_id']:
+            print('testn', data['board_id'])
+            board = Board.query.get(data['board_id'])
+            board.pins.append(pin_to_update)
         
         db.session.commit()
         return pin_to_update.to_dict()
