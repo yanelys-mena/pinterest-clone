@@ -46,9 +46,8 @@ export default function PinPage() {
                         {pin?.description ?
                             <div id="description">{pin?.description} </div> : ''}
                         <div id="userInfo">
-                            <div id="userPhoto"><img src={user?.photo} alt='userPhoto'></img></div>
-                            <div>{user?.username}</div>
-                            {/* <div>followbutton</div> */}
+                            <div id="userPhoto"><img src={pin?.user?.photo} alt='userPhoto'></img></div>
+                            <div>{pin?.user?.username}</div>
                         </div>
                     </div>
                     <div id="comments">
