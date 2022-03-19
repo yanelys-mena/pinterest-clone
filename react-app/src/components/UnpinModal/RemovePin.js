@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { remove_pin_from_board } from '../../store/boards';
+import { load_pins } from "../../store/pins";
 
 
 export default function RemovePin({ pin }) {
@@ -9,6 +10,9 @@ export default function RemovePin({ pin }) {
     const [isRemoved, setIsRemoved] = useState('');
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(load_pins(pin.id))
+    }, [isRemoved])
 
     const removePin = (e, boardId) => {
         e.preventDefault();

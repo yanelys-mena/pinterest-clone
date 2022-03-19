@@ -17,7 +17,6 @@ export default function BoardPage() {
     const isCurrentUser = profileId === user?.id
 
     useEffect(() => {
-        // dispatch(load_profile(profileId))
         dispatch(boards_by_profile(parseInt(profileId)))
     }, [dispatch, profileId])
 

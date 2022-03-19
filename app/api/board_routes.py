@@ -123,7 +123,4 @@ def delete_pin_from_board():
     if pin and board:
         board.pins.remove(pin)
         db.session.commit()
-        return {'success': 'success'}
-    else:
-        return make_response('Pin or Board does not exist.')
-    
+    return board.to_dict()
