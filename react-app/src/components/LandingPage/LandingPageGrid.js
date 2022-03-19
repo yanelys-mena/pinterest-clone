@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
+import './LandingPage.css'
 
 
-export default function LandingPageGrid() {
+export default function LandingPageGrid({ pins }) {
     return (
         <div id="landingGrid">
-            {[...Array(8)].map((i, idx) =>
+            {pins.map((pin) =>
                 <>
-
-                    <div id="fadeIn">
-                        <img style={{ height: '100px' }} src="https://www.creativelive.com/blog/wp-content/uploads/2018/08/Stocksy_txp3af6e914r0u000_Medium_896968-1.jpg"></img>
+                    <div id="fadeIn" className="landing_card" key={pin?.id}>
+                        <img id="landing_img" src={pin?.image}></img>
                     </div>
                 </>
             )}

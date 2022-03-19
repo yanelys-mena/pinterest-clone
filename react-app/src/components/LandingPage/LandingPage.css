@@ -3,27 +3,79 @@
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* position: relative; */
+    /* display: flex;
+    flex-direction: column; */
+    /* align-items: center; */
+
 }
 
 #landingGrid {
-    column-count: 6;
+    /* column-count: 7; */
+    /* column-count: 9; */
     display: flex;
+    /* flex-wrap: wrap; */
+    /* display: flex; */
+    width: 90%;
+    height: 100%;
+    
+    background-color: red;
 }
+
+#fadeIn {
+    
+    box-sizing: border-box;
+    margin-bottom: 10px; 
+    object-fit: cover;
+    width: 536px;
+    height: 100px;
+    overflow: hidden;
+    background-color: blue;
+    height: 100%;
+    
+
+
+};
+
+ .landing_card > img{
+    object-fit: cover;
+    width: 236px;
+
+    height: 100px;
+
+}
+
+
+
 
 #topPage {
     min-height: 100vh;
     width: 100%;
     background-color: red;
-}
+} 
+
+/* #bottomPage::before {
+    background-image: url('https://i.pinimg.com/736x/27/b8/c2/27b8c23ce22650ee244c8d9e189cf79e.jpg');
+    opacity: 0.75;
+    filter: grayscale(100%);
+} */
 
 #bottomPage {
+    padding: 80px;
+    min-height: 100vh;
     width: 100%;
-    background-color: blue;
+    display: flex;
+    justify-content: flex-end;
+    /* background-image:
+    url(https://blogs.constantcontact.com/wp-content/uploads/2021/02/img_60366e36a104f.png); */
 }
+
+    /* background-color: blue;
+    background-image: url('https://i.pinimg.com/736x/27/b8/c2/27b8c23ce22650ee244c8d9e189cf79e.jpg'); */
+    /* opacity: 0.75; */
+
+
+
 
 /* SCROLL TO BOTTOM ANIMATION */
 
@@ -37,18 +89,18 @@
     background-color: #407A57;
     color: white;
     position: absolute; 
-    top: 60%;
+    top: 40%;
     left: 50%;
     animation: bounce 0.8s infinite alternate;
 }
 
 
 @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-40px); } }
-
+/* 
 #fadeIn > img, limg {
     height: 400px;
     height: 200px;
-}
+} */
 
 
 /* FULL DIV FADE IN */
@@ -83,6 +135,7 @@ ul {
     width: 25%;
   } */
 
+  /*
 #fadeIn {
     position: relative;
     width: 100%
@@ -139,3 +192,4 @@ ul {
       opacity: 1;
     }
   } 
+  */

@@ -1,58 +1,30 @@
 import './LandingPage.css';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import { useDispatch, useSelector, } from 'react-redux';
+import PinGrid from '../PinGrid'
+
 import LandingPageGrid from './LandingPageGrid';
 import LoginForm from '../auth/LoginForm'
 
 export default function LandingPage() {
+    const pins = useSelector(state => Object.values(state?.pins));
+    const [showLogin, setShowLogin] = useState(false)
 
-    const messagesEndRef = useRef(null)
+    const scrollRef = useRef(null)
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+        scrollRef.current?.scrollIntoView({ behavior: "smooth" })
+        setShowLogin(true)
     }
-
-    // useEffect(() => {
-    //     scrollToBottom()
-
-    // }, []);
-
 
     return (
         <div id="landingPage">
-            landing page
-
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" rel="stylesheet" />
-            <div id="topPage">   <LandingPageGrid /></div>
-            <div id="bottomPage">
-                <div>HEYPPP</div>
-                <LoginForm />
-            </div>
+            <PinGrid pins={pins} />
+            <PinGrid pins={pins} />
+            {showLogin && <LoginForm />}
 
             <button onClick={scrollToBottom} id="landing_arrow" > <i className="fa-solid fa-angle-down "></i></button >
-            <div ref={messagesEndRef} />
+            <div ref={scrollRef} />
         </div >
     )
 }
-
-/*
-
-const Messages = ({ messages }) => {
-
-  const messagesEndRef = useRef(null)
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  useEffect(() => {
-    scrollToBottom()
-  }, [messages]);
-
-  return (
-    <div>
-      {messages.map(message => <Message key={message.id} {...message} />)}
-      <div ref={messagesEndRef} />
-    </div>
-  )
-}
-*/
