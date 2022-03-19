@@ -1,80 +1,12 @@
 #landingPage{
-    background-color: palegoldenrod;
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    /* position: relative; */
-    /* display: flex;
-    flex-direction: column; */
-    /* align-items: center; */
-
-}
-
-#landingGrid {
-    /* column-count: 7; */
-    /* column-count: 9; */
     display: flex;
-    /* flex-wrap: wrap; */
-    /* display: flex; */
-    width: 90%;
-    height: 100%;
-    
-    background-color: red;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
-
-#fadeIn {
-    
-    box-sizing: border-box;
-    margin-bottom: 10px; 
-    object-fit: cover;
-    width: 536px;
-    height: 100px;
-    overflow: hidden;
-    background-color: blue;
-    height: 100%;
-    
-
-
-};
-
- .landing_card > img{
-    object-fit: cover;
-    width: 236px;
-
-    height: 100px;
-
-}
-
-
-
-
-#topPage {
-    min-height: 100vh;
-    width: 100%;
-    background-color: red;
-} 
-
-/* #bottomPage::before {
-    background-image: url('https://i.pinimg.com/736x/27/b8/c2/27b8c23ce22650ee244c8d9e189cf79e.jpg');
-    opacity: 0.75;
-    filter: grayscale(100%);
-} */
-
-#bottomPage {
-    padding: 80px;
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    /* background-image:
-    url(https://blogs.constantcontact.com/wp-content/uploads/2021/02/img_60366e36a104f.png); */
-}
-
-    /* background-color: blue;
-    background-image: url('https://i.pinimg.com/736x/27/b8/c2/27b8c23ce22650ee244c8d9e189cf79e.jpg'); */
-    /* opacity: 0.75; */
-
-
 
 
 /* SCROLL TO BOTTOM ANIMATION */
@@ -89,15 +21,31 @@
     background-color: #407A57;
     color: white;
     position: absolute; 
-    top: 40%;
+    top: 10%;
     left: 50%;
     animation: bounce 0.8s infinite alternate;
+}
+
+#top {
+    min-height: 100vh ;
+    background-color: palegoldenrod;
+    width: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+
+#loginSection {
+
+    min-height: 100vh;
+    background-color: pink;
+    width: 100%;
 }
 
 
 @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-40px); } }
 /* 
-#fadeIn > img, limg {
+.fadeIn > img, limg {
     height: 400px;
     height: 200px;
 } */
@@ -105,7 +53,7 @@
 
 /* FULL DIV FADE IN */
 /* 
-#fadeIn {
+.fadeIn {
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -119,34 +67,22 @@
     100% {
         opacity: 1;
      }
-}  */
-
+}   */
 
 
 /* TIMED FADE IN */
-/*  
-ul {
-    position: relative;
-    width: 100%
-  }
-  
-  li {
-    float: left;
-    width: 25%;
-  } */
 
-  /*
-#fadeIn {
+.fadeIn {
     position: relative;
     width: 100%
 }
 
-#fadeIn > img {
+.fadeIn > img {
     float: left;
     width: 25%;
 }
   
-#fadeIn img {
+.fadeIn img {
     width: 100%;
     opacity: 0;
     animation-name: fadeIn;
@@ -155,31 +91,31 @@ ul {
     animation-fill-mode: forwards;
   }
   
-  #fadeIn:nth-child(2) > img {
+  .fadeIn:nth-child(2) > img {
     animation-delay: 3s;
   }
   
-  #fadeIn:nth-child(3) > img {
+  .fadeIn:nth-child(3) > img {
     animation-delay: 2s;
   }
   
-  #fadeIn:nth-child(4) > img {
+  .fadeIn:nth-child(4) > img {
     animation-delay: 1s;
   }
   
-  #fadeIn:nth-child(5) > img {
+  .fadeIn:nth-child(5) > img {
     animation-delay: 3s;
   }
   
-  #fadeIn:nth-child(6) > img {
+  .fadeIn:nth-child(6) > img {
     animation-delay: 15s;
   }
   
-  #fadeIn:nth-child(7) > img {
+  .fadeIn:nth-child(7) > img {
     animation-delay: 18s;
   }
   
-  #fadeIn:nth-child(8) > img {
+  .fadeIn:nth-child(8) > img {
     animation-delay:21s;
   }
   
@@ -192,4 +128,3 @@ ul {
       opacity: 1;
     }
   } 
-  */

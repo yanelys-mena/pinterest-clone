@@ -19,12 +19,18 @@ export default function LandingPage() {
 
     return (
         <div id="landingPage">
-            <PinGrid pins={pins} />
-            <PinGrid pins={pins} />
-            {showLogin && <LoginForm />}
+            <div id="top">
+                <PinGrid pins={pins} />
+            </div>
+
 
             <button onClick={scrollToBottom} id="landing_arrow" > <i className="fa-solid fa-angle-down "></i></button >
-            <div ref={scrollRef} />
+
+            <div id="loginSection">
+                {showLogin && <LoginForm />}
+
+            </div>
+            <div ref={scrollRef}>hello</div>
         </div >
     )
 }
