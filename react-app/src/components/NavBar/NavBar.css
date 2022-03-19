@@ -146,3 +146,41 @@
     background-color: #efefef;
 
   }
+
+  #login_nav_button {
+      width: 75px;
+      height: 40px;
+      background-color: #E60022;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-right: 2px;
+      font-weight: 700;
+  }
+
+  #login_nav_button > *{
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+}
+
+
+#signup_nav_button {
+    width: 75px;
+    height: 40px;
+    background-color: #EFEFEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#signup_nav_button > *{
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}

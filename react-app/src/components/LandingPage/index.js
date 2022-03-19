@@ -1,6 +1,6 @@
 import './LandingPage.css';
-import { useRef, useEffect, useState } from 'react';
-import { useDispatch, useSelector, } from 'react-redux';
+import { useRef, useState } from 'react';
+import { useSelector, } from 'react-redux';
 import { Modal } from '../../context/Modal'
 import PinGrid from '../PinGrid'
 import LoginModal from '../LoginModal'
