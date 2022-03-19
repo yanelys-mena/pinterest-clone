@@ -5,7 +5,7 @@ import { signUp } from '../../store/session';
 import './SignUpForm.css'
 
 
-const SignUpForm = () => {
+const SignUpForm = ({ setPage, page }) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -17,12 +17,11 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
-      }
+      const data = await dispatch(signUp(username, email, password)).then(data => setErrors(data));
+    } else {
+      setErrors(["password : Passwords must match."])
     }
-  };
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -49,6 +48,8 @@ const SignUpForm = () => {
       <div id="login_logo"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt='logo'></img></div>
       <div id="welcome">Welcome to Pinterest</div>
       <div>Find new ideas to try</div>
+
+
       <div id="signup_formDiv">
         <form onSubmit={onSignUp} id="signup_form">
           <div>
@@ -85,7 +86,9 @@ const SignUpForm = () => {
             value={repeatPassword}
             required={true}
           ></input>
-          <button type='submit'>Continue</button>
+          <button type='submit' id='signup_button'>Continue</button>
+          <div id='login_terms'>By continuing, you agree to Pinterest's <span className="bolded_words">Terms of Service</span> and acknowledge you've read our <span className="bolded_words">Privacy Policy</span></div>
+          <div onClick={() => setPage(1)} id='switch_page'>Not on Pinterest yet? Sign up</div>
         </form>
 
       </div>

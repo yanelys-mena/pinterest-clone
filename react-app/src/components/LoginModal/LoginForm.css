@@ -68,8 +68,7 @@
     background-color: #E60022;
     height: 45px;
     width: 100%;
-    border-radius: 22.5px;
-    border: 2px #d3d3d3 solid;
+    border-radius: 22.5px; 
     color: white;
     font-size: 16px;
     font-weight: 700;
@@ -82,11 +81,6 @@
 #login_terms{
     font-size: 13px;
     font-weight: 300;
-    /* width: 50%; */
-    /* display: flex;
-    justify-content: center;
-    text-align: justify; */
-    background-color: palegoldenrod;
 }
 
 #switch_page {

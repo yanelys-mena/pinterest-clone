@@ -8,7 +8,7 @@
     box-sizing: border-box;
     padding: 20px;
     border-radius: 20px;
-    gap: 25px;
+    gap: 16px;
     min-height: 70vh;
     min-width: 35vw;
     background-color: white;
@@ -48,7 +48,6 @@
     height: 45px;
     width: 100%;
     border-radius: 22.5px;
-    border: 2px #d3d3d3 solid;
     color: white;
     font-size: 16px;
     font-weight: 700;

@@ -35,7 +35,7 @@ const LoginForm = ({ setPage, page }) => {
   return (
     <div id="loginFormModal">
       <div id="login_logo"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt='logo'></img></div>
-      <div id="welcome">Welcome to Pinterest</div>
+      <div id="welcome">Welcome to Pin</div>
       <div id="login_formDiv">
         <form onSubmit={onLogin} id="loginForm">
           <div>
