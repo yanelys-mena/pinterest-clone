@@ -5,7 +5,7 @@ import { signUp } from '../../store/session';
 import './SignUpForm.css'
 
 
-const SignUpForm = ({ setPage, page }) => {
+const SignUpForm = ({ setPage, page, setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -40,6 +40,7 @@ const SignUpForm = ({ setPage, page }) => {
   };
 
   if (user) {
+    setShowModal(false)
     return <Redirect to='/' />;
   }
 

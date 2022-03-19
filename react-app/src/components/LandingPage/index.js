@@ -9,7 +9,6 @@ export default function LandingPage() {
     const pins = useSelector(state => Object.values(state?.pins));
     const [showModal, setShowModal] = useState(false);
 
-
     const scrollRef = useRef(null)
 
     const scrollToBottom = () => {
@@ -34,12 +33,12 @@ export default function LandingPage() {
             <div id="loginSection">
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <LoginModal />
+                        <LoginModal setShowModal={setShowModal} />
                     </Modal>
                 )}
 
             </div>
-            <div id="test" ref={scrollRef}>hello</div>
+            <div ref={scrollRef}>hello</div>
         </div >
     )
 }

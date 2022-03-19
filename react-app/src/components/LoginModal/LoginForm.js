@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 
-const LoginForm = ({ setPage, page }) => {
+const LoginForm = ({ setPage, page, setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,7 +29,8 @@ const LoginForm = ({ setPage, page }) => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    setShowModal(false)
+    return <Redirect to='/#leftNav' />;
   }
 
   return (
