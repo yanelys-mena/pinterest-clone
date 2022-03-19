@@ -104,14 +104,8 @@ def delete_board(board_id):
 def add_pin_to_board():
     pin = Pin.query.get(request.json['pin_id'])
     board = Board.query.get(request.json['board_id'])
-    
-    # all_pins_on_board = {pin.id: pin.to_dict() for pin in board.pins }
-    # print('****',all_pins_on_board) 
-    
+
     if pin and board:
-        # if pin.id in all_pins_on_board.keys():
-        #     return {'errors': [{'pinned': 'Already on Board'}]}
-        # else: 
         board.pins.append(pin)
         db.session.commit()
         print('======',board.to_dict())

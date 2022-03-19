@@ -117,7 +117,6 @@ export const delete_board = (boardId) => async (dispatch) => {
 
 
 export const add_pin_to_board = (pin_id, board_id) => async (dispatch) => {
-    console.log('in thunk for adding pin to board')
     const response = fetch('/api/boards/pin-board/', {
         method: "POST",
         headers: {
@@ -128,29 +127,22 @@ export const add_pin_to_board = (pin_id, board_id) => async (dispatch) => {
             board_id
         })
     }).then(res => res.json()).then(data => dispatch(update(data)));
-
-    // if (!response.ok) {
-    //     console.log('error')
-    // } else {
-    //     console.log('worked')
-    // }
-    // console.log('response thunk', response.json())
-    // if (response.ok) {
-    //     const board = await response.json();
-    //     console.log('HELLO FRON THUNK', pin)
-    //     dispatch(update(board));
-    //     return pin;
-    // } else if (response.status < 500) {
-    //     const data = await response.json();
-    //     console.log('notOK', data)
-    //     if (data.errors) {
-    //         return data.errors;
-    //     }
-    // } else {
-    //     return [{ error: 'An error occurred. Please try again.' }]
-    // }
 };
 
+
+
+export const remove_pin_from_board = (pin_id, board_id) => async (dispatch) => {
+    const response = fetch('/api/boards/pin-board/', {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            pin_id,
+            board_id
+        })
+    }).then(res => res.json()).then(data => console.log('DATA;', data));
+};
 
 
 let initialState = {};
