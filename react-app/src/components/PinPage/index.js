@@ -70,7 +70,10 @@ export default function PinPage() {
                             <div id="description">{pin?.description} </div> : ''}
                         <div id="userInfo">
                             <Link to={`/profile/${pin?.user?.id}`} style={{ textDecoration: 'none' }} target="_blank">
-                                <div id="userPhoto"><img src={pin?.user?.photo} alt='userPhoto'></img></div>
+                                <div id="userPhoto">
+                                    {pin?.user?.photo ? <img src={pin?.user?.photo} alt='userPhoto'></img>
+                                        : <i className="fas fa-user-circle"></i>}
+                                </div>
                                 <div>{pin?.user?.username}</div>
                             </Link>
                         </div>
