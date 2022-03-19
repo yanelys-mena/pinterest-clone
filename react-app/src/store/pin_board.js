@@ -29,10 +29,9 @@ export const pins_boards = (pin_id, user_id) => async (dispatch) => {
 let initialState = { pin: null };
 
 const pin_board_reducer = (state = initialState, action) => {
-    let newState;
+    // let newState = {}
     switch (action.type) {
         case LOAD_PINS: {
-            newState = {};
             return { pin: action.pin_board }
         }
 

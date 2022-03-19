@@ -22,7 +22,7 @@ export default function PinGrid({ pins, boards }) {
 
                 {!user && <>
                     {pins?.map(pin => (
-                        <PinCardNotLoggedIn pin={pin} />
+                        <PinCardNotLoggedIn pin={pin} key={pin.id} />
                     ))}
                 </>
                 }

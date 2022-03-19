@@ -149,7 +149,6 @@ let initialState = {};
 
 const boardsReducer = (state = initialState, action) => {
     let newState;
-    console.log('REDUCER', action.board)
     switch (action.type) {
         case LOAD: {
             newState = { ...state };

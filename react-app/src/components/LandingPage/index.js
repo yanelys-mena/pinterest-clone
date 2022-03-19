@@ -1,5 +1,5 @@
 import './LandingPage.css';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector, } from 'react-redux';
 import { Modal } from '../../context/Modal'
 import PinGrid from '../PinGrid'
@@ -14,7 +14,12 @@ export default function LandingPage() {
 
     const scrollToBottom = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" })
-        setShowModal(true)
+    }
+
+    window.onscroll = function () {
+        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+            setShowModal(true)
+        }
     }
 
     return (
@@ -34,7 +39,7 @@ export default function LandingPage() {
                 )}
 
             </div>
-            <div ref={scrollRef}>hello</div>
+            <div id="test" ref={scrollRef}>hello</div>
         </div >
     )
 }

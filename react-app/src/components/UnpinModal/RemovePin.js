@@ -12,7 +12,7 @@ export default function RemovePin({ pin }) {
 
     useEffect(() => {
         dispatch(load_pins(pin.id))
-    }, [isRemoved, dispatch])
+    }, [isRemoved, dispatch, pin.id])
 
     const removePin = (e, boardId) => {
         e.preventDefault();

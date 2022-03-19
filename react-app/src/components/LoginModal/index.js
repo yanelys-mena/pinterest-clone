@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import SignUpForm from './SignUpForm'
 import LoginForm from './LoginForm'
 
 
 const LoginModal = () => {
-    const user = useSelector(state => state.session.user);
     const [page, setPage] = useState(1)
 
     return (

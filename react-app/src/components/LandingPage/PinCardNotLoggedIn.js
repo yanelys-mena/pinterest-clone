@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Link } from 'react-router-dom';
+
 
 
 export default function PinCardNotLoggedIn({ pin, boards }) {
@@ -8,7 +7,7 @@ export default function PinCardNotLoggedIn({ pin, boards }) {
         <div
             id="pinCard" >
             <div id="cardImg" className="fadeIn">
-                <img id='pinImg' src={pin?.image} alt='pin'></img>
+                <img id='pinImg' src={pin?.image} alt=''></img>
             </div>
         </div >
     )
