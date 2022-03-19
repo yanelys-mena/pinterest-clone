@@ -4,6 +4,7 @@ import { useSelector, } from 'react-redux';
 import { Modal } from '../../context/Modal'
 import PinGrid from '../PinGrid'
 import LoginModal from '../LoginModal'
+import boardsReducer from '../../store/boards';
 
 export default function LandingPage() {
     const pins = useSelector(state => Object.values(state?.pins));
@@ -21,23 +22,44 @@ export default function LandingPage() {
         }
     }
 
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * (4 - 1) + 1);
+    }
+
+
+    {/* {getRandomInt(3) === 2 && <img src={pin.image} style={{ animationDelay: '2s' }}></img>} */ }
+    {/* {getRandomInt(3) === 3 && <img src={pin.image} style={{ animationDelay: '3s' }}></img>}</> */ }
+    // style= {{ animationDelay: `${getRandomInt(4)}s` }}
+
     return (
         <div id="landingPage">
             <div id="top">
-                <PinGrid pins={pins} />
+                {/* <PinGrid pins={pins} /> */}
+                <div id="landing_grid">
+                    {pins.map(pin =>
+                        <>
+                            {getRandomInt(3) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }}></img>
+                                : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }}></img>
+                                    : (getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }}></img> : ''))}
+
+                        </>
+
+                    )}
+
+                </div>
             </div>
 
 
             <button onClick={scrollToBottom} id="landing_arrow" > <i className="fa-solid fa-angle-down "></i></button >
 
-            <div id="loginSection">
-                {showModal && (
+            {
+                showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <LoginModal setShowModal={setShowModal} />
                     </Modal>
-                )}
+                )
+            }
 
-            </div>
             <div ref={scrollRef}>hello</div>
         </div >
     )

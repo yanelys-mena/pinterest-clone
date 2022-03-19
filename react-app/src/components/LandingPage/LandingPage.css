@@ -71,59 +71,62 @@
 
 /* TIMED FADE IN */
 
-.fadeIn {
-    position: relative;
-    width: 100%
+
+#landing_grid div {
+  position: relative;
+  width: 100%;
+  column-count: 7;
 }
 
-.fadeIn > img {
-    float: left;
-    width: 25%;
+
+img {
+  width: 200px;
+  opacity: 0;
+  float: left;
+  border-radius: 20px;
+   animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; 
+  margin: 10px;
 }
-  
-.fadeIn img {
-    width: 100%;
+
+
+/* div:nth-child(2) > img {
+  animation-delay: 3s;
+} */
+
+/* 
+li:nth-child(3) > img {
+  animation-delay: 2s;
+}
+
+li:nth-child(4) > img {
+  animation-delay: 1s;
+}
+
+li:nth-child(5) > img {
+  animation-delay: 2s;
+}
+
+li:nth-child(6) > img {
+  animation-delay: 15s;
+}
+
+li:nth-child(7) > img {
+  animation-delay: 4s;
+}
+
+li:nth-child(8) > img {
+  animation-delay:2s;
+} */
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    animation-name: fadeIn;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
   }
-  
-  .fadeIn:nth-child(2) > img {
-    animation-delay: 3s;
+
+  to {
+    opacity: 1;
   }
-  
-  .fadeIn:nth-child(3) > img {
-    animation-delay: 2s;
-  }
-  
-  .fadeIn:nth-child(4) > img {
-    animation-delay: 1s;
-  }
-  
-  .fadeIn:nth-child(5) > img {
-    animation-delay: 3s;
-  }
-  
-  .fadeIn:nth-child(6) > img {
-    animation-delay: 15s;
-  }
-  
-  .fadeIn:nth-child(7) > img {
-    animation-delay: 18s;
-  }
-  
-  .fadeIn:nth-child(8) > img {
-    animation-delay:21s;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    
-    to {
-      opacity: 1;
-    }
-  } 
+}  
