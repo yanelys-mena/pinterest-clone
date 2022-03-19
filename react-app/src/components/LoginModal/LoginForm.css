@@ -1,0 +1,45 @@
+#loginFormDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    height: 65%;
+    min-height: 60vh;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 15px;
+}
+
+#login_logo {
+    background-color: red;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login_logo  img{
+  height: 50px;
+  width: 50px;
+}
+
+#welcome {
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginForm {
+    width: 80%;
+    height: 80%;
+    background-color: palegoldenrod;
+}
+
+#loginForm > div {
+width: 100%;
+display: flex;
+}

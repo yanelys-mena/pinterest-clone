@@ -1,20 +1,20 @@
 import './LandingPage.css';
 import { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector, } from 'react-redux';
+import { Modal } from '../../context/Modal'
 import PinGrid from '../PinGrid'
-
-import LandingPageGrid from './LandingPageGrid';
-import LoginForm from '../auth/LoginForm'
+import LoginModal from '../LoginModal'
 
 export default function LandingPage() {
     const pins = useSelector(state => Object.values(state?.pins));
-    const [showLogin, setShowLogin] = useState(false)
+    const [showModal, setShowModal] = useState(false);
+
 
     const scrollRef = useRef(null)
 
     const scrollToBottom = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" })
-        setShowLogin(true)
+        setShowModal(true)
     }
 
     return (
@@ -27,7 +27,11 @@ export default function LandingPage() {
             <button onClick={scrollToBottom} id="landing_arrow" > <i className="fa-solid fa-angle-down "></i></button >
 
             <div id="loginSection">
-                {showLogin && <LoginForm />}
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <LoginModal />
+                    </Modal>
+                )}
 
             </div>
             <div ref={scrollRef}>hello</div>
