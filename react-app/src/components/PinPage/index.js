@@ -72,7 +72,7 @@ export default function PinPage() {
                             <Link to={`/profile/${pin?.user?.id}`} style={{ textDecoration: 'none' }} target="_blank">
                                 <div id="userPhoto">
                                     {pin?.user?.photo ? <img src={pin?.user?.photo} alt='userPhoto'></img>
-                                        : <i className="fas fa-user-circle"></i>}
+                                        : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
                                 </div>
                                 <div>{pin?.user?.username}</div>
                             </Link>
@@ -97,9 +97,13 @@ export default function PinPage() {
                                     <div id="commentTip">Share feedback, ask a question or give a high five
                                     </div>
                                     <div id="commentInputDiv">
-                                        <div id="userPhoto_comment"><img src={user?.photo} alt='userPhoto'></img></div>
+                                        <div id="userPhoto_comment">
+                                            {user?.photo ? <img src={user?.photo} alt='userPhoto'></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+
+
+                                        </div>
                                         <div id="formDiv">
-                                            <form disabled="disabled">
+                                            <form onSubmit={(e) => e.preventDefault()}>
                                                 <input
                                                     id="commentInput"
                                                     type='text'
@@ -115,7 +119,7 @@ export default function PinPage() {
 
                     </div>
                 </div>
-            </div>
+            </div >
         </div >
 
 

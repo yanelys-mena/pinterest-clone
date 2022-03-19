@@ -14,9 +14,9 @@ function SearchBar() {
     };
 
     return (
-        <form onSubmit={handleSubmit} id="searchInput">
+        <form onSubmit={(e) => e.preventDefault()} id="searchInput">
             <input
-                placeholder='Search'
+                placeholder='Search coming soon'
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 autoComplete='off'>
