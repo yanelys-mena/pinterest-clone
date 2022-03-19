@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Modal } from '../../context/Modal'
 import RemovePin from './RemovePin';
 
-export default function UnpinModal() {
+export default function UnpinModal({ pin }) {
     const [showModal, setShowModal] = useState(false);
 
 
@@ -14,7 +14,7 @@ export default function UnpinModal() {
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <RemovePin />
+                        <RemovePin pin={pin} />
                     </Modal>
                 )
             }

@@ -19,18 +19,15 @@ export default function PinPage() {
     const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(true)
     const [selectedOption, setSelectedOption] = useState(null);
-    const [selected, setSelected] = useState(false)
 
     const addToBoard = async (e) => {
         setSelectedOption(e)
-        // console.log('test', selectedOption)
         const pinned = dispatch(add_pin_to_board(pinId, parseInt(e.value)));
 
         if (pinned) {
             setIsPinned('saved')
         }
     }
-
 
 
     const options = boards.map(board => {
@@ -51,7 +48,7 @@ export default function PinPage() {
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
                         {pin?.user?.id === user?.id ?
-                            <EditPinModal pin={pin} user={user} /> : <UnpinModal />}
+                            <EditPinModal pin={pin} user={user} /> : <UnpinModal pin={pin} />}
 
                         <div id='select-pin'>
                             <div id="react-select">

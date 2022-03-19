@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     width: 40vw;
     height: 65%;
     min-height: 60vh;
@@ -9,12 +10,20 @@
     box-sizing: border-box;
     padding: 20px;
     border-radius: 20px;
+    gap: 50px;
+}
+
+#removePin_title {
+    font-size: 30px;
+    font-weight: 700;
 }
 
 #removePin_boards {
-    /* background-color: red; */
     width: 40%;
     height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .removePin_boardbtn {
@@ -26,7 +35,7 @@
     border-radius: 6px;
 }
 
-.message {
+.removePin_name {
     flex-grow: 1;
     padding: 12px;
 }
