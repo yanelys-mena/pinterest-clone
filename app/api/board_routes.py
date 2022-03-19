@@ -108,8 +108,9 @@ def add_pin_to_board():
     if pin and board:
         board.pins.append(pin)
         db.session.commit()
-        print('======',board.to_dict())
-    return board.to_dict()
+
+    updated_board = Board.query.get(request.json['board_id'])
+    return updated_board.to_dict()
 
 
     
@@ -123,4 +124,6 @@ def delete_pin_from_board():
     if pin and board:
         board.pins.remove(pin)
         db.session.commit()
-    return board.to_dict()
+        
+    updated_board = Board.query.get(request.json['board_id'])
+    return updated_board.to_dict()
