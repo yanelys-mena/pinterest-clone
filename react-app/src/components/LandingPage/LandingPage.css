@@ -9,6 +9,22 @@
     align-items: center;
 }
 
+#landingGrid {
+    column-count: 6;
+    display: flex;
+}
+
+#topPage {
+    min-height: 100vh;
+    width: 100%;
+    background-color: red;
+}
+
+#bottomPage {
+    width: 100%;
+    background-color: blue;
+}
+
 /* SCROLL TO BOTTOM ANIMATION */
 
 #landing_arrow {
@@ -21,7 +37,7 @@
     background-color: #407A57;
     color: white;
     position: absolute; 
-    top: 80%;
+    top: 60%;
     left: 50%;
     animation: bounce 0.8s infinite alternate;
 }
@@ -29,20 +45,15 @@
 
 @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-40px); } }
 
-#fadeIn > img {
+#fadeIn > img, limg {
     height: 400px;
+    height: 200px;
 }
 
 
-
-/* IMAGE APPEARS FROM BELOW ANIMATION */
-
-
-
-
 /* FULL DIV FADE IN */
-
-/* #fadeIn {
+/* 
+#fadeIn {
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -56,12 +67,12 @@
     100% {
         opacity: 1;
      }
-} */
+}  */
 
 
 
 /* TIMED FADE IN */
- 
+/*  
 ul {
     position: relative;
     width: 100%
@@ -70,9 +81,19 @@ ul {
   li {
     float: left;
     width: 25%;
-  }
+  } */
+
+#fadeIn {
+    position: relative;
+    width: 100%
+}
+
+#fadeIn > img {
+    float: left;
+    width: 25%;
+}
   
-  img {
+#fadeIn img {
     width: 100%;
     opacity: 0;
     animation-name: fadeIn;
@@ -81,31 +102,31 @@ ul {
     animation-fill-mode: forwards;
   }
   
-  li:nth-child(2) > img {
+  #fadeIn:nth-child(2) > img {
     animation-delay: 3s;
   }
   
-  li:nth-child(3) > img {
+  #fadeIn:nth-child(3) > img {
     animation-delay: 2s;
   }
   
-  li:nth-child(4) > img {
+  #fadeIn:nth-child(4) > img {
     animation-delay: 1s;
   }
   
-  li:nth-child(5) > img {
+  #fadeIn:nth-child(5) > img {
     animation-delay: 3s;
   }
   
-  li:nth-child(6) > img {
+  #fadeIn:nth-child(6) > img {
     animation-delay: 15s;
   }
   
-  li:nth-child(7) > img {
+  #fadeIn:nth-child(7) > img {
     animation-delay: 18s;
   }
   
-  li:nth-child(8) > img {
+  #fadeIn:nth-child(8) > img {
     animation-delay:21s;
   }
   
@@ -117,4 +138,4 @@ ul {
     to {
       opacity: 1;
     }
-  }
+  } 
