@@ -117,7 +117,7 @@ export const delete_board = (boardId) => async (dispatch) => {
 
 
 export const add_pin_to_board = (pin_id, board_id) => async (dispatch) => {
-    const response = fetch('/api/boards/pin-board/', {
+    fetch('/api/boards/pin-board/', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -132,7 +132,7 @@ export const add_pin_to_board = (pin_id, board_id) => async (dispatch) => {
 
 
 export const remove_pin_from_board = (pin_id, board_id) => async (dispatch) => {
-    const response = fetch('/api/boards/pin-board/', {
+    fetch('/api/boards/pin-board/', {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"

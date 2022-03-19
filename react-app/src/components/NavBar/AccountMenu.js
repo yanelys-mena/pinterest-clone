@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import LogoutButton from '../auth/LogoutButton';
 
 function AccountMenu(user) {
-    const username = Object.values(user)[0].username
-    console.log(username)
+    // const username = Object.values(user)[0].username
     const [showMenu, setShowMenu] = useState(false);
 
     const openMenu = () => {

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { delete_pin, update_pin } from '../../store/pins';
 import { load_boards_by_user } from '../../store/boards';
-import Select from 'react-select'
 /* eslint-disable */
 
 export default function EditForm({ pin, setShowModal, user, }) {
@@ -55,13 +54,6 @@ export default function EditForm({ pin, setShowModal, user, }) {
                                 <div key={ind}>{error}</div>
                             ))}
                         </div>
-                        {/* <div id="react-select">
-                            <Select
-                                defaultValue={selectedBoard}
-                                onChange={setSelectedBoard}
-                                options={options} />
-                        </div> */}
-
                         <label>title</label>
                         <input
                             name='title'

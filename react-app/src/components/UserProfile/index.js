@@ -34,7 +34,6 @@ export default function UserProfile() {
         dispatch(load_boards_by_user(profileId?.id))
     }, [user?.id, dispatch, profileId])
 
-    console.log(user?.id, profileId)
     useEffect(() => {
         dispatch(load_profile(profileId))
     }, [dispatch, profileId])

@@ -4,7 +4,6 @@ import { add_board, update_board, delete_board } from '../../store/boards';
 import './CreateBoardForm.css'
 
 export default function CreateBoardForm({ user, setShowModal, board }) {
-
     const [name, setName] = useState(board?.name ? board?.name : '')
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
@@ -16,7 +15,7 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
             name, user_id: user?.id
         };
 
-        const data = dispatch(add_board(new_board)).then((data) => {
+        dispatch(add_board(new_board)).then((data) => {
             data ? setErrors(data) : setShowModal(false);
         });
     }
@@ -28,7 +27,7 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
             name, user_id: user?.id
         };
 
-        const data = dispatch(update_board(board?.id, updated_board)).then((data) => {
+        dispatch(update_board(board?.id, updated_board)).then((data) => {
             data ? setErrors(data) : setShowModal(false);
         });
 
