@@ -3,7 +3,7 @@
 #navBarDiv {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     box-sizing: border-box;
     padding: 10px;
     width: 100%;
