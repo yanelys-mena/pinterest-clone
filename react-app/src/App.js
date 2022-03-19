@@ -22,19 +22,20 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      await dispatch(authenticate());
-
-      await dispatch(load_pins())
-
+      await dispatch(authenticate())
       setLoaded(true);
+      await dispatch(load_pins())
     })();
   }, [dispatch]);
 
-  useEffect(() =>
-    dispatch(load_boards_by_user(user?.id)))
 
   if (!loaded) {
     return null;
+  }
+
+  if (loaded) {
+    // dispatch(load_pins())
+    // dispatch(load_boards_by_user(user?.id))
   }
 
   return (

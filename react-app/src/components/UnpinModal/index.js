@@ -10,7 +10,6 @@ export default function UnpinModal({ pin }) {
     return (
         <>
             <div onClick={() => setShowModal(true)} id="editPinEllpisis"> <i className="fa-solid fa-ellipsis"></i></div>
-
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
@@ -18,7 +17,6 @@ export default function UnpinModal({ pin }) {
                     </Modal>
                 )
             }
-
         </>
     )
 }
