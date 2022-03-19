@@ -1,0 +1,120 @@
+#landingPage{
+    background-color: palegoldenrod;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* SCROLL TO BOTTOM ANIMATION */
+
+#landing_arrow {
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 25px;
+    background-color: #407A57;
+    color: white;
+    position: absolute; 
+    top: 80%;
+    left: 50%;
+    animation: bounce 0.8s infinite alternate;
+}
+
+
+@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-40px); } }
+
+#fadeIn > img {
+    height: 400px;
+}
+
+
+
+/* IMAGE APPEARS FROM BELOW ANIMATION */
+
+
+
+
+/* FULL DIV FADE IN */
+
+/* #fadeIn {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+} */
+
+
+
+/* TIMED FADE IN */
+ 
+ul {
+    position: relative;
+    width: 100%
+  }
+  
+  li {
+    float: left;
+    width: 25%;
+  }
+  
+  img {
+    width: 100%;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  li:nth-child(2) > img {
+    animation-delay: 3s;
+  }
+  
+  li:nth-child(3) > img {
+    animation-delay: 2s;
+  }
+  
+  li:nth-child(4) > img {
+    animation-delay: 1s;
+  }
+  
+  li:nth-child(5) > img {
+    animation-delay: 3s;
+  }
+  
+  li:nth-child(6) > img {
+    animation-delay: 15s;
+  }
+  
+  li:nth-child(7) > img {
+    animation-delay: 18s;
+  }
+  
+  li:nth-child(8) > img {
+    animation-delay:21s;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    
+    to {
+      opacity: 1;
+    }
+  }

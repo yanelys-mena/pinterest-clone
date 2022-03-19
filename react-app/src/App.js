@@ -13,6 +13,7 @@ import PinBuilder from './components/PinBuilder.js';
 import UserProfile from './components/UserProfile';
 import BoardPage from './components/BoardPage';
 import { load_boards_by_user } from './store/boards';
+import LandingPage from './components/LandingPage';
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
       await dispatch(authenticate())
       setLoaded(true);
       await dispatch(load_pins())
+
+
     })();
   }, [dispatch]);
 
@@ -34,16 +37,14 @@ function App() {
   }
 
   if (loaded) {
-    // dispatch(load_pins())
-    // dispatch(load_boards_by_user(user?.id))
+    dispatch(load_boards_by_user(user?.id))
   }
-
   return (
     <BrowserRouter>
       <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
-          <LoginForm />
+          <LandingPage />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
