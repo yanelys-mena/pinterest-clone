@@ -195,7 +195,7 @@ align-items: center;
     position: absolute;
     right: 0;
     top: 2;
-    border: #d3d3d3
+    border: #d3d3d3;
 }
 
 #react-select:hover{
