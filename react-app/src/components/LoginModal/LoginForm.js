@@ -33,37 +33,33 @@ const LoginForm = ({ setPage, page }) => {
   }
 
   return (
-    <div id="loginFormDiv">
+    <div id="loginFormModal">
       <div id="login_logo"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt='logo'></img></div>
       <div id="welcome">Welcome to Pinterest Clone</div>
-      <div>
+      <div id="login_formDiv">
         <form onSubmit={onLogin} id="loginForm">
           <div>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
-          <div>
-            <label htmlFor='email'>Email</label>
-            <input
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-            />
-          </div>
-          <div>
-            <label htmlFor='password'>Password</label>
-            <input
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-            />
-            <button type='submit'>Log in</button>
-          </div>
+          <input
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={updateEmail}
+          />
+          <input
+            name='password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+          <button type='submit' id="login_button">Log in</button>
+          <div id='login_terms'>By continuing, you agree to Pinterest's <span className="bolded_words">Terms of Service</span> and acknowledge you've read our <span className="bolded_words">Privacy Policy</span></div>
+          <div onClick={() => setPage(2)} id='switch_page'>Not on Pinterest yet? Sign up</div>
         </form>
       </div>
 

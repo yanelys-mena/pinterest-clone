@@ -30,7 +30,7 @@ export function Modal({ onClose, children }) {
     return (ReactDOM.createPortal(
         <div id="modal">
             <div id="modal-background" onClick={onClose} className='fade-in' />
-            <div id="modal-content" className='fade-in-grow'>
+            <div id="modal-content" className='fade-in-grow login_modal'>
                 {children}
             </div>
         </div>,

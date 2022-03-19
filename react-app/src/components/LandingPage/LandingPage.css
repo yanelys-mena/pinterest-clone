@@ -28,10 +28,9 @@
 
 #top {
     min-height: 100vh ;
-    background-color: palegoldenrod;
     width: 100%;
-    /* display: flex; */
-    /* justify-content: center; */
+    display: flex;
+    justify-content: center;
 }
 
 

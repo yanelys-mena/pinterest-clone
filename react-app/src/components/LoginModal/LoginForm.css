@@ -1,19 +1,22 @@
-#loginFormDiv {
+
+
+#loginFormModal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40vw;
-    height: 65%;
-    min-height: 60vh;
+    width: 50%;
+    height: 100%;
     border-radius: 20px;
     box-sizing: border-box;
     padding: 20px;
     border-radius: 20px;
-    gap: 15px;
+    gap: 25px;
+    min-height: 70vh;
+    min-width: 35vw;
+    background-color: white;
 }
 
 #login_logo {
-    background-color: red;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -21,8 +24,8 @@
 }
 
 #login_logo  img{
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 
 #welcome {
@@ -33,13 +36,65 @@
     align-items: center;
 }
 
+
+#login_formDiv {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #loginForm {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:14px;
+}
+
+
+#loginForm > input {
+    background-color: #E7F0FE;
+    height: 45px;
+    width: 100%;
+    border-radius: 12px;
+    border: 2px #d3d3d3 solid;
+    padding: 15px;
+    font-size: 16px;
+}
+
+#login_button{
+    background-color: #E60022;
+    height: 45px;
+    width: 100%;
+    border-radius: 22.5px;
+    border: 2px #d3d3d3 solid;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#login_or {
+    font-size: 16px;
+    font-weight: 700;
+}
+#login_terms{
+    font-size: 13px;
+    font-weight: 300;
+    /* width: 50%; */
+    /* display: flex;
+    justify-content: center;
+    text-align: justify; */
     background-color: palegoldenrod;
 }
 
-#loginForm > div {
-width: 100%;
-display: flex;
+#switch_page {
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.bolded_words {
+    font-weight: 700;
 }
