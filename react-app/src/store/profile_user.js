@@ -1,5 +1,3 @@
-import thunk from "redux-thunk";
-
 const LOAD = 'profile/LOAD';
 
 
@@ -14,7 +12,6 @@ export const load_profile = (user_id) => async (dispatch) => {
     const response = await fetch(`/api/users/${user_id}`);
     if (response.ok) {
         const user = await response.json();
-        // console.log('thunk', user)
         dispatch(load(user));
     } else {
         const errors = await response.json();

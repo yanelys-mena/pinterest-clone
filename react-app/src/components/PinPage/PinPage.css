@@ -52,6 +52,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 
@@ -148,7 +149,7 @@ align-items: center;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
     gap: 20px;
 }
 #commentTip {
@@ -173,7 +174,8 @@ align-items: center;
 }
 
 #commentInput {
-    width: 380px;
+
+    width: 150%;
     height: 40px;
     border: #d3d3d3 solid 1px;
     border-radius: 20px;
@@ -193,7 +195,8 @@ align-items: center;
     width: 200px;
     position: absolute;
     right: 0;
-    border: #d3d3d3
+    top: 2;
+    border: #d3d3d3;
 }
 
 #react-select:hover{
@@ -201,7 +204,7 @@ align-items: center;
 }
 
 #pinButton {
-    height: 35px;
+    height: 38px;
     width: 46px;
     background-color: #E60023;
     /* border-radius: 22.5px; */
@@ -213,6 +216,8 @@ align-items: center;
     align-items:  center;
     justify-content: center;
     position: absolute;
+    top: 2;
+    cursor:auto;
 }
 
 
@@ -234,7 +239,7 @@ align-items: center;
     font-style: italic;
 }
 
-#pinSaveBtn:hover, #pinButton:hover {
+#pinSaveBtn:hover {
     background-color: #AD081B;
   }
   

@@ -1,6 +1,6 @@
 import './BoardPage.css'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import PinGrid from '../PinGrid'
 import { boards_by_profile } from '../../store/profile_boards'
@@ -17,7 +17,6 @@ export default function BoardPage() {
     const isCurrentUser = profileId === user?.id
 
     useEffect(() => {
-        // dispatch(load_profile(profileId))
         dispatch(boards_by_profile(parseInt(profileId)))
     }, [dispatch, profileId])
 

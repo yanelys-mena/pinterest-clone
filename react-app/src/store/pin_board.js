@@ -15,7 +15,6 @@ export const pins_boards = (pin_id, user_id) => async (dispatch) => {
         const boards = await response.json();
 
         const by_user = boards.boards.filter(board => board.user_id === user_id)[0]
-        console.log('THUNKKK', pin_id, user_id, by_user)
 
         dispatch(load_pin_boards(by_user));
         return boards.boards;
@@ -31,7 +30,6 @@ let initialState = { pin: null };
 
 const pin_board_reducer = (state = initialState, action) => {
     let newState;
-    // console.log('reducer', action.pin_board)
     switch (action.type) {
         case LOAD_PINS: {
             newState = {};

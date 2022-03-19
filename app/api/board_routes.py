@@ -19,7 +19,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 # adjust this route later to query by user
 @board_routes.route('/', methods=['GET'])
-@login_required
+# @login_required
 def boards_by_user():
     boards = Board.query.filter(Board.user_id == current_user.id).all()
     return {'boards': [board.to_dict() for board in boards]}
@@ -104,18 +104,13 @@ def delete_board(board_id):
 def add_pin_to_board():
     pin = Pin.query.get(request.json['pin_id'])
     board = Board.query.get(request.json['board_id'])
-    
-    # all_pins_on_board = {pin.id: pin.to_dict() for pin in board.pins }
-    # print('****',all_pins_on_board) 
-    
+
     if pin and board:
-        # if pin.id in all_pins_on_board.keys():
-        #     return {'errors': [{'pinned': 'Already on Board'}]}
-        # else: 
         board.pins.append(pin)
         db.session.commit()
-        print('======',board.to_dict())
-    return board.to_dict()
+
+    updated_board = Board.query.get(request.json['board_id'])
+    return updated_board.to_dict()
 
 
     
@@ -129,7 +124,6 @@ def delete_pin_from_board():
     if pin and board:
         board.pins.remove(pin)
         db.session.commit()
-        return {'success': 'success'}
-    else:
-        return make_response('Pin or Board does not exist.')
-    
+        
+    updated_board = Board.query.get(request.json['board_id'])
+    return updated_board.to_dict()

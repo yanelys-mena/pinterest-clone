@@ -5,8 +5,6 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { load_pins } from './store/pins';
 import { authenticate } from './store/session';
 import Homepage from './components/Homepage';
@@ -15,6 +13,7 @@ import PinBuilder from './components/PinBuilder.js';
 import UserProfile from './components/UserProfile';
 import BoardPage from './components/BoardPage';
 import { load_boards_by_user } from './store/boards';
+import LandingPage from './components/LandingPage';
 
 
 function App() {
@@ -24,27 +23,28 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      await dispatch(authenticate());
-
+      await dispatch(authenticate())
+      setLoaded(true);
       await dispatch(load_pins())
 
-      setLoaded(true);
+
     })();
   }, [dispatch]);
 
-  useEffect(() =>
-    dispatch(load_boards_by_user(user?.id)))
 
   if (!loaded) {
     return null;
   }
 
+  if (loaded) {
+    dispatch(load_boards_by_user(user?.id))
+  }
   return (
     <BrowserRouter>
       <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
-          <LoginForm />
+          <LandingPage />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />

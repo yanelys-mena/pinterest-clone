@@ -19,7 +19,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 @pin_routes.route('/',  methods=['GET'])
-@login_required
+# @login_required
 def pins():
     pins = Pin.query.all()
     return {'pins': [pin.to_dict() for pin in pins]}

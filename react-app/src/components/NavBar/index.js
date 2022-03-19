@@ -9,7 +9,6 @@ import AccountMenu from './AccountMenu';
 
 const NavBar = () => {
   const user = useSelector((state) => state?.session.user);
-  // console.log(user.photo)
   return (
     <nav>
       <div id="navBarDiv">

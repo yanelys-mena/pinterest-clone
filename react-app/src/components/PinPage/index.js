@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { add_pin_to_board } from '../../store/boards'
 import EditPinModal from '../EditPinModal';
 import './PinPage.css'
 import Select from 'react-select'
+import UnpinModal from '../UnpinModal';
 
 
 export default function PinPage() {
@@ -14,25 +15,22 @@ export default function PinPage() {
     const user = useSelector(state => state?.session?.user)
     const boards = useSelector(state => Object.values(state?.boards))
     const [isPinned, setIsPinned] = useState('')
-    const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(true)
     const [selectedOption, setSelectedOption] = useState(null);
-    const [selected, setSelected] = useState('false')
 
     const addToBoard = async (e) => {
         setSelectedOption(e)
-        // setSelected['true']
-        // console.log('test', selectedOption)
         const pinned = dispatch(add_pin_to_board(pinId, parseInt(e.value)));
 
         if (pinned) {
-            setIsPinned('pinned!')
+            setIsPinned('saved')
         }
     }
 
+
     const options = boards.map(board => {
-        return { value: `${board?.id}`, label: `${board?.name} - ${pin?.boards.includes(board?.id)}` }
+        return { value: `${board?.id}`, label: `${board?.name} ${pin?.boards.includes(board?.id) ? '  - saved' : ''}` }
     })
 
 
@@ -49,7 +47,7 @@ export default function PinPage() {
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
                         {pin?.user?.id === user?.id ?
-                            <EditPinModal pin={pin} user={user} /> : <div></div>}
+                            <EditPinModal pin={pin} user={user} /> : <UnpinModal pin={pin} />}
 
                         <div id='select-pin'>
                             <div id="react-select">
@@ -63,11 +61,6 @@ export default function PinPage() {
                         </div>
                     </div>
                     <div id="pinPageInfo">
-                        <div>
-                            {errors.map((error, ind) => (
-                                <div key={ind}>{error}</div>
-                            ))}
-                        </div>
                         <div id="link">
                             {pin?.link ? <Link to={pin?.link} target="_blank">{pin?.link.substring(0, 50)}... </Link> : ''}
 
