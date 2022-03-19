@@ -5,6 +5,7 @@ import { add_pin_to_board } from '../../store/boards'
 import EditPinModal from '../EditPinModal';
 import './PinPage.css'
 import Select from 'react-select'
+import UnpinModal from '../UnpinModal';
 
 
 export default function PinPage() {
@@ -50,7 +51,7 @@ export default function PinPage() {
                 <div id="pinContentRight">
                     <div id="pinPageHeader">
                         {pin?.user?.id === user?.id ?
-                            <EditPinModal pin={pin} user={user} /> : <div></div>}
+                            <EditPinModal pin={pin} user={user} /> : <UnpinModal />}
 
                         <div id='select-pin'>
                             <div id="react-select">

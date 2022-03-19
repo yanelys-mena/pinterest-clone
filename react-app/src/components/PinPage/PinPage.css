@@ -148,7 +148,7 @@ align-items: center;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
     gap: 20px;
 }
 #commentTip {
@@ -173,7 +173,8 @@ align-items: center;
 }
 
 #commentInput {
-    width: 380px;
+
+    width: 150%;
     height: 40px;
     border: #d3d3d3 solid 1px;
     border-radius: 20px;
@@ -193,7 +194,7 @@ align-items: center;
     width: 200px;
     position: absolute;
     right: 0;
-    top: 1px;
+    top: 2;
     border: #d3d3d3
 }
 
@@ -214,7 +215,7 @@ align-items: center;
     align-items:  center;
     justify-content: center;
     position: absolute;
-    top: 1px;
+    top: 2;
     cursor:auto;
 }
 
