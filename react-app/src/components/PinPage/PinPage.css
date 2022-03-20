@@ -142,6 +142,10 @@ align-items: center;
     padding: 10px;
     border: #d3d3d3 solid 1px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
 
 }
 
@@ -243,3 +247,10 @@ align-items: center;
     background-color: #AD081B;
   }
   
+
+  #comments_photo {
+      height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    object-fit: cover;
+  }

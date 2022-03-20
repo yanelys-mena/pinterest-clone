@@ -90,7 +90,14 @@ export default function PinPage() {
                                     <div>Comments</div>
                                     <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down"></i></div>
                                 </div>
-                                <div id="allComments">{pin?.comments.map(comment => <div id="indComment">{comment?.content}</div>)}</div>
+                                <div id="allComments">{pin?.comments.map(comment =>
+                                    <div id="indComment">
+                                        <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img>
+                                        {comment?.content}
+
+                                    </div>)}
+
+                                </div>
 
                                 <div id="leaveComment">
                                     <div id="commentTip">Share feedback, ask a question or give a high five
