@@ -32,6 +32,8 @@ export default function LandingPage() {
         <div id="landingPage">
             <div id="top">
                 {/* <PinGrid pins={pins} /> */}
+                <div id='topwelcome'>Get your next </div>
+                <div id='topwelcome2'>look outfit</div>
                 <div id="landing_grid">
                     {pins.map(pin =>
                         <>

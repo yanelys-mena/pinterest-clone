@@ -2,10 +2,6 @@
     height: 100%;
     width: 100%;
     min-height: 100vh; 
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* position: relative; */
 }
 
 
@@ -21,7 +17,7 @@
     background-color: #407A57;
     color: white;
     position: absolute; 
-    top: 10%;
+    top: 80%;
     left: 50%;
     animation: bounce 0.8s infinite alternate;
 }
@@ -30,14 +26,32 @@
     min-height: 100vh ;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
+#topwelcome {
+  font-size: 50px;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+#topwelcome2 {
+  font-size: 50px;
+  font-weight: 700;
+  color: #971645;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
 
 @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-40px); } }
-
-
-
 
 
 #landing_grid  {
@@ -46,8 +60,6 @@
   width: 100%;
   height: 100%;
 }
-
-
 
 
 /* TIMED FADE IN */
