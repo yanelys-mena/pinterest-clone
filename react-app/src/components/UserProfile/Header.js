@@ -11,7 +11,7 @@ export default function Header({ user, profile }) {
             <div id="bigUsername">{profile?.username}</div>
             <div id="smallUsername">@{profile?.username.toLowerCase()}</div>
             <div id="githubLink"><a href={`${profile?.website}`} target="_blank" rel="noreferrer">{profile?.website}</a></div>
-            <div>· {profile?.bio}</div>
+            <div>· {profile?.bio} ·</div>
         </div >
     )
 }

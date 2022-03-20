@@ -26,7 +26,13 @@ export default function BoardPage() {
     return (
         <div id='boardPage'>
             <div id="boardPageTitle">{isCurrentUser ? board?.name : profileBoard?.name}</div>
-            <PinGrid pins={isCurrentUser ? board?.pins : profileBoard?.pins} />
+
+            {isCurrentUser ? (board?.pins.length > 0
+                ? <PinGrid pins={isCurrentUser ? board?.pins : profileBoard?.pins} />
+                : 'No Pins assigned to this board')
+                : (profileBoard?.pins.length > 0
+                    ? <PinGrid pins={isCurrentUser ? board?.pins : profileBoard?.pins} />
+                    : 'No Pins assigned to this board')}
         </div>
     )
 }
