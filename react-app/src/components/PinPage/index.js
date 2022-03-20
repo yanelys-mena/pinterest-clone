@@ -92,9 +92,10 @@ export default function PinPage() {
                                 </div>
                                 <div id="allComments">{pin?.comments.map(comment =>
                                     <div id="indComment">
-                                        <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img>
-                                        {comment?.content}
-
+                                        <>
+                                            {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+                                            {comment?.content}
+                                        </>
                                     </div>)}
 
                                 </div>

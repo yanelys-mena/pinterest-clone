@@ -22,7 +22,7 @@ comments = [
     {
         "content": 'I love Miami!',
         "pin_id": 1,
-        "user_id": 2
+        "user_id": 1
     },
     {
         "content": 'getting lots of ig inspo from this',
@@ -32,6 +32,6 @@ comments = [
     {
         "content": 'Gotta take some shots here for sure',
         "pin_id": 1,
-        "user_id": 6
+        "user_id": 5
     },
 ]
