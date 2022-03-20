@@ -7,6 +7,7 @@ export default function PinCard({ pin, boards }) {
     const [style, setStyle] = useState({ display: 'none' })
     const [imageStyle, setImageStyle] = useState({})
     const [color, setColor] = useState({ color: 'black' })
+    const [isPinned, setIsPinned] = useState('')
 
     return (
         <div
@@ -34,12 +35,12 @@ export default function PinCard({ pin, boards }) {
 
             <div id="pinHeader">
                 <div id="pinLeftHeader" style={style}>
-                    <PinDropdown boards={boards} color={color} />
+                    <PinDropdown boards={boards} pin={pin} color={color} setIsPinned={setIsPinned} isPinned={isPinned} />
                 </div>
 
 
                 <div id="savePinButtonDiv" >
-                    <button id="savePinButton" style={style}>Save</button>
+                    <button id="savePinButton" style={style}> {isPinned ? isPinned : 'Save'}</button>
                 </div>
             </div>
         </div >

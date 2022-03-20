@@ -11,10 +11,10 @@ export default function Homepage() {
 
     const dispatch = useDispatch();
 
-
-    pins.sort(function (a, b) {
-        return 0.5 - Math.random();
-    });
+    // NOTE random sorting removed because of dispatch on drop down menu. This causes a rerender and the user loosees the pin they just added because of the random sorting of pins.
+    // pins.sort(function (a, b) {
+    //     return 0.5 - Math.random();
+    // });
 
 
     useEffect(() => {
