@@ -27,63 +27,67 @@ def pins():
     return {'pins': [pin.to_dict() for pin in pins]}
 
 
-# @pin_routes.route('/', methods=['POST'])
-# @login_required
-# def add_pin():
-#     form = PinForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     data = form.data
-#     image = form.image.data
-
-#     if not isinstance(image, str):
-
-#         if "image" not in request.files:
-#             return {"errors": "image required"}, 400
-
-#         image = request.files["image"]
+@pin_routes.route('/', methods=['POST'])
+@login_required
+def add_pin():
+    form = PinForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    data = form.data
+    image = form.image.data
+    print('img', image)
         
-#         if not allowed_file(image.filename):
-#             return {"errors": "file type not permitted"}, 400
-        
-#         image.filename = get_unique_filename(image.filename)
-        
-#         upload = upload_file_to_s3(image)
-        
-#         if "url" not in upload:
-#             return upload, 400
+    if not isinstance(image, str):
 
-#         image_url = upload["url"] 
+        if "image" not in request.files:
+            print('NOT IN FILES')
+            return {"errors": "image required"}, 400
 
-#         if form.validate_on_submit():
-#             new_pin = Pin(
-#                 title=data['title'],
-#                 description=data['description'],
-#                 image=image_url,
-#                 link=data['link'],
-#                 user_id=data['user_id'], 
-#             )
-#             db.session.add(new_pin)
-#             db.session.commit()
-#         else: 
-#             print('****', form.errors)
+        image = request.files["image"]
         
-#         return new_pin.to_dict()
+        if not allowed_file(image.filename):
+            print('NOT ALLOQWED')
+            return {"errors": "file type not permitted"}, 400
+        
+        image.filename = get_unique_filename(image.filename)
+        
+        upload = upload_file_to_s3(image)
+        print('****', upload)
+        if "url" not in upload:
+            print('NOT IN UPLOAD')
+            return upload, 400
+
+        image_url = upload["url"] 
+
+        if form.validate_on_submit():
+            new_pin = Pin(
+                title=data['title'],
+                description=data['description'],
+                image=image_url,
+                link=data['link'],
+                user_id=data['user_id'], 
+            )
+            db.session.add(new_pin)
+            db.session.commit()
+        else: 
+            print('****', form.errors)
+        
+        return new_pin.to_dict()
     
-#     else: 
-#         if form.validate_on_submit():
-#             new_pin = Pin(
-#                 title=data['title'],
-#                 description=data['description'],
-#                 image=data['image'],
-#                 link=data['link'],
-#                 user_id=data['user_id'], 
-#             )
-#             db.session.add(new_pin)
-#             db.session.commit()
-#         else: 
-#             print('****', form.errors)
+    else: 
+        if form.validate_on_submit():
+            new_pin = Pin(
+                title=data['title'],
+                description=data['description'],
+                image=data['image'],
+                link=data['link'],
+                user_id=data['user_id'], 
+            )
+            db.session.add(new_pin)
+            db.session.commit()
+        else: 
+            print('****', form.errors)
         
-#         return new_pin.to_dict()
+        return new_pin.to_dict()
     
     
     
