@@ -14,6 +14,7 @@ function EditPinModal({ pin, user, pin_boards }) {
 
             {
                 showModal && (
+
                     <Modal onClose={() => setShowModal(false)}>
                         <EditForm pin={pin} setShowModal={setShowModal} user={user} pin_boards={pin_boards} />
                     </Modal>

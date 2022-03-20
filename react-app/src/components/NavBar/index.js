@@ -26,10 +26,11 @@ const NavBar = () => {
           </div>
         </div>
 
-        {user &&
-          <div div id="searchNav">
-            <SearchBar />
-          </div>}
+
+        {user && <div id="searchNav">
+          <SearchBar />
+        </div>}
+
 
         <div id="rightNav">
           {user &&

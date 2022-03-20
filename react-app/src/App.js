@@ -34,8 +34,9 @@ function App() {
     return null;
   }
 
-  if (loaded) {
+  if (loaded && user) {
     dispatch(load_boards_by_user(user?.id))
+    console.log(user?.id)
   }
   return (
     <BrowserRouter>

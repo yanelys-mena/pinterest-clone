@@ -3,6 +3,8 @@ from flask import Blueprint, jsonify, request, make_response
 from flask_login import login_required
 from app.models import Pin, db, Board
 from app.forms.pin_form import PinForm
+from app.aws import (delete_image_from_s3, upload_file_to_s3, allowed_file, get_unique_filename)
+
 
 pin_routes = Blueprint('comments', __name__)
 
@@ -31,20 +33,63 @@ def add_pin():
     form = PinForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
-    if form.validate_on_submit():
-        new_pin = Pin(
-            title=data['title'],
-            description=data['description'],
-            image=data['image'],
-            link=data['link'],
-            user_id=data['user_id'], 
-        )
-        db.session.add(new_pin)
-        db.session.commit()
-    else: 
-        print('****', form.errors)
+    image = form.image.data
+    print('img', image)
+        
+    if not isinstance(image, str):
+
+        if "image" not in request.files:
+            print('NOT IN FILES')
+            return {"errors": "image required"}, 400
+
+        image = request.files["image"]
+        
+        if not allowed_file(image.filename):
+            print('NOT ALLOQWED')
+            return {"errors": "file type not permitted"}, 400
+        
+        image.filename = get_unique_filename(image.filename)
+        
+        upload = upload_file_to_s3(image)
+        print('****', upload)
+        if "url" not in upload:
+            print('NOT IN UPLOAD')
+            return upload, 400
+
+        image_url = upload["url"] 
+
+        if form.validate_on_submit():
+            new_pin = Pin(
+                title=data['title'],
+                description=data['description'],
+                image=image_url,
+                link=data['link'],
+                user_id=data['user_id'], 
+            )
+            db.session.add(new_pin)
+            db.session.commit()
+        else: 
+            print('****', form.errors)
+        
+        return new_pin.to_dict()
     
-    return new_pin.to_dict()
+    else: 
+        if form.validate_on_submit():
+            new_pin = Pin(
+                title=data['title'],
+                description=data['description'],
+                image=data['image'],
+                link=data['link'],
+                user_id=data['user_id'], 
+            )
+            db.session.add(new_pin)
+            db.session.commit()
+        else: 
+            print('****', form.errors)
+        
+        return new_pin.to_dict()
+    
+    
     
 @pin_routes.route('/<int:pin_id>', methods=['PUT'])
 @login_required

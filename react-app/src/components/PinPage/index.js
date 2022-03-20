@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { add_pin_to_board } from '../../store/boards'
@@ -91,7 +91,7 @@ export default function PinPage() {
                                     <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down"></i></div>
                                 </div>
                                 <div id="allComments">{pin?.comments.map(comment =>
-                                    <div id="indComment">
+                                    <div id="indComment" key={comment.id}>
                                         <>
                                             {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
                                             {comment?.content}
