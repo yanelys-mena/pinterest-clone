@@ -27,9 +27,6 @@ export default function LandingPage() {
     }
 
 
-    {/* {getRandomInt(3) === 2 && <img src={pin.image} style={{ animationDelay: '2s' }}></img>} */ }
-    {/* {getRandomInt(3) === 3 && <img src={pin.image} style={{ animationDelay: '3s' }}></img>}</> */ }
-    // style= {{ animationDelay: `${getRandomInt(4)}s` }}
 
     return (
         <div id="landingPage">
@@ -60,7 +57,7 @@ export default function LandingPage() {
                 )
             }
 
-            <div ref={scrollRef}>hello</div>
+            <div ref={scrollRef}></div>
         </div >
     )
 }

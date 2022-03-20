@@ -11,4 +11,4 @@ export default function PinCardNotLoggedIn({ pin, boards }) {
             </div>
         </div >
     )
-}
+} 
