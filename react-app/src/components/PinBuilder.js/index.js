@@ -33,11 +33,13 @@ export default function PinBuilder() {
 
     return (
         <div id="pageBuilder">
+
             <div id="builderContent">
                 <div id="leftBuilder">
                     <UploadImage image={image} setImage={setImage} />
                 </div>
                 <div id="rightBuilder">
+                    <div id="create_pin_title">Create a Pin</div>
                     <div id="pinFormDiv">
                         <form id="pinForm" onSubmit={handleSubmit}>
                             <input
