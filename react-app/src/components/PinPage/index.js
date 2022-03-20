@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { add_pin_to_board } from '../../store/boards'
@@ -32,7 +32,6 @@ export default function PinPage() {
     const options = boards.map(board => {
         return { value: `${board?.id}`, label: `${board?.name} ${pin?.boards.includes(board?.id) ? '  - saved' : ''}` }
     })
-
 
     return (
         <div id="pinPage">
