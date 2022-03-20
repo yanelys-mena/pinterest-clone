@@ -22,22 +22,24 @@
 
 #img-preview{
     height: 400px;
+    height: 100%;
     width: 100%;
     object-fit:cover;
+    border-radius: 20px;
 }
 
 
 #drop_area {
-    height: 400px;
+    height: 600px;
     width: 100%;
-    background-color: palegoldenrod;
     position: relative;
     z-index: 6;
+    padding: 20px;
+    border: 2px dashed #d3d3d3;
 }
 
 #drap_bg {
-height: 400px;
+height: 100%;
 display: flex;
 gap: 10px;
-background-color: blue;
 }

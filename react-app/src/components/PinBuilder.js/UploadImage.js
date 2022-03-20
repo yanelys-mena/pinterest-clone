@@ -3,7 +3,7 @@ import './UploadImage.css'
 
 
 export default function UploadImage({ image, setImage }) {
-    const fileTypes = ['JPG', 'PNG', 'HEIC', ' JPEG', 'jpg', 'jpeg', 'png'];
+    const fileTypes = ['JPG', 'PNG', ' JPEG', 'jpg', 'jpeg', 'png', 'gif', 'GIF'];
 
     const setFile = (file) => {
         setImage(file);
@@ -13,7 +13,6 @@ export default function UploadImage({ image, setImage }) {
         <>
             <div id='drop_area'>
                 <FileUploader
-                    // style={{ height: '400px' }}
                     id='file_upload'
                     handleChange={(file) => setFile(file)}
                     name='image'
@@ -24,7 +23,7 @@ export default function UploadImage({ image, setImage }) {
                             id="img-preview"
                             src={image
                                 ? URL.createObjectURL(image)
-                                : 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'}
+                                : 'https://user-images.githubusercontent.com/88916829/159184219-82f97398-9fe1-4fb3-8eae-83ec2d53d6dd.png'}
                             alt='preview-upload'
                         />
                     </div>
