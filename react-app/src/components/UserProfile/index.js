@@ -55,11 +55,11 @@ export default function UserProfile() {
                     <i onClick={() => setShowModal(true)} className="fa-solid fa-plus plus_board"></i>
                 }
             </div>
-
+            {/* changed this code >> user passed in is current user */}
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <CreateBoardForm user={isCurrentUser ? user : profile} setShowModal={setShowModal} />
+                        <CreateBoardForm user={user} setShowModal={setShowModal} />
                     </Modal>
                 )
             }
