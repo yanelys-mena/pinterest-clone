@@ -31,10 +31,10 @@ export default function LandingPage() {
     return (
         <div id="landingPage">
             <div id="top">
-                <div id='topwelcome'>Get your next </div>
-                <div id='topwelcome2'>look outfit</div>
+                <div id='topwelcome' className='fadeIn'>Get your next </div>
+                <div id='topwelcome2' className='fadeIn'>look outfit</div>
                 <div id="landing_grid">
-                    <div id="white"></div>
+                    <div id="white" ></div>
                     {pins.map(pin =>
                         <>
                             {getRandomInt(3) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }}></img>

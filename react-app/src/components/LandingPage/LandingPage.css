@@ -17,7 +17,7 @@
     background-color: #407A57;
     color: white;
     position: absolute; 
-    top: 80%;
+    top: 65%;
     left: 50%;
     animation: bounce 0.8s infinite alternate;
     z-index: 3;
@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 #topwelcome {
@@ -40,6 +41,9 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  position: absolute;
+  top: 15%;
+  z-index: 1;
 
 }
 
@@ -51,6 +55,9 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  position: absolute;
+  top: 20%;
+  z-index: 1;
 
 }
 
@@ -82,10 +89,9 @@ img {
 
 
 #white {
-
 width: 100%;
 height: 100vh;
-background-image: linear-gradient(to BOTTOM, rgba(255,255,255,1), rgba(255,0,0,0));
+background-image: linear-gradient(to BOTTOM, rgba(255,255,255,1), 80%, rgba(255,0,0,0));
 position: absolute;
 z-index: 2;
 }
@@ -139,10 +145,10 @@ li:nth-child(8) > img {
 } */
 
 
-/* FULL DIV FADE IN */
-/* 
+
+
 .fadeIn {
-    animation: fadeInAnimation ease 3s;
+    animation: fadeInAnimation ease 6s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -155,4 +161,4 @@ li:nth-child(8) > img {
     100% {
         opacity: 1;
      }
-}   */
+}  
