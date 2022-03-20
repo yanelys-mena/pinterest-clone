@@ -11,25 +11,25 @@ export default function UploadImage({ image, setImage }) {
 
     return (
         <>
-            <div id="image_preview">
-
-                <img
-                    src={image
-                        ? URL.createObjectURL(image)
-                        : 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'}
-                    alt='preview-upload'
-                />
-            </div>
             <div id='drop_area'>
                 <FileUploader
+                    // style={{ height: '400px' }}
                     id='file_upload'
                     handleChange={(file) => setFile(file)}
                     name='image'
                     types={fileTypes}
                 >
-                    <div id='drop_test'>Upload or Drag and Drop</div>
+                    <div id="drap_bg">
+                        <img
+                            id="img-preview"
+                            src={image
+                                ? URL.createObjectURL(image)
+                                : 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'}
+                            alt='preview-upload'
+                        />
+                    </div>
                 </FileUploader>
-            </div>
+            </ div>
         </>
     )
 }
