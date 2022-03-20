@@ -1,36 +1,60 @@
 import './LandingPage.css';
-import { useRef, useEffect, useState } from 'react';
-import { useDispatch, useSelector, } from 'react-redux';
-import PinGrid from '../PinGrid'
+import { useEffect, useRef, useState } from 'react';
+import { useSelector, } from 'react-redux';
+import { Modal } from '../../context/Modal'
+import LoginModal from '../LoginModal'
 
-import LandingPageGrid from './LandingPageGrid';
-import LoginForm from '../auth/LoginForm'
+
 
 export default function LandingPage() {
+    const [page, setPage] = useState(1)
     const pins = useSelector(state => Object.values(state?.pins));
-    const [showLogin, setShowLogin] = useState(false)
+    const [showModal, setShowModal] = useState(false);
 
     const scrollRef = useRef(null)
 
     const scrollToBottom = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" })
-        setShowLogin(true)
     }
+
+    window.onscroll = function () {
+        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+            setShowModal(true)
+        }
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * (4 - 1) + 1);
+    }
+
+
 
     return (
         <div id="landingPage">
             <div id="top">
-                <PinGrid pins={pins} />
+                <div id='topwelcome' className='fadeIn'>Get your next </div>
+                <div id='topwelcome2' className='fadeIn'>look outfit</div>
+                <div id="landing_grid">
+                    <div id="white" ></div>
+                    {pins.map(pin =>
+                        <>
+                            {getRandomInt(3) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }}></img>
+                                : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }}></img>
+                                    : (getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }}></img> : ''))}
+                        </>
+                    )}
+                </div>
             </div>
-
-
             <button onClick={scrollToBottom} id="landing_arrow" > <i className="fa-solid fa-angle-down "></i></button >
+            {
+                showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
 
-            <div id="loginSection">
-                {showLogin && <LoginForm />}
-
-            </div>
-            <div ref={scrollRef}>hello</div>
+                        <LoginModal setShowModal={setShowModal} />
+                    </Modal>
+                )
+            }
+            <div ref={scrollRef}></div>
         </div >
     )
 }

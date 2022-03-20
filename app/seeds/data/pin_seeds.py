@@ -134,7 +134,7 @@ pin_seeds = [
     {
         "title": 'Katie Holmes is Our New Style Icon',
         "description": '',
-        "image": "https://i.pinimg.com/564x/db/8d/19/db8d1998aaa6bb338c80825bf86b3195.jpg",
+        "image": "https://i.pinimg.com/564x/3e/b2/db/3eb2db93547408e774b7eb429393efa9.jpg",
         "link": '',
         "user_id": 2
     },
@@ -349,11 +349,109 @@ pin_seeds = [
     },
     # PIN 43
     {
-        "title": 'Brown Neutral Aesthetic nails',
+        "title": 'Animal dress by Ganni',
         "description": '',
-        "image": "https://i.pinimg.com/564x/05/10/c9/0510c93532eef2b7597b140e3644906f.jpg",
+        "image": "https://i.pinimg.com/564x/24/e9/2b/24e92beeef5c1a4841f10190c4ff023d.jpg",
         "link": '',
         "user_id": 6
     },
+    # PIN 44
 
+    {
+        "title": 'Monochrome Green Bathroom',
+        "description": '',
+        "image": "https://i.pinimg.com/564x/82/50/b3/8250b35dfd984b706993cc1a4f0efe55.jpg",
+        "link": '',
+        "user_id": 2
+    },
+
+    # PIN 45
+
+    {
+        "title": 'Eclectic maximalism: Why Instagrams hidden treasure is more than just clutter and consumerism',
+        "description": 'Australian design circles on Instagram are a world of minimalist interiors but eclectic maximalism is fast emerging as its hidden treasure – and its not just about buying items to fill shelves',
+        "image": "https://i.pinimg.com/564x/9c/2c/8f/9c2c8fc1160e4ff525472b1266a97425.jpg",
+        "link": '',
+        "user_id": 6
+    },
+    
+    {
+        "title": 'Bright Mixed Print Interior',
+        "description": 'Eclectic decor',
+        "image": "https://i.pinimg.com/564x/41/53/ae/4153aea07db71f8481201bedb3a5de72.jpg",
+        "link": '',
+        "user_id": 2
+    },
+        {
+        "title": 'Staud x New Balance Collection',
+        "description": '',
+        "image": "https://media1.popsugar-assets.com/files/thumbor/ZR9j--Drm80PvW9rzFf4Fh_AaV8/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2021/06/14/635/n/1922564/c2ec09a17d659456_000021820017_edit/i/staud-x-new-balance-third-collection.jpg",
+        "link": '',
+        "user_id": 2
+    },
+    {
+        "title": 'Staud x New Balance Collection',
+        "description": '',
+        "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/screen-shot-2020-05-13-at-4-34-36-pm-1589402086.png",
+        "link": '',
+        "user_id": 2
+    },
+       {
+        "title": 'Kendall Jenner wearing black on black',
+        "description": '',
+        "image": "https://i.pinimg.com/564x/2a/74/99/2a7499a7335deb87046e43754045b139.jpg",
+        "link": '',
+        "user_id": 2
+    },
+       
+    {
+        "title": 'Ganni Has Launched A New Collection At Browns',
+        "description": '',
+        "image": "https://i.pinimg.com/564x/ad/1e/c6/ad1ec66120a6eb6d252ba9ba3d0f75a2.jpg",
+        "link": 'https://graziadaily.co.uk/amp/fashion/shopping/ganni-browns-collection/',
+        "user_id": 2
+    },
+    {
+        "title": "Veronica Beard at New York Fashion Week Fall 2020",
+        'description': '',
+        "image": "https://i.pinimg.com/564x/f4/89/db/f489dbd9824d43ae8135d4d3e35fc4c9.jpg",
+        "link": 'https://www.livingly.com/runway/New+York+Fashion+Week+Fall+2020/Veronica+Beard/Details/vyNmboVVjpn',
+        "user_id": 2
+    },
+    {
+        "title": "Veronica Beard Spring 2019 Ready-to-Wear Fashion Show",
+        'description': 'Style Fashion High End Designer',
+        "image": "https://i.pinimg.com/564x/5a/17/f7/5a17f7bfe70e6546bf355af329480f80.jpg",
+        "link": 'https://www.vogue.com/fashion-shows/spring-2019-ready-to-wear/veronica-beard/slideshow/collection#5',
+        "user_id": 2
+    },
+    {
+        "title": "Free People Supernova Cord Jeans",
+        'description': 'eclectic boho vibes',
+        "image": "https://images.urbndata.com/is/image/FreePeople/65865255_000_b/?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=720",
+        "link": 'https://www.freepeople.com/shop/supernova-cord-jeans/?category=whats-new&color=000&type=REGULAR&quantity=1&epik=dj0yJnU9OUdRMkl3Q1BKSHNmRmdJN04yWEZ5WlBnbFlENDhwdU8mcD0wJm49RzhwSm1aLUE4R29mb3liYWVJbU1EUSZ0PUFBQUFBR0kyUmRF',
+        "user_id": 2
+    },
+    {
+        "title": "Harry Styles Pink Suit",
+        'description': '',
+        "image": "https://i.pinimg.com/564x/5d/5b/c9/5d5bc92011b251253fcfd0bd7cb14cc6.jpg",
+        "link": '',
+        "user_id": 2
+    },
+    {
+        "title": "Jason Momoa Pink Suit",
+        'description': '',
+        "image": "https://i.pinimg.com/564x/73/61/bc/7361bcd8ebff760a7aae39d7c2be5cb4.jpg",
+        "link": '',
+        "user_id": 2
+    },
+    {
+        "title": "Green coat 90s sneakers",
+        'description': '',
+        "image": "https://i.pinimg.com/564x/dc/7b/ab/dc7babffb93a3b5f63a905d24ec3cbbb.jpg",
+        "link": '',
+        "user_id": 2
+    },
 ]
+

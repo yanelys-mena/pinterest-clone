@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 
-const LoginForm = () => {
+const LoginForm = ({ setPage, setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -32,17 +33,16 @@ const LoginForm = () => {
   }
 
   return (
-    <div id="loginFormDiv">
-
-
-      <form onSubmit={onLogin}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <div>
-          <label htmlFor='email'>Email</label>
+    <div id="loginFormModal">
+      <div id="login_logo"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt='logo'></img></div>
+      <div id="welcome">Welcome to Pin</div>
+      <div id="login_formDiv">
+        <form onSubmit={onLogin} id="loginForm">
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
           <input
             name='email'
             type='text'
@@ -50,9 +50,6 @@ const LoginForm = () => {
             value={email}
             onChange={updateEmail}
           />
-        </div>
-        <div>
-          <label htmlFor='password'>Password</label>
           <input
             name='password'
             type='password'
@@ -60,9 +57,13 @@ const LoginForm = () => {
             value={password}
             onChange={updatePassword}
           />
-          <button type='submit'>Login</button>
-        </div>
-      </form>
+          <button type='submit' id="login_button">Log in</button>
+          <div id='login_terms'>By continuing, you agree to Pinterest's <span className="bolded_words">Terms of Service</span> and acknowledge you've read our <span className="bolded_words">Privacy Policy</span></div>
+          <div onClick={() => setPage(2)} id='switch_page'>Not on Pinterest yet? Sign up</div>
+        </form>
+      </div>
+
+
     </div>
   );
 };

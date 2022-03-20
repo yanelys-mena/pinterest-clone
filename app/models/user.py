@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    username = db.Column(db.String(30), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     photo = db.Column(db.String(255))
     bio = db.Column(db.Text)
@@ -53,15 +53,3 @@ class User(db.Model, UserMixin):
             'website': self.website,
         }
         
-    # def login_to_dict(self):
-    #         return {
-    #             'id': self.id,
-    #             'username': self.username,
-    #             'email': self.email,
-    #             'photo': self.photo,
-    #             'bio': self.bio,
-    #             'website': self.website,
-    #             'pins': [pin.to_dict() for pin in self.pins],
-    #             'boards': [board.to_dict() for board in self.boards],
-    #             'comments': [comment.to_dict() for comment in self.comments]
-    #         }

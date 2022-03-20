@@ -4,7 +4,8 @@ import { remove_pin_from_board } from '../../store/boards';
 import { load_pins } from "../../store/pins";
 
 
-export default function RemovePin({ pin }) {
+export default function RemovePin({ pin, setPage, page }) {
+    const user = useSelector((state) => state.session?.user);
     const boards = useSelector(state => Object.values(state?.boards))
     const pin_on_boards = boards?.filter(board => pin?.boards.includes(board?.id))
     const [isRemoved, setIsRemoved] = useState('');
@@ -12,7 +13,7 @@ export default function RemovePin({ pin }) {
 
     useEffect(() => {
         dispatch(load_pins(pin.id))
-    }, [isRemoved, dispatch])
+    }, [isRemoved, dispatch, pin.id])
 
     const removePin = (e, boardId) => {
         e.preventDefault();
@@ -23,15 +24,20 @@ export default function RemovePin({ pin }) {
     return (
         <div id="removePin">
             <div id="removePin_title">Remove Pin</div>
+            {user.id === pin?.user?.id && <button onClick={() => setPage(1)}>Back to Edit Pin</button>}
+
             <div id="removePin_boards">
-                {pin_on_boards.map(board => (
-                    <div className="removePin_boardbtn" key={board?.id}>
-                        <div className="close" onClick={(e) => removePin(e, board.id)}></div>
-                        <div className="removePin_name">
-                            {isRemoved === board.id ? 'removed' : board?.name}
+                {pin_on_boards.length > 0 ? <>
+                    {pin_on_boards.map(board => (
+                        <div className="removePin_boardbtn" key={board?.id}>
+                            <div className="close" onClick={(e) => removePin(e, board.id)}></div>
+                            <div className="removePin_name">
+                                {isRemoved === board.id ? 'removed' : board?.name}
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </> : 'Pin is not added to any boards.'}
+
 
             </div>
         </div >

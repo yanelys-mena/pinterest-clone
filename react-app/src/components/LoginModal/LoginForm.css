@@ -1,0 +1,94 @@
+
+
+#loginFormModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 90%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 25px;
+    min-height: 50vh;
+    /* min-width: 20vw;  */
+    background-color: white;
+}
+
+#login_logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login_logo  img{
+  height: 40px;
+  width: 40px;
+}
+
+#welcome {
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#login_formDiv {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loginForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:14px;
+}
+
+
+#loginForm > input {
+    background-color: #E7F0FE;
+    height: 45px;
+    width: 100%;
+    border-radius: 12px;
+    border: 2px #d3d3d3 solid;
+    padding: 15px;
+    font-size: 16px;
+}
+
+#login_button{
+    background-color: #E60022;
+    height: 45px;
+    width: 100%;
+    border-radius: 22.5px; 
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#login_or {
+    font-size: 16px;
+    font-weight: 700;
+}
+#login_terms{
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#switch_page {
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.bolded_words {
+    font-weight: 700;
+}

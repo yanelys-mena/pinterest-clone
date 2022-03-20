@@ -9,6 +9,9 @@
     box-sizing: border-box;
     padding: 20px;
     border-radius: 20px;
+    background-color: white;
+    gap: 20px;
+
 }
 
 #editFormDiv {
@@ -17,6 +20,7 @@
     display: flex;
     padding: 10px;
 }
+
 
 #editLeft {
     width: 50%;

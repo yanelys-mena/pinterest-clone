@@ -23,6 +23,8 @@ class Comment(db.Model):
             'id': self.id,
             'content': self.content,
             'pin_id': self.pin_id,
+            'username': self.user.username,
+            'user_photo': self.user.photo,
             'user_id': self.user_id,
             "created_at": self.created_at,
             "updated_at": self.updated_at,

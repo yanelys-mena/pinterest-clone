@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { add_pin_to_board } from '../../store/boards'
@@ -32,7 +32,6 @@ export default function PinPage() {
     const options = boards.map(board => {
         return { value: `${board?.id}`, label: `${board?.name} ${pin?.boards.includes(board?.id) ? '  - saved' : ''}` }
     })
-
 
     return (
         <div id="pinPage">
@@ -70,7 +69,10 @@ export default function PinPage() {
                             <div id="description">{pin?.description} </div> : ''}
                         <div id="userInfo">
                             <Link to={`/profile/${pin?.user?.id}`} style={{ textDecoration: 'none' }} target="_blank">
-                                <div id="userPhoto"><img src={pin?.user?.photo} alt='userPhoto'></img></div>
+                                <div id="userPhoto">
+                                    {pin?.user?.photo ? <img src={pin?.user?.photo} alt='userPhoto'></img>
+                                        : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+                                </div>
                                 <div>{pin?.user?.username}</div>
                             </Link>
                         </div>
@@ -88,15 +90,27 @@ export default function PinPage() {
                                     <div>Comments</div>
                                     <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down"></i></div>
                                 </div>
-                                <div id="allComments">{pin?.comments.map(comment => <div id="indComment">{comment?.content}</div>)}</div>
+                                <div id="allComments">{pin?.comments.map(comment =>
+                                    <div id="indComment">
+                                        <>
+                                            {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+                                            {comment?.content}
+                                        </>
+                                    </div>)}
+
+                                </div>
 
                                 <div id="leaveComment">
                                     <div id="commentTip">Share feedback, ask a question or give a high five
                                     </div>
                                     <div id="commentInputDiv">
-                                        <div id="userPhoto_comment"><img src={user?.photo} alt='userPhoto'></img></div>
+                                        <div id="userPhoto_comment">
+                                            {user?.photo ? <img src={user?.photo} alt='userPhoto'></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+
+
+                                        </div>
                                         <div id="formDiv">
-                                            <form disabled="disabled">
+                                            <form onSubmit={(e) => e.preventDefault()}>
                                                 <input
                                                     id="commentInput"
                                                     type='text'
@@ -112,7 +126,7 @@ export default function PinPage() {
 
                     </div>
                 </div>
-            </div>
+            </div >
         </div >
 
 
