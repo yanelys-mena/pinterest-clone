@@ -91,7 +91,7 @@ export default function PinPage() {
                                     <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down"></i></div>
                                 </div>
                                 <div id="allComments">{pin?.comments.map(comment =>
-                                    <div id="indComment">
+                                    <div id="indComment" key={comment.id}>
                                         <>
                                             {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
                                             {comment?.content}

@@ -35,12 +35,12 @@ export default function LandingPage() {
                 <div id='topwelcome2' className='fadeIn'>look outfit</div>
                 <div id="landing_grid">
                     <div id="white" ></div>
-                    {pins.map(pin =>
-                        <>
-                            {getRandomInt(3) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }} key={pin?.id} alt={pin?.title}></img>
-                                : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }} key={pin?.id} alt={pin?.title}></img>
-                                    : (getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }} key={pin?.id} alt={pin?.title}></img> : ''))}
-                        </>
+                    {pins.map((pin, idx) =>
+                        <div key={idx}>
+                            {getRandomInt(3) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }} key={pin?.id} alt={pin?.title} ></img>
+                                : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }} key={pin?.id} alt={pin?.title} ></img>
+                                    : (getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }} key={pin?.id} alt={pin?.title} ></img> : ''))}
+                        </div>
                     )}
                 </div>
             </div>
