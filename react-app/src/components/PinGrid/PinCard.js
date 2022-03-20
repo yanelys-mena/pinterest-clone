@@ -24,11 +24,14 @@ export default function PinCard({ pin, boards }) {
             <div id="cardImg" style={imageStyle}>
                 <Link to={`/pins/${pin.id}`}>
                     <img id='pinImg' src={pin?.image} alt='pin'></img>
+
                 </Link>
+
             </div>
             <div id="cardTitle">
                 {pin?.title}
             </div>
+
             <div id="pinHeader">
                 <div id="pinLeftHeader" style={style}>
                     <PinDropdown boards={boards} color={color} />
