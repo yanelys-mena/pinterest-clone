@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Modal } from '../../context/Modal'
+import CreateBoardForm from '../CreateBoardModal/CreateBoardForm'
 
 
 function PinDropdown({ boards, color }) {
     const [showMenu, setShowMenu] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const user = useSelector(state => state?.session?.user)
+
 
     const openMenu = () => {
         if (showMenu) return;
@@ -37,13 +43,21 @@ function PinDropdown({ boards, color }) {
                                 {boards.map(board => <li>{board?.name}</li>)}
                             </ul >
                         </div>
-                        <div id="createBoardDiv">
+                        <div id="createBoardDiv" onClick={() => setShowModal(true)}>
+
                             <div id="createBoardPlus"><i className="fa-solid fa-plus"></i></div>
-                            <div><Link to="/create-board" style={{ textDecoration: 'none' }}>Create Board</Link></div>
+                            <div>Create Board</div>
                         </div>
                     </div>
                 </>
             )
+            }
+            {
+                showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <CreateBoardForm user={user} setShowModal={setShowModal} />
+                    </Modal>
+                )
             }
         </div >
     )
