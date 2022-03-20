@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 
-const LoginForm = ({ setPage, page, setShowModal }) => {
+const LoginForm = ({ setPage, setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-
+  const history = useHistory()
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -29,8 +29,7 @@ const LoginForm = ({ setPage, page, setShowModal }) => {
   };
 
   if (user) {
-    setShowModal(false)
-    return <Redirect to='/#leftNav' />;
+    return <Redirect to='/' />;
   }
 
   return (
