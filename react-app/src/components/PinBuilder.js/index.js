@@ -3,14 +3,16 @@ import { useState, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { add_pin } from '../../store/pins'
 import { useHistory } from 'react-router-dom';
+import UploadImage from './UploadImage';
 
 export default function PinBuilder() {
-    const user = useSelector(state => state?.session.user)
+    const user = useSelector(state => state?.session.user);
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('');
-    const [image, setImage] = useState('')
-    const [link, setLink] = useState('')
+    const [link, setLink] = useState('');
+    const [image, setImage] = useState(null);
+
     const history = useHistory()
     const dispatch = useDispatch();
 
@@ -33,7 +35,7 @@ export default function PinBuilder() {
         <div id="pageBuilder">
             <div id="builderContent">
                 <div id="leftBuilder">
-                    <div>image uploader</div>
+                    <UploadImage image={image} setImage={setImage} />
                 </div>
                 <div id="rightBuilder">
                     <div id="pinFormDiv">
@@ -59,13 +61,13 @@ export default function PinBuilder() {
                                 value={link}
                                 onChange={(e) => setLink(e.target.value)}>
                             </input>
-                            <input
+                            {/* <input
                                 name='image'
                                 type='text'
                                 placeholder='Add an image'
                                 value={image}
                                 onChange={(e) => setImage(e.target.value)}>
-                            </input>
+                            </input> */}
                             <button>submit</button>
                         </form>
 
@@ -75,6 +77,6 @@ export default function PinBuilder() {
             </div>
 
 
-        </div>
+        </div >
     )
 }

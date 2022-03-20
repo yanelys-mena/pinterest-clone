@@ -17,9 +17,9 @@ export default function EditForm({ pin, setShowModal, user, }) {
     const dispatch = useDispatch();
     const [page, setPage] = useState(1)
 
+
     useEffect(() => {
         dispatch(load_boards_by_user(user?.id))
-
     }, [dispatch]);
 
 
@@ -91,6 +91,7 @@ export default function EditForm({ pin, setShowModal, user, }) {
 
                         </div>
                         <div id="editRight">
+
                             <div><img src={pin?.image} alt='pin' id="editImage"></img></div>
                         </div>
 

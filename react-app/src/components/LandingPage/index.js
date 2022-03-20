@@ -1,5 +1,5 @@
 import './LandingPage.css';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useSelector, } from 'react-redux';
 import { Modal } from '../../context/Modal'
 import LoginModal from '../LoginModal'
@@ -7,7 +7,6 @@ import LoginModal from '../LoginModal'
 
 
 export default function LandingPage() {
-    const [page, setPage] = useState(1)
     const pins = useSelector(state => Object.values(state?.pins));
     const [showModal, setShowModal] = useState(false);
 
@@ -38,9 +37,9 @@ export default function LandingPage() {
                     <div id="white" ></div>
                     {pins.map(pin =>
                         <>
-                            {getRandomInt(3) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }}></img>
-                                : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }}></img>
-                                    : (getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }}></img> : ''))}
+                            {getRandomInt(3) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }} key={pin?.id} alt={pin?.title}></img>
+                                : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }} key={pin?.id} alt={pin?.title}></img>
+                                    : (getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }} key={pin?.id} alt={pin?.title}></img> : ''))}
                         </>
                     )}
                 </div>
@@ -49,7 +48,6 @@ export default function LandingPage() {
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-
                         <LoginModal setShowModal={setShowModal} />
                     </Modal>
                 )
