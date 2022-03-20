@@ -20,6 +20,9 @@
     top: 80%;
     left: 50%;
     animation: bounce 0.8s infinite alternate;
+    z-index: 3;
+   
+
 }
 
 #top {
@@ -59,22 +62,32 @@
   column-gap: 5px;
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 0;
 }
 
-
-/* TIMED FADE IN */
 
 #landing_grid >
 img {
   width: 250px;
   opacity: 0;
-  /* float: left; */
   border-radius: 20px;
-   animation-name: fadeIn;
+  animation-name: fadeIn;
   animation-duration: 3s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards; 
   margin: 10px;
+
+}
+
+
+#white {
+
+width: 100%;
+height: 100vh;
+background-image: linear-gradient(to BOTTOM, rgba(255,255,255,1), rgba(255,0,0,0));
+position: absolute;
+z-index: 2;
 }
 
 @keyframes fadeIn {
@@ -87,7 +100,7 @@ img {
   }
 }  
 
-
+/* TIMED FADE IN */
 /* div:nth-child(2) > img {
   animation-delay: 3s;
 } */
