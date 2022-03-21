@@ -49,7 +49,6 @@ const LoginForm = ({ setPage, setShowModal }) => {
 
   return (
     <div id="loginFormModal">
-      <button onClick={() => setShowModal(false)}>test</button>
       <div id="login_logo"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt='logo'></img></div>
       <div id="welcome">Welcome to Pinterest</div>
       <div id="dev_links">
