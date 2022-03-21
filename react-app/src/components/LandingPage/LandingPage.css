@@ -20,7 +20,7 @@
     background-color: #407A57;
     color: white;
     position: absolute; 
-    top: 70%;
+    top: 90%;
     left: 50%;
     animation: bounce 0.8s infinite alternate;
     z-index: 3;
@@ -31,6 +31,7 @@
 #top {
     min-height: 100vh ;
     width: 100%;
+    min-width: 100vw;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -71,11 +72,14 @@
 
 #landing_grid  {
   column-count: 7;
-  column-gap: 5px;
+  column-gap: 20px;
   width: 100%;
   height: 100%;
   position: relative;
   z-index: 0;
+  min-width: 98vw;
+
+
 }
 
 

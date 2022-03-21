@@ -374,7 +374,7 @@ pin_seeds = [
         "link": '',
         "user_id": 6
     },
-    
+        # PIN 46
     {
         "title": 'Bright Mixed Print Interior',
         "description": 'Eclectic decor',
@@ -403,7 +403,8 @@ pin_seeds = [
         "link": '',
         "user_id": 2
     },
-       
+           # PIN 50
+
     {
         "title": 'Ganni Has Launched A New Collection At Browns',
         "description": '',
@@ -411,6 +412,8 @@ pin_seeds = [
         "link": 'https://graziadaily.co.uk/amp/fashion/shopping/ganni-browns-collection/',
         "user_id": 2
     },
+        # PIN 51
+
     {
         "title": "Veronica Beard at New York Fashion Week Fall 2020",
         'description': '',
@@ -418,6 +421,8 @@ pin_seeds = [
         "link": 'https://www.livingly.com/runway/New+York+Fashion+Week+Fall+2020/Veronica+Beard/Details/vyNmboVVjpn',
         "user_id": 2
     },
+        # PIN 52
+
     {
         "title": "Veronica Beard Spring 2019 Ready-to-Wear Fashion Show",
         'description': 'Style Fashion High End Designer',
@@ -425,6 +430,8 @@ pin_seeds = [
         "link": 'https://www.vogue.com/fashion-shows/spring-2019-ready-to-wear/veronica-beard/slideshow/collection#5',
         "user_id": 2
     },
+        # PIN 53
+
     {
         "title": "Free People Supernova Cord Jeans",
         'description': 'eclectic boho vibes',
@@ -432,6 +439,7 @@ pin_seeds = [
         "link": 'https://www.freepeople.com/shop/supernova-cord-jeans/?category=whats-new&color=000&type=REGULAR&quantity=1&epik=dj0yJnU9OUdRMkl3Q1BKSHNmRmdJN04yWEZ5WlBnbFlENDhwdU8mcD0wJm49RzhwSm1aLUE4R29mb3liYWVJbU1EUSZ0PUFBQUFBR0kyUmRF',
         "user_id": 2
     },
+        # PIN 55
     {
         "title": "Harry Styles Pink Suit",
         'description': '',
@@ -439,6 +447,8 @@ pin_seeds = [
         "link": '',
         "user_id": 2
     },
+        # PIN 56
+
     {
         "title": "Jason Momoa Pink Suit",
         'description': '',
@@ -446,6 +456,7 @@ pin_seeds = [
         "link": '',
         "user_id": 2
     },
+        # PIN 57
     {
         "title": "Green coat 90s sneakers",
         'description': '',
@@ -453,5 +464,7 @@ pin_seeds = [
         "link": '',
         "user_id": 2
     },
+    
+    
 ]
 

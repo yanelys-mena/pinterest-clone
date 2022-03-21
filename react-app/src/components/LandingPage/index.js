@@ -14,6 +14,7 @@ export default function LandingPage() {
 
     const scrollToBottom = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" })
+        setShowModal(true)
     }
 
     window.onscroll = function () {

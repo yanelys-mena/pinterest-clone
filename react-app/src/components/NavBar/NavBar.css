@@ -86,15 +86,17 @@
     color: #767676;
     font-size: 20px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 #bell {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
-    width: 30px;
-    border-radius: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
 
     animation: pulse 1500ms;
 }
@@ -129,7 +131,7 @@
     
     25% {
       
-      color: #ff69b4;
+      color: #ff9966;
     }
     35% {
       
@@ -269,6 +271,8 @@
       text-decoration: none;
       margin-right: 2px;
       font-weight: 700;
+      cursor: pointer;
+
   }
 
   #login_nav_button{
@@ -294,4 +298,5 @@
     font-size: 16px;
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }

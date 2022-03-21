@@ -61,9 +61,12 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
                 </form>
             </div>
             <div id="createBoardFooter">
+
                 {board ? <button id="deleteButton" onClick={handleDelete}>Delete</button> : ''}
+                <div></div>
                 <div id="board_form_right_footer">
                     <button id="cancelButton" onClick={() => setShowModal(false)}>Cancel</button>
+
                     <button onClick={board ? handleEdit : handleSubmit} id="pinSaveBtn">Save</button>
                 </div>
             </div>
