@@ -56,10 +56,10 @@ function App() {
         <ProtectedRoute path='/pinbuilder' exact={true} >
           <PinBuilder />
         </ProtectedRoute>
-        <ProtectedRoute path='/profile/:profileId/boards/:boardId' exact={true} >
+        <ProtectedRoute path='/profile/:profileId/boards/:b3oardId' exact={true} >
           <BoardPage />
         </ProtectedRoute>
-        <Route>
+        <Route path="*">
           <NotFound />
         </Route>
       </Switch>
