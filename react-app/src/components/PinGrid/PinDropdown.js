@@ -1,20 +1,24 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from '../../context/Modal'
 import CreateBoardForm from '../CreateBoardModal/CreateBoardForm'
+import { add_pin_to_board } from '../../store/boards'
+
+import { load_pins } from '../../store/pins';
 
 
-function PinDropdown({ boards, color }) {
+function PinDropdown({ boards, color, pin, setIsPinned, isPinned }) {
     const [showMenu, setShowMenu] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const user = useSelector(state => state?.session?.user)
-
+    const dispatch = useDispatch();
+    const [testing, setTesting] = useState('')
 
     const openMenu = () => {
         if (showMenu) return;
         setShowMenu(true);
     };
+
 
     useEffect(() => {
         if (!showMenu) return;
@@ -29,9 +33,21 @@ function PinDropdown({ boards, color }) {
     }, [showMenu]);
 
 
+    const addToBoard = async (e, boardId) => {
+        console.log('PIN', pin?.id, 'BOARD', boardId)
+        const pinned = await dispatch(add_pin_to_board(pin?.id, parseInt(boardId))).then((d) => dispatch(load_pins()))
+
+
+        if (pinned) {
+            setIsPinned('saved')
+        }
+    }
+
     return (
         <div id="addPinDropdown" style={color}>
+
             <div onClick={openMenu}> board <i className="fa-solid fa-chevron-down" style={color}></i></div>
+
             {showMenu && (
                 <>
                     <div id="dropDownDiv">
@@ -40,7 +56,19 @@ function PinDropdown({ boards, color }) {
                         </div>
                         <div>
                             <ul id="dropBoard">
-                                {boards.map(board => <li>{board?.name}</li>)}
+                                {boards.map(board =>
+                                    <li
+                                        onClick={(e) => addToBoard(e, board?.id)}
+                                        key={board?.id}>
+                                        {
+
+
+                                            <>
+                                                {board?.name}
+                                                {pin?.boards.includes(board?.id) ? '  - saved' : ''}
+                                            </>
+                                        }
+                                    </li>)}
                             </ul >
                         </div>
                         <div id="createBoardDiv" onClick={() => setShowModal(true)}>

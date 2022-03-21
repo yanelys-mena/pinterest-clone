@@ -8,7 +8,7 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
-
+    console.log('CREATE BOARD', board)
     const handleSubmit = async (e) => {
         e.preventDefault()
         const new_board = {
@@ -41,7 +41,7 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
 
 
     return (
-        <div id="createBoardModal">
+        <div id="board_modal">
             <div id="createBoardTitle"><div> {board ? 'Edit Board' : 'Create Board'}</div></div>
             <div id="createBoardFormDiv">
                 <form id="createBoardForm">
@@ -61,8 +61,8 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
                 </form>
             </div>
             <div id="createBoardFooter">
-                <button id="deleteButton" onClick={handleDelete}>Delete</button>
-                <div id='editFooterRight'>
+                {board ? <button id="deleteButton" onClick={handleDelete}>Delete</button> : ''}
+                <div id="board_form_right_footer">
                     <button id="cancelButton" onClick={() => setShowModal(false)}>Cancel</button>
                     <button onClick={board ? handleEdit : handleSubmit} id="pinSaveBtn">Save</button>
                 </div>

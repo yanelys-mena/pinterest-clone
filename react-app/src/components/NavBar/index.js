@@ -7,15 +7,17 @@ import { Modal } from '../../context/Modal'
 import SearchBar from './SearchBar';
 import AccountMenu from './AccountMenu';
 import LoginModal from '../LoginModal';
+import MyLinks from '../MyLinks';
 
 
 const NavBar = () => {
   const user = useSelector((state) => state?.session.user);
   const [showModal, setShowModal] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
 
 
   return (
-    <nav>
+    <nav className='nav'>
 
       <div id="navBarDiv">
         <div id="leftNav">
@@ -34,8 +36,8 @@ const NavBar = () => {
 
         <div id="rightNav">
           {user &&
-            <div className="faIcons">
-              <NavLink to="#"><i className="fa-solid fa-bell"> </i></NavLink>
+            <div className="faIcons" id="bell" onClick={() => setShowLinks(true)} >
+              <i class="fa-solid fa-bell"></i>
             </div>}
           {user &&
             <div className="faIcons">
@@ -53,16 +55,8 @@ const NavBar = () => {
           }
           {!user &&
             <>
-              <div id="login_nav_button" onClick={() => setShowModal(true)}>
-                <NavLink to='/login' exact={true} activeClassName='active'>
-                  Login
-                </NavLink>
-              </div>
-              <div id="signup_nav_button" onClick={() => setShowModal(true)}>
-                <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                  Sign Up
-                </NavLink>
-              </div>
+              <div id="login_nav_button" onClick={() => setShowModal(true)} activeClassName='active'> Log in </div>
+              <div id="signup_nav_button" onClick={() => setShowModal(true)} activeClassName='active'>Sign Up</div>
             </>
           }
         </div>
@@ -73,6 +67,16 @@ const NavBar = () => {
             <LoginModal />
           </Modal>
         )}
+
+        {
+          showLinks && (
+
+            <Modal onClose={() => setShowLinks(false)}>
+              <MyLinks showLinks={showLinks} setShowLinks={setShowLinks} />
+            </Modal>
+          )
+        }
+
       </div>
 
 

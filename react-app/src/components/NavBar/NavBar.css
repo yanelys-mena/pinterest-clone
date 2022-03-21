@@ -76,14 +76,125 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
+
+
 }
 
 
-.fa-circle-plus, .fa-bell, .fa-user-circle {
+.fa-circle-plus, .fa-bell, .fa-user-circle, .fa-bell-on {
     color: #767676;
     font-size: 20px;
     background-color: transparent;
 }
+
+#bell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+
+    animation: pulse 1500ms;
+}
+
+.fa-bell{
+    color: #767676;
+    font-size: 20px;
+    animation: colorchange 15s alternate, notification 2s;
+
+}
+
+@keyframes colorchange {
+    5% {
+      
+      color: #ff9966;
+    }
+    
+    10% {
+      
+      color: #767676;
+    }
+    
+    15% {
+      
+      color: #ff9966;
+    }
+    
+    20% {
+      
+      color: #767676
+    }
+    
+    25% {
+      
+      color: #ff69b4;
+    }
+    35% {
+      
+        color: #767676;
+      }
+      
+      45% {
+        
+        color: #ff9966;
+      }
+      
+      55% {
+        
+        color: #767676
+      }
+      
+    60% {
+      
+      color: #ff9966;
+    }
+/*     
+    60% {
+      
+      color:#ffcc00;
+    }
+    
+    70% {
+      
+      color: #767676;
+    }
+    80% {
+   
+      color: #ff69b4;
+    } */
+    
+    90% {
+   
+      color: #767676;
+    }
+    
+    100% {
+      
+      color: #ff69b4;
+    }
+  }
+
+@keyframes notification {
+
+    5% { transform: rotate(10deg); }
+    10% { transform: rotate(10deg); }
+    15% { transform: rotate(10deg); }
+    20% { transform: rotate(10deg); }
+}
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: #ff9966 0 0 0 0;
+    }
+    75% {
+        box-shadow: #ff69b400 0 0 0 16px;
+    }
+
+}
+
 #navUserPhoto {
     width: 30px;
     height: 30px;
@@ -160,7 +271,7 @@
       font-weight: 700;
   }
 
-  #login_nav_button > *{
+  #login_nav_button{
     font-size: 16px;
     text-decoration: none;
     color: white;
@@ -179,7 +290,7 @@
     font-weight: 700;
 }
 
-#signup_nav_button > *{
+#signup_nav_button {
     font-size: 16px;
     text-decoration: none;
     color: black;

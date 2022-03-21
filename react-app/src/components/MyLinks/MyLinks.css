@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+
+#linksModal {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    min-height: 45vh;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#about_info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 60%;
+}
+
+#my_name {
+    margin-top: -5px;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-family: helvetica;
+    color: black;
+
+    
+}
+#my_here_link {
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+
+
+#linksModal > * {
+    letter-spacing: 1.5px;
+    text-align: justify;
+    font-size: 20px;
+    color: #454545;
+}
