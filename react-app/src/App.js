@@ -12,7 +12,7 @@ import UserProfile from './components/UserProfile';
 import BoardPage from './components/BoardPage';
 import { load_boards_by_user } from './store/boards';
 import LandingPage from './components/LandingPage';
-
+import NotFound from './components/NotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -59,6 +59,9 @@ function App() {
         <ProtectedRoute path='/profile/:profileId/boards/:boardId' exact={true} >
           <BoardPage />
         </ProtectedRoute>
+        <Route>
+          <NotFound />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

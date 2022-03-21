@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory, Link, Redirect } from 'react-router-dom';
 import { add_pin_to_board } from '../../store/boards'
 import EditPinModal from '../EditPinModal';
 import './PinPage.css'
@@ -13,12 +13,22 @@ export default function PinPage() {
     const { pinId } = useParams();
     const history = useHistory();
     const pin = useSelector(state => state?.pins[pinId])
+    const pins = useSelector(state => Object.keys(state?.pins))
+
     const user = useSelector(state => state?.session?.user)
     const boards = useSelector(state => Object.values(state?.boards))
     const [isPinned, setIsPinned] = useState('')
     const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(true)
     const [selectedOption, setSelectedOption] = useState(null);
+
+    useEffect(() => {
+        dispatch(load_pins()).then((res) => {
+            if (!res[pinId]) history.push('/not-found');
+        });
+    }, [dispatch, pinId, pins])
+
+
 
     const addToBoard = async (e) => {
         setSelectedOption(e)
