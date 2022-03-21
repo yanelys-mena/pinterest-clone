@@ -13,6 +13,8 @@ export default function PinPage() {
     const { pinId } = useParams();
     const history = useHistory();
     const pin = useSelector(state => state?.pins[pinId])
+    // const pins = useSelector(state => Object.keys(state?.pins))
+
     const user = useSelector(state => state?.session?.user)
     const boards = useSelector(state => Object.values(state?.boards))
     const [isPinned, setIsPinned] = useState('')
@@ -20,11 +22,17 @@ export default function PinPage() {
     const [showComments, setShowComments] = useState(true)
     const [selectedOption, setSelectedOption] = useState(null);
 
+    // useEffect(() => {
+    //     dispatch(load_pins()).then((res) => {
+    //         if (!res[pinId]) history.push('/not-found');
+    //     });
+    // }, [dispatch, pinId, history])
+
+
 
     const addToBoard = async (e) => {
         setSelectedOption(e)
         const pinned = await dispatch(add_pin_to_board(pinId, parseInt(e.value))).then((d) => dispatch(load_pins()))
-
         if (pinned) {
             setIsPinned('saved')
         }

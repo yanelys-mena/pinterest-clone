@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     photo = db.Column(db.String(255))
     bio = db.Column(db.Text)
-    website = db.Column(db.String(255))
+    website = db.Column(db.String(500))
     hashed_password = db.Column(db.String(255), nullable=False)
 
     pins = db.relationship("Pin", back_populates="user", cascade="all, delete")

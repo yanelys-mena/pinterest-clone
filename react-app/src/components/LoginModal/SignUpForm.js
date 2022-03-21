@@ -16,11 +16,7 @@ const SignUpForm = ({ setPage, setShowModal }) => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password)).then(data => setErrors(data));
-    } else {
-      setErrors(["password : Passwords must match."])
-    }
+    await dispatch(signUp(username, email, password, repeatPassword)).then(data => setErrors(data));
   }
 
   const updateUsername = (e) => {
