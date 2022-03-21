@@ -160,7 +160,7 @@
       font-weight: 700;
   }
 
-  #login_nav_button > *{
+  #login_nav_button{
     font-size: 16px;
     text-decoration: none;
     color: white;
@@ -179,7 +179,7 @@
     font-weight: 700;
 }
 
-#signup_nav_button > *{
+#signup_nav_button {
     font-size: 16px;
     text-decoration: none;
     color: black;

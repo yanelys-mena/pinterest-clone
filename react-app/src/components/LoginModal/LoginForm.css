@@ -40,8 +40,10 @@
 #login_formDiv {
     width: 65%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 15px;
 }
 
 #loginForm {
@@ -82,6 +84,17 @@
     font-size: 13px;
     font-weight: 300;
 }
+
+#demo_button{
+    background-color: #1874EC;
+    height: 45px;
+    width: 100%;
+    border-radius: 22.5px; 
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
 
 #switch_page {
     color: black;

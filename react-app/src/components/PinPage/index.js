@@ -6,6 +6,7 @@ import EditPinModal from '../EditPinModal';
 import './PinPage.css'
 import Select from 'react-select'
 import UnpinModal from '../UnpinModal';
+import { load_pins } from '../../store/pins';
 
 
 export default function PinPage() {
@@ -21,7 +22,7 @@ export default function PinPage() {
 
     const addToBoard = async (e) => {
         setSelectedOption(e)
-        const pinned = dispatch(add_pin_to_board(pinId, parseInt(e.value)));
+        const pinned = await dispatch(add_pin_to_board(pinId, parseInt(e.value))).then((d) => dispatch(load_pins()))
 
         if (pinned) {
             setIsPinned('saved')

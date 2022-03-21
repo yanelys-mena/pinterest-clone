@@ -13,11 +13,26 @@ const LoginForm = ({ setPage, setShowModal }) => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+    // setShowModal(false)
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     }
   };
+
+
+  const demoLogin = async (e) => {
+    e.preventDefault();
+
+
+    const demo_email = 'demo@demo.com';
+    const demo_password = 'password';
+    const data = await dispatch(login(demo_email, demo_password));
+    if (data) {
+      setErrors(data);
+    }
+  };
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -57,9 +72,12 @@ const LoginForm = ({ setPage, setShowModal }) => {
             onChange={updatePassword}
           />
           <button type='submit' id="login_button">Log in</button>
-          <div id='login_terms'>By continuing, you agree to Pinterest's <span className="bolded_words">Terms of Service</span> and acknowledge you've read our <span className="bolded_words">Privacy Policy</span></div>
-          <div onClick={() => setPage(2)} id='switch_page'>Not on Pinterest yet? Sign up</div>
+
         </form>
+        <button onClick={demoLogin} id="demo_button">Demo Login</button>
+        <div id='login_terms'>By continuing, you agree to Pinterest's <span className="bolded_words">Terms of Service</span> and acknowledge you've read our <span className="bolded_words">Privacy Policy</span></div>
+        <div onClick={() => setPage(2)} id='switch_page'>Not on Pinterest yet? Sign up</div>
+
       </div>
 
 

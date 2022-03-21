@@ -2,6 +2,9 @@
     height: 100%;
     width: 100%;
     min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -17,7 +20,7 @@
     background-color: #407A57;
     color: white;
     position: absolute; 
-    top: 65%;
+    top: 70%;
     left: 50%;
     animation: bounce 0.8s infinite alternate;
     z-index: 3;
@@ -30,8 +33,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #topwelcome {
@@ -89,7 +94,8 @@ img {
 
 
 #white {
-width: 100%;
+width: 150%;
+min-width: 110vw;
 height: 100vh;
 background-image: linear-gradient(to BOTTOM, rgba(255,255,255,1), 80%, rgba(255,0,0,0));
 position: absolute;
@@ -108,19 +114,61 @@ z-index: 2;
 
 /* Media Queries */
 
+@media (min-width: 1008px) and (max-width: 1440px) {
+  #landing_grid {
+    max-width: 1008px;
+    column-count: 4;
+  }
+
+
+
+#landing_grid > div >
+img {
+  width: 230px;
+  opacity: 0;
+  border-radius: 20px;
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; 
+  margin: 10px;
+
+}
+
+}
+
+
 @media (min-width: 1008px) and (max-width: 1259px) {
   #landing_grid {
     max-width: 1008px;
     column-count: 4;
   }
+
+
+
+#landing_grid > div >
+img {
+  width: 200px;
+  opacity: 0;
+  border-radius: 20px;
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; 
+  margin: 10px;
+
+}
+
 }
 
 @media (min-width: 1260px) and (max-width: 1511px) {
   #landing_grid {
     max-width: 1260px;
     column-count: 5;
+    gap: 3px;
   }
 }
+
 
 @media (min-width: 1512px) and (max-width: 1763px) {
   #landing_grid {

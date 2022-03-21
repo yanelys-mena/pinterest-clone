@@ -15,7 +15,7 @@ const NavBar = () => {
 
 
   return (
-    <nav>
+    <nav className='nav'>
 
       <div id="navBarDiv">
         <div id="leftNav">
@@ -53,16 +53,8 @@ const NavBar = () => {
           }
           {!user &&
             <>
-              <div id="login_nav_button" onClick={() => setShowModal(true)}>
-                <NavLink to='/login' exact={true} activeClassName='active'>
-                  Login
-                </NavLink>
-              </div>
-              <div id="signup_nav_button" onClick={() => setShowModal(true)}>
-                <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                  Sign Up
-                </NavLink>
-              </div>
+              <div id="login_nav_button" onClick={() => setShowModal(true)} activeClassName='active'> Log in </div>
+              <div id="signup_nav_button" onClick={() => setShowModal(true)} activeClassName='active'>Sign Up</div>
             </>
           }
         </div>
