@@ -7,11 +7,13 @@ import { Modal } from '../../context/Modal'
 import SearchBar from './SearchBar';
 import AccountMenu from './AccountMenu';
 import LoginModal from '../LoginModal';
+import MyLinks from '../MyLinks';
 
 
 const NavBar = () => {
   const user = useSelector((state) => state?.session.user);
   const [showModal, setShowModal] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
 
 
   return (
@@ -34,14 +36,8 @@ const NavBar = () => {
 
         <div id="rightNav">
           {user &&
-            <div className="faIcons" id="bell">
-
-              <NavLink to="#">
-                {/* <i class="fa-solid fa-bell-on"></i> */}
-                <i class="fa-solid fa-bell"></i>
-                {/* <i className="fa-solid fa-bell"> </i> */}
-
-              </NavLink>
+            <div className="faIcons" id="bell" onClick={() => setShowLinks(true)} >
+              <i class="fa-solid fa-bell"></i>
             </div>}
           {user &&
             <div className="faIcons">
@@ -71,6 +67,16 @@ const NavBar = () => {
             <LoginModal />
           </Modal>
         )}
+
+        {
+          showLinks && (
+
+            <Modal onClose={() => setShowLinks(false)}>
+              <MyLinks showLinks={showLinks} setShowLinks={setShowLinks} />
+            </Modal>
+          )
+        }
+
       </div>
 
 
