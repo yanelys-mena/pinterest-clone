@@ -64,7 +64,7 @@ const NavBar = () => {
 
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <LoginModal />
+            <LoginModal setShowModal={setShowModal} showModal={showModal} />
           </Modal>
         )}
 

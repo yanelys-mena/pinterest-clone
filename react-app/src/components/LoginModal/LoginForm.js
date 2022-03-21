@@ -13,8 +13,8 @@ const LoginForm = ({ setPage, setShowModal }) => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    // setShowModal(false)
     const data = await dispatch(login(email, password));
+    setShowModal(false)
     if (data) {
       setErrors(data);
     }
@@ -24,10 +24,11 @@ const LoginForm = ({ setPage, setShowModal }) => {
   const demoLogin = async (e) => {
     e.preventDefault();
 
-
     const demo_email = 'demo@demo.com';
     const demo_password = 'password';
     const data = await dispatch(login(demo_email, demo_password));
+    setShowModal(false)
+
     if (data) {
       setErrors(data);
     }
@@ -48,8 +49,21 @@ const LoginForm = ({ setPage, setShowModal }) => {
 
   return (
     <div id="loginFormModal">
+      <button onClick={() => setShowModal(false)}>test</button>
       <div id="login_logo"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt='logo'></img></div>
       <div id="welcome">Welcome to Pinterest</div>
+      <div id="dev_links">
+        <div id="dev_about">
+          <div>A project by</div>
+          <div>Yanelys Mena</div>
+        </div>
+        <div id="dev_icons">
+          <a href="https://github.com/yanelys-mena/pinterest-clone" target="_blank"><i className="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/yanelysmena/" target="_blank"><i className="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+
+
       <div id="login_formDiv">
         <form onSubmit={onLogin} id="loginForm">
           <div>

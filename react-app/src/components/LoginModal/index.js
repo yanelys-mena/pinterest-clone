@@ -3,7 +3,7 @@ import SignUpForm from './SignUpForm'
 import LoginForm from './LoginForm'
 
 
-const LoginModal = ({ setShowModal }) => {
+const LoginModal = ({ setShowModal, showModal }) => {
     const [page, setPage] = useState(1)
 
     return (
