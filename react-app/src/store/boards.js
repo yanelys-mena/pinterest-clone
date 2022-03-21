@@ -141,7 +141,7 @@ export const remove_pin_from_board = (pin_id, board_id) => async (dispatch) => {
             pin_id,
             board_id
         })
-    }).then(res => res.json()).then(data => console.log('DATA;', data));
+    }).then(res => res.json()).then(data => data);
 };
 
 

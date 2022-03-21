@@ -37,7 +37,7 @@ const NavBar = () => {
         <div id="rightNav">
           {user &&
             <div className="faIcons" id="bell" onClick={() => setShowLinks(true)} >
-              <i class="fa-solid fa-bell"></i>
+              <i className="fa-solid fa-bell"></i>
             </div>}
           {user &&
             <div className="faIcons">

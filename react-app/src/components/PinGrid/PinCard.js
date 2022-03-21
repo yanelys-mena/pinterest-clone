@@ -1,26 +1,12 @@
 import PinDropdown from "./PinDropdown";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
-import { load_boards_by_user } from '../../store/boards';
-import { useSelector, useDispatch } from 'react-redux';
 
 export default function PinCard({ pin, boards }) {
     const [style, setStyle] = useState({ display: 'none' })
     const [imageStyle, setImageStyle] = useState({})
     const [color, setColor] = useState({ color: 'black' })
     const [isPinned, setIsPinned] = useState('')
-    const user = useSelector(state => state?.session?.user)
-    const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(load_boards_by_user(user?.id))
-
-
-    // }, []);
-
-    console.log('PIN CARD', boards)
-    console.log('PIN CARD', pin)
-
 
 
     return (

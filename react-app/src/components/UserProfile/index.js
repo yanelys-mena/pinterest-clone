@@ -27,7 +27,6 @@ export default function UserProfile() {
 
 
     const isCurrentUser = profileId === user?.id
-    console.log(isCurrentUser)
 
     useEffect(() => {
         dispatch(boards_by_profile(profileId))

@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from '../../context/Modal'
 import CreateBoardForm from '../CreateBoardModal/CreateBoardForm'
 import { add_pin_to_board } from '../../store/boards'
-import { load_boards_by_user } from '../../store/boards';
-
 import { load_pins } from '../../store/pins';
 
 
@@ -13,7 +11,6 @@ function PinDropdown({ boards, color, pin, setIsPinned, isPinned }) {
     const [showModal, setShowModal] = useState(false);
     const user = useSelector(state => state?.session?.user)
     const dispatch = useDispatch();
-    const [testing, setTesting] = useState('')
 
     const openMenu = () => {
         if (showMenu) return;

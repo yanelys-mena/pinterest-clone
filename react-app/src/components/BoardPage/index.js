@@ -21,7 +21,7 @@ export default function BoardPage() {
         dispatch(boards_by_profile(parseInt(profileId)))
         dispatch(load_boards_by_user(user?.id))
 
-    }, [dispatch, profileId])
+    }, [dispatch, profileId, user?.id])
 
 
 

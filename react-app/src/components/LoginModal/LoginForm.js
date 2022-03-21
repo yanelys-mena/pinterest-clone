@@ -58,8 +58,8 @@ const LoginForm = ({ setPage, setShowModal }) => {
           <div>Yanelys Mena</div>
         </div>
         <div id="dev_icons">
-          <a href="https://github.com/yanelys-mena/pinterest-clone" target="_blank"><i className="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/yanelysmena/" target="_blank"><i className="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/yanelys-mena/pinterest-clone" target="_blank" rel="noreferrer" ><i className="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/yanelysmena/" target="_blank" rel="noreferrer" ><i className="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
 

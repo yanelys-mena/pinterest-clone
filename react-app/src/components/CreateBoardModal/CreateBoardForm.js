@@ -8,7 +8,6 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
-    console.log('CREATE BOARD', board)
     const handleSubmit = async (e) => {
         e.preventDefault()
         const new_board = {
