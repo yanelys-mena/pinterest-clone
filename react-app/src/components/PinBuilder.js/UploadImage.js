@@ -13,7 +13,7 @@ export default function UploadImage({ image, setImage }) {
         <>
             <div id='drop_area'>
                 <FileUploader
-                    id='file_upload'
+                    // id='file_upload'
                     handleChange={(file) => setFile(file)}
                     name='image'
                     types={fileTypes}

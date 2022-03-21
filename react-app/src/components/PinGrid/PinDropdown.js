@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from '../../context/Modal'
 import CreateBoardForm from '../CreateBoardModal/CreateBoardForm'
 import { add_pin_to_board } from '../../store/boards'
+import { load_boards_by_user } from '../../store/boards';
 
 import { load_pins } from '../../store/pins';
 
@@ -34,9 +35,7 @@ function PinDropdown({ boards, color, pin, setIsPinned, isPinned }) {
 
 
     const addToBoard = async (e, boardId) => {
-        console.log('PIN', pin?.id, 'BOARD', boardId)
         const pinned = await dispatch(add_pin_to_board(pin?.id, parseInt(boardId))).then((d) => dispatch(load_pins()))
-
 
         if (pinned) {
             setIsPinned('saved')
@@ -56,13 +55,11 @@ function PinDropdown({ boards, color, pin, setIsPinned, isPinned }) {
                         </div>
                         <div>
                             <ul id="dropBoard">
-                                {boards.map(board =>
+                                {boards?.map(board =>
                                     <li
                                         onClick={(e) => addToBoard(e, board?.id)}
                                         key={board?.id}>
                                         {
-
-
                                             <>
                                                 {board?.name}
                                                 {pin?.boards.includes(board?.id) ? '  - saved' : ''}

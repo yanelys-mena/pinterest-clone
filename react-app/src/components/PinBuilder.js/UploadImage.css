@@ -17,6 +17,7 @@
     justify-content: center;
     height: 400px;
     position: absolute;
+    z-index: 2;
 
 }
 
@@ -26,14 +27,26 @@
     width: 100%;
     object-fit:cover;
     border-radius: 20px;
+    cursor: pointer;
 }
 
+ /* input[type=file], .sc-bdvvtL{
+    background-color: red;
+    border: 1px solid black;
+    height: 1000px;
+    width: 100px;
+}  */
+
+#file_upload {
+    background-color: red;
+
+}
 
 #drop_area {
     height: 600px;
     width: 100%;
     position: relative;
-    z-index: 6;
+    /* z-index: 6; */
     padding: 20px;
     border: 2px dashed #d3d3d3;
 }

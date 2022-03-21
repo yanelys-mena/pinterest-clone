@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import PinGrid from '../PinGrid'
 import { boards_by_profile } from '../../store/profile_boards'
+import { load_boards_by_user } from '../../store/boards';
 
 export default function BoardPage() {
     let { boardId, profileId } = useParams()
@@ -18,8 +19,9 @@ export default function BoardPage() {
 
     useEffect(() => {
         dispatch(boards_by_profile(parseInt(profileId)))
-    }, [dispatch, profileId])
+        dispatch(load_boards_by_user(user?.id))
 
+    }, [dispatch, profileId])
 
 
 
@@ -28,7 +30,7 @@ export default function BoardPage() {
             <div id="boardPageTitle">{isCurrentUser ? board?.name : profileBoard?.name}</div>
 
             {isCurrentUser ? (board?.pins.length > 0
-                ? <PinGrid pins={isCurrentUser ? board?.pins : profileBoard?.pins} />
+                ? <PinGrid pins={board?.pins} />
                 : 'No Pins assigned to this board')
                 : (profileBoard?.pins.length > 0
                     ? <PinGrid pins={isCurrentUser ? board?.pins : profileBoard?.pins} />
