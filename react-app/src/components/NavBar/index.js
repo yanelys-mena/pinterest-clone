@@ -34,8 +34,14 @@ const NavBar = () => {
 
         <div id="rightNav">
           {user &&
-            <div className="faIcons">
-              <NavLink to="#"><i className="fa-solid fa-bell"> </i></NavLink>
+            <div className="faIcons" id="bell">
+
+              <NavLink to="#">
+                {/* <i class="fa-solid fa-bell-on"></i> */}
+                <i class="fa-solid fa-bell"></i>
+                {/* <i className="fa-solid fa-bell"> </i> */}
+
+              </NavLink>
             </div>}
           {user &&
             <div className="faIcons">
