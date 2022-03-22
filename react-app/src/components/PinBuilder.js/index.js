@@ -7,7 +7,7 @@ import UploadImage from './UploadImage';
 
 export default function PinBuilder() {
     const user = useSelector(state => state?.session.user);
-
+    const [errors, setErrors] = useState([])
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('');
     const [link, setLink] = useState('');
@@ -25,10 +25,23 @@ export default function PinBuilder() {
         let pinId;
 
         (async () => {
-            await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
-            ).then(() => history.push(`/pins/${pinId}`))
+            const data = await dispatch(add_pin(newPin))
+            console.log('before', data)
+            if (data.errors) {
+                setErrors(data.errors)
+                console.log('errors', errors)
+            } else {
+                pinId = data?.id;
+                history.push(`/pins/${pinId}`)
+            }
+
         })();
     }
+    //     (async () => {
+    //         await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
+    //         ).then(() => history.push(`/pins/${pinId}`))
+    //     })();
+    // }
 
 
     return (
@@ -42,6 +55,11 @@ export default function PinBuilder() {
                     <div id="create_pin_title">Create a Pin</div>
                     <div id="pinFormDiv">
                         <form id="pinForm" onSubmit={handleSubmit}>
+                            <div>
+                                {errors.map((error, ind) => (
+                                    <div key={ind}>{error}</div>
+                                ))}
+                            </div>
                             <input
                                 name='title'
                                 type='text'
@@ -63,13 +81,6 @@ export default function PinBuilder() {
                                 value={link}
                                 onChange={(e) => setLink(e.target.value)}>
                             </input>
-                            {/* <input
-                                name='image'
-                                type='text'
-                                placeholder='Add an image'
-                                value={image}
-                                onChange={(e) => setImage(e.target.value)}>
-                            </input> */}
                             <button>submit</button>
                         </form>
 

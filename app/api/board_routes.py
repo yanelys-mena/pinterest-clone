@@ -39,7 +39,6 @@ def add_board():
     data = form.data
     
     if form.validate_on_submit():
-        print('@@@@')
         new_board = Board(
             name=data['name'],
             user_id=data['user_id'],

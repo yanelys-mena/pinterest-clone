@@ -59,9 +59,14 @@ export const add_pin = (pin) => async (dispatch) => {
         const pin = await response.json();
         dispatch(add(pin));
         return pin;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        console.log('data', data)
+        if (data.errors) {
+            return data;
+        }
     } else {
-        const errors = await response.json();
-        return errors;
+        return ['An error occurred. Please try again.']
     }
 };
 

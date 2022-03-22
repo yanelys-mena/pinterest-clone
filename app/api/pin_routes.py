@@ -8,6 +8,7 @@ from app.aws import (delete_image_from_s3, upload_file_to_s3, allowed_file, get_
 
 pin_routes = Blueprint('comments', __name__)
 
+
 def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
@@ -34,13 +35,26 @@ def add_pin():
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
     image = form.image.data
-    print('img', image)
-        
+    
+    if image == 'null':
+        image = None
+    
     if not isinstance(image, str):
 
         if "image" not in request.files:
-            print('NOT IN FILES')
-            return {"errors": "image required"}, 400
+            if form.validate_on_submit():
+                new_pin = Pin(
+                    title=data['title'],
+                    description=data['description'],
+                    image=None,
+                    link=data['link'],
+                    user_id=data['user_id'], 
+                )
+            else:
+                new_errors = form.errors
+                new_errors["image"] = ["Please provide a valid email."]
+                print('----', new_errors)
+                return {'errors': validation_errors_to_error_messages(new_errors)}, 401
 
         image = request.files["image"]
         
@@ -57,7 +71,7 @@ def add_pin():
             return upload, 400
 
         image_url = upload["url"] 
-
+            
         if form.validate_on_submit():
             new_pin = Pin(
                 title=data['title'],
@@ -69,7 +83,7 @@ def add_pin():
             db.session.add(new_pin)
             db.session.commit()
         else: 
-            print('****', form.errors)
+            return {'errors': validation_errors_to_error_messages(form.errors)}, 401
         
         return new_pin.to_dict()
     
@@ -85,7 +99,7 @@ def add_pin():
             db.session.add(new_pin)
             db.session.commit()
         else: 
-            print('****', form.errors)
+            return {'errors': validation_errors_to_error_messages(form.errors)}, 401
         
         return new_pin.to_dict()
     
