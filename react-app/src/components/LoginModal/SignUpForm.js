@@ -19,6 +19,7 @@ const SignUpForm = ({ setPage, setShowModal }) => {
     await dispatch(signUp(username, email, password, repeatPassword)).then(data => setErrors(data));
   }
 
+
   const updateUsername = (e) => {
     setUsername(e.target.value);
   };
