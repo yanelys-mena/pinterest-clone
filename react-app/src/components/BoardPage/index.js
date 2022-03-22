@@ -23,9 +23,6 @@ export default function BoardPage() {
 
     }, [dispatch, profileId, user?.id])
 
-    console.log('PROFILE BOARD', profileBoard, boardId)
-    // console.log('USER BOARD', board)
-    // console.log('USER PROFILE', user?.id, profileId)
 
     return (
         <div id='boardPage'>

@@ -27,7 +27,7 @@ const to_delete = (pin) => ({
 
 
 export const load_pins = () => async (dispatch) => {
-
+    console.log('THUNK PINS')
     const response = await fetch('/api/pins/');
     if (response.ok) {
         const pins = await response.json();

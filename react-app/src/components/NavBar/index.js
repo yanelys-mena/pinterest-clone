@@ -24,7 +24,7 @@ const NavBar = () => {
           <div id="logoDiv"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt='logo'></img></div>
 
           <div id="homeButtonDiv">
-            <NavLink to='/' exact={true} activeClassName='active'><button id="homeButton">Home</button></NavLink>
+            <NavLink to='/' exact={true} className='active'><button id="homeButton">Home</button></NavLink>
           </div>
         </div>
 
@@ -55,8 +55,8 @@ const NavBar = () => {
           }
           {!user &&
             <>
-              <div id="login_nav_button" onClick={() => setShowModal(true)} activeClassName='active'> Log in </div>
-              <div id="signup_nav_button" onClick={() => setShowModal(true)} activeClassName='active'>Sign Up</div>
+              <div id="login_nav_button" onClick={() => setShowModal(true)} className='active'> Log in </div>
+              <div id="signup_nav_button" onClick={() => setShowModal(true)} className='active'>Sign Up</div>
             </>
           }
         </div>

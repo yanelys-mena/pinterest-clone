@@ -42,7 +42,7 @@ export default function PinPage() {
     const options = boards.map(board => {
         return { value: `${board?.id}`, label: `${board?.name} ${pin?.boards.includes(board?.id) ? '  - saved' : ''}` }
     })
-
+    console.log(pin?.link)
     return (
         <div id="pinPage">
 
@@ -71,7 +71,7 @@ export default function PinPage() {
                     </div>
                     <div id="pinPageInfo">
                         <div id="link">
-                            {pin?.link ? <Link to={pin?.link} target="_blank">{pin?.link.substring(0, 50)}... </Link> : ''}
+                            {pin?.link ? <a href={pin?.link} target="_blank">{pin?.link.substring(0, 50)}... </a> : ''}
 
                         </div>
                         <div>{pin?.title}</div>

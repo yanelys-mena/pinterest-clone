@@ -37,6 +37,7 @@ function App() {
   if (loaded && user) {
     dispatch(load_boards_by_user(user?.id))
   }
+
   return (
     <BrowserRouter>
       <NavBar />

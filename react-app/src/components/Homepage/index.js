@@ -25,10 +25,7 @@ export default function Homepage() {
 
     return (
         <div id="Homepage">
-
             <PinGrid pins={pins} boards={boards} />
-
-
         </div>
     )
 }

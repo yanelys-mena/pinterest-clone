@@ -10,7 +10,7 @@ export default function EditForm({ pin, setShowModal, user, }) {
     const [title, setTitle] = useState(pin?.title)
     const [description, setDescription] = useState(pin?.description ? pin?.description : '');
     const [errors, setErrors] = useState([]);
-    const pin_boards = useSelector(state => Object.values(state?.pinBoard)[0])
+    // const pin_boards = useSelector(state => Object.values(state?.pinBoard)[0])
     const [link, setLink] = useState(pin?.link ? pin?.link : '')
     const boards = useSelector(state => Object.values(state?.boards))
     const history = useHistory()

@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(30), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     photo = db.Column(db.String(255))
-    bio = db.Column(db.Text(500))
+    bio = db.Column(db.Text)
     website = db.Column(db.String(500))
     hashed_password = db.Column(db.String(255), nullable=False)
 

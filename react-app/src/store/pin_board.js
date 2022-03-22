@@ -16,7 +16,7 @@ export const pins_boards = (pin_id, user_id) => async (dispatch) => {
 
         const by_user = boards.boards.filter(board => board.user_id === user_id)[0]
 
-        dispatch(load_pin_boards(by_user));
+        // dispatch(load_pin_boards(by_user));
         return boards.boards;
     } else {
         const errors = await response.json();
@@ -34,22 +34,6 @@ const pin_board_reducer = (state = initialState, action) => {
         case LOAD_PINS: {
             return { pin: action.pin_board }
         }
-
-        // case ADD: {
-        //     return { [action.board.id]: action.board, ...state };
-        // }
-
-        // case UPDATE: {
-        //     newState = { ...state }
-        //     newState[action.board.id] = action.board
-        //     return { ...newState };
-        // }
-
-        // case DELETE: {
-        //     newState = { ...state };
-        //     delete newState[action.board.id];
-        //     return newState;
-        // }
         default:
             return state;
     }

@@ -27,7 +27,6 @@ export default function BoardCard({ board, profileId }) {
                 <Link to={`/profile/${profileId}/boards/${board?.id}`} style={{ textDecoration: 'none' }}>
                     {board.pins.length > 0 ? <img src={board.pins[0].image} alt="board" id="boardimg"></img> : <img src="https://wallpaperaccess.com/full/1091550.jpg" alt="no_pins_in_board"></img>}
                 </Link>
-                {/* <div> */}
                 {user?.id === profileId &&
                     <div style={style} onClick={() => setShowModal(true)}>
                         <i className="fa-solid fa-pen" id="editBoardBtn"  ></i>

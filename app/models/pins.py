@@ -7,9 +7,9 @@ class Pin(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text(500))
-    image = db.Column(db.String(255), nullable=False)
-    link = db.Column(db.String(255))
+    description = db.Column(db.Text)
+    image = db.Column(db.String(500), nullable=False)
+    link = db.Column(db.String(600))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship("User", back_populates='pins')
