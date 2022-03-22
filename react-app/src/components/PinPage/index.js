@@ -71,7 +71,7 @@ export default function PinPage() {
                     </div>
                     <div id="pinPageInfo">
                         <div id="link">
-                            {pin?.link ? <a href={pin?.link} target="_blank">{pin?.link.substring(0, 50)}... </a> : ''}
+                            {pin?.link ? <a href={pin?.link} target="_blank" rel="noreferrer">{pin?.link.substring(0, 50)}... </a> : ''}
 
                         </div>
                         <div>{pin?.title}</div>

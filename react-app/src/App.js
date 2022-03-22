@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { load_pins } from './store/pins';
@@ -10,14 +10,14 @@ import PinPage from './components/PinPage';
 import PinBuilder from './components/PinBuilder.js';
 import UserProfile from './components/UserProfile';
 import BoardPage from './components/BoardPage';
-import { load_boards_by_user } from './store/boards';
+// import { load_boards_by_user } from './store/boards';
 import LandingPage from './components/LandingPage';
 import NotFound from './components/NotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session?.user);
+  // const user = useSelector((state) => state.session?.user);
 
   useEffect(() => {
     (async () => {
@@ -34,9 +34,11 @@ function App() {
     return null;
   }
 
-  if (loaded && user) {
-    dispatch(load_boards_by_user(user?.id))
-  }
+  // if (loaded) {
+
+  // dispatch(load_boards_by_user(user?.id))
+
+  // }
 
   return (
     <BrowserRouter>

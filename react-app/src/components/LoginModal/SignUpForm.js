@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './SignUpForm.css'
 
@@ -13,10 +13,21 @@ const SignUpForm = ({ setPage, setShowModal }) => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    await dispatch(signUp(username, email, password, repeatPassword)).then(data => setErrors(data));
+    // await dispatch(signUp(username, email, password, repeatPassword)).then(data => setErrors(data));
+    const data = await dispatch(signUp(username, email, password, repeatPassword))
+
+    if (data) {
+      setErrors(data);
+    } else {
+      setShowModal(false)
+      history.push('/')
+      // return <Redirect to='/' />;
+
+    }
   }
 
 
@@ -37,8 +48,8 @@ const SignUpForm = ({ setPage, setShowModal }) => {
   };
 
   if (user) {
-    setShowModal(false)
-    return <Redirect to='/' />;
+    // setShowModal(false)
+    // return <Redirect to='/' />;
   }
 
   return (
