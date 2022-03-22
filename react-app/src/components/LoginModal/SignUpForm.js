@@ -49,7 +49,7 @@ const SignUpForm = ({ setPage, setShowModal }) => {
 
   if (user) {
     // setShowModal(false)
-    // return <Redirect to='/' />;
+    return <Redirect to='/' />;
   }
 
   return (
