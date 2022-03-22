@@ -40,7 +40,7 @@ export default function UserProfile() {
     return (
         <div id="userProfile">
 
-            <Header user={user} profile={profile} />
+            <Header user={isCurrentUser ? user : profile} profile={profile} />
 
             <div id="pageChanger">
                 <div id="pageChangeBtn">

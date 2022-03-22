@@ -27,7 +27,7 @@ export default function PinBuilder() {
 
         (async () => {
             const data = await dispatch(add_pin(newPin))
-            console.log('before', data)
+
             if (data.errors) {
                 setErrors(data.errors)
                 console.log('errors', errors)
