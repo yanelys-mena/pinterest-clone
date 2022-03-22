@@ -8,7 +8,8 @@
     border-radius: 20px;
     background-color: white;
     gap: 20px;
-
+    min-height: 50vh;
+    min-width: 50vw;
 }
 
 #editFormDiv {
@@ -59,6 +60,7 @@
 
 #editImage {
     object-fit: cover;
+    height: 400px;
     width: 100%;
     border-radius: 20px;
 }
