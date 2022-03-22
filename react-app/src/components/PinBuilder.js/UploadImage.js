@@ -2,7 +2,7 @@ import { FileUploader } from 'react-drag-drop-files';
 import './UploadImage.css'
 
 
-export default function UploadImage({ image, setImage }) {
+export default function UploadImage({ image, setImage, setFileError, fileError }) {
     const fileTypes = ['JPG', 'PNG', ' JPEG', 'jpg', 'jpeg', 'png', 'gif', 'GIF'];
 
     const setFile = (file) => {
@@ -11,9 +11,10 @@ export default function UploadImage({ image, setImage }) {
 
     return (
         <>
+            <div id="file_error">{fileError && fileError}</div>
             <div id='drop_area'>
                 <FileUploader
-                    // id='file_upload'
+                    onTypeError={(err) => setFileError('File type invalid. ')}
                     handleChange={(file) => setFile(file)}
                     name='image'
                     types={fileTypes}
@@ -23,7 +24,7 @@ export default function UploadImage({ image, setImage }) {
                             id="img-preview"
                             src={image
                                 ? URL.createObjectURL(image)
-                                : 'https://user-images.githubusercontent.com/88916829/159184219-82f97398-9fe1-4fb3-8eae-83ec2d53d6dd.png'}
+                                : 'https://user-images.githubusercontent.com/88916829/159394080-4d2ad2ed-9370-4268-8699-a18fb30c86a4.png'}
                             alt='preview-upload'
                         />
                     </div>
