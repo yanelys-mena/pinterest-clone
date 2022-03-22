@@ -19,9 +19,14 @@ export default function PinGrid({ pins }) {
 
     return (
         <div id="pinGrid">
-            {pins?.map(pin => (
-                <PinCard pin={pin} boards={boards} key={pin.id} />
-            ))}
+
+            {pins?.length ?
+                <>
+                    {pins?.map(pin => (
+                        <PinCard pin={pin} boards={boards} key={pin.id} />
+                    ))}
+                </>
+                : 'No Pins assigned to this board.'}
         </div >
     )
 }
