@@ -46,7 +46,10 @@ function PinDropdown({ boards, color, pin, setIsPinned, isPinned }) {
 
             {showMenu && (
                 <>
-                    <div id="dropDownDiv">
+                    <div id="dropDownDiv"
+                        onMouseLeave={e => {
+                            setShowMenu(false);
+                        }}>
                         <div id="dropDownDivHead" >
                             Save
                         </div>
