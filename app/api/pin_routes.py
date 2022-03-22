@@ -38,40 +38,33 @@ def add_pin():
     
     if image == 'null':
         image = None
+        form.validate_on_submit()
+        new_errors = form.errors
+        new_errors["image"] = ["Please provide a valid image."]
+        return {'errors': validation_errors_to_error_messages(new_errors)}, 401
+    
+    
     
     if not isinstance(image, str):
 
         if "image" not in request.files:
-            if form.validate_on_submit():
-                new_pin = Pin(
-                    title=data['title'],
-                    description=data['description'],
-                    image=None,
-                    link=data['link'],
-                    user_id=data['user_id'], 
-                )
-            else:
-                new_errors = form.errors
-                new_errors["image"] = ["Please provide a valid email."]
-                print('----', new_errors)
-                return {'errors': validation_errors_to_error_messages(new_errors)}, 401
+            {'errors': 'errors'}
 
         image = request.files["image"]
         
         if not allowed_file(image.filename):
-            print('NOT ALLOQWED')
             return {"errors": "file type not permitted"}, 400
-        
+            
         image.filename = get_unique_filename(image.filename)
-        
+    
         upload = upload_file_to_s3(image)
-        print('****', upload)
+
         if "url" not in upload:
             print('NOT IN UPLOAD')
             return upload, 400
 
         image_url = upload["url"] 
-            
+        
         if form.validate_on_submit():
             new_pin = Pin(
                 title=data['title'],

@@ -12,6 +12,7 @@ export default function PinBuilder() {
     const [description, setDescription] = useState('');
     const [link, setLink] = useState('');
     const [image, setImage] = useState(null);
+    const [fileError, setFileError] = useState('')
 
     const history = useHistory()
     const dispatch = useDispatch();
@@ -49,7 +50,7 @@ export default function PinBuilder() {
 
             <div id="builderContent">
                 <div id="leftBuilder">
-                    <UploadImage image={image} setImage={setImage} />
+                    <UploadImage image={image} setImage={setImage} setFileError={setFileError} fileError={fileError} />
                 </div>
                 <div id="rightBuilder">
                     <div id="create_pin_title">Create a Pin</div>
