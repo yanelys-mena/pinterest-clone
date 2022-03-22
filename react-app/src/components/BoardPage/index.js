@@ -18,23 +18,26 @@ export default function BoardPage() {
     const isCurrentUser = profileId === user?.id
 
     useEffect(() => {
-        dispatch(boards_by_profile(parseInt(profileId)))
+        dispatch(boards_by_profile(profileId))
         dispatch(load_boards_by_user(user?.id))
 
     }, [dispatch, profileId, user?.id])
 
-
+    console.log('PROFILE BOARD', profileBoard, boardId)
+    // console.log('USER BOARD', board)
+    // console.log('USER PROFILE', user?.id, profileId)
 
     return (
         <div id='boardPage'>
             <div id="boardPageTitle">{isCurrentUser ? board?.name : profileBoard?.name}</div>
 
-            {isCurrentUser ? (board?.pins.length > 0
+            <PinGrid pins={isCurrentUser ? board?.pins : profileBoard?.pins} />
+            {/* {isCurrentUser ? (board?.pins.length > 0
                 ? <PinGrid pins={board?.pins} />
                 : 'No Pins assigned to this board')
-                : (profileBoard?.pins.length > 0
-                    ? <PinGrid pins={isCurrentUser ? board?.pins : profileBoard?.pins} />
-                    : 'No Pins assigned to this board')}
+                : (profileBoard?.pins.length > 0)
+                    ? <PinGrid pins={profileBoard?.pins} />
+                    : 'No Pins assigned to this board'} */}
         </div>
     )
 }
