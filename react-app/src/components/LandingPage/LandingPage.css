@@ -166,6 +166,16 @@ img {
 
 }
 
+
+@media (min-width: 800pc) and (max-width: 2015px) {
+  #landing_grid {
+    width: 1764px;
+    column-count: 3;
+  }
+}
+
+
+
 @media (min-width: 1260px) and (max-width: 1511px) {
   #landing_grid {
     max-width: 1260px;

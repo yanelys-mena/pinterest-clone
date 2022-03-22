@@ -97,7 +97,7 @@ const SignUpForm = ({ setPage, setShowModal }) => {
           ></input>
           <button type='submit' id='signup_button'>Continue</button>
           <div id='login_terms'>By continuing, you agree to Pinterest's <span className="bolded_words">Terms of Service</span> and acknowledge you've read our <span className="bolded_words">Privacy Policy</span></div>
-          <div onClick={() => setPage(1)} id='switch_page'>Not on Pinterest yet? Sign up</div>
+          <div onClick={() => setPage(1)} id='switch_page'>Already have an account? Sign in</div>
         </form>
 
       </div>
