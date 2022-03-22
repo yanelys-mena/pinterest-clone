@@ -28,9 +28,11 @@ export default function BoardCard({ board, profileId }) {
                     {board.pins.length > 0 ? <img src={board.pins[0].image} alt="board" id="boardimg"></img> : <img src="https://wallpaperaccess.com/full/1091550.jpg" alt="no_pins_in_board"></img>}
                 </Link>
                 {/* <div> */}
-                <div style={style} onClick={() => setShowModal(true)}>
-                    <i className="fa-solid fa-pen" id="editBoardBtn"  ></i>
-                </div>
+                {user?.id === profileId &&
+                    <div style={style} onClick={() => setShowModal(true)}>
+                        <i className="fa-solid fa-pen" id="editBoardBtn"  ></i>
+                    </div>
+                }
 
 
             </div>
