@@ -43,7 +43,7 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
         <div id="board_modal">
             <div id="createBoardTitle"><div> {board ? 'Edit Board' : 'Create Board'}</div></div>
             <div id="createBoardFormDiv">
-                <form id="createBoardForm">
+                <form id="createBoardForm" onSubmit={board ? handleEdit : handleSubmit}>
                     <div>
                         {errors.length > 0 && errors.map((error, ind) => (
                             <div key={ind}>{error}</div>
@@ -66,7 +66,7 @@ export default function CreateBoardForm({ user, setShowModal, board }) {
                 <div id="board_form_right_footer">
                     <button id="cancelButton" onClick={() => setShowModal(false)}>Cancel</button>
 
-                    <button onClick={board ? handleEdit : handleSubmit} id="pinSaveBtn">Save</button>
+                    <button onClick={board ? handleEdit : handleSubmit} id="pinSaveBtn" type="submit">Save</button>
                 </div>
             </div>
         </div >
