@@ -1,4 +1,4 @@
-# Welcome to my Pinterest Clone!
+# [Welcome to my Pinterest Clone!](#top)
 When selecting this project, my thought process was to challenge myself by choosing to clone an application that met three main requirements:
 1. The app should have a clean and modern interface.
 2. The app should provide an easy user experience. The functionailty should makes sense to the every day user. 
@@ -114,7 +114,8 @@ My Pinterest Clone provides users the ability to organize their ideas by adding 
 ![removepinboard](https://user-images.githubusercontent.com/88916829/159794597-55df1505-7cfe-40dc-b971-8d361385d796.png)
 
 -----------------------------
- 
+ ### [Back to Top](#top)
+
 <a id="instructions"></a>
 ## Install Instructions
 
@@ -145,5 +146,7 @@ My Pinterest Clone provides users the ability to organize their ideas by adding 
 11. In your browser go to `localhost:3000`
 12. You may use the Demo user or create a new user by clicking on the  `Log In` button.
 
+
+ ### [Back to Top](#top)
 
 ---------------------
