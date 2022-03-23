@@ -40,7 +40,7 @@ def add_pin():
         image = None
         form.validate_on_submit()
         new_errors = form.errors
-        new_errors["image"] = ["Please provide a valid image."]
+        new_errors["image"] = ["Please provide an image."]
         return {'errors': validation_errors_to_error_messages(new_errors)}, 401
     
     

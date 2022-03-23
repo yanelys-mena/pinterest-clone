@@ -14,7 +14,7 @@ export default function UploadImage({ image, setImage, setFileError, fileError }
             <div id="file_error">{fileError && fileError}</div>
             <div id='drop_area'>
                 <FileUploader
-                    onTypeError={(err) => setFileError('File type invalid. ')}
+                    onTypeError={(err) => setFileError('File type invalid. Recommended: .jpg .png .gif')}
                     handleChange={(file) => setFile(file)}
                     name='image'
                     types={fileTypes}

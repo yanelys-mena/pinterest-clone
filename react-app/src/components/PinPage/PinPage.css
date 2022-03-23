@@ -72,6 +72,8 @@
 
 #description {
     font-size: 15px;
+    height: fit-content;
+    overflow-wrap: break-word;
 }
 
 #editPinEllpisis {

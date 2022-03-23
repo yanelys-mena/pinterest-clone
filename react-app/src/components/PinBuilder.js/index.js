@@ -71,14 +71,14 @@ export default function PinBuilder() {
                             <input
                                 name='description'
                                 type='text'
-                                placeholder='Tell us what your pin is about'
+                                placeholder='Tell us what your pin is about (optional)'
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}>
                             </input>
                             <input
                                 name='link'
                                 type='text'
-                                placeholder='Add a destination link'
+                                placeholder='Add a destination link (optional)'
                                 value={link}
                                 onChange={(e) => setLink(e.target.value)}>
                             </input>
