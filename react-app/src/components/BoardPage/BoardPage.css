@@ -5,8 +5,8 @@
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 50px;
+    gap: 20px !important;
+    padding: 50px !important;
 }
 
 #boardPageTitle {
