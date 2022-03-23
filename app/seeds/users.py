@@ -24,8 +24,8 @@ def seed_users():
         username='adam',
         email='adam@demo.com',
         password='password',
-        photo='https://buzzhippy.com/wp-content/uploads/2019/08/Best-Selfie-Poses-For-Guys-To-Look-Stylish-3.jpg',
-        bio='On here to ',
+        photo='https://eddie-hernandez.com/wp-content/uploads/2021/08/Eddie-Hernandez-Online-Dating-Photo.jpg',
+        bio='All things hiking! All things adventure.',
         website='https://github.com/yanelys-mena/pinterest-clone',
     )
 # The fashion forward guy
@@ -33,8 +33,8 @@ def seed_users():
         username='cyrano73',
         email='cyrano73@demo.com',
         password='password',
-        photo='https://eddie-hernandez.com/wp-content/uploads/2021/08/Eddie-Hernandez-Online-Dating-Photo.jpg',
-        bio='Love all things hiking',
+        photo='https://media.kidadl.com/602d02d1704f23d9aaf2687c_55_best_sunglasses_quotes_feeling_hot_but_looking_cool_9057e8aa6a.jpeg',
+        bio='welcome to my page',
         website='https://github.com/yanelys-mena/pinterest-clone',
     )
 # the weding photographer

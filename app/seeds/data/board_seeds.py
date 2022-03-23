@@ -57,4 +57,5 @@ board_seeds = [
         "name": 'Nails Inspirtation',
         "user_id": 1
     },
+    
 ]

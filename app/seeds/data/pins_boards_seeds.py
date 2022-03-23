@@ -76,5 +76,18 @@ pins_boards_seeds = [
     {
         "pin_id": 14,
         "board_id": 1,
+    },
+        # julia streetwear travel board
+    {
+        "pin_id": 53,
+        "board_id": 3,
+    },
+    {
+        "pin_id": 44,
+        "board_id": 3,
+    },
+    {
+        "pin_id": 49,
+        "board_id": 3,
     }
 ]

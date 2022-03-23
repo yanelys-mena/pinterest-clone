@@ -34,4 +34,19 @@ comments = [
         "pin_id": 1,
         "user_id": 5
     },
+        {
+        "content": 'I love the color!',
+        "pin_id": 17,
+        "user_id": 3
+    },
+    {
+        "content": 'getting lots of ig inspo from this',
+        "pin_id": 17,
+        "user_id": 5
+    },
+    {
+        "content": 'These pants are everything',
+        "pin_id": 3,
+        "user_id": 2
+    },
 ]
