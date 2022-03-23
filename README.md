@@ -1,52 +1,88 @@
-<!-- # Welcome to my Pinterest Clone!
+# Welcome to my Pinterest Clone!
 ![Homepage](https://user-images.githubusercontent.com/88916829/159598605-a8b74f85-e692-466b-ba56-17afe265733b.png)
+
+## Wiki Links
 
 
 ## Wiki Links
 
- -  [MVP Feature List](https://github.com/AndrewPMurray/Petsy/wiki/MVP-Features-List)
- - [React Components & Frontend Routes](https://github.com/AndrewPMurray/Petsy/wiki/Routes-&-Components)
- - [Database Schema](https://github.com/AndrewPMurray/Petsy/wiki/Database-Schema)
- - [API Routes](https://github.com/AndrewPMurray/Petsy/wiki/API-Routes)
- - [User Stories](https://github.com/AndrewPMurray/Petsy/wiki/User-Stories)
+ - [Feature List](https://github.com/yanelys-mena/pinterest-clone/wiki/Features-List)
+ - [Wireframes and Frontend Routes](https://github.com/yanelys-mena/pinterest-clone/wiki/Wireframes-and-Front-End-Routes)
+- [Redux State Shade](https://github.com/yanelys-mena/pinterest-clone/wiki/Redux-State-Shape)
+ - [Database Schema](https://github.com/yanelys-mena/pinterest-clone/wiki/Database-Schema)
+ - [API Routes](https://github.com/Yanelys-Mena/pinterest-clone/wiki/API-Routes)
+ - [User Stories](https://github.com/yanelys-mena/pinterest-clone/wiki/User-Stories)
+ - [Fetch Testing Routes](https://github.com/yanelys-mena/pinterest-clone/wiki/Fetch-Test-Routes)
+
 
 ## Technologies
 
  - **Backend:** Python, Flask
- - **Frontend:** JavaScript, React/Redux, AJAX, WTForms
+ - **Frontend:** JavaScript, React/Redux
  - **Database:** PostgresSQL
  - **Image hosting:** AWS/S3
  - **Design and Styling:** HTML/CSS
-- **External APIs:** boto3, botocore
 
-## Features
+[Go to Real Cool Heading section](#real-cool-heading)
 
- - User login/signup
- ![signup window](https://user-images.githubusercontent.com/89945390/158081458-7d170b5d-adff-4087-8669-b0ef325efeec.png)
- -----------------------------
- - Products
-![product page - leopard gecko tent](https://user-images.githubusercontent.com/89945390/158081788-241db514-fbc3-4c69-88ac-8a3d0e5986cf.png)
+
+# Features
+* [Pins](#pins)
+    * [View all pins](#pins)
+    * [View user created pins](#viewcreatedpins)
+    * [Create a pin](#createpin)
+    * [Edit a pin](#createpin)
+    * [Delete a pin](#createpin)
+* [Boards](#boards)
+    * [View user boards](viewboards)
+    * [View pins on a specific board](viewpinboard)
+    * [Create a board](#editboard)
+    * [Edit a bin](#editboard)
+    * [Delete a board](#editboard)
+* [Add and remove a pin from a board](#addpintoboard)
+    * [Add a pin to a board](#pinboards)
+    * [Remove a pin from a board](removepinfromboard)
+* Coming Soon
+    * [Comments](#comments)
+    * [Followers](#followers)
+    * [Search](#search)
+    * [Notifications](#notifications)
+
+
+
+
+<a id="pins"></a>
+## Pins - Homepage view
 -----------------------------
-![edit listing](https://user-images.githubusercontent.com/89945390/158081538-866e65cd-0c6a-4575-9483-9853bc4591f8.png)
+![Homepage](https://user-images.githubusercontent.com/88916829/159598605-a8b74f85-e692-466b-ba56-17afe265733b.png)
+
+
+<a id="viewcreatedpins"></a>
+## Pins - Created by user 
+-----------------------------
+![User Created Pins](https://user-images.githubusercontent.com/88916829/159755778-555edc56-76a7-4fc0-95a8-f369f7e2dba9.png)
+-----------------------------
+<a id="pins"></a>
+ ## Pin Detail Page 
+![Pin Page](https://user-images.githubusercontent.com/88916829/159743462-861f7ea3-537d-4547-840d-9584e9cb271e.png)
 
 -----------------------------
- - Shopping cart
-![petsy cart](https://user-images.githubusercontent.com/89945390/158081351-faee161b-bc92-4880-96cb-ead0034483bf.png)
+<a id="pinboards"></a>
+# some heade
+## Add Pins to a board directly from the pins detail page OR
+![Pin Page Save](https://user-images.githubusercontent.com/88916829/159743730-b18c30e4-4961-4a9a-a2ed-897e7be35507.png)
+
+## Add Pins to a board directly from the pin card
+![Pin Card Save](https://user-images.githubusercontent.com/88916829/159743855-da87656a-e14d-44b0-ad56-5b6328655c01.png)
+
+
 -----------------------------
- - Reviews/Ratings
-![product reviews list](https://user-images.githubusercontent.com/89945390/158039176-b8dee328-548a-42c7-b362-2db16bc0c762.png)
------------------------------
-- Purchases
-![purchases](https://user-images.githubusercontent.com/89945390/158081639-ad33db9d-14c8-49a8-9e65-7e911d4e2a25.png)
------------------------------
- - Search
-![bird search result](https://user-images.githubusercontent.com/89945390/158081400-a94f6619-6eff-4c3b-9d6b-82db2579dff1.png)
------------------------------
+ 
 
 ## Install Instructions
 
  1. Clone this repo
-	 - `git clone git@github.com:AndrewPMurray/Petsy.git`
+	 - `git clone git@github.com:yanelys-mena/pinterest-clone.git`
  2. Install dependencies for backend 
 	 - `pipenv install`
  3. Install dependencies for frontend
@@ -79,4 +115,4 @@
 
 ![not found page gif](https://user-images.githubusercontent.com/89945390/158082119-54c72160-20d4-41a1-ba86-757409070659.gif)
 
---------------------- -->
+---------------------
