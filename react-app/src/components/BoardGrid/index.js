@@ -1,5 +1,5 @@
-import './BoardCard.css'
 import './BoardGrid.css'
+import './BoardCard.css'
 import BoardCard from './BoardCard';
 
 
