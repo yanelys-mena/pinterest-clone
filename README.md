@@ -1,6 +1,12 @@
 # Welcome to my Pinterest Clone!
-![Homepage](https://user-images.githubusercontent.com/88916829/159598605-a8b74f85-e692-466b-ba56-17afe265733b.png)
+When selecting this project, my thought process was to challenge myself by choosing to clone an application that met three main requirements:
+1. The app should have a clean and modern interface.
+2. The app should provide an easy user experience. The functionailty should makes sense to the every day user. 
+3. I would enjoy building this kind of application and it would help significantly further my development skills.
 
+My Pinterest Clone provides users the ability to organize their ideas by adding pins to custom boards. Users can share their own ideas by creating pins. Users can search (in development) through pins and add these pins to different boards. Users are not limited to saving one pin to one unique board, a functionality that differs from the original app. I made this decision based not only on my own experience on the app, but also with the purpose to further create a more flexible user experience. Ideas can be fluid and they can fit into different categories. A user may want to add the same pin to a 'sneakers' board and also an 'outfit inspo' board. 
+
+[Click for a full list of features and upcoming releases.](#features)
 
 
 
@@ -24,7 +30,7 @@
  - **Design and Styling:** HTML/CSS
 
 
-
+<a id="features"></a>
 ## Features
 * [Pins](#pins)
     * [View all pins](#pins)
