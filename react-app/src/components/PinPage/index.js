@@ -48,102 +48,109 @@ export default function PinPage() {
     const options = boards.map(board => {
         return { value: `${board?.id}`, label: `${board?.name} ${pin?.boards.includes(board?.id) ? '  - saved' : ''}` }
     })
-    console.log(pin?.link)
+
+
     return (
-        <div id="pinPage">
+        <>
+            {pin?.title &&
+                <div id="pinPage">
 
-            <div id='pinPageArrow' >
-                <div onClick={history.goBack} id="arrowClick"><i className="fa-solid fa-arrow-left"></i></div>
-            </div>
-            <div id="pinContent">
-                <div id="pinContentLeft">
-                    <img src={pin?.image} id="pinPageImage" alt='pin'></img>
-                </div>
-                <div id="pinContentRight">
-                    <div id="pinPageHeader">
-                        {pin?.user?.id === user?.id ?
-                            <EditPinModal pin={pin} user={user} /> : <UnpinModal pin={pin} />}
+                    <div id='pinPageArrow' >
+                        <div onClick={history.goBack} id="arrowClick"><i className="fa-solid fa-arrow-left"></i></div>
+                    </div>
+                    <div id="pinContent">
+                        <div id="pinContentLeft">
+                            <img src={pin?.image} id="pinPageImage" alt='pin'></img>
+                        </div>
+                        <div id="pinContentRight">
+                            <div id="pinPageHeader">
+                                {pin?.user?.id === user?.id ?
+                                    <EditPinModal pin={pin} user={user} /> : <UnpinModal pin={pin} />}
 
-                        <div id='select-pin'>
-                            <div id="react-select">
-                                <Select
-                                    defaultValue={selectedOption}
-                                    placeholder={'Select Board'}
-                                    onChange={addToBoard}
-                                    options={options} />
+                                <div id='select-pin'>
+                                    <div id="react-select">
+                                        <Select
+                                            defaultValue={selectedOption}
+                                            placeholder={'Select Board'}
+                                            onChange={addToBoard}
+                                            options={options} />
+                                    </div>
+                                    <button id="pinButton">{isPinned ? isPinned : 'Save'}</button>
+                                </div>
                             </div>
-                            <button id="pinButton">{isPinned ? isPinned : 'Save'}</button>
-                        </div>
-                    </div>
-                    <div id="pinPageInfo">
-                        <div id="link">
-                            {pin?.link ? <a href={getClickableLink(pin?.link)} target="_blank" rel="noreferrer">{pin?.link.substring(0, 50)}... </a> : ''}
+                            <div id="pinPageInfo">
+                                <div id="link">
+                                    {pin?.link ? <a href={getClickableLink(pin?.link)} target="_blank" rel="noreferrer">{pin?.link.substring(0, 50)}... </a> : ''}
 
-                        </div>
-                        <div>{pin?.title}</div>
-                        {pin?.description ?
-                            <div id="description">{pin?.description} </div> : ''}
-                        <div id="userInfo">
-                            <Link to={`/profile/${pin?.user?.id}`} style={{ textDecoration: 'none' }} target="_blank">
-                                <div id="userPhoto">
-                                    {pin?.user?.photo ? <img src={pin?.user?.photo} alt='userPhoto'></img>
-                                        : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
                                 </div>
-                                <div>{pin?.user?.username}</div>
-                            </Link>
-                        </div>
-                    </div>
-                    <div id="comments">
-                        {!showComments && <div id="commentsHeader" >
-                            <div>Comments</div>
-                            <div onClick={() => setShowComments(true)}> <i className="fa-solid fa-chevron-right"></i></div>
-                        </div>
-
-                        }
-                        {showComments &&
-                            <>
-                                <div id="commentsHeader" >
+                                <div>{pin?.title}</div>
+                                {pin?.description ?
+                                    <div id="description">{pin?.description} </div> : ''}
+                                <div id="userInfo">
+                                    <Link to={`/profile/${pin?.user?.id}`} style={{ textDecoration: 'none' }} target="_blank">
+                                        <div id="userPhoto">
+                                            {pin?.user?.photo ? <img src={pin?.user?.photo} alt='userPhoto'></img>
+                                                : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+                                        </div>
+                                        <div>{pin?.user?.username}</div>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div id="comments">
+                                {!showComments && <div id="commentsHeader" >
                                     <div>Comments</div>
-                                    <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down"></i></div>
-                                </div>
-                                <div id="allComments">{pin?.comments.map(comment =>
-                                    <div id="indComment" key={comment.id}>
-                                        <>
-                                            {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
-                                            {comment?.content}
-                                        </>
-                                    </div>)}
-
+                                    <div onClick={() => setShowComments(true)}> <i className="fa-solid fa-chevron-right"></i></div>
                                 </div>
 
-                                <div id="leaveComment">
-                                    <div id="commentTip">Share feedback, ask a question or give a high five
-                                    </div>
-                                    <div id="commentInputDiv">
-                                        <div id="userPhoto_comment">
-                                            {user?.photo ? <img src={user?.photo} alt='userPhoto'></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
-
+                                }
+                                {showComments &&
+                                    <>
+                                        <div id="commentsHeader" >
+                                            <div>Comments</div>
+                                            <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="allComments">{pin?.comments.map(comment =>
+                                            <div id="indComment" key={comment.id}>
+                                                <>
+                                                    {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+                                                    {comment?.content}
+                                                </>
+                                            </div>)}
 
                                         </div>
-                                        <div id="formDiv">
-                                            <form onSubmit={(e) => e.preventDefault()}>
-                                                <input
-                                                    id="commentInput"
-                                                    type='text'
-                                                    placeholder='Comments coming soon'
-                                                ></input>
-                                            </form>
+
+                                        <div id="leaveComment">
+                                            <div id="commentTip">Share feedback, ask a question or give a high five
+                                            </div>
+                                            <div id="commentInputDiv">
+                                                <div id="userPhoto_comment">
+                                                    {user?.photo ? <img src={user?.photo} alt='userPhoto'></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+
+
+                                                </div>
+                                                <div id="formDiv">
+                                                    <form onSubmit={(e) => e.preventDefault()}>
+                                                        <input
+                                                            id="commentInput"
+                                                            type='text'
+                                                            placeholder='Comments coming soon'
+                                                        ></input>
+                                                    </form>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                    </div>
+                                    </>
+                                }
 
-                                </div>
-                            </>
-                        }
+                            </div>
+                        </div>
+                    </div >
+                </div >
 
-                    </div>
-                </div>
-            </div >
-        </div >
+            }
+        </>
+
 
 
     )
