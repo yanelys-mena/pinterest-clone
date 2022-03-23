@@ -108,11 +108,5 @@
 11. In your browser go to `localhost:3000`
 12. You may use the Demo user or create a new user by clicking on the  `Log In` button. Then you can search, look at products, leave reviews, add items to cart, purchase items, etc..
 
-## Bonus Features
-- Purchases
-    - A user can view their past purchases' information and create/edit reviews on each purchase.
-- 404 page
-
-![not found page gif](https://user-images.githubusercontent.com/89945390/158082119-54c72160-20d4-41a1-ba86-757409070659.gif)
 
 ---------------------
