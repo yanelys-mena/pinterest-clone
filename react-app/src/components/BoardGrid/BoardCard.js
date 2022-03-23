@@ -1,4 +1,6 @@
 import './BoardCard.css'
+import './BoardGrid.css'
+
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
