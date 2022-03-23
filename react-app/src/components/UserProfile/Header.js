@@ -1,5 +1,13 @@
 
 export default function Header({ user, profile }) {
+
+    const getClickableLink = (link) => {
+        return link.startsWith("http://") || link.startsWith("https://") ?
+            link
+            : `http://${link}`;
+    }
+
+
     return (
         <div id="profileHeader">
             <div>
@@ -10,8 +18,12 @@ export default function Header({ user, profile }) {
 
             <div id="bigUsername">{profile?.username}</div>
             <div id="smallUsername">@{profile?.username.toLowerCase()}</div>
-            <div id="githubLink"><a href={`${profile?.website}`} target="_blank" rel="noreferrer">{profile?.website}</a></div>
-            <div>· {profile?.bio} ·</div>
+            <div id="githubLink">
+                {profile?.website ? <a href={getClickableLink(profile?.website)} target="_blank" rel="noreferrer">{profile?.website}
+
+                </a> : ''}
+            </div>
+            <div>· {profile?.bio ? profile?.bio : 'add a bio coming soon'} ·</div>
         </div >
     )
 }

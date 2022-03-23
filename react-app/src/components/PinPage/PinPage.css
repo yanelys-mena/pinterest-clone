@@ -69,6 +69,12 @@
     width: 90%;
 }
 
+#pin_title {
+    font-size: 24px;
+    font-weight: 700;
+    height: fit-content;
+    overflow-wrap: break-word;
+}
 
 #description {
     font-size: 15px;
