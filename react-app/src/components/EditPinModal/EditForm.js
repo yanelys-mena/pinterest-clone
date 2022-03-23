@@ -57,7 +57,7 @@ export default function EditForm({ pin, setShowModal, user, }) {
                     <div id="editFormDiv">
 
                         <div id="editLeft">
-                            <form id="ediPinForm">
+                            <form id="ediPinForm" onSubmit={handleSubmit} >
                                 <div>
                                     {errors.map((error, ind) => (
                                         <div key={ind}>{error}</div>
@@ -87,6 +87,7 @@ export default function EditForm({ pin, setShowModal, user, }) {
                                     value={link}
                                     onChange={(e) => setLink(e.target.value.toLowerCase())}>
                                 </input>
+                                <button type="submit" style={{ display: 'none' }}></button>
                             </form>
 
                         </div>
