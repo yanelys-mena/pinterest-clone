@@ -14,6 +14,8 @@ const NavBar = () => {
   const user = useSelector((state) => state?.session.user);
   const [showModal, setShowModal] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
+  const [fromSignUp, setFromSignUp] = useState(1)
+
 
 
   return (
@@ -64,7 +66,7 @@ const NavBar = () => {
 
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <LoginModal setShowModal={setShowModal} showModal={showModal} />
+            <LoginModal setShowModal={setShowModal} showModal={showModal} fromSignUp={fromSignUp} />
           </Modal>
         )}
 

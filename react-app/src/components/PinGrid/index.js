@@ -26,7 +26,7 @@ export default function PinGrid({ pins }) {
                         <PinCard pin={pin} boards={boards} key={pin.id} />
                     ))}
                 </>
-                : 'No Pins assigned to this board.'}
+                : 'No Pins added.'}
         </div >
     )
 }

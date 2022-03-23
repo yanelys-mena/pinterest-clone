@@ -71,7 +71,7 @@ export default function EditForm({ pin, setShowModal, user, }) {
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}>
                                 </input>
-                                <label>description</label>
+                                <label>description (optional)</label>
                                 <input
                                     name='description'
                                     type='text'
@@ -79,7 +79,7 @@ export default function EditForm({ pin, setShowModal, user, }) {
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}>
                                 </input>
-                                <label>website link</label>
+                                <label>website (optional)</label>
                                 <input
                                     name='link'
                                     type='text'

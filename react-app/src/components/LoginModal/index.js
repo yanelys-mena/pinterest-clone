@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SignUpForm from './SignUpForm'
 import LoginForm from './LoginForm'
 
 
-const LoginModal = ({ setShowModal }) => {
+const LoginModal = ({ setShowModal, fromSignUp }) => {
     const [page, setPage] = useState(1)
 
     return (

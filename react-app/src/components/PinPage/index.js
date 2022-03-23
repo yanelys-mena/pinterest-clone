@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { add_pin_to_board } from '../../store/boards'
@@ -22,12 +22,6 @@ export default function PinPage() {
     const [showComments, setShowComments] = useState(true)
     const [selectedOption, setSelectedOption] = useState(null);
 
-    // useEffect(() => {
-    //     dispatch(load_pins()).then((res) => {
-    //         if (!res[pinId]) history.push('/not-found');
-    //     });
-    // }, [dispatch, pinId, history])
-
 
 
     const addToBoard = async (e) => {
@@ -44,10 +38,14 @@ export default function PinPage() {
             : `http://${link}`;
     }
 
+    let options;
 
-    const options = boards.map(board => {
+
+    options = boards.map(board => {
         return { value: `${board?.id}`, label: `${board?.name} ${pin?.boards.includes(board?.id) ? '  - saved' : ''}` }
     })
+
+
 
 
     return (
@@ -83,7 +81,7 @@ export default function PinPage() {
                                     {pin?.link ? <a href={getClickableLink(pin?.link)} target="_blank" rel="noreferrer">{pin?.link.substring(0, 50)}... </a> : ''}
 
                                 </div>
-                                <div>{pin?.title}</div>
+                                <div id="pin_title">{pin?.title}</div>
                                 {pin?.description ?
                                     <div id="description">{pin?.description} </div> : ''}
                                 <div id="userInfo">

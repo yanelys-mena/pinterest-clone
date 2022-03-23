@@ -1,5 +1,5 @@
 import './PinBuilder.css';
-import { useState, } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { add_pin } from '../../store/pins'
 import { useHistory } from 'react-router-dom';
@@ -13,12 +13,14 @@ export default function PinBuilder() {
     const [link, setLink] = useState('');
     const [image, setImage] = useState(null);
     const [fileError, setFileError] = useState('')
+    const btn = useRef();
 
     const history = useHistory()
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const newPin = {
             title, description, image, link, user_id: user?.id
         };
@@ -38,11 +40,7 @@ export default function PinBuilder() {
 
         })();
     }
-    //     (async () => {
-    //         await dispatch(add_pin(newPin)).then(pin => pinId = pin?.id
-    //         ).then(() => history.push(`/pins/${pinId}`))
-    //     })();
-    // }
+
 
 
     return (
@@ -71,18 +69,18 @@ export default function PinBuilder() {
                             <input
                                 name='description'
                                 type='text'
-                                placeholder='Tell us what your pin is about'
+                                placeholder='Tell us what your pin is about (optional)'
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}>
                             </input>
                             <input
                                 name='link'
                                 type='text'
-                                placeholder='Add a destination link'
+                                placeholder='Add a destination link (optional)'
                                 value={link}
                                 onChange={(e) => setLink(e.target.value)}>
                             </input>
-                            <button>submit</button>
+                            <button type="submit">submit</button>
                         </form>
 
                     </div>

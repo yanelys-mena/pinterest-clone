@@ -11,9 +11,9 @@
 
 #file_error {
     color: red;
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 20px;
-    font-weight: 700;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     width: 100%;

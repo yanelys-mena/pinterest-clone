@@ -1,7 +1,13 @@
 # Welcome to my Pinterest Clone!
-![Homepage](https://user-images.githubusercontent.com/88916829/159598605-a8b74f85-e692-466b-ba56-17afe265733b.png)
+When selecting this project, my thought process was to challenge myself by choosing to clone an application that met three main requirements:
+1. The app should have a clean and modern interface.
+2. The app should provide an easy user experience. The functionailty should makes sense to the every day user. 
+3. I would enjoy building this kind of application and it would help significantly further my development skills.
 
-## Wiki Links
+My Pinterest Clone provides users the ability to organize their ideas by adding pins to custom boards. Users can share their own ideas by creating pins. Users can search (in development) through pins and add these pins to different boards. Users are not limited to saving one pin to one unique board, a functionality that differs from the original app. I made this decision based not only on my own experience on the app, but also with the purpose to further create a more flexible user experience. Ideas can be fluid and they can fit into different categories. A user may want to add the same pin to a 'sneakers' board and also an 'outfit inspo' board. 
+
+[Click for a full list of features and upcoming releases.](#features)
+
 
 
 ## Wiki Links
@@ -23,25 +29,23 @@
  - **Image hosting:** AWS/S3
  - **Design and Styling:** HTML/CSS
 
-[Go to Real Cool Heading section](#real-cool-heading)
 
-
-# Features
+<a id="features"></a>
+## Features
 * [Pins](#pins)
     * [View all pins](#pins)
     * [View user created pins](#viewcreatedpins)
+    * [View Pin Details](#pindetails)
     * [Create a pin](#createpin)
-    * [Edit a pin](#createpin)
-    * [Delete a pin](#createpin)
+    * [Edit or Delete a pin](#editpin)
 * [Boards](#boards)
-    * [View user boards](viewboards)
-    * [View pins on a specific board](viewpinboard)
-    * [Create a board](#editboard)
-    * [Edit a bin](#editboard)
-    * [Delete a board](#editboard)
-* [Add and remove a pin from a board](#addpintoboard)
-    * [Add a pin to a board](#pinboards)
-    * [Remove a pin from a board](removepinfromboard)
+    * [View user boards](#boards)
+    * [View pins on a specific board](#viewpinboard)
+    * [Create a board](#createboard)
+    * [Edit or Delete a board](#editboard)
+* [Add and remove a pin from a board](#pinboard)
+    * [Add a pin to a board](#addpinboard)
+    * [Remove a pin from a board](#removepinboard)
 * Coming Soon
     * [Comments](#comments)
     * [Followers](#followers)
@@ -49,6 +53,8 @@
     * [Notifications](#notifications)
 
 
+## Local Setup Instructions
+[Setup Instructions](#instructions)
 
 
 <a id="pins"></a>
@@ -62,36 +68,67 @@
 -----------------------------
 ![User Created Pins](https://user-images.githubusercontent.com/88916829/159755778-555edc56-76a7-4fc0-95a8-f369f7e2dba9.png)
 -----------------------------
-<a id="pins"></a>
+<a id="pindetails"></a>
  ## Pin Detail Page 
 ![Pin Page](https://user-images.githubusercontent.com/88916829/159743462-861f7ea3-537d-4547-840d-9584e9cb271e.png)
 
------------------------------
-<a id="pinboards"></a>
-# some heade
-## Add Pins to a board directly from the pins detail page OR
-![Pin Page Save](https://user-images.githubusercontent.com/88916829/159743730-b18c30e4-4961-4a9a-a2ed-897e7be35507.png)
+<a id="createpin"></a>
+## Pin Builder: Create a pin
+![Create a pin](https://user-images.githubusercontent.com/88916829/159792329-ea2e5240-e971-4907-8e4d-760e4f98fd7f.png)
 
-## Add Pins to a board directly from the pin card
-![Pin Card Save](https://user-images.githubusercontent.com/88916829/159743855-da87656a-e14d-44b0-ad56-5b6328655c01.png)
 
+<a id="editpin"></a>
+## Edit or Delete a pin
+![Edit Pin](https://user-images.githubusercontent.com/88916829/159792483-ddbc1b2d-74d9-4faf-9211-c32cdc63ac67.png)
+
+
+
+<a id="boards"></a>
+## User boards
+![User boards](https://user-images.githubusercontent.com/88916829/159793830-6b1525c0-1737-4a8d-af98-6576f3c387d3.png)
+
+
+
+<a id="createboard"></a>
+## Create a Board
+![createboard](https://user-images.githubusercontent.com/88916829/159794272-56fa4725-4571-4989-9416-f1bbaf1a8610.png)
+
+
+<a id="editboard"></a>
+## Edit or Delete a board
+![editboard](https://user-images.githubusercontent.com/88916829/159794348-af682460-c3ad-4474-b7b9-d47310228e02.png)
+
+
+<a id="pinboard"></a>
+## View pins on board
+![pinboards](https://user-images.githubusercontent.com/88916829/159794818-1185348d-bb38-49f7-b1b3-228354a27603.png)
+
+
+<a id="addpinboard"></a>
+## Add pin to board
+![addpinboard](https://user-images.githubusercontent.com/88916829/159794436-db996b79-8e2d-4ad4-b538-e1a07ef15d09.png)
+
+
+<a id="removepinboard"></a>
+## Remove pin from board
+![removepinboard](https://user-images.githubusercontent.com/88916829/159794597-55df1505-7cfe-40dc-b971-8d361385d796.png)
 
 -----------------------------
  
-
+<a id="instructions"></a>
 ## Install Instructions
 
  1. Clone this repo
-	 - `git clone git@github.com:yanelys-mena/pinterest-clone.git`
+	 - `https://github.com/yanelys-mena/pinterest-clone.git`
  2. Install dependencies for backend 
 	 - `pipenv install`
  3. Install dependencies for frontend
 	 - `cd react-app`
 	 - `npm install`
  4. Create PostgreSQL user
-	 - `CREATE USER petsy_user WITH CREATEDB PASSWORD '<password>'`
+	 - `CREATE USER <username> WITH CREATEDB PASSWORD '<password>'`
  5. Create PostgreSQL database
-	 - `CREATE DATABASE petsy_db WITH OWNER <user name>`
+	 - `CREATE DATABASE <database_name> WITH OWNER <username>`
 6. Create a `.env` file in the root directory based on the `.env.example` file
 7. In `.env` file:
 	- Replace 'password' in DATABASE_URL with your chosen password
@@ -106,7 +143,7 @@
 10. Start frontend server in `react-app` directory
 	- `npm start`
 11. In your browser go to `localhost:3000`
-12. You may use the Demo user or create a new user by clicking on the  `Log In` button. Then you can search, look at products, leave reviews, add items to cart, purchase items, etc..
+12. You may use the Demo user or create a new user by clicking on the  `Log In` button.
 
 
 ---------------------
