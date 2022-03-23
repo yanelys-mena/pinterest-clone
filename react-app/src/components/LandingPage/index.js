@@ -1,16 +1,21 @@
 import './LandingPage.css';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector, } from 'react-redux';
 import { Modal } from '../../context/Modal'
 import LoginModal from '../LoginModal'
+import { Redirect } from 'react-router-dom';
 
 
 
 export default function LandingPage() {
     const pins = useSelector(state => Object.values(state?.pins));
     const [showModal, setShowModal] = useState(false);
-
+    const user = useSelector((state) => state.session?.user);
     const scrollRef = useRef(null)
+
+    if (user) {
+        return <Redirect to='/' />
+    }
 
     const scrollToBottom = () => {
         scrollRef.current?.scrollIntoView({ behavior: "smooth" })
