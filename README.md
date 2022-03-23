@@ -1,3 +1,4 @@
+<a id="top"></a>
 # Welcome to my Pinterest Clone!
 When selecting this project, my thought process was to challenge myself by choosing to clone an application that met three main requirements:
 1. The app should have a clean and modern interface.
@@ -54,7 +55,13 @@ My Pinterest Clone provides users the ability to organize their ideas by adding 
 
 
 ## Local Setup Instructions
-[Setup Instructions](#instructions)
+* [Setup Instructions](#instructions)
+
+
+
+
+
+# Features
 
 
 <a id="pins"></a>
@@ -114,7 +121,8 @@ My Pinterest Clone provides users the ability to organize their ideas by adding 
 ![removepinboard](https://user-images.githubusercontent.com/88916829/159794597-55df1505-7cfe-40dc-b971-8d361385d796.png)
 
 -----------------------------
- 
+ [Back to top](#top)
+
 <a id="instructions"></a>
 ## Install Instructions
 
@@ -147,3 +155,4 @@ My Pinterest Clone provides users the ability to organize their ideas by adding 
 
 
 ---------------------
+ [Back to top](#top)
