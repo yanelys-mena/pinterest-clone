@@ -56,7 +56,7 @@ const SignUpForm = ({ setShowModal }) => {
     <div id="signup_modal">
       <div id="login_logo"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt='logo'></img></div>
       <div id="welcome">Welcome to Pinterest</div>
-      <div>Find new ideas to try</div>
+      <div>Sign up for new ideas</div>
 
 
       <div id="signup_formDiv">
