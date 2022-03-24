@@ -1,8 +1,8 @@
 <a id="top"></a>
 # Welcome to my Pinterest Clone!
-When selecting this project, my thought process was to challenge myself by choosing to clone an application that met three main requirements:
+My thought process when selecting this project started with finding an app that not only inspired me, but also challenged me. I set three main requirements:
 1. The app should have a clean and modern interface.
-2. The app should provide an easy user experience. The functionailty should makes sense to the every day user. 
+2. The app should provide an easy user experience. The functionailty should makes sense to the every day user and I should replicate this experience as closely as possible.
 3. I would enjoy building this kind of application and it would help significantly further my development skills.
 
 My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users the ability to organize their ideas by adding pins to custom boards. Users can share their own ideas by creating pins. Users can search (in development) through pins and add these pins to different boards. Users are not limited to saving one pin to one unique board, a functionality that differs from the original app. I made this decision based not only on my own experience on the app, but also with the purpose to further create a more flexible user experience. Ideas can be fluid and they can fit into different categories. A user may want to add the same pin to a 'sneakers' board and also an 'outfit inspo' board. 
