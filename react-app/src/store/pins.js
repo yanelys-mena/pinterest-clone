@@ -27,7 +27,6 @@ const to_delete = (pin) => ({
 
 
 export const load_pins = () => async (dispatch) => {
-    console.log('THUNK PINS')
     const response = await fetch('/api/pins/');
     if (response.ok) {
         const pins = await response.json();
@@ -61,7 +60,6 @@ export const add_pin = (pin) => async (dispatch) => {
         return pin;
     } else if (response.status < 500) {
         const data = await response.json();
-        console.log('data', data)
         if (data.errors) {
             return data;
         }
