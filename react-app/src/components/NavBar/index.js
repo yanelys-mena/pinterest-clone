@@ -6,16 +6,31 @@ import './NavBar.css'
 import { Modal } from '../../context/Modal'
 import SearchBar from './SearchBar';
 import AccountMenu from './AccountMenu';
-import LoginModal from '../LoginModal';
+// import LoginModal from '../LoginModal/LoginForm';
 import MyLinks from '../MyLinks';
-
+import SignUpForm from '../LoginModal/SignUpForm'
+import LoginForm from '../LoginModal/LoginForm'
 
 const NavBar = () => {
   const user = useSelector((state) => state?.session.user);
   const [showModal, setShowModal] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
-  const [fromSignUp, setFromSignUp] = useState(1)
+  // const [fromSignUp, setFromSignUp] = useState(1)
+  const [showSignIn, setshowSignIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [page, setPage] = useState(0)
 
+
+  const showSignInModal = () => {
+    setPage(1)
+    setShowModal(true)
+  }
+
+
+  const showSignUpModal = () => {
+    setPage(2)
+    setShowModal(true)
+  }
 
 
   return (
@@ -57,18 +72,36 @@ const NavBar = () => {
           }
           {!user &&
             <>
-              <div id="login_nav_button" onClick={() => setShowModal(true)} className='active'> Log in </div>
-              <div id="signup_nav_button" onClick={() => setShowModal(true)} className='active'>Sign Up</div>
+              <div id="login_nav_button" onClick={showSignInModal} className='active'> Log in </div>
+              <div id="signup_nav_button" onClick={showSignUpModal} className='active'>Sign Up</div>
+              {/* <div id="login_nav_button" onClick={() => setshowSignIn(true)} className='active'> Log in </div>
+              <div id="signup_nav_button" onClick={() => setShowSignUp(true)} className='active'>Sign Up</div> */}
             </>
           }
         </div>
 
+        {/* {showSignIn && <LoginForm setShowSignIn={setShowSignIn} />} */}
+        {/* {showSignIn && <SignUpForm setShowSignIn={setshowSignIn} />}
+
+        {showSignUp && <SignUpForm setShowSignUp={setShowSignUp} />} */}
+
 
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <LoginModal setShowModal={setShowModal} showModal={showModal} fromSignUp={fromSignUp} />
+            {page === 1 && <>
+              {<LoginForm setShowModal={setShowModal} />}
+            </>}
+            {page === 2 && <>
+              {<SignUpForm setShowModal={setShowModal} />}
+            </>}
           </Modal>
         )}
+
+        {/* {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <LoginModal setShowModal={setShowModal} showModal={showModal} fromSignUp={fromSignUp} />
+          </Modal>
+        )} */}
 
         {
           showLinks && (

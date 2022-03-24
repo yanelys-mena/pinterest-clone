@@ -91,7 +91,7 @@ const LoginForm = ({ setPage, setShowModal }) => {
         </form>
         <button onClick={demoLogin} id="demo_button">Demo Login</button>
         <div id='login_terms'>By continuing, you agree to Pinterest's <span className="bolded_words">Terms of Service</span> and acknowledge you've read our <span className="bolded_words">Privacy Policy</span></div>
-        <div onClick={() => setPage(2)} id='switch_page'>Not on Pinterest yet? Sign up</div>
+        {/* <div onClick={() => setPage(2)} id='switch_page'>Not on Pinterest yet? Sign up</div> */}
 
       </div>
 
