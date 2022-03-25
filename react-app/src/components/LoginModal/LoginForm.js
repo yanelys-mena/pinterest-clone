@@ -28,7 +28,7 @@ const LoginForm = ({ setPage, setShowModal }) => {
 
     const demo_email = 'demo@demo.com';
     const demo_password = 'password';
-    const data = await dispatch(login(demo_email, demo_password));
+    const data = dispatch(login(demo_email, demo_password));
     setShowModal(false)
 
     if (data) {

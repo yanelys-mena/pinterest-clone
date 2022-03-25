@@ -24,12 +24,21 @@ const NavBar = () => {
   const showSignInModal = () => {
     setPage(1)
     setShowModal(true)
+    return () => {
+      setShowModal(false)
+      setshowSignIn(false)
+    }
+
   }
 
 
   const showSignUpModal = () => {
     setPage(2)
     setShowModal(true)
+    return () => {
+      setShowModal(false)
+      setShowSignUp(false)
+    }
   }
 
 
@@ -82,7 +91,6 @@ const NavBar = () => {
 
         {/* {showSignIn && <LoginForm setShowSignIn={setShowSignIn} />} */}
         {/* {showSignIn && <SignUpForm setShowSignIn={setshowSignIn} />}
-
         {showSignUp && <SignUpForm setShowSignUp={setShowSignUp} />} */}
 
 
