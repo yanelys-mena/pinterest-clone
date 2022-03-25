@@ -2,7 +2,8 @@ import './LandingPage.css';
 import { useEffect, useRef, useState } from 'react';
 import { useSelector, } from 'react-redux';
 import { Modal } from '../../context/Modal'
-import LoginModal from '../LoginModal'
+// import LoginModal from '../LoginModal'
+import LoginForm from '../LoginModal/LoginForm'
 import { Redirect } from 'react-router-dom';
 
 
@@ -32,8 +33,6 @@ export default function LandingPage() {
         return Math.floor(Math.random() * (4 - 1) + 1);
     }
 
-
-
     return (
         <div id="landingPage">
             <div id="top">
@@ -54,7 +53,7 @@ export default function LandingPage() {
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <LoginModal setShowModal={setShowModal} />
+                        <LoginForm setShowModal={setShowModal} />
                     </Modal>
                 )
             }

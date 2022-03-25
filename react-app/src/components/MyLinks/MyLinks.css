@@ -1,25 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
 
 #linksModal {
-    margin: 0 auto;
+    margin: 30px 0 30px 0;
     height: 100%;
     width: 100%;
-    min-height: 45vh;
+    /* min-height: 45vh; */
     background-color: white;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 50px;
+
 }
 
 #about_info {
+
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-    width: 60%;
+    width: 65%;
+
 }
 
 #my_name {
@@ -45,3 +49,23 @@
     font-size: 20px;
     color: #454545;
 }
+
+@media screen and (max-width: 1400px) {
+    #my_name {
+      font-size: 25px;
+    }
+    #my_here_link {
+        font-size: 15px;
+
+    }
+    #linksModal > * {
+        letter-spacing: 1.5px;
+        text-align: justify;
+        font-size: 15px;
+        color: #454545;
+    }
+
+    #about_info > div {
+        margin-bottom: 10px;
+    }
+  }
