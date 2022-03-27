@@ -34,7 +34,7 @@
 }
 
 #removePin_boards {
-    width: 40%;
+    width: 50%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@ align-items: center;
 .removePin_boardbtn {
     display: flex;
     align-items: center;
-    width: 256px;
+    width: 100%;
     height: 48px;
     background-color: #ffffff;
     border-radius: 6px;
@@ -54,6 +54,9 @@ align-items: center;
 .removePin_name {
     flex-grow: 1;
     padding: 12px;
+    word-break: break-word;
+    width: 60%;
+
 }
 
 .close {
@@ -72,4 +75,5 @@ align-items: center;
 .removePin_boardbtn:hover > .close {
     width: 36px;
     background-image: url(https://www.pinclipart.com/picdir/big/88-882904_mermaiden-crystal-dress-up-game-white-x-icon.png);
+
 }
