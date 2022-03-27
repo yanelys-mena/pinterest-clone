@@ -3,7 +3,7 @@ import Header from './Header'
 import BoardGrid from '../BoardGrid'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { load_boards_by_user } from '../../store/boards'
 import { load_profile } from '../../store/profile_user'
 import { boards_by_profile } from '../../store/profile_boards'
@@ -24,9 +24,10 @@ export default function UserProfile() {
     const userPins = Object.values(pins).filter(pin => pin.user.id === profile?.id)
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
-
+    const history = useHistory();
 
     const isCurrentUser = profileId === user?.id
+
 
     useEffect(() => {
         dispatch(boards_by_profile(profileId))
@@ -38,35 +39,38 @@ export default function UserProfile() {
     }, [dispatch, profileId])
 
     return (
-        <div id="userProfile">
+        <>
+            {profile?.username &&
+                <div id="userProfile">
 
-            <Header user={isCurrentUser ? user : profile} profile={profile} />
+                    <Header user={isCurrentUser ? user : profile} profile={profile} />
 
-            <div id="pageChanger">
-                <div id="pageChangeBtn">
-                    <div onClick={() => setPage(2)} className={page === 2 ? 'active_page' : 'inactive'}>Created</div>
-                    <div onClick={() => setPage(1)} className={page === 1 ? 'active_page' : 'inactive'}>Saved</div>
+                    <div id="pageChanger">
+                        <div id="pageChangeBtn">
+                            <div onClick={() => setPage(2)} className={page === 2 ? 'active_page' : 'inactive'}>Created</div>
+                            <div onClick={() => setPage(1)} className={page === 1 ? 'active_page' : 'inactive'}>Saved</div>
+                        </div>
+                    </div>
+
+                    <div id="boardBtnDiv" >
+                        {isCurrentUser &&
+                            <i onClick={() => setShowModal(true)} className="fa-solid fa-plus plus_board"></i>
+                        }
+                    </div>
+                    {/* changed this code >> user passed in is current user */}
+                    {
+                        showModal && (
+                            <Modal onClose={() => setShowModal(false)}>
+                                <CreateBoardForm user={user} setShowModal={setShowModal} />
+                            </Modal>
+                        )
+                    }
+
+                    {page === 1 && <BoardGrid boards={isCurrentUser ? boards : profileBoards} profileId={profileId} />}
+                    {page === 2 && <Pins pins={userPins} boards={isCurrentUser ? boards : profileBoards} />}
+
                 </div>
-            </div>
-
-            <div id="boardBtnDiv" >
-                {isCurrentUser &&
-                    <i onClick={() => setShowModal(true)} className="fa-solid fa-plus plus_board"></i>
-                }
-            </div>
-            {/* changed this code >> user passed in is current user */}
-            {
-                showModal && (
-                    <Modal onClose={() => setShowModal(false)}>
-                        <CreateBoardForm user={user} setShowModal={setShowModal} />
-                    </Modal>
-                )
             }
-
-            {page === 1 && <BoardGrid boards={isCurrentUser ? boards : profileBoards} profileId={profileId} />}
-            {page === 2 && <Pins pins={userPins} boards={isCurrentUser ? boards : profileBoards} />}
-
-        </div>
-
+        </>
     )
 }
