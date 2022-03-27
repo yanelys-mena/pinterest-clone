@@ -86,6 +86,7 @@ const SignUpForm = ({ setShowModal }) => {
             placeholder='password'
             onChange={updatePassword}
             value={password}
+            required={true}
           ></input>
           <input
             type='password'
