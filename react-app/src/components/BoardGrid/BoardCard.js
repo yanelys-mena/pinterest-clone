@@ -38,7 +38,7 @@ export default function BoardCard({ board, profileId }) {
 
             </div>
 
-            <div id="boardName">{board.name}</div>
+            <div id="boardName">{board.name.length > 25 ? `${board.name.substring(0, 25)}...` : board.name}</div>
 
 
             {

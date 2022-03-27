@@ -8,6 +8,11 @@
     font-size: 18px;
     font-weight: 700;
     margin-right: 20px  !important;
+    overflow-wrap: break-word;
+background-color: palegoldenrod;
+    /* flex-wrap:wrap-reverse */
+    overflow-wrap: break-word;
+
 }
 
 
@@ -49,4 +54,13 @@
 
 #editBoardBtn:hover {
     background-color: #d3d3d3;
+}
+
+#boardName {
+    display: flex;
+    width: 100%;
+    background-color: red;
+    overflow-wrap: break-word;
+    /* display: inline-block; */
+word-break: break-word;
 }
