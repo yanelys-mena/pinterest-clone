@@ -4,6 +4,7 @@ import { Modal } from '../../context/Modal'
 import CreateBoardForm from '../CreateBoardModal/CreateBoardForm'
 import { add_pin_to_board } from '../../store/boards'
 import { load_pins } from '../../store/pins';
+import { load_boards_by_user } from '../../store/boards';
 
 
 function PinDropdown({ boards, color, pin, setIsPinned, isPinned }) {
@@ -33,6 +34,7 @@ function PinDropdown({ boards, color, pin, setIsPinned, isPinned }) {
 
     const addToBoard = async (e, boardId) => {
         const pinned = await dispatch(add_pin_to_board(pin?.id, parseInt(boardId))).then((d) => dispatch(load_pins()))
+        dispatch(load_boards_by_user(user?.id))
 
         if (pinned) {
             setIsPinned('saved')
