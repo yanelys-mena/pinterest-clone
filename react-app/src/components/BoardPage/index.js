@@ -57,6 +57,7 @@ export default function BoardPage() {
         dispatch(boards_by_profile(profileId))
         dispatch(load_boards_by_user(user?.id))
 
+
     }, [dispatch, profileId, user?.id])
 
 
