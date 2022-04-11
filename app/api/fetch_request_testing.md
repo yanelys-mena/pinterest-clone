@@ -134,3 +134,34 @@ fetch('/api/pins/', {
 fetch('/api/listings/images').then(res => res.json()).then(data => console.log(data));
 
 
+
+=========================================
+NOTE NEW COMMENT!
+const form = new FormData()
+form.append('content', 'testing')
+form.append('pin_id', 1)
+form.append('user_id', 1)
+
+
+fetch('/api/comments/', {
+    method: "POST",
+    body: form
+}).then(res => res.json()).then(data => console.log(data));
+
+NOTE UPDATE COMMENT!
+const form = new FormData()
+
+form.append('content', 'EDITED')
+form.append('pin_id', 1)
+form.append('user_id', 1)
+
+fetch('/api/comments/11', {
+    method: "PUT",
+    body: form
+}).then(res => res.json()).then(data => console.log(data));
+
+
+NOTE DELETE BOARD!
+fetch('/api/comments/11', {
+    method: "DELETE",
+}).then(res => res.json()).then(data => console.log(data));
