@@ -16,8 +16,8 @@ const NavBar = () => {
   const [showModal, setShowModal] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
   // const [fromSignUp, setFromSignUp] = useState(1)
-  const [showSignIn, setshowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
+  // const [showSignIn, setshowSignIn] = useState(false);
+  // const [showSignUp, setShowSignUp] = useState(false);
   const [page, setPage] = useState(0)
 
 
@@ -26,7 +26,7 @@ const NavBar = () => {
     setShowModal(true)
     return () => {
       setShowModal(false)
-      setshowSignIn(false)
+      // setshowSignIn(false)
     }
 
   }
@@ -37,7 +37,7 @@ const NavBar = () => {
     setShowModal(true)
     return () => {
       setShowModal(false)
-      setShowSignUp(false)
+      // setShowSignUp(false)
     }
   }
 

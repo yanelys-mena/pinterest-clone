@@ -1,5 +1,5 @@
 import './PinBuilder.css';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { add_pin } from '../../store/pins'
 import { useHistory } from 'react-router-dom';
@@ -13,8 +13,6 @@ export default function PinBuilder() {
     const [link, setLink] = useState('');
     const [image, setImage] = useState(null);
     const [fileError, setFileError] = useState('')
-    const btn = useRef();
-
     const history = useHistory()
     const dispatch = useDispatch();
 
