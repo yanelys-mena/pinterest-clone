@@ -17,18 +17,13 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
-    
-# modify to get comments by pin ID
-@comment_routes.route('/',  methods=['GET'])
-@login_required
-def pins_by_user():
-    pins = Comment.query.all()
-    return {'pins': [pin.to_dict() for pin in pins]}
 
+
+    
 
 @comment_routes.route('/', methods=['POST'])
 @login_required
-def add_pin():
+def add_comment():
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
@@ -37,8 +32,8 @@ def add_pin():
             content = data['content'],
             pin_id = data['pin_id'],
             user_id = data['user_id'],
-            created_at = data['created_at'],
-            updated_at = data['updated_at']
+            # created_at = data['created_at'],
+            # updated_at = data['updated_at']
         )
         db.session.add(new_comment)
         db.session.commit()
@@ -50,28 +45,33 @@ def add_pin():
 
 @comment_routes.route('/<int:comment_id>', methods=['PUT'])
 @login_required
-def update_pin(comment_id):
+def update_comment(comment_id):
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
     if form.validate_on_submit():
-        new_comment = Comment(
-            content = data['content'],
-            pin_id = data['pin_id'],
-            user_id = data['user_id'],
-            created_at = data['created_at'],
-            updated_at = data['updated_at']
-        )
-        db.session.add(new_comment)
+        comment_to_update = Comment.query.get(comment_id)
+
+        comment_to_update.content = data['content'],
+        comment_to_update.pin_id = data['pin_id'],
+        comment_to_update.user_id = data['user_id'],
+        comment_to_update.created_at = comment_to_update.created_at,
+
         db.session.commit()
-        return new_comment.to_dict()
+        return comment_to_update.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
         
 
 
-@comment_routes.route('/', methods=['DELETE'])
+@comment_routes.route('/<int:comment_id>', methods=['DELETE'])
 @login_required
-def delete_pin():
-    pass
+def delete_comment(comment_id):
+    comment = Comment.query.get(comment_id)
+    if comment:
+        db.session.delete(comment)
+        db.session.commit()
+        return comment.to_dict()
+    else:
+        return 'failed'   
 
