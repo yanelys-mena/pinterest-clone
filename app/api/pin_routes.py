@@ -113,11 +113,6 @@ def update_pin(pin_id):
         pin_to_update.image=data['image'],
         pin_to_update.link=data['link'],
         pin_to_update.user_id=data['user_id'], 
-
-        # if data['board_id']:
-        #     print('testn', data['board_id'])
-        #     board = Board.query.get(data['board_id'])
-        #     board.pins.append(pin_to_update)
         
         db.session.commit()
         return pin_to_update.to_dict()

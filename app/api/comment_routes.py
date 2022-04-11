@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
+from app.forms.pin_form import PinForm
 from app.models import Comment
+from app.forms.comment_form import CommentForm
 
 comment_routes = Blueprint('comments', __name__)
 
@@ -15,7 +17,17 @@ def pins_by_user():
 @comment_routes.route('/', methods=['POST'])
 @login_required
 def add_pin():
-    pass
+    comment = CommentForm()
+    comment['csrf_token'].data = request.cookies['crsf_token']
+    data = comment.data
+    
+    if comment.validate_on_submit():
+        new_comment = Comment(
+            content = data.content,
+            pin_id = data.pin_id,
+            user_id = data.user_id
+        )
+    
 
 @comment_routes.route('/', methods=['PUT'])
 @login_required
