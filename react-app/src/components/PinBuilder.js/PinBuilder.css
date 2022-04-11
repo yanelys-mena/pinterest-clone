@@ -11,14 +11,15 @@
 #builderContent {
     margin-top: 10px;
     width: 50%;
-    height: 70%;
-    min-height: 70vh;
+    min-height: fit-content;
     border-radius: 20px;
     padding: 20px;
     display: flex;
     justify-content: flex-start;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     background-color: white;
+
+
 }
 
 
@@ -31,6 +32,7 @@
     height: 100%;
     min-height: 70vh;
 }
+
 #pinFormDiv {
     width: 100%;
     padding: 10px;
@@ -58,7 +60,8 @@
     width: 80%;
     background-color: black;
     color: white;
-    border-radius: 20px;;
+    border-radius: 20px;
+    ;
 }
 
 #create_pin_title {

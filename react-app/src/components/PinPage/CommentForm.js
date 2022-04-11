@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { add_comment, update_comment } from '../../store/comments'
+import './CommentForm.css';
+
 
 const CommentForm = ({ user, pinId }) => {
     const [content, setContent] = useState('');
+    const [showCommentBtn, setShowCommentBtn] = useState(false);
     const dispatch = useDispatch();
 
     const addComment = (e) => {
@@ -34,12 +37,18 @@ const CommentForm = ({ user, pinId }) => {
 
                     <form onSubmit={addComment}>
                         <input
-                            onClick={() => console.log('clicked')}
+                            onClick={() => setShowCommentBtn(true)}
                             onChange={(e) => setContent(e.target.value)}
                             id="commentInput"
                             type='text'
                             placeholder='Add a comment'
                         ></input>
+                        {showCommentBtn && <>
+                            <div id="comment_buttons_div">
+                                <div id="comment_cancel" onClick={() => setShowCommentBtn(false)}><button>Cancel</button></div>
+                                <div id="comment_done" onClick={addComment}><button>Done</button></div>
+                            </div>
+                        </>}
                     </form>
 
                 </div>
