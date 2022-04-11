@@ -17,7 +17,6 @@ import NotFound from './components/NotFound';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.session?.user);
 
   useEffect(() => {
     (async () => {
@@ -34,11 +33,6 @@ function App() {
     return null;
   }
 
-  // if (loaded) {
-
-  // dispatch(load_boards_by_user(user?.id))
-
-  // }
 
   return (
     <BrowserRouter>
