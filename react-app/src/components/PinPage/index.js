@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory, Link } from 'react-router-dom';
 import { add_pin_to_board } from '../../store/boards'
@@ -7,13 +7,15 @@ import './PinPage.css'
 import Select from 'react-select'
 import UnpinModal from '../UnpinModal';
 import { load_pins } from '../../store/pins';
+import CommentForm from './CommentForm';
+import { load_comments } from '../../store/comments';
 
 
 export default function PinPage() {
     const { pinId } = useParams();
     const history = useHistory();
     const pin = useSelector(state => state?.pins[pinId])
-    // const pins = useSelector(state => Object.keys(state?.pins))
+    const comments = useSelector(state => Object.values(state?.comments))
 
     const user = useSelector(state => state?.session?.user)
     const boards = useSelector(state => Object.values(state?.boards))
@@ -22,6 +24,9 @@ export default function PinPage() {
     const [showComments, setShowComments] = useState(true)
     const [selectedOption, setSelectedOption] = useState(null);
 
+    useEffect(() => {
+        dispatch(load_comments(pinId))
+    }, [pinId])
 
 
     const addToBoard = async (e) => {
@@ -106,7 +111,7 @@ export default function PinPage() {
                                             <div>Comments</div>
                                             <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down"></i></div>
                                         </div>
-                                        <div id="allComments">{pin?.comments.map(comment =>
+                                        <div id="allComments">{comments.map(comment =>
                                             <div id="indComment" key={comment.id}>
                                                 <>
                                                     {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
@@ -116,27 +121,7 @@ export default function PinPage() {
 
                                         </div>
 
-                                        <div id="leaveComment">
-                                            <div id="commentTip">Share feedback, ask a question or give a high five
-                                            </div>
-                                            <div id="commentInputDiv">
-                                                <div id="userPhoto_comment">
-                                                    {user?.photo ? <img src={user?.photo} alt='userPhoto'></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
-
-
-                                                </div>
-                                                <div id="formDiv">
-                                                    <form onSubmit={(e) => e.preventDefault()}>
-                                                        <input
-                                                            id="commentInput"
-                                                            type='text'
-                                                            placeholder='Comments coming soon'
-                                                        ></input>
-                                                    </form>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                        <CommentForm user={user} pinId={pinId} />
                                     </>
                                 }
 

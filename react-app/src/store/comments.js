@@ -25,8 +25,8 @@ const to_delete = (comment) => ({
 });
 
 
-export const load_comments = () => async (dispatch) => {
-    const response = await fetch('/api/comments/');
+export const load_comments = (pin_id) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${pin_id}`);
     if (response.ok) {
         const comments = await response.json();
         dispatch(load(comments.comments));

@@ -136,8 +136,8 @@ fetch('/api/listings/images').then(res => res.json()).then(data => console.log(d
 
 
 =========================================
-NOTE GET COMMENTS!
-fetch('/api/comments').then(res => res.json()).then(data => console.log(data));
+NOTE GET COMMENTS by pin!
+fetch('/api/comments/1').then(res => res.json()).then(data => console.log(data));
 
 
 NOTE NEW COMMENT!
