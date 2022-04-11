@@ -1,8 +1,7 @@
 import './LandingPage.css';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useSelector, } from 'react-redux';
 import { Modal } from '../../context/Modal'
-// import LoginModal from '../LoginModal'
 import LoginForm from '../LoginModal/LoginForm'
 import { Redirect } from 'react-router-dom';
 
@@ -42,9 +41,9 @@ export default function LandingPage() {
                     <div id="white" ></div>
                     {pins.map((pin, idx) =>
                         <div key={idx}>
-                            {getRandomInt(3) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }} key={pin?.id} alt={pin?.title} ></img>
+                            {getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }} key={pin?.id} alt={pin?.title} ></img>
                                 : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }} key={pin?.id} alt={pin?.title} ></img>
-                                    : (getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }} key={pin?.id} alt={pin?.title} ></img> : ''))}
+                                    : (getRandomInt(2) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }} key={pin?.id} alt={pin?.title} ></img> : ''))}
                         </div>
                     )}
                 </div>
