@@ -43,17 +43,18 @@ const CommentForm = ({ user, pinId }) => {
                             type='text'
                             placeholder='Add a comment'
                         ></input>
-                        {showCommentBtn && <>
-                            <div id="comment_buttons_div">
-                                <div id="comment_cancel" onClick={() => setShowCommentBtn(false)}><button>Cancel</button></div>
-                                <div id="comment_done" onClick={addComment}><button>Done</button></div>
-                            </div>
-                        </>}
+
                     </form>
 
                 </div>
-            </div>
 
+            </div>
+            {showCommentBtn && <>
+                <div id="comment_buttons_div">
+                    <div id="comment_cancel" onClick={() => setShowCommentBtn(false)}><button>Cancel</button></div>
+                    <div id="comment_done" onClick={addComment}><button>Done</button></div>
+                </div>
+            </>}
         </div>
     )
 };

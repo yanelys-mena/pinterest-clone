@@ -1,4 +1,33 @@
 #comment_buttons_div {
     display: flex;
-    background-color: red;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+#comment_cancel {
+    background-color: #EFEFEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 35px;
+    border-radius: 14px;
+}
+
+#comment_done {
+    background-color: #EFEFEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 35px;
+    border-radius: 14px;
+}
+
+#comment_buttons_div>div> {
+    font-size: 15px;
+    font-weight: 700;
+    color: red;
+
 }
