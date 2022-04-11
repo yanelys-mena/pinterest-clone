@@ -136,6 +136,10 @@ fetch('/api/listings/images').then(res => res.json()).then(data => console.log(d
 
 
 =========================================
+NOTE GET COMMENTS!
+fetch('/api/comments').then(res => res.json()).then(data => console.log(data));
+
+
 NOTE NEW COMMENT!
 const form = new FormData()
 form.append('content', 'testing')

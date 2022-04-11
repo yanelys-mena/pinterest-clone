@@ -18,7 +18,11 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-
+@comment_routes.route('/', methods=['GET'])
+@login_required
+def get_comments():
+    comments = Comment.query.all()
+    return {'comments': [comment.to_dict() for comment in comments]}
     
 
 @comment_routes.route('/', methods=['POST'])
@@ -31,9 +35,7 @@ def add_comment():
         new_comment = Comment(
             content = data['content'],
             pin_id = data['pin_id'],
-            user_id = data['user_id'],
-            # created_at = data['created_at'],
-            # updated_at = data['updated_at']
+            user_id = data['user_id']
         )
         db.session.add(new_comment)
         db.session.commit()
