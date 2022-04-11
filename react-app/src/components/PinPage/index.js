@@ -99,7 +99,6 @@ export default function PinPage() {
                                     <div>Comments</div>
                                     <div onClick={() => setShowComments(true)}> <i className="fa-solid fa-chevron-right"></i></div>
                                 </div>
-
                                 }
                                 {showComments &&
                                     <>
