@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { add_comment, update_comment } from '../../store/comments'
 import './CommentForm.css';
@@ -7,6 +7,9 @@ import './CommentForm.css';
 const CommentForm = ({ user, pinId }) => {
     const [content, setContent] = useState('');
     const [showCommentBtn, setShowCommentBtn] = useState(false);
+    const [disabled, setDisabled] = useState('disabled');
+    const [commentInputClass, setCommentInputClass] = useState('comment_done_inactive')
+
     const dispatch = useDispatch();
 
     const addComment = (e) => {
@@ -21,6 +24,19 @@ const CommentForm = ({ user, pinId }) => {
         dispatch(update_comment(new_comment))
     }
 
+
+    useEffect(() => {
+        console.log('content', content)
+        if (!content.length) {
+            setCommentInputClass('comment_done_active')
+            setDisabled(false)
+
+        } else {
+            setCommentInputClass('comment_done_inactive')
+            setDisabled('disabled')
+
+        }
+    }, [setContent, content])
 
     return (
         <div id="leaveComment">
@@ -51,8 +67,9 @@ const CommentForm = ({ user, pinId }) => {
             </div>
             {showCommentBtn && <>
                 <div id="comment_buttons_div">
-                    <div id="comment_cancel" onClick={() => setShowCommentBtn(false)}><button>Cancel</button></div>
-                    <div id="comment_done" onClick={addComment}><button>Done</button></div>
+                    <div onClick={() => setShowCommentBtn(false)}><button id="comment_cancel">Cancel</button></div>
+                    <div onClick={addComment}><button id={commentInputClass} disabled={disabled}
+                    >Done</button></div>
                 </div>
             </>}
         </div>
