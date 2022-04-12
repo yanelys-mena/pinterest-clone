@@ -54,3 +54,8 @@
 #comment_done_active:hover {
     background-color: #AD081C;
 }
+
+#comment_errors {
+    font-size: 13px;
+    color: red;
+}

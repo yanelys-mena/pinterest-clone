@@ -9,13 +9,23 @@ const CommentForm = ({ user, pinId }) => {
     const [showCommentBtn, setShowCommentBtn] = useState(false);
     const [disabled, setDisabled] = useState('disabled');
     const [commentInputClass, setCommentInputClass] = useState('comment_done_inactive')
+    const [errors, setErrors] = useState([])
+    const [height, setHeight] = useState('20px')
 
     const dispatch = useDispatch();
 
-    const addComment = (e) => {
+    const addComment = async (e) => {
         e.preventDefault();
         const new_comment = { content, pin_id: pinId, user_id: user?.id }
-        dispatch(add_comment(new_comment))
+        const data = await dispatch(add_comment(new_comment))
+
+        if (data) {
+            setErrors(data)
+        } else {
+            const commentTextArea = document.querySelector('#commentInput');
+            commentTextArea.style.height = 'auto'
+            setContent('')
+        }
     }
 
     const updateComment = (e) => {
@@ -26,8 +36,7 @@ const CommentForm = ({ user, pinId }) => {
 
 
     useEffect(() => {
-        console.log('content', content)
-        if (!content.length) {
+        if (content.length > 0) {
             setCommentInputClass('comment_done_active')
             setDisabled(false)
 
@@ -38,10 +47,22 @@ const CommentForm = ({ user, pinId }) => {
         }
     }, [setContent, content])
 
+    const handleTextAreaHeight = (e) => {
+        const commentTextArea = document.querySelector('#commentInput');
+        commentTextArea.style.height = 'auto';
+        setHeight(e.target.scrollHeight);
+        commentTextArea.style.height = `${height}px`;
+    }
+
     return (
         <div id="leaveComment">
 
             <div id="commentTip">Share feedback or ask a question.
+            </div>
+            <div id="comment_errors">
+                {errors.map((error, ind) => (
+                    <div key={ind}>{error.split(':')[1]}</div>
+                ))}
             </div>
             <div id="commentInputDiv">
 
@@ -51,14 +72,17 @@ const CommentForm = ({ user, pinId }) => {
 
                 <div id="formDiv">
 
-                    <form onSubmit={addComment}>
-                        <input
+                    <form >
+                        <textarea
+                            height={height}
+                            value={content}
                             onClick={() => setShowCommentBtn(true)}
                             onChange={(e) => setContent(e.target.value)}
                             id="commentInput"
                             type='text'
+                            onKeyUp={handleTextAreaHeight}
                             placeholder='Add a comment'
-                        ></input>
+                        ></textarea>
 
                     </form>
 

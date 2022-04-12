@@ -159,7 +159,6 @@
 }
 
 #indComment {
-    /* background-color: palegoldenrod; */
     width: 100%;
     padding: 10px;
     border: #d3d3d3 solid 1px;
@@ -191,9 +190,10 @@
     justify-self: flex-start;
     width: 100%;
     gap: 10px;
-    background-color: palegoldenrod;
 
 }
+
+
 
 #userPhoto_comment,
 #userPhoto_comment img {
@@ -207,7 +207,31 @@
     width: 80%;
     display: flex;
     flex-direction: column;
+    overflow-y: visible;
+    height: fit-content;
+
 }
+
+/* textarea {
+    color: black;
+    resize: both;
+    overflow-y: visible;
+    height: 1000px;
+    resize: none;
+    background-color: red;
+    outline: none;
+} */
+
+textarea::-webkit-scrollbar {
+    width: 0px;
+
+}
+
+textarea :is(:focus, :valid) {
+    border-color: red;
+
+}
+
 
 #commentInput {
     width: 100%;
