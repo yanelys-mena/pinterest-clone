@@ -59,10 +59,21 @@
     background-color: #E60022;
     color: white;
     width: 75px;
-    height: 40px;
-    border-radius: 20px;
+    height: 45px;
+    border-radius: 22.5px;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+#unfollow_button {
+    background-color: black;
+    color: white;
+    width: 95px;
+    height: 45px;
+    border-radius: 22.5px;
+    font-weight: 700;
+    font-size: 16px;
     padding: 5px;
 }
 
