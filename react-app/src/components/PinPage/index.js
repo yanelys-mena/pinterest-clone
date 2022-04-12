@@ -140,7 +140,7 @@ export default function PinPage() {
                                                         </div>
                                                         {user?.id === comment?.user_id &&
                                                             <div id="comment_icons">
-                                                                <button onClick={() => editCommentModal(comment)}>edit</button>
+                                                                <i id="comment_ellipses" className="fa-solid fa-ellipsis" onClick={() => editCommentModal(comment)}></i>
                                                             </div>
                                                         }
                                                     </div>

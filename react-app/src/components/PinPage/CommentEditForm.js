@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { update_comment } from '../../store/comments';
+import { update_comment, delete_comment } from '../../store/comments';
 import './CommentEditForm.css'
 import { useDispatch } from 'react-redux';
 
@@ -36,6 +36,12 @@ const CommentEditForm = ({ setShowModal, comment }) => {
         commentTextArea.style.height = `${height}px`;
     }
 
+    const deleteComment = (e) => {
+        e.preventDefault();
+        dispatch(delete_comment(comment?.id))
+        setShowModal(false)
+
+    }
 
     return (
         <div id="comment_edit_modal">
@@ -61,6 +67,7 @@ const CommentEditForm = ({ setShowModal, comment }) => {
                     >Done</button></div>
                 </div>
             </form>
+            <div id="delete_comment" onClick={deleteComment}>Delete my comment instead.</div>
         </div>
     )
 }

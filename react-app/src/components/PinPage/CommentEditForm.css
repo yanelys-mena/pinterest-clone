@@ -22,15 +22,24 @@
 #comment_edit_modal>form {
     width: 80%;
     height: 80%;
-
-    background-color: palegoldenrod;
 }
 
 #editCommentInput {
     width: 100%;
-    height: 100%;
+    height: 200px;
     border-radius: 10px;
     resize: none;
-    max-height: 200px;
+    max-height: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
 
+#delete_comment {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#delete_comment:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }

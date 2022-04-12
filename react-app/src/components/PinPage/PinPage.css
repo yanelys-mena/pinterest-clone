@@ -187,7 +187,6 @@
 }
 
 #comment_icons {
-    background-color: paleturquoise;
     display: flex;
     gap: 5px;
 }
@@ -331,4 +330,8 @@ textarea :is(:focus, :valid) {
     width: 30px;
     border-radius: 15px;
     object-fit: cover;
+}
+
+#comment_ellipses {
+    cursor: pointer;
 }
