@@ -1,4 +1,4 @@
-import { update_profile } from '../../store/profile_user'
+import { update_profile, unfollow_user } from '../../store/profile_user'
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -27,7 +27,7 @@ export default function Header({ user, profile }) {
     }
 
     const handleUnfollow = (e) => {
-        dispatch(update_profile(user?.id, profile?.id))
+        dispatch(unfollow_user(user?.id, profile?.id))
     }
 
 

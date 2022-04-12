@@ -37,12 +37,27 @@ export const update_profile = (current_user, profile_user) => async (dispatch) =
             follower_id: current_user
         })
     })
-    console.log('THUNK', response)
+
+    const user = await response.json();
+    dispatch(update(user));
+}
+
+export const unfollow_user = (current_user, profile_user) => async (dispatch) => {
+
+    const response = await fetch('/api/users/unfollow', {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            unfollow: profile_user,
+            follower_id: current_user
+        })
+    })
     const user = await response.json();
     dispatch(update(user));
 
 }
-
 
 const initialState = { user: null };
 
