@@ -1,0 +1,32 @@
+#comment_edit_modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 25px;
+    background-color: white;
+    min-height: 50vh;
+    min-width: 50vw;
+}
+
+#comment_edit_title {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#comment_edit_modal>form {
+    width: 80%;
+    height: 40%;
+    background-color: palegoldenrod;
+}
+
+#editCommentInput {
+    width: 100%;
+    height: 100%;
+    resize: none;
+}

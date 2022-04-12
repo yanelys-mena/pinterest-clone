@@ -28,12 +28,6 @@ const CommentForm = ({ user, pinId }) => {
         }
     }
 
-    const updateComment = (e) => {
-        e.preventDefault();
-        const new_comment = { content, pin_id: pinId, user_id: user?.id }
-        dispatch(update_comment(new_comment))
-    }
-
 
     useEffect(() => {
         if (content.length > 0) {

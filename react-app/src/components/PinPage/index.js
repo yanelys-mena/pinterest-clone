@@ -10,19 +10,23 @@ import { load_pins } from '../../store/pins';
 import CommentForm from './CommentForm';
 import { load_comments } from '../../store/comments';
 import CommentEditForm from './CommentEditForm'
+import { Modal } from '../../context/Modal'
+
+
 
 export default function PinPage() {
     const { pinId } = useParams();
     const history = useHistory();
     const pin = useSelector(state => state?.pins[pinId])
     const comments = useSelector(state => Object.values(state?.comments))
-    const [showEdit, setShowEdit] = useState(false)
     const user = useSelector(state => state?.session?.user)
     const boards = useSelector(state => Object.values(state?.boards))
     const [isPinned, setIsPinned] = useState('')
     const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(true)
     const [selectedOption, setSelectedOption] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedComment, setSelectedComment] = useState('')
 
     useEffect(() => {
         dispatch(load_comments(pinId))
@@ -51,6 +55,11 @@ export default function PinPage() {
     })
 
 
+    const editCommentModal = (comment) => {
+        setSelectedComment(comment)
+        setShowModal(true)
+
+    }
 
 
     return (
@@ -125,13 +134,11 @@ export default function PinPage() {
                                                         </div>
                                                         {user?.id === comment?.user_id &&
                                                             <div id="comment_icons">
-                                                                <button onClick={(e) => setShowEdit(true)}>edit</button>
+                                                                <button onClick={() => editCommentModal(comment)}>edit</button>
                                                             </div>
                                                         }
                                                     </div>
-
                                                 </>
-
                                             </div>)}
 
                                         </div>
@@ -141,6 +148,14 @@ export default function PinPage() {
                                 }
 
                             </div>
+
+                            {
+                                showModal && (
+                                    <Modal onClose={() => setShowModal(false)}>
+                                        <CommentEditForm setShowModal={setShowModal} comment={selectedComment} />
+                                    </Modal>
+                                )
+                            }
                         </div>
                     </div >
                 </div >
