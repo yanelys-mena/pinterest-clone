@@ -167,8 +167,27 @@
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
-
 }
+
+#comment_right {
+    background-color: palegoldenrod;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#comment_content {
+    background-color: palegreen;
+    display: flex;
+    gap: 5px;
+}
+
+#comment_icons {
+    background-color: paleturquoise;
+    display: flex;
+    gap: 5px;
+}
+
 
 #leaveComment {
     margin-top: 20px;

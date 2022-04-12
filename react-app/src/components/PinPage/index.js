@@ -9,14 +9,14 @@ import UnpinModal from '../UnpinModal';
 import { load_pins } from '../../store/pins';
 import CommentForm from './CommentForm';
 import { load_comments } from '../../store/comments';
-
+import CommentEditForm from './CommentEditForm'
 
 export default function PinPage() {
     const { pinId } = useParams();
     const history = useHistory();
     const pin = useSelector(state => state?.pins[pinId])
     const comments = useSelector(state => Object.values(state?.comments))
-
+    const [showEdit, setShowEdit] = useState(false)
     const user = useSelector(state => state?.session?.user)
     const boards = useSelector(state => Object.values(state?.boards))
     const [isPinned, setIsPinned] = useState('')
@@ -114,9 +114,24 @@ export default function PinPage() {
                                         <div id="allComments">{comments.map(comment =>
                                             <div id="indComment" key={comment.id}>
                                                 <>
-                                                    {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
-                                                    {comment?.content}
+                                                    <div id="comment_photo">
+                                                        {comment?.user_photo ? <img id="comments_photo" src={comment?.user_photo} alt={`${comment.username}comment`}></img> : <i style={{ fontSize: '50px' }} className="fas fa-user-circle bigger-profile"></i>}
+                                                    </div>
+
+                                                    <div id="comment_right">
+                                                        <div id="comment_content">
+                                                            {comment?.username}
+                                                            {comment?.content}
+                                                        </div>
+                                                        {user?.id === comment?.user_id &&
+                                                            <div id="comment_icons">
+                                                                <button onClick={(e) => setShowEdit(true)}>edit</button>
+                                                            </div>
+                                                        }
+                                                    </div>
+
                                                 </>
+
                                             </div>)}
 
                                         </div>
