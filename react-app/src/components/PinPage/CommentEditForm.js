@@ -22,19 +22,19 @@ const CommentEditForm = ({ setShowModal, comment }) => {
         if (data) {
             setErrors(data)
         } else {
-            const commentTextArea = document.querySelector('#editCommentInput');
-            commentTextArea.style.height = 'auto'
+            // const commentTextArea = document.querySelector('#editCommentInput');
+            // commentTextArea.style.height = 'auto'
             setContent('')
             setShowModal(false)
         }
     }
 
-    const handleTextAreaHeight = (e) => {
-        const commentTextArea = document.querySelector('#editCommentInput');
-        commentTextArea.style.height = 'auto';
-        setHeight(e.target.scrollHeight);
-        commentTextArea.style.height = `${height}px`;
-    }
+    // const handleTextAreaHeight = (e) => {
+    //     const commentTextArea = document.querySelector('#editCommentInput');
+    //     commentTextArea.style.height = 'auto';
+    //     setHeight(e.target.scrollHeight);
+    //     commentTextArea.style.height = `${height}px`;
+    // }
 
     const deleteComment = (e) => {
         e.preventDefault();
@@ -58,7 +58,7 @@ const CommentEditForm = ({ setShowModal, comment }) => {
                     onChange={(e) => setContent(e.target.value)}
                     id="editCommentInput"
                     type='text'
-                    onKeyUp={handleTextAreaHeight}
+                    // onKeyUp={handleTextAreaHeight}
                     placeholder='Edit comment'
                 ></textarea>
                 <div id="comment_buttons_div">

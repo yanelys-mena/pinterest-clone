@@ -29,6 +29,7 @@
     height: 200px;
     border-radius: 10px;
     resize: none;
+    min-height: 300px;
     max-height: 300px;
     margin-bottom: 20px;
     padding: 10px;
