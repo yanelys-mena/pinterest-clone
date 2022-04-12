@@ -1,157 +1,174 @@
-
-
 #navBarDiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 10px;
-    width: 100%;
-    height: 70px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 20px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 70px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
 
-#rightNav{
-    display: flex;
-    gap: 5px;
-    justify-content: space-around;
-    align-items: center;
-    width: 10%;
-    height: 100%;
-}
-
-#leftNav{
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 9%;
-    height: 100%;
-    gap: 5px;
 }
 
 
-#logoDiv {
-    width: 40px;
-    height: 40px;
-}
-
-#leftNav > div > img {
-  object-fit: cover;
+#leftNav {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 10%;
   height: 100%;
-    width: 100%;
-}
+  gap: 5px;
 
-#homeButtonDiv {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-#homeButton {
-    background-color: black;
-    height: 44px;
-    width: 77px;
-    border-radius: 22px;
-    color: white;
-    font-family: 'Lato', sans-serif; 
-    font-size: 18px;
-    font-weight: 700;
 }
 
 #searchNav {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    width: 80%;
-    height: 100%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  width: 80%;
+  height: 100%;
 }
+
+#rightNav {
+  display: flex;
+  gap: 5px;
+  justify-content: space-around;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+
+}
+
+
+
+#logoDiv {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+  min-width: 30px;
+  object-fit: contain;
+}
+
+
+#leftNav>div>img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#homeButtonDiv {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  min-width: 40px;
+  min-height: 100%;
+}
+
+#homeButton {
+  background-color: black;
+  height: 44px;
+  width: 77px;
+  border-radius: 22px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  min-width: 30px;
+  min-height: 15px;
+}
+
 
 .faIcons {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
 }
 
 
-.fa-circle-plus, .fa-bell, .fa-user-circle, .fa-bell-on {
-    color: #767676;
-    font-size: 20px;
-    background-color: transparent;
-    cursor: pointer;
+.fa-circle-plus,
+.fa-bell,
+.fa-user-circle,
+.fa-bell-on {
+  color: #767676;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 #bell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
 
-    animation: pulse 1500ms;
+  animation: pulse 1500ms;
 }
 
-.fa-bell{
-    color: #767676;
-    font-size: 20px;
-    animation: colorchange 15s alternate, notification 2s;
+.fa-bell {
+  color: #767676;
+  font-size: 20px;
+  animation: colorchange 15s alternate, notification 2s;
 
 }
 
 @keyframes colorchange {
-    5% {
-      
-      color: #ff9966;
-    }
-    
-    10% {
-      
-      color: #767676;
-    }
-    
-    15% {
-      
-      color: #ff9966;
-    }
-    
-    20% {
-      
-      color: #767676
-    }
-    
-    25% {
-      
-      color: #ff9966;
-    }
-    35% {
-      
-        color: #767676;
-      }
-      
-      45% {
-        
-        color: #ff9966;
-      }
-      
-      55% {
-        
-        color: #767676
-      }
-      
-    60% {
-      
-      color: #ff9966;
-    }
-/*     
+  5% {
+
+    color: #ff9966;
+  }
+
+  10% {
+
+    color: #767676;
+  }
+
+  15% {
+
+    color: #ff9966;
+  }
+
+  20% {
+
+    color: #767676
+  }
+
+  25% {
+
+    color: #ff9966;
+  }
+
+  35% {
+
+    color: #767676;
+  }
+
+  45% {
+
+    color: #ff9966;
+  }
+
+  55% {
+
+    color: #767676
+  }
+
+  60% {
+
+    color: #ff9966;
+  }
+
+  /*     
     60% {
       
       color:#ffcc00;
@@ -165,137 +182,229 @@
    
       color: #ff69b4;
     } */
-    
-    90% {
-   
-      color: #767676;
-    }
-    
-    100% {
-      
-      color: #ff69b4;
-    }
+
+  90% {
+
+    color: #767676;
   }
+
+  100% {
+
+    color: #ff69b4;
+  }
+}
 
 @keyframes notification {
 
-    5% { transform: rotate(10deg); }
-    10% { transform: rotate(10deg); }
-    15% { transform: rotate(10deg); }
-    20% { transform: rotate(10deg); }
+  5% {
+    transform: rotate(10deg);
+  }
+
+  10% {
+    transform: rotate(10deg);
+  }
+
+  15% {
+    transform: rotate(10deg);
+  }
+
+  20% {
+    transform: rotate(10deg);
+  }
 }
 
 
 @keyframes pulse {
-    0% {
-        box-shadow: #ff9966 0 0 0 0;
-    }
-    75% {
-        box-shadow: #ff69b400 0 0 0 16px;
-    }
+  0% {
+    box-shadow: #ff9966 0 0 0 0;
+  }
+
+  75% {
+    box-shadow: #ff69b400 0 0 0 16px;
+  }
 
 }
 
 #navUserPhoto {
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .fa-chevron-down {
-    color: #767676;
-    font-size: 15px;
-    background-color: transparent;
+  color: #767676;
+  font-size: 15px;
+  background-color: transparent;
 }
 
-.faIcons:hover, #accountIcon:hover {
-    background-color: #d3d3d3;
+.faIcons:hover,
+#accountIcon:hover {
+  background-color: #d3d3d3;
 }
 
 #dropdownList {
-    list-style: none;
-    padding-left: 0;
-    position: absolute;
-    background-color: white;
-    margin: 5px 0 0 -190px;
-    border-radius: 10px;
-    border: #d3d3d3;
-    width: 200px;
-    height: fit-content;
-    padding: 10px;
-    font-family: 'Lato', sans-serif; 
+  list-style: none;
+  padding-left: 0;
+  position: absolute;
+  background-color: white;
+  margin: 5px 0 0 -190px;
+  border-radius: 10px;
+  border: #d3d3d3;
+  width: 200px;
+  height: fit-content;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 3;
+}
+
+#dropdownList>li {
+  padding: 8px;
+}
+
+
+
+#dropdownList>li:hover {
+  background-color: #EFEFEF;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+
+#menuHolder,
+#accountMenu {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+
+#menuHolder:hover {
+  background-color: #efefef;
+
+}
+
+#login_nav_button {
+  width: 75px;
+  height: 40px;
+  background-color: #E60022;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-right: 2px;
+  font-weight: 700;
+  cursor: pointer;
+
+}
+
+#login_nav_button {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+}
+
+
+#signup_nav_button {
+  width: 75px;
+  height: 40px;
+  background-color: #EFEFEF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#signup_nav_button {
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+/* Media Queries */
+
+
+
+@media (min-width: 800px) and (max-width: 1007px) {
+
+  #homeButtonDiv {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    min-width: 40px;
+    min-height: 100%;
+  }
+
+  #homeButton {
+    height: 44px;
+    width: 37px;
+    background-color: transparent;
+    border-radius: 20px;
+    color: black;
+    font-family: 'Lato', sans-serif;
     font-size: 14px;
     font-weight: 700;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    z-index: 3;
   }
-  
-  #dropdownList > li {
-    padding: 8px;
-  }
-  
-
-
-  #dropdownList > li:hover {
-    background-color: #EFEFEF;
-    cursor: pointer;
-    border-radius: 6px;
-  }
-  
-
-  #menuHolder, #accountMenu{
-      background-color: transparent;
-      width: 30px;
-      height: 30px;
-      border-radius: 15px;
-  }
-
-
-  #menuHolder:hover {
-    background-color: #efefef;
-
-  }
-
-  #login_nav_button {
-      width: 75px;
-      height: 40px;
-      background-color: #E60022;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 25px;
-      text-decoration: none;
-      margin-right: 2px;
-      font-weight: 700;
-      cursor: pointer;
-
-  }
-
-  #login_nav_button{
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
 }
 
 
-#signup_nav_button {
-    width: 75px;
-    height: 40px;
-    background-color: #EFEFEF;
+
+@media (min-width: 1008px) and (max-width: 1259px) {
+
+  #homeButtonDiv {
+    width: 60%;
+    height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 25px;
-    text-decoration: none;
+    min-width: 40px;
+    min-height: 100%;
+  }
+
+  #homeButton {
+    background-color: transparent;
+    height: 44px;
+    width: 57px;
+    border-radius: 20px;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
     font-weight: 700;
+  }
+
+
 }
 
-#signup_nav_button {
-    font-size: 16px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+
+
+
+@media (min-width: 1260px) and (max-width: 1511px) {
+  #pinGrid {
+    max-width: 1260px;
+    column-count: 5;
+  }
+}
+
+@media (min-width: 1512px) and (max-width: 1763px) {
+  #pinGrid {
+    width: 1512px;
+    column-count: 6;
+  }
+}
+
+@media (min-width: 1764px) and (max-width: 2015px) {
+  #pinGrid {
+    width: 1764px;
+    column-count: 7;
+  }
 }
