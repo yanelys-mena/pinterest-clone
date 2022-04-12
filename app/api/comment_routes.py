@@ -18,10 +18,10 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-@comment_routes.route('/', methods=['GET'])
+@comment_routes.route('/<int:pin_id>', methods=['GET'])
 @login_required
-def get_comments():
-    comments = Comment.query.all()
+def get_comments(pin_id):
+    comments = Comment.query.filter(Comment.pin_id == pin_id)
     return {'comments': [comment.to_dict() for comment in comments]}
     
 

@@ -3,7 +3,7 @@ import Header from './Header'
 import BoardGrid from '../BoardGrid'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { load_boards_by_user } from '../../store/boards'
 import { load_profile } from '../../store/profile_user'
 import { boards_by_profile } from '../../store/profile_boards'
@@ -24,7 +24,6 @@ export default function UserProfile() {
     const userPins = Object.values(pins).filter(pin => pin.user.id === profile?.id)
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
-    const history = useHistory();
 
     const isCurrentUser = profileId === user?.id
 

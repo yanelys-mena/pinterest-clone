@@ -1,0 +1,65 @@
+#comment_buttons_div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+#comment_cancel {
+    background-color: #EFEFEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 35px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 7px;
+}
+
+#comment_done_inactive {
+    /* background-color: #E60022; */
+    background-color: #EFEFEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 35px;
+    border-radius: 18px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 7px;
+}
+
+#comment_done_active {
+    background-color: #E60022;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 35px;
+    border-radius: 18px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 7px;
+}
+
+
+#comment_cancel:hover {
+    background-color: #E2E3E2;
+}
+
+#comment_done_active:hover {
+    background-color: #AD081C;
+}
+
+#comment_errors {
+    font-size: 13px;
+    color: red;
+}
+
+#commentInput {
+    resize: none;
+}

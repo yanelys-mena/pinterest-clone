@@ -49,7 +49,7 @@ export default function BoardPage() {
 
         }
 
-    }, [dispatch, history, boardId]);
+    }, [dispatch, history, boardId, isCurrentUser, profileId, user?.id]);
 
 
     useEffect(() => {
