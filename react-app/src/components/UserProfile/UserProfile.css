@@ -20,17 +20,17 @@
     background-color: white;
 }
 
-#profileHeader  > div{
+#profileHeader>div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .active_page {
-   border-bottom: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
-#profilePhoto{
+#profilePhoto {
     height: 120px;
     width: 120px;
     border-radius: 60px;
@@ -42,8 +42,32 @@
     font-size: 35px;
 }
 
-#smallUsername, #smallUsername > * {
+#smallUsername,
+#smallUsername>* {
     color: #ACACAC;
+}
+
+#profile_follows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+#follow_button {
+    background-color: #E60022;
+    color: white;
+    width: 75px;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 5px;
+}
+
+#follow_button:hover {
+    background-color: #AD081C;
 }
 
 #githubLink {
@@ -52,7 +76,7 @@
 }
 
 #githubLink:hover {
-   text-decoration: underline;
+    text-decoration: underline;
 }
 
 #pageChanger {
@@ -69,9 +93,9 @@
     font-weight: 700;
 }
 
-#pageChangeBtn  > div{
-cursor: pointer;
-padding: 10px;
+#pageChangeBtn>div {
+    cursor: pointer;
+    padding: 10px;
 }
 
 #boardBtnDiv {
@@ -94,7 +118,7 @@ padding: 10px;
     align-items: center;
     justify-content: center;
     padding: 10px;
- border-radius: 13px;
+    border-radius: 13px;
 }
 
 .plus_board:hover {

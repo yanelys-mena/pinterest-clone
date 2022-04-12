@@ -25,26 +25,22 @@ export const load_profile = (user_id) => async (dispatch) => {
     }
 }
 
-export const update_profile = (user_id) => async (dispatch) => {
+export const update_profile = (current_user, profile_user) => async (dispatch) => {
 
-    const response = fetch('/api/users/follow', {
+    const response = await fetch('/api/users/follow', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            followed_id: 1,
-            follower_id: 6
+            followed_id: profile_user,
+            follower_id: current_user
         })
     })
+    console.log('THUNK', response)
+    const user = await response.json();
+    dispatch(update(user));
 
-    if (response.ok) {
-        const user = await response.json();
-        dispatch(update(user));
-    } else {
-        const errors = await response.json();
-        return errors;
-    }
 }
 
 
@@ -59,11 +55,10 @@ const profile_user_reducer = (state = initialState, action) => {
         // case ADD: {
         //     return { [action.board.id]: action.board, ...state };
         // }
-
         case UPDATE: {
             let newState = { ...state }
-            newState[action.board.id] = action.board
-            return { ...newState };
+            newState[action.user.id] = action.user
+            return { user: action.user };
         }
 
         // case DELETE: {

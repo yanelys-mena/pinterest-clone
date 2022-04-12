@@ -33,11 +33,13 @@ def add_follow():
     follower.followers.append(followed)
     db.session.commit()
 
-    currentUser = User.query.get(followerId)
-    currentFollows = currentUser.followers
-    follower_dict = [follow.to_dict() for follow in currentFollows]
+    user = User.query.get(followedId)
+    # currentFollows = currentUser.followers
+    # follower_dict = [follow.to_dict() for follow in currentFollows]
+    print('==========', user.to_dict())
+    return user.to_dict()
 
-    return {"userFollows": follower_dict, "isFollowing": "true"}
+    # return {"userFollows": follower_dict, "isFollowing": "true"}
 
 
 @user_routes.route('/unfollow', methods=['DELETE'])
