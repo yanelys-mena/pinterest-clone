@@ -115,7 +115,7 @@ export default function PinPage() {
                                             ? (comments.length > 1 ? `${comments.length} Comments` : `${comments.length} Comment`)
                                             : 'Comment'}
                                     </div>
-                                    <div onClick={() => setShowComments(true)}> <i className="fa-solid fa-chevron-right"></i></div>
+                                    <div onClick={() => setShowComments(true)}> <i className="fa-solid fa-chevron-right comment_right_arrow"></i></div>
                                 </div>
                                 }
                                 {showComments &&
@@ -126,7 +126,7 @@ export default function PinPage() {
                                                     ? (comments.length > 1 ? `${comments.length} Comments` : `${comments.length} Comment`)
                                                     : 'Comment'}
                                             </div>
-                                            <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down"></i></div>
+                                            <div onClick={() => setShowComments(false)}> <i className="fa-solid fa-chevron-down comment_down_arrow"></i></div>
                                         </div>
                                         <div id="allComments">{comments.map(comment =>
                                             <div id="indComment" key={comment.id}>
