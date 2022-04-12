@@ -110,7 +110,11 @@ export default function PinPage() {
                             </div>
                             <div id="comments">
                                 {!showComments && <div id="commentsHeader" >
-                                    <div>Comments</div>
+                                    <div>
+                                        {comments.length > 0
+                                            ? (comments.length > 1 ? `${comments.length} Comments` : `${comments.length} Comment`)
+                                            : 'Comment'}
+                                    </div>
                                     <div onClick={() => setShowComments(true)}> <i className="fa-solid fa-chevron-right"></i></div>
                                 </div>
                                 }
