@@ -21,12 +21,16 @@
 
 #comment_edit_modal>form {
     width: 80%;
-    height: 40%;
+    height: 80%;
+
     background-color: palegoldenrod;
 }
 
 #editCommentInput {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     resize: none;
+    max-height: 200px;
+
 }

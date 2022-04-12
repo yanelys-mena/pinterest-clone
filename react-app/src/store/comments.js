@@ -66,7 +66,7 @@ export const add_comment = (comment) => async (dispatch) => {
 
 
 
-export const update_comment = (comment) => async (dispatch) => {
+export const update_comment = (comment, commentId) => async (dispatch) => {
     const { content, pin_id, user_id } = comment;
 
     const form = new FormData()
@@ -74,7 +74,7 @@ export const update_comment = (comment) => async (dispatch) => {
     form.append('pin_id', pin_id)
     form.append('user_id', user_id)
 
-    const response = await fetch(`/api/comments/`, {
+    const response = await fetch(`/api/comments/${commentId}`, {
         method: "PUT",
         body: form
     });
