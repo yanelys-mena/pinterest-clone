@@ -129,8 +129,14 @@ export default function PinPage() {
 
                                                     <div id="comment_right">
                                                         <div id="comment_content">
-                                                            {comment?.username}
-                                                            {comment?.content}
+                                                            <span><Link
+                                                                to={`/profile/${comment?.user_id}`} id="comment_username"
+                                                                rel="no_referrer"
+                                                                target="_blank"
+                                                            >{comment?.username}
+                                                            </Link>
+
+                                                                {comment?.content}</span>
                                                         </div>
                                                         {user?.id === comment?.user_id &&
                                                             <div id="comment_icons">

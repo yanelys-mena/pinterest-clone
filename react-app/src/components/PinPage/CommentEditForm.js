@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 const CommentEditForm = ({ setShowModal, comment }) => {
     const [content, setContent] = useState(comment?.content);
     const [commentInputClass, setCommentInputClass] = useState('comment_done_inactive')
-    const [disabled, setDisabled] = useState('disabled');
+
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([])
     const [height, setHeight] = useState('80px')

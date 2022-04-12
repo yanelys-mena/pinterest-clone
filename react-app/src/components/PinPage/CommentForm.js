@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { add_comment, update_comment } from '../../store/comments'
+import { add_comment } from '../../store/comments'
 import './CommentForm.css';
 
 

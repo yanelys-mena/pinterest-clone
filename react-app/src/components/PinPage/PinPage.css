@@ -161,25 +161,29 @@
 #indComment {
     width: 100%;
     padding: 10px;
-    border: #d3d3d3 solid 1px;
+    /* border: #d3d3d3 solid 1px; */
     border-radius: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 8px;
 }
 
 #comment_right {
-    background-color: palegoldenrod;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
 #comment_content {
-    background-color: palegreen;
+
     display: flex;
-    gap: 5px;
+    gap: 10px;
+}
+
+#comment_username {
+    font-weight: 700;
+    margin-right: 7px;
 }
 
 #comment_icons {
@@ -323,8 +327,8 @@ textarea :is(:focus, :valid) {
 
 
 #comments_photo {
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
     object-fit: cover;
 }
