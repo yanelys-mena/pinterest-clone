@@ -21,7 +21,7 @@ def user(id):
     return user.to_dict()
 
 
-@user_routes.route('/<int:id>', methods=['POST'])
+@user_routes.route('/follow', methods=['POST'])
 @login_required
 def add_follow():
     followedId = request.json["followed_id"]
@@ -37,22 +37,26 @@ def add_follow():
     currentFollows = currentUser.followers
     follower_dict = [follow.to_dict() for follow in currentFollows]
 
-    return {"userFollowers": follower_dict}
+    return {"userFollows": follower_dict, "isFollowing": "true"}
 
 
-@user_routes.route('/<int:id>', methods=['DELETE'])
+@user_routes.route('/unfollow', methods=['DELETE'])
 @login_required
 def delete_follow():
-    user = User.query.get(current_user.id)
-    removeUser = User.query.get(id)
+    followedId = request.json["unfollow"]
+    followerId = request.json["follower_id"]
+    
+    remove_followed = User.query.get(followedId)
+    follower = User.query.get(followerId)
 
-    user.followers.remove(removeUser)
+
+    follower.followers.remove(remove_followed)
     db.session.commit()
 
     currentUser = User.query.get(current_user.id)
     currentFollows = currentUser.followers
     follower_dict = [follow.to_dict() for follow in currentFollows]
 
-    return {"userFollowers": follower_dict}
+    return {"userFollows": follower_dict, "isFollowing": ""}
 
 

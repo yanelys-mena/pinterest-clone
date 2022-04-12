@@ -23,7 +23,7 @@ class User(db.Model, UserMixin):
     boards = db.relationship(
         "Board", back_populates="user", cascade="all, delete")
 
-    followed = db.relationship(
+    followers = db.relationship(
         'User',
         secondary=follows,
         primaryjoin=(follows.c.follower_id == id),
@@ -51,5 +51,8 @@ class User(db.Model, UserMixin):
             'photo': self.photo,
             'bio': self.bio,
             'website': self.website,
+            'followers': [{'id': follow.id, 'username': follow.username} for follow in self.following],
+            'following': [{'id': follow.id, 'username': follow.username} for follow in self.followers]
+
         }
         
