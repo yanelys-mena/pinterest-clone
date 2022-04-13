@@ -13,6 +13,7 @@ import BoardPage from './components/BoardPage';
 // import { load_boards_by_user } from './store/boards';
 import LandingPage from './components/LandingPage';
 import NotFound from './components/NotFound';
+import SearchResults from './components/SearchResults';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -55,6 +56,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/profile/:profileId/boards/:boardId' exact={true} >
           <BoardPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/search/:searchInput' exact={true} >
+          <SearchResults />
         </ProtectedRoute>
         <Route path="*">
           <NotFound />

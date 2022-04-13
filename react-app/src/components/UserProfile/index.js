@@ -3,10 +3,12 @@ import Header from './Header'
 import BoardGrid from '../BoardGrid'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { load_boards_by_user } from '../../store/boards'
 import { load_profile } from '../../store/profile_user'
 import { boards_by_profile } from '../../store/profile_boards'
+import { load_all_users } from '../../store/all_users'
+
 import Pins from './Pins'
 import { Modal } from '../../context/Modal'
 import CreateBoardForm from '../CreateBoardModal/CreateBoardForm'
@@ -24,6 +26,8 @@ export default function UserProfile() {
     const userPins = Object.values(pins).filter(pin => pin.user.id === profile?.id)
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
+    const allUsers = useSelector(state => state?.all_users)
+    const history = useHistory();
 
     const isCurrentUser = profileId === user?.id
 
@@ -31,11 +35,25 @@ export default function UserProfile() {
     useEffect(() => {
         dispatch(boards_by_profile(profileId))
         dispatch(load_boards_by_user(profileId?.id))
+
     }, [user?.id, dispatch, profileId])
 
     useEffect(() => {
         dispatch(load_profile(profileId))
     }, [dispatch, profileId])
+
+
+    useEffect(() => {
+        dispatch(load_all_users()).then(data => {
+            if (!data.includes(profileId)) {
+                history.push('/not-found')
+            }
+            console.log('DATA', data.includes(profileId))
+        })
+
+    }, []);
+
+
 
     return (
         <>
