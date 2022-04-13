@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector, } from 'react-redux';
 import { load_pins } from '../../store/pins';
@@ -11,6 +11,7 @@ function SearchBar() {
     const [searchInput, setSearchInput] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const history = useHistory();
+    const inputField = useRef()
     const user = useSelector((state) => state.session?.user);
     const pins = useSelector(state => Object.values(state?.pins));
     const dispatch = useDispatch();
@@ -34,19 +35,26 @@ function SearchBar() {
         history.push(`/search/${searchInput}`)
     };
 
+    useEffect(() => {
+        if (searchInput.length > 0) {
+            inputField.current.style.display = 'flex';
+        }
+        return () => inputField.current.style.display = 'none'
+    }, [searchInput])
+
+
     return (
         <form onSubmit={(e) => handleSubmit(e)} id="searchInput">
             <div id="searchIcon"><SearchIcon /> </div>
             <input
-                placeholder='      Search'
+                placeholder='Search'
                 value={searchInput}
                 type="text"
                 onChange={(e) => setSearchInput(e.target.value)}
                 autoComplete='on'>
             </input>
-            <div id="suggestions">
-                <div id="suggestions_border_top"></div>
-                {suggestions?.map(pin => <Link to={`/pins/${pin?.id}`} target="_blank" key={pin?.id} id="suggested_pin"><SearchIcon id="search_pin" />  {pin?.title}</Link>)}
+            <div id="suggestions" ref={inputField}>
+                {suggestions?.map(pin => <Link to={`/pins/${pin?.id}`} target="_blank" key={pin?.id} className="suggested_pin"><SearchIcon id="search_pin" />  {pin?.title}</Link>)}
             </div>
         </form>
     )
