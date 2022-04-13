@@ -76,3 +76,38 @@
 .follower_faicon {
     font-size: 35px;
 }
+
+#switch_follow_modal {
+    width: 100%;
+    background-color: #EFEFEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.switch_buttons {
+    height: 35px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16.2px;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: red;
+}
+
+#active_page {
+
+    background-color: white;
+    color: black;
+    border: 2px solid #92C1FF;
+}
+
+#inactivePage {
+    color: black;
+    background-color: #EFEFEF;
+}
