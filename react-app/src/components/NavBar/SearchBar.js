@@ -30,6 +30,7 @@ function SearchBar() {
     const handleSubmit = (e) => {
         e.preventDefault();
         inputField.current.style.display = 'none'
+        setSearchInput('')
         history.push(`/search/${searchInput}`)
     };
 
@@ -37,8 +38,9 @@ function SearchBar() {
         if (searchInput.length > 0) {
             inputField.current.style.display = 'flex';
         }
+        // document.addEventListener('click', () => inputField.current.style.display = 'none');
 
-        return () => document.removeEventListener('click', (e) => inputField.current.style.display = 'none');
+        // return () => document.removeEventListener('click', (e) => setSearchInput(''));
 
     }, [searchInput])
 
@@ -47,6 +49,10 @@ function SearchBar() {
         <form onSubmit={(e) => handleSubmit(e)} id="searchInput">
             <div id="searchIcon"><SearchIcon /> </div>
             <input
+                onMouseLeave={e => {
+                    inputField.current.style.display = 'none'
+                }}
+                onClick={e => inputField.current.style.display = 'flex'}
                 placeholder='Search'
                 value={searchInput}
                 type="text"
