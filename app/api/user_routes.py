@@ -5,6 +5,10 @@ from app.models import User, db
 user_routes = Blueprint('users', __name__)
 
 
+
+
+
+
 @user_routes.route('/<int:id>')
 @login_required
 def users(id):
@@ -55,3 +59,10 @@ def delete_follow(id):
     return user.to_dict()
 
 
+
+@user_routes.route('/')
+@login_required
+def all_users():
+    print('888')
+    users = User.query.all()
+    return {'users': [user.id for user in users]}
