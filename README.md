@@ -7,6 +7,9 @@ My thought process when selecting this project started with finding an app that 
 
 My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users the ability to organize their ideas by adding pins to custom boards. Users can share their own ideas by creating pins. Users can search (in development) through pins and add these pins to different boards. Users are not limited to saving one pin to one unique board, a functionality that differs from the original app. I made this decision based not only on my own experience on the app, but also with the purpose to further create a more flexible user experience. Ideas can be fluid and they can fit into different categories. A user may want to add the same pin to a 'sneakers' board and also an 'outfit inspo' board. 
 
+![suggestions](/search-suggestions.gif)
+
+
 [Click for a full list of features and upcoming releases.](#features)
 
 
