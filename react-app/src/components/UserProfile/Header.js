@@ -9,6 +9,7 @@ export default function Header({ user, profile }) {
     const [showModal, setShowModal] = useState(false);
     const [isFollowing, setIsFollowing] = useState('');
     const dispatch = useDispatch();
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         setIsFollowing(profile?.followers.some(u => u?.id === user?.id))
@@ -32,6 +33,11 @@ export default function Header({ user, profile }) {
 
     };
 
+    const openModal = (e, num) => {
+        e.preventDefault()
+        setPage(num)
+        setShowModal(true)
+    }
 
     return (
         <div id="profileHeader">
@@ -44,14 +50,14 @@ export default function Header({ user, profile }) {
             <div id="bigUsername">{profile?.username}</div>
             <div id="smallUsername">@{profile?.username.toLowerCase()}</div>
             <div id="profile_follows">
-                <div onClick={() => setShowModal(true)} id="followers_count_">
+                <div onClick={(e) => openModal(e, 1)} id="followers_count_">
                     {profile.followers.length > 0
                         ? (profile.followers.length === 1
                             ? `${profile.followers.length} follower`
                             : `${profile.followers.length} followers`)
                         : '0 Followers'}</div>
                 <div>·</div>
-                <div id="following_count_">{profile.following.length > 0 ? `${profile.following.length} following` : '0 Following'}</div>
+                <div id="following_count_" onClick={(e) => openModal(e, 2)} >{profile.following.length > 0 ? `${profile.following.length} following` : '0 Following'}</div>
 
             </div>
             <div id="githubLink">
@@ -65,7 +71,7 @@ export default function Header({ user, profile }) {
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <FollowModal setShowModal={setShowModal} profile={profile} user={user} isFollowing={isFollowing} handleFollow={handleFollow} handleUnfollow={handleUnfollow} />
+                        <FollowModal setShowModal={setShowModal} profile={profile} user={user} isFollowing={isFollowing} handleFollow={handleFollow} handleUnfollow={handleUnfollow} page={page} setPage={setPage} />
                     </Modal>
                 )
             }

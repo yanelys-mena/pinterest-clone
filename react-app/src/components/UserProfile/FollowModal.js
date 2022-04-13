@@ -5,14 +5,10 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 
-const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow }) => {
-    const [page, setPage] = useState(1);
-    // const [activePage, setActivePage] = useState(`active_page_${page}`)
+const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow, page, setPage }) => {
+    // const [page, setPage] = useState(1);
     const [activePage, setActivePage] = useState(`active_page`)
-    // useEffect(() => {
-    //     setActivePage(`active_page_${page}`)
-    //     console.log(page)
-    // }, [page])
+
 
     return (
         <>
