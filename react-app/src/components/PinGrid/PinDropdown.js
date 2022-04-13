@@ -44,7 +44,7 @@ function PinDropdown({ boards, color, pin, setIsPinned, isPinned }) {
     return (
         <div id="addPinDropdown" style={color}>
 
-            <div onClick={openMenu}> board <i className="fa-solid fa-chevron-down" style={color}></i></div>
+            <div onClick={openMenu}> boards <i className="fa-solid fa-chevron-down" style={color}></i></div>
 
             {showMenu && (
                 <>

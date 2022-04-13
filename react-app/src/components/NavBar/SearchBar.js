@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector, } from 'react-redux';
-import { load_pins } from '../../store/pins';
 import SearchIcon from '@mui/icons-material/Search';
 
 import './SearchBar.css'
@@ -32,6 +31,7 @@ function SearchBar() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        inputField.current.style.display = 'none'
         history.push(`/search/${searchInput}`)
     };
 
