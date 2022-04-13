@@ -12,7 +12,7 @@ function SearchBar() {
     const history = useHistory();
     const inputField = useRef()
     const pins = useSelector(state => Object.values(state?.pins));
-
+    const user = useSelector((state) => state.session?.user);
     useEffect(() => {
         if (searchInput.length > 0) {
             const results = pins.filter((pin) => {
@@ -37,7 +37,9 @@ function SearchBar() {
         if (searchInput.length > 0) {
             inputField.current.style.display = 'flex';
         }
-        document.addEventListener('click', (e) => inputField.current.style.display = 'none');
+
+        return () => document.removeEventListener('click', (e) => inputField.current.style.display = 'none');
+
     }, [searchInput])
 
 

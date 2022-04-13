@@ -69,7 +69,7 @@ const LoginForm = ({ setPage, setShowModal }) => {
         <form onSubmit={onLogin} id="loginForm">
           <div>
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div key={ind}>{error.split(':')[1]}</div>
             ))}
           </div>
           <input
