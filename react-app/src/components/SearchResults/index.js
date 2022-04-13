@@ -1,22 +1,32 @@
 import './SearchResults.css'
-import { load_pins } from '../../store/pins';
 import { useDispatch, useSelector, } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import PinGrid from '../PinGrid';
+
 
 export default function SearchResults() {
     const { searchInput } = useParams();
-    const user = useSelector((state) => state.session?.user);
-    const pins = useSelector(state => Object.values(state?.pins));
-    const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(load_pins())
-    }, [dispatch]);
+    const pins = useSelector(state => Object.values(state?.pins));
+
+
+    const results = pins.filter((pin) => {
+        return (
+            pin?.title.toLowerCase().indexOf(searchInput.toLowerCase()) > -1
+            // pin.title.toLowerCase().indexOf(searchInput?.toLowerCase()) > -1
+            // pin.description.toLowerCase().indexOf(searchInput?.toLowerCase())
+        );
+    });
+
+    console.log('PINS', pins)
+    console.log('results', results)
+    console.log('searchinput', searchInput)
 
 
     return (
-        <>
-            search results page
-            {searchInput}
-        </>
+        <div id="search_results_page">
+
+            <PinGrid pins={results} />
+        </div>
     )
 }
