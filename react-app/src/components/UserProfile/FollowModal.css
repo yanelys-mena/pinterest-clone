@@ -66,3 +66,9 @@
     justify-content: flex-end;
 
 }
+
+#followers_count_,
+#following_count_ {
+    font-weight: 700;
+    cursor: pointer;
+}

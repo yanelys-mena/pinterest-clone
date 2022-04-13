@@ -44,9 +44,14 @@ export default function Header({ user, profile }) {
             <div id="bigUsername">{profile?.username}</div>
             <div id="smallUsername">@{profile?.username.toLowerCase()}</div>
             <div id="profile_follows">
-                <div onClick={() => setShowModal(true)}>{`${profile.followers.length} followers`}</div>
+                <div onClick={() => setShowModal(true)} id="followers_count_">
+                    {profile.followers.length > 0
+                        ? (profile.followers.length === 1
+                            ? `${profile.followers.length} follower`
+                            : `${profile.followers.length} followers`)
+                        : '0 Followers'}</div>
                 <div>·</div>
-                <div>{`${profile.following.length} following`}</div>
+                <div id="following_count_">{profile.following.length > 0 ? `${profile.following.length} following` : '0 Following'}</div>
 
             </div>
             <div id="githubLink">
