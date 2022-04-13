@@ -49,9 +49,7 @@ function SearchBar() {
         <form onSubmit={(e) => handleSubmit(e)} id="searchInput">
             <div id="searchIcon"><SearchIcon /> </div>
             <input
-                onMouseLeave={e => {
-                    inputField.current.style.display = 'none'
-                }}
+
                 onClick={e => inputField.current.style.display = 'flex'}
                 placeholder='Search'
                 value={searchInput}
@@ -59,7 +57,9 @@ function SearchBar() {
                 onChange={(e) => setSearchInput(e.target.value)}
                 autoComplete='on'>
             </input>
-            <div id="suggestions" ref={inputField}>
+            <div id="suggestions" ref={inputField} onMouseLeave={e => {
+                inputField.current.style.display = 'none'
+            }}>
                 {suggestions?.map(pin => <Link to={`/pins/${pin?.id}`} target="_blank" key={pin?.id} className="suggested_pin"><SearchIcon id="search_pin" />  {pin?.title}</Link>)}
             </div>
         </form>
