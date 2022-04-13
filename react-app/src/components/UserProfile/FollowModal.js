@@ -34,8 +34,8 @@ const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow
                                         </div>
                                         <div id="follower_right"> {user?.id === u?.id ? ''
                                             : (user?.id_of_following?.includes(u?.id)
-                                                ? <div><button id="unfollow_button" onClick={(e) => handleUnfollow(e, u?.id, profile?.id)}>Following</button></div>
-                                                : <div><button id="follow_button" onClick={(e) => handleFollow(e, u?.id, profile?.id)}>Follow</button></div>)}
+                                                ? <div onClick={(e) => handleUnfollow(e, u?.id, profile?.id)}><button id="unfollow_button" >Following</button></div>
+                                                : <div onClick={(e) => handleFollow(e, u?.id, profile?.id)}><button id="follow_button" >Follow</button></div>)}
                                         </div>
                                     </div>)
 
@@ -59,8 +59,8 @@ const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow
                                         </div>
                                         <div id="follower_right"> {user?.id === u?.id ? ''
                                             : (user?.id_of_following?.includes(u?.id)
-                                                ? <div><button id="unfollow_button" onClick={(e) => handleUnfollow(e, u?.id, profile?.id)}>Following</button></div>
-                                                : <div><button id="follow_button" onClick={(e) => handleFollow(e, u?.id, profile?.id)}>Follow</button></div>)}
+                                                ? <div onClick={(e) => handleUnfollow(e, u?.id, profile?.id)}><button id="unfollow_button" >Following</button></div>
+                                                : <div onClick={(e) => handleFollow(e, u?.id, profile?.id)}><button id="follow_button" >Follow</button></div>)}
                                         </div>
                                     </div>)
 

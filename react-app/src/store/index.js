@@ -6,6 +6,7 @@ import boardsReducer from './boards';
 import commentsReducer from './comments';
 import profile_user_reducer from './profile_user';
 import profile_board_reducer from './profile_boards';
+import all_users_reducer from './all_users';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   boards: boardsReducer,
   profile: profile_user_reducer,
   profileBoards: profile_board_reducer,
-  comments: commentsReducer
+  comments: commentsReducer,
+  all_users: all_users_reducer
 });
 
 

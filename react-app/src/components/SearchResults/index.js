@@ -25,7 +25,7 @@ export default function SearchResults() {
                     Your search does not match any results.
                     Try searching "eclectic" or "green".
                 </div>
-                <img src="https://i.gifer.com/AMCC.gif"></img>
+                <img src="https://i.gifer.com/AMCC.gif" alt="notFound"></img>
 
 
             </div>}

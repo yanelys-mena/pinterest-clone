@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useHistory, Link, useParams } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector, } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -11,7 +11,6 @@ function SearchBar() {
     const [suggestions, setSuggestions] = useState([]);
     const history = useHistory();
     const inputField = useRef()
-    const user = useSelector((state) => state.session?.user);
     const pins = useSelector(state => Object.values(state?.pins));
     const dispatch = useDispatch();
 
@@ -26,7 +25,7 @@ function SearchBar() {
             setSuggestions(results)
         }
 
-    }, [dispatch, searchInput]);
+    }, [searchInput]);
 
 
     const handleSubmit = (e) => {
