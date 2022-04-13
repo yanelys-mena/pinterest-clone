@@ -6,31 +6,6 @@ import { useEffect, useState } from 'react';
 
 
 const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow }) => {
-    const isFollowed = (profileId) => user?.followers.find(u => u?.id === profileId)
-    const [followed, setFollowing] = useState([]);
-
-    const dispatch = useDispatch();
-
-
-    // const checkingFollowed = (profileId) => {
-    //     const followedArray = [];
-    //     for (let i = 0; i < user?.following.length; i++) {
-    //         if (user?.following[i].id === profileId) {
-    //             followedArray.push(user?.following[i])
-    //         }
-    //     }
-    //     setFollowing(followedArray)
-    //     return followedArray
-    // }
-    // console.log('followedarray', followed)
-
-    // const handleFollow = (e, profileId) => {
-    //     dispatch(update_profile(user?.id, profileId))
-    // };
-
-    // const handleUnfollow = (e, profileId) => {
-    //     dispatch(unfollow_user(user?.id, profileId))
-    // };
 
     return (
         <div id="follow_modal_page">
@@ -41,7 +16,10 @@ const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow
                         <div id="each_follower">
                             <div id="followers_left">
                                 <Link target="_blank" to={`/profile/${u.id}`}>
-                                    <img id="followers_photo" src={u?.photo}></img>
+                                    {u?.photo ?
+                                        <img id="followers_photo" src={u?.photo} alt="profile_photo"></img>
+                                        : <i className="fas fa-user-circle follower_faicon"></i>}
+
                                     {u?.username}
                                 </Link>
 
