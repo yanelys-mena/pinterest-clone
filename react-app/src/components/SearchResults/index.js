@@ -12,9 +12,8 @@ export default function SearchResults() {
 
     const results = pins.filter((pin) => {
         return (
-            pin?.title.toLowerCase().indexOf(searchInput.toLowerCase()) > -1
-            // pin.title.toLowerCase().indexOf(searchInput?.toLowerCase()) > -1
-            // pin.description.toLowerCase().indexOf(searchInput?.toLowerCase())
+            pin?.title.toLowerCase().indexOf(searchInput.toLowerCase()) > -1 ||
+            pin?.description.toLowerCase().indexOf(searchInput.toLowerCase()) > -1
         );
     });
 
