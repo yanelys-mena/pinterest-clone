@@ -20,10 +20,8 @@ const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow
             <div id="follow_modal_page">
                 <div id="followers_count">
                     {page === 1
-                        ? <> {`${profile?.followers.length} Followers`}  </>
+                        ? (profile?.followers.length === 1 ? '1 Follower' : <> {`${profile?.followers.length} Followers`}  </>)
                         : <>{`${profile?.following.length} Following`}</>}
-
-
                 </div>
                 <div id="switch_follow_modal">
                     <button id={page === 1 ? activePage : 'inactivePage'} className="switch_buttons" onClick={() => setPage(1)}>Followers</button>
