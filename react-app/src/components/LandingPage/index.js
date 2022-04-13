@@ -40,11 +40,14 @@ export default function LandingPage() {
                 <div id="landing_grid">
                     <div id="white" ></div>
                     {pins.map((pin, idx) =>
-                        <div key={idx}>
-                            {getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }} key={pin?.id} alt={pin?.title} ></img>
-                                : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }} key={pin?.id} alt={pin?.title} ></img>
-                                    : (getRandomInt(2) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }} key={pin?.id} alt={pin?.title} ></img> : ''))}
-                        </div>
+                        <>
+                            {idx < 40 &&
+                                <div key={idx}>
+                                    {getRandomInt(3) === 3 ? <img src={pin.image} style={{ animationDelay: '3s' }} key={pin?.id} alt={pin?.title} ></img>
+                                        : (getRandomInt(3) === 2 ? <img src={pin.image} style={{ animationDelay: '2s' }} key={pin?.id} alt={pin?.title} ></img>
+                                            : (getRandomInt(2) === 1 ? <img src={pin.image} style={{ animationDelay: '1s' }} key={pin?.id} alt={pin?.title} ></img> : ''))}
+                                </div>}
+                        </>
                     )}
                 </div>
             </div>

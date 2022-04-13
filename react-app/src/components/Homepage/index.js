@@ -22,6 +22,8 @@ export default function Homepage() {
     useEffect(() => {
         dispatch(load_pins())
         dispatch(load_boards_by_user(user?.id))
+        window.scrollTo(0, 0);
+
     }, [dispatch, user]);
 
 
