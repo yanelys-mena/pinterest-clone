@@ -26,7 +26,6 @@ export default function UserProfile() {
     const userPins = Object.values(pins).filter(pin => pin.user.id === profile?.id)
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
-    const allUsers = useSelector(state => state?.all_users)
     const history = useHistory();
 
     const isCurrentUser = profileId === user?.id
@@ -48,10 +47,9 @@ export default function UserProfile() {
             if (!data.includes(profileId)) {
                 history.push('/not-found')
             }
-            console.log('DATA', data.includes(profileId))
         })
 
-    }, []);
+    }, [profileId, dispatch, history]);
 
 
 

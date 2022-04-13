@@ -15,9 +15,6 @@ const NavBar = () => {
   const user = useSelector((state) => state?.session.user);
   const [showModal, setShowModal] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
-  // const [fromSignUp, setFromSignUp] = useState(1)
-  // const [showSignIn, setshowSignIn] = useState(false);
-  // const [showSignUp, setShowSignUp] = useState(false);
   const [page, setPage] = useState(0)
 
 
@@ -26,9 +23,7 @@ const NavBar = () => {
     setShowModal(true)
     return () => {
       setShowModal(false)
-      // setshowSignIn(false)
     }
-
   }
 
 
@@ -37,7 +32,6 @@ const NavBar = () => {
     setShowModal(true)
     return () => {
       setShowModal(false)
-      // setShowSignUp(false)
     }
   }
 
@@ -62,15 +56,15 @@ const NavBar = () => {
 
         <div id="rightNav">
           {user &&
-            <div className="faIcons" id="bell" onClick={() => setShowLinks(true)} >
+            <div id="bell" onClick={() => setShowLinks(true)} >
               <i className="fa-solid fa-bell"></i>
             </div>}
           {user &&
-            <div className="faIcons">
+            <div id="pin_builder_plus">
               <NavLink to="/pinbuilder"> <i className="fa-solid fa-circle-plus"></i>
               </NavLink>
             </div>}
-          {user && <div className="faIcons">
+          {user && <div className="">
             <NavLink to={`/profile/${user?.id}`}>
               {user?.photo ? <img id="navUserPhoto" src={user.photo} alt='userphoto'></img> : <i className="fas fa-user-circle"></i>}</NavLink>
           </div>}
@@ -83,8 +77,6 @@ const NavBar = () => {
             <>
               <div id="login_nav_button" onClick={showSignInModal} className='active'> Log in </div>
               <div id="signup_nav_button" onClick={showSignUpModal} className='active'>Sign Up</div>
-              {/* <div id="login_nav_button" onClick={() => setshowSignIn(true)} className='active'> Log in </div>
-              <div id="signup_nav_button" onClick={() => setShowSignUp(true)} className='active'>Sign Up</div> */}
             </>
           }
         </div>

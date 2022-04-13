@@ -12,7 +12,6 @@ export const load_all_users = () => async (dispatch) => {
     const response = await fetch('/api/users/');
     if (response.ok) {
         const allUsers = await response.json();
-        console.log('THUNKG,', allUsers.users)
         dispatch(load(allUsers.users));
         return allUsers.users;
     } else {

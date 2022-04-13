@@ -28,18 +28,19 @@
   display: flex;
   gap: 5px;
   align-items: center;
-  width: 80%;
+  justify-content: center;
+  width: 75%;
   height: 100%;
+
 }
 
 #rightNav {
   display: flex;
-  gap: 5px;
-  justify-content: space-around;
+  gap: 4px;
+  justify-content: flex-start;
   align-items: center;
-  width: 10%;
+  width: 15%;
   height: 100%;
-
 }
 
 
@@ -82,15 +83,6 @@
 }
 
 
-.faIcons {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-}
 
 
 .fa-circle-plus,
@@ -103,6 +95,20 @@
   cursor: pointer;
 }
 
+#pin_builder_plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+#pin_builder_plus:hover {
+  background-color: #efefef;
+
+}
+
 #bell {
   display: flex;
   justify-content: center;
@@ -111,8 +117,12 @@
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
-
   animation: pulse 1500ms;
+}
+
+#bell:hover {
+  background-color: #efefef;
+
 }
 
 .fa-bell {
@@ -240,10 +250,7 @@
   background-color: transparent;
 }
 
-.faIcons:hover,
-#accountIcon:hover {
-  background-color: #d3d3d3;
-}
+
 
 #dropdownList {
   list-style: none;
@@ -279,14 +286,15 @@
 #menuHolder,
 #accountMenu {
   background-color: transparent;
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
 }
 
 
 #menuHolder:hover {
   background-color: #efefef;
+
 
 }
 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { useDispatch, useSelector, } from 'react-redux';
+import { useSelector, } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
 
 import './SearchBar.css'
@@ -12,7 +12,6 @@ function SearchBar() {
     const history = useHistory();
     const inputField = useRef()
     const pins = useSelector(state => Object.values(state?.pins));
-    const dispatch = useDispatch();
 
     useEffect(() => {
         if (searchInput.length > 0) {
@@ -38,10 +37,7 @@ function SearchBar() {
         if (searchInput.length > 0) {
             inputField.current.style.display = 'flex';
         }
-
         document.addEventListener('click', (e) => inputField.current.style.display = 'none');
-
-
     }, [searchInput])
 
 
