@@ -7,18 +7,22 @@ import { useEffect, useState } from 'react';
 
 const FollowModal = ({ setShowModal, profile, user }) => {
     const isFollowed = (profileId) => user?.followers.find(u => u?.id === profileId)
-    const [isFollowing, setIsFollowing] = useState(0);
+    const [followed, setFollowing] = useState([]);
+
     const dispatch = useDispatch();
 
-    useEffect(() => {
 
-        setIsFollowing(user?.following.find(u => u?.id === user?.id))
-        const isFollowed = (profileId) => console.log(user?.followers.find(u => u?.id === profileId))
-
-        console.log('....', user?.following.find(u => u?.id === 5))
-        console.log('....', isFollowed)
-
-    }, [profile]);
+    // const checkingFollowed = (profileId) => {
+    //     const followedArray = [];
+    //     for (let i = 0; i < user?.following.length; i++) {
+    //         if (user?.following[i].id === profileId) {
+    //             followedArray.push(user?.following[i])
+    //         }
+    //     }
+    //     setFollowing(followedArray)
+    //     return followedArray
+    // }
+    // console.log('followedarray', followed)
 
     const handleFollow = (e) => {
         dispatch(update_profile(user?.id, profile?.id))
@@ -43,7 +47,7 @@ const FollowModal = ({ setShowModal, profile, user }) => {
 
                             </div>
                             <div id="follower_right"> {user?.id === u?.id ? ''
-                                : (isFollowed(u?.id)
+                                : (user?.id_of_following?.includes(u?.id)
                                     ? <div><button id="unfollow_button" onClick={handleUnfollow}>Following</button></div>
                                     : <div><button id="follow_button" onClick={handleFollow}>Follow</button></div>)}
                             </div>
