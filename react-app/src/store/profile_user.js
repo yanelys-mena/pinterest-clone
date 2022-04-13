@@ -25,9 +25,9 @@ export const load_profile = (user_id) => async (dispatch) => {
     }
 }
 
-export const update_profile = (current_user, profile_user) => async (dispatch) => {
+export const update_profile = (current_user, profile_user, curr_profile) => async (dispatch) => {
 
-    const response = await fetch('/api/users/follow', {
+    const response = await fetch(`/api/users/follow/${curr_profile}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -42,9 +42,9 @@ export const update_profile = (current_user, profile_user) => async (dispatch) =
     dispatch(update(user));
 }
 
-export const unfollow_user = (current_user, profile_user) => async (dispatch) => {
+export const unfollow_user = (current_user, profile_user, curr_profile) => async (dispatch) => {
 
-    const response = await fetch('/api/users/unfollow', {
+    const response = await fetch(`/api/users/unfollow/${curr_profile}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"

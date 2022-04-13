@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Modal } from '../../context/Modal'
 import FollowModal from './FollowModal';
+import { authenticate } from '../../store/session';
 
 export default function Header({ user, profile }) {
     const [showModal, setShowModal] = useState(false);
@@ -19,12 +20,16 @@ export default function Header({ user, profile }) {
             : `http://${link}`;
     };
 
-    const handleFollow = (e) => {
-        dispatch(update_profile(user?.id, profile?.id))
+    const handleFollow = (e, profileId, currProfile) => {
+        dispatch(update_profile(user?.id, profileId, currProfile))
+        dispatch(authenticate())
+
     };
 
-    const handleUnfollow = (e) => {
-        dispatch(unfollow_user(user?.id, profile?.id))
+    const handleUnfollow = (e, profileId, currProfile) => {
+        dispatch(unfollow_user(user?.id, profileId, currProfile))
+        dispatch(authenticate())
+
     };
 
 
@@ -51,7 +56,7 @@ export default function Header({ user, profile }) {
             </div>
             <div>· {profile?.bio ? profile?.bio : 'add a bio coming soon'} ·</div>
             {user?.id === profile?.id ? ''
-                : (isFollowing ? <div><button id="unfollow_button" onClick={handleUnfollow}>Following</button></div> : <div><button id="follow_button" onClick={handleFollow}>Follow</button></div>)}
+                : (isFollowing ? <div><button id="unfollow_button" onClick={(e) => handleUnfollow(e, profile?.id, profile?.id)}>Following</button></div> : <div><button id="follow_button" onClick={(e) => handleFollow(e, profile?.id, profile?.id)}>Follow</button></div>)}
             {
                 showModal && (
                     <Modal onClose={() => setShowModal(false)}>

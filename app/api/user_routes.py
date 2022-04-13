@@ -21,9 +21,9 @@ def user(id):
     return user.to_dict()
 
 
-@user_routes.route('/follow', methods=['POST'])
+@user_routes.route('/follow/<int:id>', methods=['POST'])
 @login_required
-def add_follow():
+def add_follow(id):
     followedId = request.json["followed_id"]
     followerId = request.json["follower_id"]
 
@@ -33,13 +33,13 @@ def add_follow():
     follower.followers.append(followed)
     db.session.commit()
 
-    user = User.query.get(followedId)
+    user = User.query.get(id)
     return user.to_dict()
 
 
-@user_routes.route('/unfollow', methods=['DELETE'])
+@user_routes.route('/unfollow/<int:id>', methods=['DELETE'])
 @login_required
-def delete_follow():
+def delete_follow(id):
     followedId = request.json["unfollow"]
     followerId = request.json["follower_id"]
     
@@ -50,7 +50,7 @@ def delete_follow():
     follower.followers.remove(remove_followed)
     db.session.commit()
 
-    user = User.query.get(followedId)
+    user = User.query.get(id)
 
     return user.to_dict()
 

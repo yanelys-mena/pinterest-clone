@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 
-const FollowModal = ({ setShowModal, profile, user }) => {
+const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow }) => {
     const isFollowed = (profileId) => user?.followers.find(u => u?.id === profileId)
     const [followed, setFollowing] = useState([]);
 
@@ -24,13 +24,13 @@ const FollowModal = ({ setShowModal, profile, user }) => {
     // }
     // console.log('followedarray', followed)
 
-    const handleFollow = (e) => {
-        dispatch(update_profile(user?.id, profile?.id))
-    };
+    // const handleFollow = (e, profileId) => {
+    //     dispatch(update_profile(user?.id, profileId))
+    // };
 
-    const handleUnfollow = (e) => {
-        dispatch(unfollow_user(user?.id, profile?.id))
-    };
+    // const handleUnfollow = (e, profileId) => {
+    //     dispatch(unfollow_user(user?.id, profileId))
+    // };
 
     return (
         <div id="follow_modal_page">
@@ -48,8 +48,8 @@ const FollowModal = ({ setShowModal, profile, user }) => {
                             </div>
                             <div id="follower_right"> {user?.id === u?.id ? ''
                                 : (user?.id_of_following?.includes(u?.id)
-                                    ? <div><button id="unfollow_button" onClick={handleUnfollow}>Following</button></div>
-                                    : <div><button id="follow_button" onClick={handleFollow}>Follow</button></div>)}
+                                    ? <div><button id="unfollow_button" onClick={(e) => handleUnfollow(e, u?.id, profile?.id)}>Following</button></div>
+                                    : <div><button id="follow_button" onClick={(e) => handleFollow(e, u?.id, profile?.id)}>Follow</button></div>)}
                             </div>
                         </div>)
 
