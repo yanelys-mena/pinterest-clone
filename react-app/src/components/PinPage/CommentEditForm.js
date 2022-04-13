@@ -5,11 +5,9 @@ import { useDispatch } from 'react-redux';
 
 const CommentEditForm = ({ setShowModal, comment }) => {
     const [content, setContent] = useState(comment?.content);
-    const [commentInputClass, setCommentInputClass] = useState('comment_done_inactive')
 
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([])
-    // const [height, setHeight] = useState('80px')
 
     const updateComment = async (e) => {
         e.preventDefault();
@@ -22,19 +20,11 @@ const CommentEditForm = ({ setShowModal, comment }) => {
         if (data) {
             setErrors(data)
         } else {
-            // const commentTextArea = document.querySelector('#editCommentInput');
-            // commentTextArea.style.height = 'auto'
+
             setContent('')
             setShowModal(false)
         }
     }
-
-    // const handleTextAreaHeight = (e) => {
-    //     const commentTextArea = document.querySelector('#editCommentInput');
-    //     commentTextArea.style.height = 'auto';
-    //     setHeight(e.target.scrollHeight);
-    //     commentTextArea.style.height = `${height}px`;
-    // }
 
     const deleteComment = (e) => {
         e.preventDefault();

@@ -13,7 +13,7 @@ export default function Header({ user, profile }) {
 
     useEffect(() => {
         setIsFollowing(profile?.followers.some(u => u?.id === user?.id))
-    }, [profile]);
+    }, [profile, user?.id]);
 
     const getClickableLink = (link) => {
         return link.startsWith("http://") || link.startsWith("https://") ?

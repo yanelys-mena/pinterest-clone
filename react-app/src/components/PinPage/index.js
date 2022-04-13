@@ -30,7 +30,7 @@ export default function PinPage() {
 
     useEffect(() => {
         dispatch(load_comments(pinId))
-    }, [pinId])
+    }, [dispatch, pinId])
 
 
     const addToBoard = async (e) => {

@@ -1,14 +1,8 @@
 import './FollowModal.css';
 import { Link } from 'react-router-dom';
-import { update_profile, unfollow_user } from '../../store/profile_user'
-import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
 
 
 const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow, page, setPage }) => {
-    // const [page, setPage] = useState(1);
-    const [activePage, setActivePage] = useState(`active_page`)
-
 
     return (
         <>
@@ -20,8 +14,8 @@ const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow
                         : <>{`${profile?.following.length} Following`}</>}
                 </div>
                 <div id="switch_follow_modal">
-                    <button id={page === 1 ? activePage : 'inactivePage'} className="switch_buttons" onClick={() => setPage(1)}>Followers</button>
-                    <button id={page === 2 ? activePage : 'inactivePage'} className="switch_buttons" onClick={() => setPage(2)}>Following</button>
+                    <button id={page === 1 ? 'active_page' : 'inactivePage'} className="switch_buttons" onClick={() => setPage(1)}>Followers</button>
+                    <button id={page === 2 ? 'active_page' : 'inactivePage'} className="switch_buttons" onClick={() => setPage(2)}>Following</button>
                 </div>
                 <div id="followers_div">
                     {page === 1 &&

@@ -17,9 +17,6 @@ export default function SearchResults() {
         );
     });
 
-    console.log('PINS', pins)
-    console.log('results', results)
-    console.log('searchinput', searchInput)
 
 
     return (
