@@ -26,7 +26,6 @@ const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow
                 <div id="followers_div">
                     {page === 1 &&
                         <>
-
                             {profile?.followers.map(u => {
                                 return (
                                     <div id="each_follower" key={u?.id}>
