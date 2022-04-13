@@ -7,8 +7,8 @@ My thought process when selecting this project started with finding an app that 
 
 My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users the ability to organize their ideas by adding pins to custom boards. Users can share their own ideas by creating pins. Users can search (in development) through pins and add these pins to different boards. Users are not limited to saving one pin to one unique board, a functionality that differs from the original app. I made this decision based not only on my own experience on the app, but also with the purpose to further create a more flexible user experience. Ideas can be fluid and they can fit into different categories. A user may want to add the same pin to a 'sneakers' board and also an 'outfit inspo' board. 
 
-![suggestions](/search-suggestions.gif)
-
+![suggestions](/gif/search-suggestions.gif)
+![suggestions](/gif/Follows-high.gif)
 
 [Click for a full list of features and upcoming releases.](#features)
 
@@ -51,11 +51,13 @@ My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users t
     * [Add a pin to a board](#addpinboard)
     * [Remove a pin from a board](#removepinboard)
 * [Search](#search)
-    * [Dynamic Suggestions based on user input](#suggestions)
-    * [Filtered Results Page](#searchresults)
-* Coming Soon
-    * [Comments](#comments)
-    * [Followers](#followers)
+    * [Dynamic Suggestions based on user input and Filtered Results Page](#suggestions) 
+* [Followers](#followers)
+    * [Modal with switching functionality, dynamic instant follow and unfollow feature](#followers) 
+* [Comments](#comments)
+    * [Adding, Editing, Deleting Comments](#comments) 
+
+* Future Releases
     * [Notifications](#notifications)
 
 
@@ -128,7 +130,16 @@ My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users t
 
 <a id="search"></a>
 ## Dynamic Search
-![suggestions](/search-suggestions.gif)
+![suggestions](/gif/search-suggestions.gif)
+
+<a id="followers"></a>
+## Switch between Followers and Following, Instand updated follows and following list
+![suggestions](/gif/Follows-high.gif)
+
+
+<a id="comments"></a>
+## Comments Feature, Hide and Unhide, dynamic updates
+![suggestions](/gif/Comments.gif)
 
 
 -----------------------------
