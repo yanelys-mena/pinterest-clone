@@ -8,8 +8,8 @@ My thought process when selecting this project started with finding an app that 
 My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users the ability to organize their ideas by adding pins to custom boards. Users can share their own ideas by creating pins. Users can search for pins and add them to boards. A few features that are unique from the original Pinterest:
 1. Users are not limited to saving one pin to one unique board, a functionality that differs from the original app. I made this decision based not only on my own experience on the app, but also with the purpose to further create a more flexible user experience. Ideas can be fluid and they can fit into different categories. A user may want to add the same pin to a 'sneakers' board and also an 'outfit inspo' board. 
 2. Dynamic Suggestions on Search. As users input a query, the search bar dynamically shows results based on existing pins. Users may select a pin from the drop down and also search to view results. 
-3. Dynamically Updating Followers and Following count on user profile. Users are not required to update their page to see counts or lists updated. 
-4. Switching between Follows and Followers view. Seen below.
+3. Dynamically Updating Followers and Following count on user profile. Users are not required to refresh their page to see counts or lists updated. 
+4. Switching between Follows and Followers view. 
 
 ![suggestions](/gif/search-suggestions.gif)
 ![suggestions](/gif/Follows-high.gif)
