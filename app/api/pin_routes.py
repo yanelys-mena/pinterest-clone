@@ -126,6 +126,7 @@ def update_pin(pin_id):
 def delete_pin(pin_id):
     pin = Pin.query.get(pin_id)
     if pin:
+        delete_image_from_s3(str(pin.image).split('/')[-1])
         db.session.delete(pin)
         db.session.commit()
         return pin.to_dict()
