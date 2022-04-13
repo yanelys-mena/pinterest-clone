@@ -128,8 +128,8 @@
 }
 
 
-.fa-chevron-right,
-.fa-chevron-down {
+.comment_right_arrow,
+.comment_down_arrow {
     color: #767676;
     font-size: 15px;
     background-color: transparent;
@@ -142,8 +142,8 @@
     align-items: center;
 }
 
-.fa-chevron-right:hover,
-.fa-chevron-down:hover {
+.comment_right_arrow:hover,
+.comment_down_arrow:hover {
     background-color: #d3d3d3;
 
 }

@@ -102,39 +102,6 @@ testing 46 pin
 
 
 
-
-
-fetch('/api/pins/', {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-        "XSRF-TOKEN": `v1xmhE69-t-W-0whfgeTkxlCKimBRc0NY8q8`
-    },
-    body: JSON.stringify({
-        userId: 1,
-        name: 'ORANGE',
-        listingType: 'entire apt',
-        guests: '4',
-        beds: '3',
-        bedrooms: '4',
-        bathrooms: '1',
-        description: 'my updated description',
-        address: 'halloway manner',
-        city: 'jordan',
-        state: 'hillside',
-        country: 'Puerto Rico',
-        lat: 500,
-        lng: 500,
-        price: 600.00
-    })
-}).then(res => res.json()).then(data => console.log(data));
-
-
-
-fetch('/api/listings/images').then(res => res.json()).then(data => console.log(data));
-
-
-
 =========================================
 NOTE GET COMMENTS by pin!
 fetch('/api/comments/1').then(res => res.json()).then(data => console.log(data));
@@ -165,7 +132,78 @@ fetch('/api/comments/11', {
 }).then(res => res.json()).then(data => console.log(data));
 
 
-NOTE DELETE BOARD!
+NOTE DELETE COMMENT!
 fetch('/api/comments/11', {
     method: "DELETE",
 }).then(res => res.json()).then(data => console.log(data));
+
+
+
+=========================================
+follower and following
+
+NOTE NEW FOLLOWER!
+
+fetch('/api/users/follow', {
+    method: "POST",
+        headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        followed_id: 1,
+        follower_id: 6
+        })
+}).then(res => res.json()).then(data => console.log(data));
+
+
+NOTE DELETE FOLLOWER ON BOARD!
+fetch('/api/users/unfollow', {
+    method: "DELETE",
+        headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        unfollow: 5,
+        follower_id: 1
+        })
+}).then(res => res.json()).then(data => console.log(data));
+
+
+
+testing 46 pin 
+1. new pin successfully created X
+2. Associate it to a board
+3. Delete the pin and check if it still on baord
+
+
+
+=======================
+fetch('/api/pins/', {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": `v1xmhE69-t-W-0whfgeTkxlCKimBRc0NY8q8`
+    },
+    body: JSON.stringify({
+        userId: 1,
+        name: 'ORANGE',
+        listingType: 'entire apt',
+        guests: '4',
+        beds: '3',
+        bedrooms: '4',
+        bathrooms: '1',
+        description: 'my updated description',
+        address: 'halloway manner',
+        city: 'jordan',
+        state: 'hillside',
+        country: 'Puerto Rico',
+        lat: 500,
+        lng: 500,
+        price: 600.00
+    })
+}).then(res => res.json()).then(data => console.log(data));
+
+
+
+fetch('/api/listings/images').then(res => res.json()).then(data => console.log(data));
+
