@@ -1,0 +1,68 @@
+#follow_modal_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 25px;
+    background-color: white;
+    min-width: 40vw;
+    min-height: 50vh;
+
+}
+
+#followers_count {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#followers_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+}
+
+#each_follower {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+}
+
+#followers_left {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+#followers_left>a {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#followers_photo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#follower_right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+
+}

@@ -51,8 +51,8 @@ class User(db.Model, UserMixin):
             'photo': self.photo,
             'bio': self.bio,
             'website': self.website,
-            'followers': [{'id': follow.id, 'username': follow.username} for follow in self.following],
-            'following': [{'id': follow.id, 'username': follow.username} for follow in self.followers]
+            'followers': [{'id': follow.id, 'username': follow.username, 'photo': follow.photo} for follow in self.following],
+            'following': [{'id': follow.id, 'username': follow.username, 'photo': follow.photo} for follow in self.followers]
 
         }
         
