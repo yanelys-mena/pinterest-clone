@@ -21,15 +21,15 @@ export default function Header({ user, profile }) {
             : `http://${link}`;
     };
 
-    const handleFollow = (e, profileId, currProfile) => {
-        dispatch(update_profile(user?.id, profileId, currProfile))
-        dispatch(authenticate())
+    const handleFollow = async (e, profileId, currProfile) => {
+        await dispatch(update_profile(user?.id, profileId, currProfile)).then(() => dispatch(authenticate()))
+
 
     };
 
-    const handleUnfollow = (e, profileId, currProfile) => {
-        dispatch(unfollow_user(user?.id, profileId, currProfile))
-        dispatch(authenticate())
+    const handleUnfollow = async (e, profileId, currProfile) => {
+        await dispatch(unfollow_user(user?.id, profileId, currProfile)).then(() => dispatch(authenticate()))
+
 
     };
 

@@ -2,7 +2,7 @@ import './FollowModal.css';
 import { Link } from 'react-router-dom';
 
 
-const FollowModal = ({ setShowModal, profile, user, handleFollow, handleUnfollow, page, setPage }) => {
+const FollowModal = ({ profile, user, handleFollow, handleUnfollow, page, setPage }) => {
 
     return (
         <>
