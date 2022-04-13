@@ -39,7 +39,10 @@ function SearchBar() {
         if (searchInput.length > 0) {
             inputField.current.style.display = 'flex';
         }
-        return () => inputField.current.style.display = 'none'
+
+        document.addEventListener('click', (e) => inputField.current.style.display = 'none');
+
+
     }, [searchInput])
 
 
