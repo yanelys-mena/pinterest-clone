@@ -47,10 +47,12 @@ My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users t
 * [Add and remove a pin from a board](#pinboard)
     * [Add a pin to a board](#addpinboard)
     * [Remove a pin from a board](#removepinboard)
+* [Search](#search)
+    * [Dynamic Suggestions based on user input](#suggestions)
+    * [Filtered Results Page](#searchresults)
 * Coming Soon
     * [Comments](#comments)
     * [Followers](#followers)
-    * [Search](#search)
     * [Notifications](#notifications)
 
 
@@ -119,6 +121,12 @@ My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users t
 <a id="removepinboard"></a>
 ## Remove pin from board
 ![removepinboard](https://user-images.githubusercontent.com/88916829/159794597-55df1505-7cfe-40dc-b971-8d361385d796.png)
+
+
+<a id="search"></a>
+## Dynamic Search
+![suggestions](/search-suggestions.gif)
+
 
 -----------------------------
  [Back to top](#top)
