@@ -45,7 +45,8 @@ function SearchBar() {
                 autoComplete='on'>
             </input>
             <div id="suggestions">
-                {suggestions?.map(pin => <Link to={`/pins/${pin?.id}`} target="_blank" key={pin?.id}>{pin?.title}</Link>)}
+                <div id="suggestions_border_top"></div>
+                {suggestions?.map(pin => <Link to={`/pins/${pin?.id}`} target="_blank" key={pin?.id} id="suggested_pin"><SearchIcon id="search_pin" />  {pin?.title}</Link>)}
             </div>
         </form>
     )
