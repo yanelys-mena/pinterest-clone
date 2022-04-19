@@ -11,8 +11,8 @@ My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users t
 3. Dynamically Updating Followers and Following count on user profile. Users are not required to refresh their page to see counts or lists updated. 
 4. Switching between Follows and Followers view. 
 
-![suggestions](/gif/search-suggestions.gif)
-![suggestions](/gif/Follows-high.gif)
+![suggestions](/react-app/public/gifs/p_search-high.gif)
+![suggestions](/react-app/public/gifs/follows-high.gif)
 
 [Click for a full list of features and upcoming releases.](#features)
 
@@ -109,7 +109,7 @@ My [Pinterest Clone](https://pinterest-clone-aa.herokuapp.com/) provides users t
 
 <a id="createboard"></a>
 ## Create a Board
-![createboard](https://user-images.githubusercontent.com/88916829/159794272-56fa4725-4571-4989-9416-f1bbaf1a8610.png)
+![createboard](/react-app/public/gifs/board-high.gif)
 
 
 <a id="editboard"></a>
