@@ -1,4 +1,3 @@
-import { getAvatarUtilityClass } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { add_comment } from '../../store/comments'
@@ -87,7 +86,7 @@ const CommentForm = ({ user, pinId }) => {
             {showCommentBtn && <>
                 <div id="comment_buttons_div">
                     <div onClick={() => setShowCommentBtn(false)}><button id="comment_cancel">Cancel</button></div>
-                    <div onClick={addComment}><button id={commentInputClass} disabled={available}
+                    <div onClick={addComment}><button id={commentInputClass} disabled={disabled}
                     >Done</button></div>
                 </div>
             </>}
