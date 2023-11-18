@@ -23,14 +23,10 @@ export default function Header({ user, profile }) {
 
     const handleFollow = async (e, profileId, currProfile) => {
         await dispatch(update_profile(user?.id, profileId, currProfile)).then(() => dispatch(authenticate()))
-
-
     };
 
     const handleUnfollow = async (e, profileId, currProfile) => {
         await dispatch(unfollow_user(user?.id, profileId, currProfile)).then(() => dispatch(authenticate()))
-
-
     };
 
     const openModal = (e, num) => {
